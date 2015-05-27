@@ -1,0 +1,27 @@
+/*公共部分*/
+*{margin:0; padding:0;}
+img{border:none 0;}
+a{text-decoration:none;}
+li{list-style:none;}
+body{font-family:"微软雅黑","宋体"; font-size:12px; color:#666666; background-color:#f8f8f8;}
+.box{width:100%;height:350px; overflow:hidden; background:#FFF;}
+
+.searchcontent{width:80%; margin:20px auto;}
+.searchcontent table span{color:#F00;}
+.searchcontent table .mailbutton{overflow:hidden; height:44px; line-height:44px;}
+.searchcontent table .mailbutton .button{width:200px; margin:0 auto; text-align:center;}
+.searchcontent table .mailbutton .button div{float:left; width:80px; height:26px;}
+.searchcontent table .mailbutton .button a{display:block; background:url(../images/button.png) no-repeat; line-height:26px; font-size:1em; color:#FFF;}
+.searchcontent table .mailbutton .button a:hover{background:url(../images/buttoncurrent.png) no-repeat;}
+.searchcontent table tr{height:44px; line-height:44px;}
+.searchcontent table tr td{background:#FFF;}
+
+/*更改密码*/
+.change{width:80%; height:40px; line-height:40px; margin:10px auto; text-align:left; font-size:1.125em; font-weight:bold; color:#042400;}
+.searchcontent table .change1{width:25%; background:#e3f4e1; text-align:center; font-size:1.125em; color:#042400;}
+.searchcontent table .oldinput,.searchcontent table .newinput,.searchcontent table .newinput1{width:200px; height:20px; line-height:20px; margin:0 10px; font-size:0.875em;}
+
+/*找回密码*/
+.search{width:100%; height:40px; line-height:40px; margin:10px 0; text-align:center; font-size:1.125em; font-weight:bold; color:#042400;}
+.searchcontent table .mail{width:25%; background:#e3f4e1; text-align:center; font-size:1.125em; color:#042400;}
+.searchcontent table .mailinput{width:200px; height:20px; line-height:20px; margin:0 10px; font-size:0.875em;}

@@ -1,0 +1,44 @@
+/*BODY {
+	LINE-HEIGHT: 1.5; FONT-FAMILY: Tahoma, Helvetica, Arial, sans-serif; COLOR: #333333; FONT-SIZE: 12px
+}
+A {
+	COLOR: #333; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+*/
+
+.banner {
+	POSITION: relative; WIDTH: 980px; HEIGHT: 180px;
+	margin:5px auto 0px auto;
+}
+.jsNav {
+	BACKGROUND: url(../images/jsNav.png) no-repeat
+}
+.prevBtn {
+	BACKGROUND: url(../images/jsNav.png) no-repeat
+}
+.nextBtn {
+	BACKGROUND: url(../images/jsNav.png) no-repeat
+}
+.imgSelected {
+	BACKGROUND: url(../images/jsNav.png) no-repeat
+}
+
+.jsNav {
+	POSITION: absolute; WIDTH: 150px!important; width:160px; BOTTOM: 10px; FONT-FAMILY: Arial, Helvetica, sans-serif; HEIGHT: 30px; RIGHT: 10px; FONT-WEIGHT: bold
+}
+.jsNav A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 25px; FLOAT: left; VERTICAL-ALIGN: middle
+}
+.prevBtn {
+	DISPLAY: block; BACKGROUND-POSITION: 0px -30px; HEIGHT: 30px
+}
+.nextBtn {
+	DISPLAY: block; BACKGROUND-POSITION: -130px -30px; HEIGHT: 30px
+}
+.imgSelected {
+	BACKGROUND-POSITION: right -60px; COLOR: #ffffff
+}
+
