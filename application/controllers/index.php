@@ -20,7 +20,7 @@ class Index extends CI_Controller {
         $data['userid'] = $this->session->userdata('u_id');
         $role = $this->session->userdata('roleId');
         $offset = $this->uri->segment(4);
-        
+        //新闻公告
         $data['news'] = $this->getNews1();
         $data['notice'] = $this->getNews2();
         $data['guiding'] = $this->getNews3();       
@@ -42,6 +42,7 @@ class Index extends CI_Controller {
         $this->load->view('interface/login2', $data);
         $this->load->view('common/foot');
     }
+    //获取新闻
     public function getNews1() {
         $this->load->model('m_news');
         $data = $this->m_news->getNews1();
