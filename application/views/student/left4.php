@@ -20,6 +20,12 @@
                 	<div style="display:block" class=menu_body >            
                         <a href="<?= base_url(); ?>index.php/student/variable/variableList" target="content1">查看实习课程</a>              
                     </div>
+                    <p class="menu_head">实习报名管理</p>
+                    <div style="display:none" class=menu_body >            
+                        <a href="<?= base_url(); ?>index.php/student/variablebm/variableList" target="content1">实习报名</a>
+                        <a href="<?= base_url(); ?>index.php/student/chakan/chakanList" target="content1">报名查看</a>              
+                    </div>
+                    <!--  
                    <p class="menu_head">志愿式--报名管理</p>
                     <div style="display:none" class=menu_body >            
                         <a href="<?= base_url(); ?>index.php/student/baoming/baomingList" target="content1">实习报名</a>
@@ -35,6 +41,7 @@
                         <a href="<?= base_url(); ?>index.php/student/company/companyList" target="content1">提交基地信息</a>
                         <a href="<?= base_url(); ?>index.php/student/freestudent/courseList" target="content1">查看报名结果</a>                   
                     </div>
+                    -->
 
                     <p class="menu_head">实习管理</p>
                     <div style="display:none" class=menu_body >   

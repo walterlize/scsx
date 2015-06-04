@@ -22,7 +22,7 @@ class Variable extends CI_Controller {
     	$stuId = $this->session->userdata('u_name');
     	$array=array('stuId'=>$stuId);
     	$this->load->model('m_nvariable');
-    	$num = $this->m_nvariable->getNum_ws($array);
+    	$num = $this->m_nvariable->getNum($array);
     	$offset = $this->uri->segment(4);
     	
     	$data['variable'] = $this->getVariables($array,$offset);
@@ -41,19 +41,31 @@ class Variable extends CI_Controller {
     public function getVariables($array,$offset) {
     	$this->timeOut();
     	$this->load->model('m_nvariable');
-    	$result = $this->m_nvariable->getNvariables_ws($array, PER_PAGE, $offset);
+    	$result = $this->m_nvariable->getNvariables($array, PER_PAGE, $offset);
     
     	$data = array();
     	foreach ($result as $r) {
-    		$arr = array(
-    				'id' => $r->id,
-				    'courseId' => $r->courseId,
-				    'courseNum' => $r->courseNum,
-				    'courseName' => $r->courseName,
-				    'courseNameEn' => $r->courseNameEn,
-				    'pattern' => $r->pattern,
-				    
-    				);
+    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->courseTerm);
+        	$resCourse = $this->getCoursep($arrCourse);
+        	if($resCourse){
+	    		$arr = array(
+	    				'id' => $r->id,
+					    'courseId' => $r->courseId,
+					    'courseNum' => $r->courseNum,
+					    'courseName' => $r->courseName,
+	    				'coursePattern' => $resCourse->patt_type,
+		            	'coursePublish' => $resCourse->cour_publish
+	    				);
+        	}else{
+        		$arr = array(
+        				'id' => $r->id,
+        				'courseId' => $r->courseId,
+        				'courseNum' => $r->courseNum,
+        				'courseName' => $r->courseName,
+        				'coursePattern' => "未分配",
+        				'coursePublish' => "未发布"
+        		);
+        	}
     		array_push($data, $arr);
     	}
     	return $data;
@@ -68,30 +80,27 @@ class Variable extends CI_Controller {
     	//获取单个选课信息
     	$variable = $this->getVariable($id);
     	//获取单个信息
-    	$course = $this->getCourse($variable->cid);
-    	
+    	$arrCourse = array('courseId'=>$variable->courseId,'courseNum'=>$variable->courseNum,'term'=>$variable->courseTerm);
+    	$course = $this->getNCourse($arrCourse);
+    	$arrCoursep = array('cour_no'=>$variable->courseId,'cour_num'=>$variable->courseNum,'cour_term'=>$variable->courseTerm);
+    	$coursep = $this->getCoursep($arrCoursep);
+    	if(!$coursep){
+    		$coursep = $this->getEmptyCoursep();
+    	}
     	$data['course'] = $course;
+    	$data['coursep'] = $coursep;
     	$data['variable'] = $variable;
-    	//$data['pattern'] = $pattern;
+    	
     	$this->load->view('common/header3');
     	$this->load->view('student/variable/variableDetail', $data);
     	$this->load->view('common/footer');
     }
     
-    // 获取单个课程信息
-    function getCourse($id) {
-    	$this->load->model('m_ncourse');
-    	$result = $this->m_ncourse->getNcourseById_ws($id);
-    	$data = array();
-    	foreach ($result as $r) {
-    		$data = $r;
-    	}
-    	return $data;
-    }
+    
     // 获取单个选课信息
     function getVariable($id) {
     	$this->load->model('m_nvariable');
-    	$result = $this->m_nvariable->getNvariableById_ws($id);
+    	$result = $this->m_nvariable->getNvariableById($id);
     	$data = array();
     	foreach ($result as $r) {
     		$data = $r;
@@ -99,6 +108,52 @@ class Variable extends CI_Controller {
     	return $data;
     }
     
+    // 获取单个
+    function getCoursep($array) {
+    	$this->load->model('m_course');
+    	$result = $this->m_course->getCourse_ws($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
+    }
+    
+    // 获取单个
+    function getNCourse($array) {
+    	$this->load->model('m_ncourse');
+    	$result = $this->m_ncourse->getNcourse($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
+    }
+    
+    function getEmptyCoursep(){
+    	@$coursep->cour_id = 0;
+    	$coursep->cour_no = '';
+    	$coursep->cour_num = '';
+    	$coursep->cour_term = '';
+    	$coursep->cour_coll_id = '';
+    	$coursep->cour_coll_name = '';
+    	$coursep->cour_name = '';
+    	$coursep->cour_name_en = '';
+    	$coursep->cour_credit = '';
+    	$coursep->cour_hours = '';
+    	$coursep->cour_class = '';
+    	$coursep->cour_teac_num = '';
+    	$coursep->cour_teac_name = '';
+    	$coursep->cour_mode = '';
+    	$coursep->cour_time = '';
+    	$coursep->cour_place = '';
+    	$coursep->cour_week = '';
+    	$coursep->cour_pattern_id = '';
+    	$coursep->cour_publish = 0;
+    	$coursep->patt_type = "未分配";
+    	 
+    	return $coursep;
+    }
 
 
     
