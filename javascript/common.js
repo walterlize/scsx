@@ -14,3 +14,9 @@ function cancelInfo(url){
         window.location = url;
     }
 }
+
+function setInfo(url){
+    if(confirm('确认设置？设置后不可修改')){
+        window.location = url;
+    }
+}

@@ -52,8 +52,12 @@
                 </div>
                 <div class="fengeline"><img src="<?= base_url(); ?>images/backstage2.png" /></div>
                 <div id="firstpane" class="menu_list">
-                    <p class="menu_head current">学生管理</p>
+                	<p class="menu_head current">实习课程管理</p>
                     <div style="display:block" class=menu_body >                       
+                        <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1">实习课程发布</a>
+                    </div> 
+                    <p class="menu_head">学生管理</p>
+                    <div style="display:none" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/teacher/student/studentList" target="content1">查看学生信息</a>
                         <a href="<?= base_url(); ?>index.php/teacher/mission/missionList" target="content1">下达实习总结任务</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryList" target="content1">审核实习总结</a>

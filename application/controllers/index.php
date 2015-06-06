@@ -21,10 +21,16 @@ class Index extends CI_Controller {
         $role = $this->session->userdata('roleId');
         $offset = $this->uri->segment(4);
         //新闻公告
+        $data['news'] = array();
+        $data['notice'] = array();
+        $data['guiding'] = array();
+        $data['summary'] = array();
+        /*
         $data['news'] = $this->getNews1();
         $data['notice'] = $this->getNews2();
         $data['guiding'] = $this->getNews3();       
         $data['summary'] = $this->getNews4();
+        */
         
         if ($name == '' || $name == null) {
             $data['form'] = '';
@@ -135,7 +141,7 @@ class Index extends CI_Controller {
     						'collegeId' => $codata->collegeId, 
     						'realname' => $data->teaName,
     						'u_name' => $data->teaId, 
-    						
+    						'u_num' => $data->teaId, 
     						'ustateId' => 1,
     						'grade'=> 0,
     						'major'=> 0,
@@ -161,9 +167,9 @@ class Index extends CI_Controller {
     		
     		case 4:
     			//查询基地用户表
-    			$this->load->model('m_ncompanyuser');
+    			$this->load->model('m_user');
     			$array = array('u_name' => $u_name, 'password' => $password);
-    			$result = $this->m_ncompanyuser->getNCompUserL($array);
+    			$result = $this->m_user->getNCompUserL($array);
     			
     			$data = array();
     			foreach ($result as $r) {
@@ -193,6 +199,7 @@ class Index extends CI_Controller {
     						'collegeId' => $data->collegeId,
     						'realname' => $data->realname,
     						'u_name' => $data->u_name,
+    						'u_num' => $data->u_name,
     						'ustateId' => $data->ustateId,
     						'grade'=> 0,
     						'major'=> 0,
@@ -244,6 +251,7 @@ class Index extends CI_Controller {
     						'collegeId' => $codata->collegeId,
     						'realname' => $data->stuName,
     						'u_name' => $data->stuId,
+    						'u_num' => $data->stuId,
     						'ustateId' => 1,
     						'grade'=>$data->grade,
     						'major'=>$data->major,
