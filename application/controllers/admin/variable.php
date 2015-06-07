@@ -17,18 +17,15 @@ class Variable extends CI_Controller {
 
     public function variableList() {
         $this->timeOut();
-
         $this->load->model('m_nvariable');
         $num = $this->m_nvariable->getNum_ws1(array());
         $offset = $this->uri->segment(4);
-
         $data['var'] = $this->getVariable(array(),$offset);
         $config['base_url'] = base_url() . 'index.php/admin/variable/variableList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-
         $this->load->view('common/header3');
         $this->load->view('admin/var/var', $data);
         $this->load->view('common/footer');

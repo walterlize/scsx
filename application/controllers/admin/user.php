@@ -1,3 +1,4 @@
+<!--Author walter-->
 <?php
 
 if (!defined('BASEPATH'))
@@ -17,18 +18,15 @@ class User extends CI_Controller {
 
     public function userList() {
         $this->timeOut();
-
         $this->load->model('m_user');
         $num = $this->m_user->getNum1(array());
         $offset = $this->uri->segment(4);
-
         $data['user'] = $this->getUsers(array(),$offset);
         $config['base_url'] = base_url() . 'index.php/admin/user/userList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-
         $this->load->view('common/header3');
         $this->load->view('admin/user/user', $data);
         $this->load->view('common/footer');
@@ -36,18 +34,15 @@ class User extends CI_Controller {
     
     public function stuList() {
     	$this->timeOut();
-    
     	$this->load->model('m_nstudent');
     	$num = $this->m_nstudent->getNum(array());
     	$offset = $this->uri->segment(4);
-    
     	$data['user'] = $this->getStus(array(),$offset);
     	$config['base_url'] = base_url() . 'index.php/admin/user/stuList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
-    
     	$this->load->view('common/header3');
     	$this->load->view('admin/user/stu', $data);
     	$this->load->view('common/footer');
@@ -71,7 +66,43 @@ class User extends CI_Controller {
     	$this->load->view('admin/user/tea', $data);
     	$this->load->view('common/footer');
     }
-    
+    //学生按条件查新
+    public function searchStu(){
+        $searchType=$this->input->post('searchType');
+        $searchTerm=$this->input->post('searchTerm');
+        if (!get_magic_quotes_gpc()) {
+            $searchType1 = addslashes($searchType);
+            $searchTerm1 = addslashes($searchTerm);
+        }
+        if ($searchType1 == '1') {
+            $array = array('s_id' => $subjectId, 'code' => $searchTerm);
+        } elseif ($searchType1 == '2') {
+            $array = array('s_id' => $subjectId, 'money' => $searchTerm);
+        } else {
+            $message = 's_id有误';
+            show_error($message);
+        }
+        if($courseNum != ''){
+            $array=array('courseId'=>$courseId,'courseNum'=>$courseNum);
+        }
+
+        $this->load->model('m_nvariable');
+        $num = $this->m_nvariable->getNum_ws1($array);
+        $offset = $this->uri->segment(4);
+
+        $data['var'] = $this->getVariable($array,$offset);
+        $config['base_url'] = base_url() . 'index.php/admin/variable/variableList';
+        $config['total_rows'] = $num;
+        $config['uri_segment'] = 4;
+        $this->pagination->initialize($config);
+        $data['page'] = $this->pagination->create_links();
+
+        $this->load->view('common/header3');
+        $this->load->view('admin/var/var', $data);
+        $this->load->view('common/footer');
+
+    }
+
     public function getStus($array,$offset) {
     	$this->timeOut();
     	$this->load->model('m_nstudent');
