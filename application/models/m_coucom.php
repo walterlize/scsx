@@ -117,6 +117,14 @@ class m_coucom extends CI_Model {
     	$q = $this->db->get();
     	return $q->result();
     }
+    //按条件查找
+    function getCoucom_ws($array) {
+    	$this->db->select();
+    	$this->db->from('ws_coucom');
+    	$this->db->where($array);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
     
 
 }

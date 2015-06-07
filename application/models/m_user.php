@@ -57,6 +57,27 @@ class m_user extends CI_Model {
     	}
     	return $id;
     }
+    function saveInfoByTea() {
+    	$this->user_id = $this->input->post('user_id');
+    	$this->user_num = $this->input->post('user_num');
+    	$this->user_password = $this->input->post('user_password');
+    	$this->user_name = $this->input->post('user_name');
+    	$this->user_phone = $this->input->post('user_phone');
+    	$this->user_email = $this->input->post('user_email');
+    	$this->user_address = $this->input->post('user_address');
+    	$this->user_coll_id = $this->session->userdata('collegeId');
+    	$this->user_coll_name = $this->session->userdata('college');
+    	$this->user_stat_id = 1;
+    
+    	$id = $this->user_id;
+    	if ($id == 0) {
+    		$this->db->insert('user', $this);
+    		$id = $this->db->insert_id();
+    	} else {
+    		$this->db->update('user', $this, array('user_id' => $this->user_id));
+    	}
+    	return $id;
+    }
     
     function getUser($array) {
         $this->db->select();

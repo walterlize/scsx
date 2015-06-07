@@ -3,20 +3,26 @@
 class m_elecom extends CI_Model {
 
     var $elco_id = '';
+    var $elco_cour_id ='';
     var $elco_cour_no = '';
     var $elco_cour_num = '';
     var $elco_cour_term = '';
     var $elco_stu_num = '';
+    var $elco_stu_name = '';
+    var $elco_stu_class ='';
     var $elco_comp_id = '';
     var $elco_state = '';
     
     
     function saveInfo() {
     	$this->elco_id = $this->input->post('elco_id');
+    	$this->elco_cour_id = $this->input->post('elco_cour_id');
 	    $this->elco_cour_no = $this->input->post('elco_cour_no');
 	    $this->elco_cour_num = $this->input->post('elco_cour_num');
 	    $this->elco_cour_term = $this->input->post('elco_cour_term');
 	    $this->elco_stu_num = $this->input->post('elco_stu_num');
+	    $this->elco_stu_name = $this->input->post('elco_stu_name');
+	    $this->elco_stu_class = $this->input->post('elco_stu_class');
 	    $this->elco_comp_id = $this->input->post('elco_comp_id');
 	    $this->elco_state = $this->input->post('elco_state');
     
@@ -32,10 +38,13 @@ class m_elecom extends CI_Model {
     
     function saveInfoByArr($array) {
     	$this->elco_id = $array->elco_id;
+    	$this->elco_cour_id = $array->elco_cour_id;
     	$this->elco_cour_no = $array->elco_cour_no;
     	$this->elco_cour_num = $array->elco_cour_num;
     	$this->elco_cour_term = $array->elco_cour_term;
     	$this->elco_stu_num = $array->elco_stu_num;
+    	$this->elco_stu_name = $array->elco_stu_name;
+    	$this->elco_stu_class = $array->elco_stu_class;
     	$this->elco_comp_id = $array->elco_comp_id;
     	$this->elco_state = $array->elco_state;
     	
@@ -95,7 +104,7 @@ class m_elecom extends CI_Model {
         return $this->db->affected_rows();
     }
     
-    function deleteCoucom($id) {
+    function deleteElecom($id) {
     	$this->db->where('elco_id', $id);
     	$this->db->delete('elecom');
     }
@@ -105,6 +114,15 @@ class m_elecom extends CI_Model {
     	$this->db->select();
     	$this->db->from('ws_elecom');
     	$this->db->where($array);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
+    
+    //按ID查找
+    function getElecomById_ws($id) {
+    	$this->db->select();
+    	$this->db->from('ws_elecom');
+    	$this->db->where('elco_id',$id);
     	$q = $this->db->get();
     	return $q->result();
     }
