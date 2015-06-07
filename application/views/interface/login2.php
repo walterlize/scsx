@@ -269,7 +269,7 @@
         <a href="http://cvm.cau.edu.cn/">动物医学院</a>
         <a href="http://spxy.cau.edu.cn/">食品科学与营养工程学院</a>
         <a href="http://zihuan1.cau.edu.cn/">资源与环境学院</a>
-        <a href="http://www.ciee.cn/">信息与电气工程学院</a>
+        <a href="http://www.ciee.cn/">信息与电气工程学院</a></br>
         <a href="http://coe.cau.edu.cn/">工学院</a>
         <a href="http://water.cau.edu.cn/">水利与土木工程学院</a>
         <a href="http://sci.cau.edu.cn/">理学院</a>
