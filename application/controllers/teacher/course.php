@@ -43,30 +43,39 @@ class Course extends CI_Controller {
         //判断是否显示
         $show1 = 'display:none';
         $show2 = 'display:none';
+        $show3 = 'display:none';
+        $flag = 0;
         
         $id = $this->uri->segment(4);
         $course = $this->getCourse($id);
         $array = array('cour_no'=>$course->courseId,'cour_num'=>$course->courseNum,'cour_term'=>$course->term);
         $coursep = $this->getCoursep($array);
         if(!$coursep){
+        	//未选择模式
         	$coursep = $this->getEmptyCoursep();
         	$show1 = '';
+        	$flag = 0;
         }else{
         	if($coursep->cour_publish != 1){
         		//已存储未发布
         		$show2 = '';
         	}
+        	$show3 = '';
+        	$flag = 1;
         }
         
-
         $data['course'] = $course;
         $data['coursep'] = $coursep;
         $data['show1'] = $show1;
         $data['show2'] = $show2;
-        
-        $this->load->view('common/header3');
-        $this->load->view('teacher/course/courseDetail', $data);
-        $this->load->view('common/footer');
+        $data['show3'] = $show3;
+        if($flag ==0 ){
+	        $this->load->view('common/header3');
+	        $this->load->view('teacher/course/courseDetail', $data);
+	        $this->load->view('common/footer');
+        }else{
+        	redirect('teacher/course/coursePublish/'.$id.'/'.$coursep->cour_id);
+        }
     }
     
     function courseNew(){

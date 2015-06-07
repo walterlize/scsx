@@ -1,7 +1,7 @@
 <!-- 志愿式 -->
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3>学生报名信息</h3>
+    <h3>发布课程</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">
         <tr>
             <td class="td1" style="width: 111px">课程号</td>
@@ -35,7 +35,7 @@
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            	<input type="button" name="btnReturn" value="设 置 基 地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
+            	<input type="button" name="btnReturn" value="设 置 基 地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyList/<?=$coursep->cour_id?>/<?= $course->id ?>';" id="btnReturn" class="input" />
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseList';" id="btnReturn" class="input" />      
             </td>
         </tr>

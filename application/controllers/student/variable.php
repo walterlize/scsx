@@ -20,6 +20,7 @@ class Variable extends CI_Controller {
     	$this->timeOut();
     	
     	$stuId = $this->session->userdata('u_name');
+    	
     	$array=array('stuId'=>$stuId);
     	$this->load->model('m_nvariable');
     	$num = $this->m_nvariable->getNum($array);

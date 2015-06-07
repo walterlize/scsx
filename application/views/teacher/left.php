@@ -56,6 +56,7 @@
                     <div style="display:block" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1">实习课程发布</a>
                         <a href="<?= base_url(); ?>index.php/teacher/audit/courseList" target="content1">实习学生审核</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1">实习基地管理</a>
                     </div> 
                     <p class="menu_head">学生管理</p>
                     <div style="display:none" class=menu_body >                       

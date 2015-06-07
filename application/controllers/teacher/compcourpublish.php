@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Company extends CI_Controller {
+class Compcourpublish extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -15,48 +15,49 @@ class Company extends CI_Controller {
         date_default_timezone_set('PRC');
     }
     
-    //选择或新增基地
-    public function companyList(){
-    	//1
-    	$this->timeOut();
-    	$o_id= $this->uri->segment(5);
-    	//课程在MySQL表中的id
-    	$cour_id= $this->uri->segment(4); 
-    	$coursep = $this->getCoursepById($cour_id);
-    	
-    	$tea_num = $this->session->userdata('u_num');
-    	//根据课程号查找审核成功的基地
-    	$array=array('comp_add_num'=>$tea_num);
-    	
-    	$this->load->model('m_company');
-    	
-    	$company = $this->getCompanys($array);//全部基地
-    	$array1=array('comp_add_num'=>$tea_num,'cour_id'=>$cour_id);
-    	$companyc = $this->getCocos($array1);//匹配基地
-    	$companyu = $this->myArrDiff($company,$companyc,'comp_id');//不匹配基地
-    	/*
-    	print_r($company);echo "<br/>";echo count($company);echo "<br/>";
-    	print_r($companyc);echo "<br/>";echo count($companyc);echo "<br/>";
-    	print_r($companyu);echo "<br/>";echo count($companyu);echo "<br/>";
-    	*/
-    	$offset = $this->uri->segment(6);
-    	$company = array_merge($companyc,$companyu);
-    	$num = count($company);
-    	
-    	$config['base_url'] = base_url() . 'index.php/teacher/company/companyList/'.$cour_id.'/'.$o_id;
-    	$config['total_rows'] = $num;
-    	$config['uri_segment'] = 6;
-    	$this->pagination->initialize($config);
-    	$data['page'] = $this->pagination->create_links();
+/*
+	 * 志愿式发布课程——设置基地
+	 */
+    
+	public function companyList(){
+		//1
+		$this->timeOut();
 
-    	$data['cour_id']=$cour_id;
-    	$data['coursep']=$coursep;
-    	$data['company'] = array_slice($company,$offset,PER_PAGE);
-    	$data['o_id']=$o_id;
-    	$this->load->view('common/header3');
-    	$this->load->view('teacher/company/company', $data);
-    	$this->load->view('common/footer');
-    }
+		$o_id= $this->uri->segment(5);
+		//课程在MySQL表中的id
+		$cour_id= $this->uri->segment(4);
+		$coursep = $this->getCoursepById($cour_id);
+		 
+		$tea_num = $this->session->userdata('u_num');
+		//根据课程号查找审核成功的基地
+		$array=array('comp_add_num'=>$tea_num);
+		 
+		$this->load->model('m_company');
+		 
+		$company = $this->getCompanys($array);//全部基地
+		$array1=array('comp_add_num'=>$tea_num,'cour_id'=>$cour_id);
+		$companyc = $this->getCocos($array1);//匹配基地
+		$companyu = $this->myArrDiff($company,$companyc,'comp_id');//不匹配基地
+		$offset = $this->uri->segment(6);
+		$company = array_merge($companyc,$companyu);
+		$num = count($company);
+		 
+		$config['base_url'] = base_url() . 'index.php/teacher/company/companyList/'.$cour_id.'/'.$o_id;
+		$config['total_rows'] = $num;
+		$config['uri_segment'] = 6;
+		$this->pagination->initialize($config);
+		$data['page'] = $this->pagination->create_links();
+		$data['company'] = array_slice($company,$offset,PER_PAGE);
+		
+		$data['cour_id']=$cour_id;
+		$data['coursep']=$coursep;
+		$data['o_id']=$o_id;
+		$data['flag']= count($companyc);
+		
+		$this->load->view('common/header3');
+		$this->load->view('teacher/company/compCourPublish', $data);
+		$this->load->view('common/footer');
+	}
     
     // 实验任务详细信息页面
     public function companyDetail() {
@@ -188,88 +189,6 @@ class Company extends CI_Controller {
     
     
     
-    function companySave(){
-    	//0
-    	$cour_id = $this->uri->segment(4);
-    	$comp_id = $this->uri->segment(5);
-    	$coursep = $this->getCoursepById($cour_id);
-    	//elecom表
-    	@$elco->elco_id = 0;
-    	$elco->elco_cour_id = $coursep->cour_id;
-    	$elco->elco_cour_no = $coursep->cour_no;
-    	$elco->elco_cour_num = $coursep->cour_num;
-    	$elco->elco_cour_term = $coursep->cour_term;
-    	$elco->elco_stu_num = $this->session->userdata('u_num');
-    	$elco->elco_stu_name = $this->session->userdata('realname');
-    	$elco->elco_stu_class = $this->session->userdata('class');
-    	$elco->elco_comp_id = $comp_id;
-    	$elco->elco_state = 5;
-    	$this->load->model('m_elecom');
-    	$elco_id = $this->m_elecom->saveInfoByArr($elco);
-    	
-    	//存储结束
-    	
-    	echo '<script language="JavaScript">alert("报名成功");</script>';
-    	$this->companyDetaile($elco_id);
-    }
-    
-	function companyDetaile($elco_id){
-		//0
-		/*
-    	$this->timeOut();
-    	$elco = $this->getElecomById($elco_id);
-    	
-    	//获取单个课程信息
-    	//oracle
-    	$arrCourse = array('courseId'=>$elco->elco_cour_no,'courseNum'=>$elco->elco_cour_num,'term'=>$elco->elco_cour_term);
-    	$course = $this->getNCourse($arrCourse);
-    	
-    	$data['course'] = $course;
-    	
-    	    	
-    	$this->load->view('common/header3');
-    	$this->load->view('teacher/company/companyDetaile', $data);
-    	$this->load->view('common/footer');
-    	*/		
-    }
-    
-    
-    
-    /*
-    function companyDelete(){
-    	$this->timeOut();
-    	//print_r($this->session->all_userdata());
-    
-    	$cour_id=$this->uri->segment(4);
-    	$comp_id=$this->uri->segment(5);
-    	$elco_id=$this->uri->segment(6);
-    	//1.课程信息
-    	$coursep = $this->getCoursepById($cour_id);
-    	//2.删除公司信息
-    	$this->load->model('m_company');
-    	$this->m_company->deleteCompany($comp_id);
-    	//3.用户信息
-    	$this->load->model('m_user');
-    	$this->m_user->deleteUser($company->comp_user_id);
-    	//4.coucom编号信息
-    	$array = array('coco_cour_id'=>$cour_id,'coco_comp_id'=>$comp_id);
-    	$coco = $this->getCocoByArr($array);
-    	$this->load->model('m_coucom');
-    	$this->m_coucom->deleteCoucom($coco->coco_id);
-    	//5.elecom编号信息
-    	$this->load->model('m_elecom');
-    	$this->m_elecom->deleteCoucom($elco_id);
-    
-    	$data['coursep']=$coursep;
-    	$data['comp']=$company;
-    	$data['user']=$user;
-    	$data['coco']=$coco;
-    	$data['elco']=$elco;
-    
-    	$this->load->view('common/header3');
-    	$this->load->view('teacher/company/companyEdit', $data);
-    	$this->load->view('common/footer');
-    }*/
     
     /*
      * 取消设置为本课程基地
@@ -291,7 +210,7 @@ class Company extends CI_Controller {
     	
     	$this->m_elecom->deleteElecomByArr($array);
     	
-    	redirect('teacher/company/companyList/'.$cour_id);
+    	redirect('teacher/compcourpublish/companyList/'.$cour_id);
     }
     
     /*
@@ -314,7 +233,7 @@ class Company extends CI_Controller {
     	$this->load->model('m_coucom');
     	$coco_id = $this->m_coucom->saveInfoByArr($coco);
     	
-    	redirect('teacher/company/companyList/'.$cour_id);
+    	redirect('teacher/compcourpublish/companyList/'.$cour_id);
     	
     }
     
@@ -471,53 +390,7 @@ class Company extends CI_Controller {
 		}
 		return $array1;
 	}
-	
-	
-	
-	
-	/*
-	 * 志愿式发布课程——设置基地
-	 */
     
-	public function companyListZ(){
-		//1
-		$this->timeOut();
-
-		$o_id= $this->uri->segment(5);
-		//课程在MySQL表中的id
-		$cour_id= $this->uri->segment(4);
-		$coursep = $this->getCoursepById($cour_id);
-		 
-		$tea_num = $this->session->userdata('u_num');
-		//根据课程号查找审核成功的基地
-		$array=array('comp_add_num'=>$tea_num);
-		 
-		$this->load->model('m_company');
-		 
-		$company = $this->getCompanys($array);//全部基地
-		$array1=array('comp_add_num'=>$tea_num,'cour_id'=>$cour_id);
-		$companyc = $this->getCocos($array1);//匹配基地
-		$companyu = $this->myArrDiff($company,$companyc,'comp_id');//不匹配基地
-		$offset = $this->uri->segment(6);
-		$company = array_merge($companyc,$companyu);
-		$num = count($company);
-		 
-		$config['base_url'] = base_url() . 'index.php/teacher/company/companyList/'.$cour_id.'/'.$o_id;
-		$config['total_rows'] = $num;
-		$config['uri_segment'] = 6;
-		$this->pagination->initialize($config);
-		$data['page'] = $this->pagination->create_links();
-		$data['company'] = array_slice($company,$offset,PER_PAGE);
-		
-		$data['cour_id']=$cour_id;
-		$data['coursep']=$coursep;
-		$data['o_id']=$o_id;
-		$data['flag']= count($companyc);
-		
-		$this->load->view('common/header3');
-		$this->load->view('teacher/company/compCourPublish', $data);
-		$this->load->view('common/footer');
-	}
     
     // session中的role不存在的时候退出系统
     function timeOut() {
