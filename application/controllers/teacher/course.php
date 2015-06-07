@@ -183,6 +183,47 @@ class Course extends CI_Controller {
     		
     }
     
+    /*
+     * 志愿式课程发布
+     */
+    function coursePublish2(){
+    	//自选式课程发布 coursep表中cour_publish置1
+    	$o_id = $this->uri->segment(4);
+    	$m_id = $this->uri->segment(5);
+    	$array = array('cour_publish'=>1);
+    	$this->load->model('m_course');
+    	$result = $this->m_course->updateCourse($m_id, $array);
+    	if($result > 0){
+    		echo '<script language="JavaScript">alert("发布成功");</script>';
+    	}else{
+    		echo '<script language="JavaScript">alert("发布失败");</script>';
+    	}
+    	 
+    	$show1 = 'display:none';
+    	$show2 = 'display:none';
+    	$course  = $this->getCourse($o_id);
+    	$coursep = $this->getCoursepById($m_id);
+    	if(!$coursep){
+    		$coursep = $this->getEmptyCoursep();
+    		$show1 = '';
+    	}else{
+    		if($coursep->cour_publish != 1){
+    			//已存储未发布
+    			$show2 = '';
+    		}
+    	}
+    	 
+    	$data['course'] = $course;
+    	$data['coursep'] = $coursep;
+    	$data['show1'] = $show1;
+    	$data['show2'] = $show2;
+    	 
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/course/courseDetail', $data);
+    	$this->load->view('common/footer');
+    
+    }
+    
     
     
     // 分页获取全部实验任务信息

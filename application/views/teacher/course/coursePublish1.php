@@ -48,13 +48,14 @@
         </tr>
         <tr>
             <td class="td1" colspan="2">
-            <span style="color: red">课程为自选式，可直接发布</span>
+            <span style="color: red">课程为自选式，可直接发布或添加基地</span>
             </td>
         </tr>
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            	<input type="button" name="btnReturn" value="发 布 课 程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish1/<?=$course->id?>/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
+            <input type="button" name="btnReturn" value="添加基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
+            	<input type="button" name="btnReturn" value="发布课程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish1/<?=$course->id?>/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseList';" id="btnReturn" class="input" />      
             </td>
         </tr>

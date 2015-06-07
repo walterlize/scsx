@@ -49,8 +49,9 @@
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            	<input type="button" name="btnReturn" value="设 置 模 式" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseNew/<?=$course->id?>';" id="btnReturn" class="input" style="<?php if(isset($show1)) echo $show1; ?>" />
-            	<input type="button" name="btnReturn" value="发 布 课 程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish/<?=$course->id?>/<?=$coursep->cour_id?>';" id="btnReturn" class="input" style="<?php if(isset($show2)) echo $show2?>" />
+            	<input type="button" name="btnReturn" value="设置模式" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseNew/<?=$course->id?>';" id="btnReturn" class="input" style="<?php if(isset($show1)) echo $show1; ?>" />
+            	
+            	<input type="button" name="btnReturn" value="发布课程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish/<?=$course->id?>/<?=$coursep->cour_id?>';" id="btnReturn" class="input" style="<?php if(isset($show2)) echo $show2?>" />
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseList';" id="btnReturn" class="input" />      
             </td>
         </tr>

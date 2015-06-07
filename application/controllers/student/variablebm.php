@@ -152,6 +152,7 @@ class Variablebm extends CI_Controller {
     	$data['coursep'] = $coursep;
     	$data['variable'] = $variable;
     	$data['elecom'] = $elecom;
+    	$data['stu_num'] = $this->session->userdata('u_num');
     	
     	switch($coursep->cour_pattern_id){
     		case 1 :
@@ -243,6 +244,101 @@ class Variablebm extends CI_Controller {
     	$coursep->patt_type = "未分配";
     	 
     	return $coursep;
+    }
+    
+    public function variableDelete(){
+    	$this->timeOut();
+    	$elco_id = $this->uri->segment(4);
+    	$this->load->model('m_elecom');
+    	$this->m_elecom->deleteElecom($elco_id); 
+    	
+    	$stuId = $this->session->userdata('u_name');
+    	$array=array('stuId'=>$stuId);
+    	$this->load->model('m_nvariable');
+    	 
+    	$offset = 0;
+    	$num = $this->m_nvariable->getNum($array);
+    	$data1 = $this->getVariables($array,$offset);
+    	$num1 = $data1['num'];
+    	$num = $num - $num1;
+    	 
+    	$data['variable'] = $data1['data'];
+    	$config['base_url'] = base_url() . 'index.php/student/variable/variableList';
+    	$config['total_rows'] = $num;
+    	$config['uri_segment'] = 4;
+    	$this->pagination->initialize($config);
+    	$data['page'] = $this->pagination->create_links();
+    	 
+    	$this->load->view('common/header3');
+    	$this->load->view('student/variablebm/variable', $data);
+    	$this->load->view('common/footer');
+    }
+    
+    public function variableDeleteALL(){
+    	$this->timeOut();
+    	$this->timeOut();
+    	//print_r($this->session->all_userdata());
+    
+    	$cour_id=$this->uri->segment(4);
+    	$comp_id=$this->uri->segment(5);
+    	$elco_id=$this->uri->segment(6);
+    	
+    	//2.删除公司信息
+    	$this->load->model('m_company');
+    	$company = $this->getCompanyById($comp_id);
+    	$this->m_company->deleteCompany($comp_id);
+    	//3.用户信息
+    	$this->load->model('m_user');
+    	$this->m_user->deleteUser($company->comp_user_id);
+    	//4.coucom编号信息
+    	$array = array('coco_cour_id'=>$cour_id,'coco_comp_id'=>$comp_id);
+    	$coco = $this->getCocoByArr($array);
+    	$this->load->model('m_coucom');
+    	$this->m_coucom->deleteCoucom($coco->coco_id);
+    	//5.elecom编号信息
+    	$this->load->model('m_elecom');
+    	$this->m_elecom->deleteElecom($elco_id);
+    	 
+    	$stuId = $this->session->userdata('u_name');
+    	$array=array('stuId'=>$stuId);
+    	$this->load->model('m_nvariable');
+    
+    	$offset = 0;
+    	$num = $this->m_nvariable->getNum($array);
+    	$data1 = $this->getVariables($array,$offset);
+    	$num1 = $data1['num'];
+    	$num = $num - $num1;
+    
+    	$data['variable'] = $data1['data'];
+    	$config['base_url'] = base_url() . 'index.php/student/variable/variableList';
+    	$config['total_rows'] = $num;
+    	$config['uri_segment'] = 4;
+    	$this->pagination->initialize($config);
+    	$data['page'] = $this->pagination->create_links();
+    
+    	$this->load->view('common/header3');
+    	$this->load->view('student/variablebm/variable', $data);
+    	$this->load->view('common/footer');
+    }
+    //获取单个基地-comp_id
+    function getCompanyById($id){
+    	$this->load->model('m_company');
+    	$result = $this->m_company->getCompanysById($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
+    }
+    //获取单个coco
+    function getCocoByArr($array){
+    	$this->load->model('m_coucom');
+    	$result = $this->m_coucom->getCoucom($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
 
 
