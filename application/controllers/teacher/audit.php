@@ -259,20 +259,7 @@ class Audit extends CI_Controller {
     	return $data;
     }
     
-<<<<<<< HEAD
-    //返回两数组差集（按指定键值）
-    function myArrDiff($array1,$array2,$key){
-    	$data = array();
-    	foreach ($array1 as $p){
-    		foreach($array2 as $q){
-    			if($p[$key] != $q[$key]){
-    				array_push($data, $p);
-    			}
-    		}
-    	}
-    	return $data;
-    }
-=======
+
 	//返回两数组差集（按指定键值）
 	function myArrDiff($array1,$array2,$key){
 		if(count($array1) != count($array2)){
@@ -289,10 +276,7 @@ class Audit extends CI_Controller {
 		}
 		return $array1;
 	}
->>>>>>> a04b5a595d5abbe6ad577fc5add3aafca2399761
-    
-    
-   
+
     // session中的role不存在的时候退出系统
     function timeOut() {
         $role = $this->session->userdata('roleId');
