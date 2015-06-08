@@ -1,17 +1,18 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3>课程详细信息</h3>
+    <h3 class="lz_title">课程详细信息</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">
+
         <tr>
-            <td class="td1" style="width: 111px">课程号</td>
-            <td class="td2" ><?= $course->courseId ?>&nbsp;</td>
-        </tr>  
-        <tr>
-            <td class="td1" style="width: 111px">课序号</td>
+            <td class="td1" style="width: 111px">序号</td>
             <td class="td2" ><?= $course->courseNum ?>&nbsp;</td>
         </tr>
         <tr>
-            <td class="td1" style="width: 111px">课程名</td>
+            <td class="td1" style="width: 111px">课程编号</td>
+            <td class="td2" ><?= $course->courseId ?>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="td1" style="width: 111px">课程名称</td>
             <td class="td2" ><?= $course->courseName ?>&nbsp;</td>
         </tr>
         <tr>
@@ -27,7 +28,7 @@
             <td class="td2" ><?= $course->courseHour ?>&nbsp;</td>
         </tr>
         <tr>
-            <td class="td1" style="width: 111px">课程模式</td>
+            <td class="td1" style="width: 111px">课程实习模式</td>
             <td class="td2" >
             <?php
                 if($coursep->patt_type=="")echo "未设置";

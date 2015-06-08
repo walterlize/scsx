@@ -65,6 +65,8 @@ class Audit extends CI_Controller {
     	$config['base_url'] = base_url() . 'index.php/teacher/audit/auditList/'.$cour_id;
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 5;
+        $config['num_links'] = 4;
+
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
     	
@@ -257,7 +259,7 @@ class Audit extends CI_Controller {
     }
     
     //返回两数组差集（按指定键值）
-    function myArrDiff($array1,$array2,$key){-----------------
+    function myArrDiff($array1,$array2,$key){
     	$data = array();
     	foreach ($array1 as $p){
     		foreach($array2 as $q){
