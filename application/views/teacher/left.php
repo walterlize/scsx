@@ -24,10 +24,17 @@
                 <div id="firstpane" class="menu_list">
                 	<p class="menu_head current">实习课程管理</p>
                     <div style="display:block" class=menu_body >                       
+<<<<<<< HEAD
                         <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1" title="选择实习模式、编辑实习基底、发布实习课程">实习课程发布</a>
                         <a href="<?= base_url(); ?>index.php/teacher/audit/courseList" target="content1" title="审核报名学生的实习课程报名">实习学生审核</a>
                     </div>
 
+=======
+                        <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1">实习课程发布</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/audit/courseList" target="content1">实习学生审核</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1">实习基地管理</a>
+                    </div> 
+>>>>>>> a04b5a595d5abbe6ad577fc5add3aafca2399761
                     <p class="menu_head">学生管理</p>
                     <div style="display:none" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/teacher/student/studentList" target="content1">查看学生信息</a>

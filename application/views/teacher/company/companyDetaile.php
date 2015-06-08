@@ -1,3 +1,4 @@
+<!--  
 <div style="margin-left:20px; margin-right:20px;">
     <br />
     <h3>基地信息</h3>
@@ -78,3 +79,4 @@
     </table>
     <br><br><br>
 </div>
+-->

@@ -54,6 +54,7 @@ class Audit extends CI_Controller {
     	$array1 = array('courseId'=>$coursep->cour_no,'courseNum'=>$coursep->cour_num,'courseTerm'=>$coursep->cour_term);
     	$array2 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term);
     	$audit = $this->getAudit($array1);
+    	//$audit1 = $audit;
     	$auditt = $this->getAuditt($array2);
     	$auditf = $this->myArrDiff($audit,$auditt,'stu_num');
     	
@@ -258,6 +259,7 @@ class Audit extends CI_Controller {
     	return $data;
     }
     
+<<<<<<< HEAD
     //返回两数组差集（按指定键值）
     function myArrDiff($array1,$array2,$key){
     	$data = array();
@@ -270,6 +272,24 @@ class Audit extends CI_Controller {
     	}
     	return $data;
     }
+=======
+	//返回两数组差集（按指定键值）
+	function myArrDiff($array1,$array2,$key){
+		if(count($array1) != count($array2)){
+			foreach ($array1 as $i=>$p){				
+				foreach($array2 as $q){
+						if($p[$key] == $q[$key]){
+							unset($array1[$i]);
+						}				
+				}
+			}
+			$array1 = array_values($array1);
+		}else{
+			$array1=array();
+		}
+		return $array1;
+	}
+>>>>>>> a04b5a595d5abbe6ad577fc5add3aafca2399761
     
     
    

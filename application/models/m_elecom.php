@@ -109,6 +109,11 @@ class m_elecom extends CI_Model {
     	$this->db->delete('elecom');
     }
     
+    function deleteElecomByArr($array) {
+    	$this->db->where($array);
+    	$this->db->delete('elecom');
+    }
+    
     //按条件查找
     function getElecom_ws($array) {
     	$this->db->select();
