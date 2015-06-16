@@ -103,9 +103,11 @@ class Index extends CI_Controller {
     			//查询教师表
     			$this->load->model('m_nteacher');
     			$array = array('teaId' => $u_name, 'password' => $password);
-    			$result = $this->m_nteacher->getTea($array);
-    			
-    			$data = array();
+    			//$result = $this->m_nteacher->getTea($array);
+                $result = $this->m_nteacher->getTea_orcl($u_name,$password);
+
+
+            $data = array();
     			foreach ($result as $r) {
     				$data = $r;
     			}
