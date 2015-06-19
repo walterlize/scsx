@@ -197,8 +197,8 @@ class Course extends CI_Controller {
      */
     function coursePublish2(){
     	//自选式课程发布 coursep表中cour_publish置1
-    	$o_id = $this->uri->segment(4);
-    	$m_id = $this->uri->segment(5);
+    	$o_id = $this->uri->segment(5);
+    	$m_id = $this->uri->segment(4);
     	$array = array('cour_publish'=>1);
     	$this->load->model('m_course');
     	$result = $this->m_course->updateCourse($m_id, $array);
@@ -280,6 +280,8 @@ class Course extends CI_Controller {
         }
         return $data;
     }
+    
+    
     
     // 获取单个
     function getCoursep($array) {

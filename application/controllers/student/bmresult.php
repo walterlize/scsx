@@ -1,11 +1,11 @@
 <?php
-
+//选课报名
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Variable extends CI_Controller {
+class Bmresult extends CI_Controller {
 
-    function __construct() {
+function __construct() {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('form');

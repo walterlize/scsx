@@ -17,7 +17,7 @@
                     <td><?= $r['stu_class'] ?></td>
                     <td>
                     <?php if($r['elco_id']!=0){?>
-                        <a id="" href="<?= base_url() ?>index.php/teacher/audit/auditDetail/<?=$cour_id?>/<?= $r['elco_id'] ?>"><?= $r['elco_name'] ?></a>
+                        <a id="" href="<?= base_url() ?>index.php/teacher/audit/auditDetail2/<?=$cour_id?>/<?= $r['elco_id'] ?>"><?= $r['elco_name'] ?></a>
                     <?php }else{?>
                     	<?= $r['elco_name'] ?>
                     <?php }?>
@@ -27,8 +27,8 @@
                     <td><?= $r['elco_state'] ?></td>
                     <td style="width: 200px;">
                     <?php if($r['elco_id']!=0){?>
-                        <input type="button" name="btnReturn" value="通过" onclick="window.location.href='<?= base_url() ?>index.php/teacher/audit/auditPassa/<?= $cour_id ?>/<?= $r['elco_id']?>';" id="btnReturn" class="input" /> 
-						<input type="button" name="btnReturn" value="失败" onclick="window.location.href='<?= base_url() ?>index.php/teacher/audit/auditFaila/<?= $cour_id ?>/<?= $r['elco_id']?>';" id="btnReturn" class="input" /> 
+                        <input type="button" name="btnReturn" value="通过" onclick="window.location.href='<?= base_url() ?>index.php/teacher/audit/auditPass2a/<?= $cour_id ?>/<?= $r['elco_id']?>';" id="btnReturn" class="input" /> 
+						<input type="button" name="btnReturn" value="失败" onclick="window.location.href='<?= base_url() ?>index.php/teacher/audit/auditFail2a/<?= $cour_id ?>/<?= $r['elco_id']?>';" id="btnReturn" class="input" /> 
                     <?php }else{?>
                     	未提交基地
                     <?php }?>

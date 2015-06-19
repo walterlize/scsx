@@ -35,7 +35,7 @@
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            	<input type="button" name="btnReturn" value="设 置 基 地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyList/<?=$coursep->cour_id?>/<?= $course->id ?>';" id="btnReturn" class="input" />
+            	<input type="button" name="btnReturn" value="设 置 基 地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyList/<?=$coursep->cour_id?>/<?=$course->id?>';" id="btnReturn" class="input" />
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseList';" id="btnReturn" class="input" />      
             </td>
         </tr>

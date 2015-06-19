@@ -5,7 +5,7 @@
     <br>
     <span >请选择基地或
     
-    	<input type="button" name="btnReturn" value="新增基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyNew/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
+    	<input type="button" name="btnReturn" value="新增基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyNew/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
     </span><br><br>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
@@ -16,7 +16,7 @@
             <th scope="col">负责人联系方式</th>
             <th scope="col">本课程基地</th>
             <th scope="col">详情</th>
-            <th scope="col">操作</th>
+            
         </tr>
         <?php if (is_array($company)) foreach ($company as $r): ?>
                 <tr class="RowStyle" align="center">
@@ -35,22 +35,23 @@
                     	?>
                     </td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/teacher/compcourpublish/companyDetail/<?=$cour_id?>/<?= $r['comp_id'] ?>">详细</a>
+                        <a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companyDetail/<?=$cour_id?>/<?= $r['comp_id'] ?>/<?=$o_id?>">详细</a>
                     </td>
+                    <!-- 
                     <td>
                     	<?php 
                     		if($r['coco']==1){
                     	?>
-                    	<input type="button" name="btnReturn" value="取消设置" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyCancel/<?=$cour_id?>/<?=$r['coco_id']?>/<?=$r['comp_id']?>/<?=$o_id?>';" id="btnReturn" class="input" style="background-image: url('<?=base_url()?>/images/btnbg1.gif')"/>
+                    	<input type="button" name="btnReturn" value="取消设置" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyCancel/<?=$cour_id?>/<?=$r['coco_id']?>/<?=$r['comp_id']?>/<?=$o_id?>';" id="btnReturn" class="input" style="background-image: url('<?=base_url()?>/images/btnbg1.gif')"/>
                     	<?php 
                     		}else{
                     	?>
-                    	<input type="button" name="btnReturn" value="设置基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companySet/<?=$cour_id?>/<?=$r['comp_id']?>/<?=$o_id?>';" id="btnReturn" class="input" />
+                    	<input type="button" name="btnReturn" value="设置基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companySet/<?=$cour_id?>/<?=$r['comp_id']?>/<?=$o_id?>';" id="btnReturn" class="input" />
                     	<?php 
                     		}
                     	?>
                     	                                                 
-                    </td>
+                    </td> -->
                 </tr>
             <?php endforeach; ?>
             <tr>

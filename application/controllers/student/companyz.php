@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Company extends CI_Controller {
+class Companyz extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -35,7 +35,7 @@ class Company extends CI_Controller {
     	$offset = $this->uri->segment(5);
     	 
     	$data['company'] = $this->getCompanys($array,$offset);
-    	$config['base_url'] = base_url() . 'index.php/student/company/companyList/'.$cour_id;
+    	$config['base_url'] = base_url() . 'index.php/student/companyz/companyList/'.$cour_id;
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 5;
     	$this->pagination->initialize($config);
@@ -44,7 +44,7 @@ class Company extends CI_Controller {
     	$data['cour_id']=$cour_id;
     	$data['show']=$show;
     	$this->load->view('common/header3');
-    	$this->load->view('student/company/company', $data);
+    	$this->load->view('student/companyz/company', $data);
     	$this->load->view('common/footer');
     }
     
@@ -57,97 +57,62 @@ class Company extends CI_Controller {
     public function companyDetail() {
         $this->timeOut();
         
-        $stuId = $this->session->userdata('u_name');
         //课程基地号
         $coco_id = $this->uri->segment(4);
-        $comp = $this->getCompany($coco_id);
+        $coco = $this->getCompany($coco_id);
+        
+        $stu_num = $this->session->userdata('u_name');
+        $cour_id = $coco->cour_id;
+        $comp_id = $coco->comp_id;
+        $array = array('elco_cour_id'=>$cour_id,'elco_comp_id'=>$comp_id,'elco_stu_num'=>$stu_num);
+        $elco = $this->getElecomByArr($array);
+        //var_dump($elco);
+        if($elco){
+        	        	 
+        	//获取单个课程信息
+        	//oracle
+        	$arrCourse = array('courseId'=>$elco->elco_cour_no,'courseNum'=>$elco->elco_cour_num,'term'=>$elco->elco_cour_term);
+        	$course = $this->getNCourse($arrCourse);
+        	$data['course'] = $course;
+        	$data['elecom'] = $elco;
+        	$data['stu_num'] = $this->session->userdata('u_num');
+        	
+        	$this->load->view('common/header3');
+        	$this->load->view('student/companyz/companyDetaile', $data);
+        	$this->load->view('common/footer');
+        }else{
+	        $data['comp']=$coco;
+	        $this->load->view('common/header3');
+	        $this->load->view('student/companyz/companyDetail', $data);
+	        $this->load->view('common/footer');
+        }
+    }
+    
        
-        $data['comp']=$comp;
-        $this->load->view('common/header3');
-        $this->load->view('student/company/companyDetail', $data);
-        $this->load->view('common/footer');
-    }
     
-    
-	
-    
-    function companyNew(){
+    //报名删除
+    public function elcoDelete(){
     	$this->timeOut();
-    	//print_r($this->session->all_userdata());
-    	
-    	$cour_id=$this->uri->segment(4);
-    	$coursep = $this->getCoursepById($cour_id);
-    	
-    	@$comp->comp_id = 0;
-    	$comp->comp_name = '';
-    	$comp->comp_user_id = '';
-    	$comp->comp_address = '';
-    	$comp->comp_url='';
-    	$comp->comp_content='';
-    	$comp->comp_plan = '';
-    	$comp->comp_stat_id = 5;
-    	$comp->comp_coll_id='';
-    	$comp->comp_coll_name='';
-    	$comp->comp_teacher='';
-    	$comp->comp_add_num = '';
-    	$comp->comp_add_type = '';
-    	
-    	@$user->user_id = 0;
-	    $user->user_num = '';
-	    $user->user_password = '';
-	    $user->user_name = '';
-	    $user->user_phone = '';
-	    $user->user_email = '';
-	    $user->user_address = '';
-	    $user->user_coll_id  = '';
-	    $user->user_coll_name = '';
-	    $user->user_stat_id = 2;
-	    @$coco->coco_id=0;
-	    @$elco->elco_id=0;
-	    
-    	$data['coursep']=$coursep;
-    	$data['comp']=$comp;
-    	$data['user']=$user;
-    	$data['coco']=$coco;
-    	$data['elco']=$elco;
-    	
-    	$this->load->view('common/header3');
-    	$this->load->view('student/company/companyEdit', $data);
-    	$this->load->view('common/footer');
-    }
-    
-    function companyEdit(){
-    	$this->timeOut();
-    	//print_r($this->session->all_userdata());
-    	 
-    	$cour_id=$this->uri->segment(4);
-    	$comp_id=$this->uri->segment(5);
-    	$elco_id=$this->uri->segment(6);
-    	//1.课程信息
-    	$coursep = $this->getCoursepById($cour_id);
-    	//2.公司信息
-    	$company = $this->getCompanyById($comp_id);
-    	//3.用户信息
-    	$user = $this->getUserById($company->comp_user_id);
-    	//4.coucom编号信息
-    	$array = array('coco_cour_id'=>$cour_id,'coco_comp_id'=>$comp_id);
-    	$coco = $this->getCocoByArr($array);
-    	//5.elecom编号信息
+    	$elco_id = $this->uri->segment(4);
+    	$this->load->model('m_elecom');
     	$elco = $this->getElecomById($elco_id);
-    	 
-    	$data['coursep']=$coursep;
-    	$data['comp']=$company;
-    	$data['user']=$user;
-    	$data['coco']=$coco;
-    	$data['elco']=$elco;
-    	 
-    	$this->load->view('common/header3');
-    	$this->load->view('student/company/companyEdit', $data);
-    	$this->load->view('common/footer');
+    	
+    	$comp_id = $elco->elco_comp_id;
+    	$cour_id = $elco->elco_cour_id;
+    	$array = array('comp_id'=>$comp_id,'cour_id'=>$cour_id);
+    	$coco = $this->getCompanyByArr($array);
+    	//var_dump($coco);
+    	$this->m_elecom->deleteElecom($elco_id);
+
+    	//返回companyDetail
+    	$data['comp']=$coco;
+	    $this->load->view('common/header3');
+	    $this->load->view('student/companyz/companyDetail', $data);
+	    $this->load->view('common/footer');
     }
     
     
-    
+    /*
     function save(){
     	$this->timeOut();
     	$cour_id = $this->uri->segment(4);
@@ -184,7 +149,7 @@ class Company extends CI_Controller {
     	//存储结束
     	echo '<script language="JavaScript">alert("报名成功");</script>';
     	$this->companyDetaile($elco_id);
-    }
+    }*/
     
     function companySave(){
     	$cour_id = $this->uri->segment(4);
@@ -208,9 +173,10 @@ class Company extends CI_Controller {
     	
     	echo '<script language="JavaScript">alert("报名成功");</script>';
     	$this->companyDetaile($elco_id);
+    	
     }
     
-function companyDetaile($elco_id){
+	function companyDetaile($elco_id){
     	$this->timeOut();
     	$elco = $this->getElecomById($elco_id);
     	
@@ -224,7 +190,7 @@ function companyDetaile($elco_id){
     	$data['stu_num'] = $this->session->userdata('u_num');
     	    	
     	$this->load->view('common/header3');
-    	$this->load->view('student/company/companyDetaile', $data);
+    	$this->load->view('student/companyz/companyDetaile', $data);
     	$this->load->view('common/footer');
     			
     }
@@ -308,6 +274,16 @@ function companyDetaile($elco_id){
     	}
     	return $data;
     }
+    //获取单个基地——coco_id
+    function getCompanyByArr($array){
+    	$this->load->model('m_coucom');
+    	$result = $this->m_coucom->getCoucom_ws($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
+    }
     
     // 获取单个已分配课程
     function getCoursepById($id) {
@@ -354,6 +330,16 @@ function companyDetaile($elco_id){
     function getElecomById($id){
     	$this->load->model('m_elecom');
     	$result = $this->m_elecom->getElecomById_ws($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
+    }
+    //获取单个elco——elco_id
+    function getElecomByArr($array){
+    	$this->load->model('m_elecom');
+    	$result = $this->m_elecom->getElecom_ws($array);
     	$data = array();
     	foreach ($result as $r) {
     		$data = $r;

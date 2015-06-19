@@ -141,8 +141,23 @@ class Compmanage extends CI_Controller {
     	$comp_id = $this->m_company->saveInfoByTea($user_id);
     	$comp = $this->getCompanyById($comp_id);
     	
+    	//审核成功的报名人数
+    	$array1 = array('elco_state'=>6,'elco_comp_id'=>$comp_id);
+    	$array2 = array('elco_comp_id'=>$comp_id);
+    	$this->load->model('m_elecom');
+    	$succ = $this->m_elecom->getNum($array1);
+    	$all = $this->m_elecom->getNum($array2);
+    	
+    	if($all == 0){
+    		$show="";
+    	}
     	 
     	$data['comp']=$comp;
+    	$data['succ']=$succ;
+    	$data['all']=$all;
+    	$data['show']=$show;
+    	 
+    	
     	$this->load->view('common/header3');
     	$this->load->view('teacher/compmanage/companyDetail', $data);
     	$this->load->view('common/footer');

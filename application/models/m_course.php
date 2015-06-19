@@ -111,7 +111,7 @@ class m_course extends CI_Model {
     function getCourse_ws($array) {
     	$this->db->select();
     	$this->db->from('ws_coursep');
-    	$this->db->where('cour_coll_name',$this->session->userdata('college'));
+    	
     	$this->db->where($array);
     	$q = $this->db->get();
     	return $q->result();

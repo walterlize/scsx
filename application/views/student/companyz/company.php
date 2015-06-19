@@ -24,7 +24,7 @@
                     <td><?= $r['user_name'] ?></td>
                     <td><?= $r['user_phone'] ?></td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/student/company/companyDetail/<?= $r['coco_id'] ?>">详细</a>
+                        <a id="" href="<?= base_url() ?>index.php/student/companyz/companyDetail/<?= $r['coco_id'] ?>">详细</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

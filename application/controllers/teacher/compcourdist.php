@@ -1,9 +1,9 @@
 <?php
-//志愿式分配基地
+//分配式分配基地与学生
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Compcourpublish extends CI_Controller {
+class Compcourdist extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -41,6 +41,10 @@ class Compcourpublish extends CI_Controller {
 		$offset = $this->uri->segment(6);
 		$company = array_merge($companyc,$companyu);
 		
+		//全部选课人数
+		
+		//已分配选课人数
+		
 		//若基地数小于1，将课程改为未发布
 		$comNum = count($companyc);
 		if($comNum < 1){
@@ -63,7 +67,7 @@ class Compcourpublish extends CI_Controller {
 		$data['flag']= count($companyc);
 		
 		$this->load->view('common/header3');
-		$this->load->view('teacher/compcourp/compCourPublish', $data);
+		$this->load->view('teacher/compcourd/compCourdPublish', $data);
 		$this->load->view('common/footer');
 	}
     
@@ -78,8 +82,9 @@ class Compcourpublish extends CI_Controller {
        
         $data['comp']=$comp;
         $data['cour_id']=$cour_id;
+        $data['o_id']=$this->uri->segment(6);
         $this->load->view('common/header3');
-        $this->load->view('teacher/compcourp/companyDetail', $data);
+        $this->load->view('teacher/compcourd/companydDetail', $data);
         $this->load->view('common/footer');
     }
     
@@ -129,7 +134,7 @@ class Compcourpublish extends CI_Controller {
     	$data['o_id']=$o_id;
     	
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/compcourp/companyEdit', $data);
+    	$this->load->view('teacher/compcourd/companyEdit', $data);
     	$this->load->view('common/footer');
     }
     
@@ -159,7 +164,7 @@ class Compcourpublish extends CI_Controller {
     	$data['elco']=$elco;
     	 
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/compcourp/companyEdit', $data);
+    	$this->load->view('teacher/compcourd/companyEdit', $data);
     	$this->load->view('common/footer');
     }
     
@@ -193,7 +198,7 @@ class Compcourpublish extends CI_Controller {
     	$data['comp']=$comp;
     	$data['o_id'] = $this->uri->segment(5);
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/compcourp/comcouDetail', $data);
+    	$this->load->view('teacher/compcourd/comcouDetail', $data);
     	$this->load->view('common/footer');
     }
     
@@ -221,7 +226,7 @@ class Compcourpublish extends CI_Controller {
     	$array=array('elco_cour_id'=>$cour_id,'elco_comp_id'=>$comp_id);
     	
     	$this->m_elecom->deleteElecomByArr($array);
-    	redirect('teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id);
+    	redirect('teacher/compcourdist/companyList/'.$cour_id.'/'.$o_id);
     }
     
     /*
@@ -244,9 +249,122 @@ class Compcourpublish extends CI_Controller {
     	$coco->coco_comp_id = $comp_id;
     	$this->load->model('m_coucom');
     	$coco_id = $this->m_coucom->saveInfoByArr($coco);
-    	redirect('teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id);
+    	
+    	//设置学生
+    	
+    	redirect('teacher/compcourdist/companyList/'.$cour_id.'/'.$o_id);
     	
     }
+    
+    function companystu(){
+    	//为基地分配学生
+    	$show = 'display:none';
+    	//获取基地信息
+    	$comp_id = $this->uri->segment(5);
+    	$comp = $this->getCompanyById($comp_id);
+    	
+    	//获取课程信息
+    	$cour_id = $this->uri->segment(4);
+    	$coursep = $this->getCoursepById($cour_id);
+    	//获取选课名单
+    	$array1 = array('courseId'=>$coursep->cour_no,'courseNum'=>$coursep->cour_num,'courseTerm'=>$coursep->cour_term);
+    	$array2 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term);
+    	$array3 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term,'elco_comp_id'=>$comp_id);
+    	$stu = $this->getStu($array1);
+    	//$audit1 = $audit;
+    	//
+    	$stuc = $this->getStud($array3);
+    	$stud = $this->getStud($array2);
+    	$stuf = $this->myArrDiff($stu,$stud,'stu_num');//未分配基地学生
+    	
+    	if($stuc){
+    		$show = '';
+    	}
+    	$data['stuc']=$stuc;
+    	$data['stuf']=$stuf;
+    	$data['comp']=$comp;
+    	$data['cour']=$coursep;
+    	$data['show']=$show;
+
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/compcourd/companydStu', $data);
+    	$this->load->view('common/footer');
+    }
+    
+    function companystuSet(){
+    	$cour_id = $this->uri->segment(4);
+    	$comp_id = $this->uri->segment(5);
+    	$coursep = $this->getCoursepById($cour_id);
+    	$stustr = $this->input->post('stu_num');
+    	//var_dump($stustr);
+    	if($stustr){
+    		//将学生-基地存入elecom
+    		foreach ($stustr as $r){//$r为学号
+    			$stu = explode("@",$r);
+    			@$elco->elco_id = 0;
+		    	$elco->elco_cour_id = $coursep->cour_id;
+		    	$elco->elco_cour_no = $coursep->cour_no;
+		    	$elco->elco_cour_num = $coursep->cour_num;
+		    	$elco->elco_cour_term = $coursep->cour_term;
+		    	$elco->elco_stu_num = $stu[0];
+		    	$elco->elco_stu_name = $stu[1];
+		    	$elco->elco_stu_class = $stu[2];
+		    	$elco->elco_comp_id = $comp_id;
+		    	$elco->elco_state = 6;
+		    	
+		    	$this->load->model('m_elecom');
+		    	$this->m_elecom->saveInfoByArr($elco);
+		    	
+    		}
+    	}else{
+    		//未选择学生，不能设置该基地
+    		echo '<script language="JavaScript">alert("未选择学生，不能设置该基地");</script>';
+    	}
+    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
+    }
+    
+    
+    function getStu($array){
+    	//暂时不考虑分页
+    	$data  = array();//全部学生
+    	$this->load->model('m_nvariable');
+    	$result = $this->m_nvariable->getNvariable($array);
+    	foreach ($result as $r) {
+    		$arr = array(
+    				'stu_num'=>$r->stuId,
+    				'stu_name' => $r->stuName,
+    				'stu_class' => $r->stuClass,
+    				'elco_name' => "未提交",
+    				'elco_id' => 0,
+    				'elco_state' => '无信息'
+    		);
+    		array_push($data, $arr);
+    	}
+    	 
+    	return $data;
+    }
+    
+    //已分配基地学生
+    function getStud($array){
+    	$data = array();
+    	$this->load->model('m_elecom');
+    	$result = $this->m_elecom->getElecom_ws($array);
+    	foreach ($result as $r) {
+    		$arr = array(
+    				'stu_num'=>$r->elco_stu_num,
+    				'stu_name' => $r->elco_stu_name,
+    				'stu_class' => $r->elco_stu_class,
+    				'elco_name' => $r->comp_name,
+    				'elco_id' => $r->elco_id,
+    				'elco_state' => $r->usta_type
+    		);
+    		array_push($data, $arr);
+    	}
+    	 
+    	return $data;
+    }
+    
+    
     
     
     public function getCompanys($array) {

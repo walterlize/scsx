@@ -34,20 +34,39 @@ class m_ncourse extends CI_Model {
     function getNcourse($array) {
         $this->db->select();
         $this->db->from('ocourse');
-        $this->db->where('college',$this->session->userdata('college'));
+        //$this->db->where('college',$this->session->userdata('college'));
         $this->db->where($array);
         $q = $this->db->get();
         return $q->result();
+    }
+    
+    //按条件查找实习项目（课程）
+    function getNcourseByCol($array) {
+    	$this->db->select();
+    	$this->db->from('ocourse');
+    	$this->db->where('college',$this->session->userdata('college'));
+    	$this->db->where($array);
+    	$q = $this->db->get();
+    	return $q->result();
     }
     
     //按条件获得实习项目条数
     function getNum($array) {
     	$this->db->select();
     	$this->db->from('ocourse');
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
+    }
+    
+    //按条件获得实习项目条数
+    function getNumByCol($array) {
+    	$this->db->select();
+    	$this->db->from('ocourse');
     	$this->db->where('college',$this->session->userdata('college'));
     	$this->db->where($array);
     	return $this->db->count_all_results();
     }
+    
     
     //分页查询
     function getNcourses($array, $per_page, $offset) {
