@@ -15,6 +15,7 @@ class m_company extends CI_Model {
     var $comp_teacher='';
     var $comp_add_num = '';
     var $comp_add_type = '';
+    var $comp_audit_num = '';
 
     function saveInfo() {
         $this->comp_id = $this->input->post('comp_id');
@@ -30,6 +31,7 @@ class m_company extends CI_Model {
 	    $this->comp_teacher = $this->input->post('comp_teacher');
 	    $this->comp_add_num = $this->session->userdata('u_num');
 	    $this->comp_add_type = $this->session->userdata('roleId');
+	    $this->comp_audit_num = $this->input->post('comp_audit_num');
 
         $id = $this->comp_id;
         if ($id == 0) {
@@ -56,6 +58,7 @@ class m_company extends CI_Model {
     	$this->comp_teacher = '';
     	$this->comp_add_num = $this->session->userdata('u_num');
     	$this->comp_add_type = $this->session->userdata('roleId');
+    	$this->comp_audit_num = $this->input->post('comp_audit_num');
     
     	$id = $this->comp_id;
     	if ($id == 0) {
@@ -82,6 +85,7 @@ class m_company extends CI_Model {
     	$this->comp_teacher = '';
     	$this->comp_add_num = $this->session->userdata('u_num');
     	$this->comp_add_type = $this->session->userdata('roleId');
+    	$this->comp_audit_num = $this->session->userdata('u_num');
     
     	$id = $this->comp_id;
     	if ($id == 0) {

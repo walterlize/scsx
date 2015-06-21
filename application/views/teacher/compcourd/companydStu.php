@@ -1,6 +1,30 @@
 <div style="margin-left:20px; margin-right:20px;width:900px;">
     <br />
-    <h3>实习基地信息</h3>
+    <div>
+    <h3 style="float: left;">实习基地信息</h3>
+    <div style="float: right;">
+    <br>
+    <?php 
+    switch ($show){
+    	case 1:
+    ?>
+    <input type="button" name="btnReturn" value="请选择学生"  id="btnReturn" class="input" style="background-image: url('<?=base_url()?>/images/btnbg2.gif')" />
+	<?php 
+			break;
+		case 2:
+	?>
+	<input type="button" name="btnReturn" value="基地已设置"  id="btnReturn" class="input" style="background-image: url('<?=base_url()?>/images/btnbg2.gif')" />
+	<?php 
+			break;
+		case 3:
+	?>
+	
+	<input type="button" name="btnReturn" value="设置基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companySet/<?=$cour->cour_id?>/<?=$comp->comp_id?>';" id="btnReturn" class="input" />
+	<?php 
+			break;
+    }?>
+    </div>
+    </div>
     
         <table cellpadding="0" cellspacing="1" class="tablist2">
         	<!-- 
@@ -58,7 +82,7 @@
 	        </tr>
 	        <?php 
 	        	if (is_array($stuc)) foreach ($stuc as $r): 
-	        		$stuStr = $r['stu_num'].'@'.$r['stu_name'].'@'.$r['stu_class'];
+	        		$stuStr = $r['elco_id'];
 	        ?>
                 <tr class="RowStyle" align="center">
                     <td>
@@ -71,7 +95,7 @@
                     	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuDetail/<?= $r['stu_num'] ?>">详细</a>
                     </td>
                     <td>
-                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuDetail/<?= $r['stu_num'] ?>">删除</a>
+                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuCanByOne/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$stuStr?>">删除</a>
                     </td>
                 </tr>
         	<?php endforeach;?>
@@ -81,6 +105,7 @@
         		</td>
         	</tr>
         </table>
+        </form>
         <br><br>
         
         <h4>未分配学生</h4>
@@ -100,6 +125,8 @@
 	        <?php 
 	        	if (is_array($stuf)) foreach ($stuf as $r): 
 	        		$stuStr = $r['stu_num'].'@'.$r['stu_name'].'@'.$r['stu_class'];
+	        		$stuStr1 = $r['stu_num'].'__'.$r['stu_name'].'__'.$r['stu_class'];
+	        		
 	        ?>
                 <tr class="RowStyle" align="center">
                     <td>
@@ -112,7 +139,7 @@
                     	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuDetail/<?= $r['stu_num'] ?>">详细</a>
                     </td>
                     <td>
-                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuDetail/<?= $r['stu_num'] ?>">添加</a>
+                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuSetByOne/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$stuStr1?>">添加</a>
                     </td>
                 </tr>
         	<?php endforeach;?>
@@ -123,4 +150,6 @@
         	</tr>
         </table>
     </form>
-</div>
+    <br><br>
+    
+    </div>

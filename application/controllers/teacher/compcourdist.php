@@ -237,7 +237,7 @@ class Compcourdist extends CI_Controller {
     	//新增coucom表
     	$cour_id = $this->uri->segment(4);
     	$comp_id = $this->uri->segment(5);
-    	$o_id = $this->uri->segment(6);
+    	//$o_id = $this->uri->segment(6);
     	//课程相关信息
     	$coursep = $this->getCoursepById($cour_id);
     	
@@ -258,7 +258,7 @@ class Compcourdist extends CI_Controller {
     
     function companystu(){
     	//为基地分配学生
-    	$show = 'display:none';
+    	$show = 1;
     	//获取基地信息
     	$comp_id = $this->uri->segment(5);
     	$comp = $this->getCompanyById($comp_id);
@@ -273,13 +273,39 @@ class Compcourdist extends CI_Controller {
     	$stu = $this->getStu($array1);
     	//$audit1 = $audit;
     	//
-    	$stuc = $this->getStud($array3);
+    	$stuc = $this->getStud($array3);//已分配到本基地
     	$stud = $this->getStud($array2);
     	$stuf = $this->myArrDiff($stu,$stud,'stu_num');//未分配基地学生
     	
-    	if($stuc){
-    		$show = '';
+    	//查找本基地是否设置
+    	$this->load->model('m_coucom');
+    	$arraycc = array('coco_cour_id'=>$cour_id,'coco_comp_id'=>$comp_id);
+    	$coco = $this->m_coucom->getCoucom($arraycc);
+    	
+    	if(!$stuc){
+    		if($coco){
+    			//删除$coco
+    			foreach($coco as $r){
+    				$this->m_coucom->deleteCoucom($r->coco_id);
+    			}
+    		}
     	}
+    	
+    	if($stuc){
+    		//基地有学生
+    		if(!$coco){
+    			//基地未设置
+    			$show = 3;
+    		}else{
+    			//基地已设置
+    			$show = 2;
+    		}
+    	}else{
+    		//基地没有学生
+    		$show = 1;
+    	}
+    	
+    	
     	$data['stuc']=$stuc;
     	$data['stuf']=$stuf;
     	$data['comp']=$comp;
@@ -319,6 +345,73 @@ class Compcourdist extends CI_Controller {
     	}else{
     		//未选择学生，不能设置该基地
     		echo '<script language="JavaScript">alert("未选择学生，不能设置该基地");</script>';
+    	}
+    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
+    }
+    
+    function companystuSetByOne(){
+    	$cour_id = $this->uri->segment(4);
+    	$comp_id = $this->uri->segment(5);
+    	$coursep = $this->getCoursepById($cour_id);
+    	$stustr = urldecode($this->uri->segment(6));
+    	
+    	if($stustr){
+    		//将学生-基地存入elecom
+    
+    		$stu = explode("__",$stustr);
+    		@$elco->elco_id = 0;
+    		$elco->elco_cour_id = $coursep->cour_id;
+    		$elco->elco_cour_no = $coursep->cour_no;
+    		$elco->elco_cour_num = $coursep->cour_num;
+    		$elco->elco_cour_term = $coursep->cour_term;
+    		$elco->elco_stu_num = $stu[0];
+    		$elco->elco_stu_name = $stu[1];
+    		$elco->elco_stu_class = $stu[2];
+    		$elco->elco_comp_id = $comp_id;
+    		$elco->elco_state = 6;
+    		
+    		$this->load->model('m_elecom');
+    		$this->m_elecom->saveInfoByArr($elco);
+    	}
+    		redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
+    }
+    
+    
+    function companystuCan(){
+    	$cour_id = $this->uri->segment(4);
+    	$comp_id = $this->uri->segment(5);
+    	
+    	$stustr = $this->input->post('stu_numc');
+    	//var_dump($stustr);
+    	if($stustr){
+    		//将学生-基地存入elecom
+    		foreach ($stustr as $r){//$r为学号
+    			$elco_id = $r;
+    			
+    			$this->load->model('m_elecom');
+    			$this->m_elecom->deleteElecom($elco_id);
+    		  
+    		}
+    	}else{
+    		//未选择学生，不能设置该基地
+    		echo '<script language="JavaScript">alert("未选择学生，不能删除");</script>';
+    	}
+    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
+    }
+    
+    function companystuCanByOne(){
+    	$cour_id = $this->uri->segment(4);
+    	$comp_id = $this->uri->segment(5);
+    	
+    	$stustr = $this->uri->segment(6);
+    	var_dump($stustr);
+    	if($stustr){
+    		//将学生-基地存入elecom
+    			$elco_id = $stustr;
+    			 
+    			$this->load->model('m_elecom');
+    			$this->m_elecom->deleteElecom($elco_id);
+    		
     	}
     	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
     }

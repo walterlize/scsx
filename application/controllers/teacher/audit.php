@@ -210,6 +210,20 @@ class Audit extends CI_Controller {
     	$this->load->view('common/footer');
     }
     
+    // 实验任务详细信息页面
+    public function auditDetail3() {
+    	$this->timeOut();
+    	$cour_id = $this->uri->segment(4);
+    	$elco_id = $this->uri->segment(5);
+    	$elecom = $this->getElecom($elco_id);
+    
+    	$data['elco'] = $elecom;
+    	$data['cour_id'] = $cour_id;
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/audit/auditDetail3', $data);
+    	$this->load->view('common/footer');
+    }
+    
     // 志愿式审核通过
     public function auditPass2() {
     	$this->timeOut();

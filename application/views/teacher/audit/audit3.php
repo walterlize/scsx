@@ -26,7 +26,7 @@
                     
                     <td><?= $r['elco_state'] ?></td>
                     <td style="width: 200px;">
-                   <a id="" href="<?= base_url() ?>index.php/teacher/student/studentDetail/<?=$cour_id?>/<?= $r['elco_id'] ?>">详细</a>
+                   <a id="" href="<?= base_url() ?>index.php/teacher/audit/auditDetail3/<?=$cour_id?>/<?= $r['elco_id'] ?>">详细</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

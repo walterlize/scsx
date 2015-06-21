@@ -90,6 +90,7 @@ class Compmanage extends CI_Controller {
     	$comp->comp_teacher='';
     	$comp->comp_add_num = '';
     	$comp->comp_add_type = '';
+    	$comp->comp_audit_num = '';
     	 
     	@$user->user_id = 0;
     	$user->user_num = '';

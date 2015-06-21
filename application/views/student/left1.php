@@ -62,7 +62,7 @@
                     <p class="menu_head">实习管理</p>
                     <div style="display:none" class=menu_body > 
                         <a href="<?= base_url(); ?>index.php/student/summary/summaryList" target="content1">填写实习总结</a>
-                        <a href="<?= base_url(); ?>index.php/student/summary/summaryLists" target="content1">已提交实习总结</a>
+                        <a href="<?= base_url(); ?>index.php/student/summary/summaryLists" target="content1">实习总结状态</a>
                         <a href="<?= base_url(); ?>index.php/student/chakan1/chakan1List" target="content1">查看评价</a>                    
                     </div>
                     <p class="menu_head">互动管理</p>

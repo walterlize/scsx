@@ -178,6 +178,19 @@ class m_course extends CI_Model {
     	$this->db->delete('coursep');
     }
     
+    
+    
+    //分页查询
+    function getCoursesLike($tea_num, $array) {
+    	$this->db->select();
+    	$this->db->like('cour_teac_num',$tea_num);
+    	$this->db->where($array);
+    	$this->db->order_by('cour_no','asc');
+    	$this->db->order_by('cour_num','asc');
+    	$q = $this->db->get('coursep');
+    	return $q->result();
+    }
+    
 
 }
 ?>

@@ -19,12 +19,12 @@ class Course extends CI_Controller {
         //教师工号
         $teaNum = $this->session->userdata('u_num');
         $this->load->model('m_ncourse');
-        $array=array('courseTeaId'=>$teaNum.'*');
-        $num = $this->m_ncourse->getNum($array);
+        //$array=array('courseTeaId'=>$teaNum.'*');
+        $num = $this->m_ncourse->getNumLike($teaNum.'*');
        
         $offset = $this->uri->segment(4);
 
-        $data['course'] = $this->getCourses($array,$offset);
+        $data['course'] = $this->getCourses($teaNum.'*',$offset);
         
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
@@ -236,11 +236,11 @@ class Course extends CI_Controller {
     
     
     // 分页获取全部实验任务信息
-    public function getCourses($array,$offset) {
+    public function getCourses($tea_num,$offset) {
         $this->timeOut();
         $this->load->model('m_ncourse');
         $data = array();
-        $result = $this->m_ncourse->getNcourses($array, PER_PAGE, $offset);
+        $result = $this->m_ncourse->getNcoursesLike($tea_num, PER_PAGE, $offset);
 
         $this->load->model('m_course');
         foreach ($result as $r) {

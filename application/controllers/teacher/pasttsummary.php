@@ -18,11 +18,8 @@ class Tsummary extends CI_Controller {
     public function tsummaryList() {
         $this->timeOut();
 
-        $tea_num = $this->session->userdata('u_num');
-        ========================
-        $array = array('miss');
-        $this->load->model('m_summary');
-        $num = $this->m_summary->getNum();
+        $this->load->model('m_tsummary');
+        $num = $this->m_tsummary->getNum(array());
         $offset = $this->uri->segment(4);
 
         $data['tsummary'] = $this->getTsummarys1($offset);

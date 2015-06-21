@@ -93,6 +93,22 @@ class m_ncourse extends CI_Model {
     	return $this->db->count_all_results();
     }
     
+    //按条件获得实习项目条数
+    function getNumLike($tea_num) {
+    	$this->db->select();
+    	$this->db->from('ocourse');
+    	$this->db->where('courseTeaId',$tea_num);
+    	return $this->db->count_all_results();
+    }
+    
+    //分页查询
+    function getNcoursesLike($tea_num, $per_page, $offset) {
+    	$this->db->select();
+    	$this->db->where('courseTeaId',$tea_num);
+    	$q = $this->db->get('ocourse', $per_page, $offset);
+    	return $q->result();
+    }
+    
 
 }
 ?>

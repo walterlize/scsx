@@ -15,114 +15,156 @@ class Student extends CI_Controller {
         date_default_timezone_set('PRC');
     }
 
-    public function studentList() {
+	public function courseList() {
         $this->timeOut();
-
-        $this->load->model('m_student');
-        $num1 = $this->m_student->getNum1(array());
-        $num2 = $this->m_student->getNum2(array());
-        $num = $num1+$num2;
+        //教师工号
+        $teaNum = $this->session->userdata('u_num');
+        $this->load->model('m_ncourse');
+        $array=array('courseTeaId'=>$teaNum.'*');
         $offset = $this->uri->segment(4);
+        $data1 = $this->getCourses($teaNum.'*',$offset);
+        $num1 = $data1['num'];
+        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $num = $num - $num1;
 
-        $data['student1'] = $this->getStudents1($offset);
-        $data['student2'] = $this->getStudents2($offset);
-        $config['base_url'] = base_url() . 'index.php/teacher/student/studentList';
+        $data['course'] = $data1['data'];
+        
+        $config['base_url'] = base_url() . 'index.php/teacher/student/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
 
         $this->load->view('common/header3');
-        $this->load->view('teacher/student/student', $data);
+        $this->load->view('teacher/student/course', $data);
         $this->load->view('common/footer');
     }
+    
+    public function studentList() {
+    	
+    	$this->timeOut();
+    	//查找课程号
+    	$cour_id=$this->uri->segment(4);
+    	$coursep = $this->getCoursepById($cour_id);
+    	$array2 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term,'elco_state'=>6);
+    	
+    	//已分配基地选课学生
+    	$audit = $this->getStudent($array2);
+    	//未选课学生
+    	 
+    	$offset = $this->uri->segment(5);
+    	$num = count($audit);
+    	
+    	$config['base_url'] = base_url() . 'index.php/teacher/student/studentList/'.$cour_id;
+    	$config['total_rows'] = $num;
+    	$config['uri_segment'] = 5;
+    	$this->pagination->initialize($config);
+    	$data['page'] = $this->pagination->create_links();
+    	 
+    	$data['audit'] = array_slice($audit,$offset,PER_PAGE);
+    	$data['cour_id'] = $cour_id;
+    		
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/student/student', $data);
+    	$this->load->view('common/footer');
 
+    }
+    
     // 实验任务详细信息页面
-    public function studentDetail1() {
-        $this->timeOut();
-        $id = $this->uri->segment(4);
-        $data = $this->getStudent1($id);
-
-        $this->load->view('common/header3');
-        $this->load->view('teacher/student/studentDetail1', $data);
-        $this->load->view('common/footer');
-    }
-    // 实验任务详细信息页面
-    public function studentDetail2() {
-        $this->timeOut();
-        $id = $this->uri->segment(4);
-        $data = $this->getStudent2($id);
-
-        $this->load->view('common/header3');
-        $this->load->view('teacher/student/studentDetail2', $data);
-        $this->load->view('common/footer');
+    public function studentDetail() {
+    	$this->timeOut();
+    	$cour_id = $this->uri->segment(4);
+    	$elco_id = $this->uri->segment(5);
+    	$elecom = $this->getElecom($elco_id);
+    
+    	$data['elco'] = $elecom;
+    	$data['cour_id'] = $cour_id;
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/student/studentDetail', $data);
+    	$this->load->view('common/footer');
     }
     
-    // 分页获取全部实验任务信息
-    public function getStudents1($offset) {
-        $this->timeOut();
-        $this->load->model('m_student');
-        $data = array();
-        $result = $this->m_student->getStudents1($data, PER_PAGE, $offset);
 
-        foreach ($result as $r) {
-            $arr = array( 
-            		'b_id' => $r->b_id,
-            		'courseName' => $r->courseName,
-            		'stuMajor' => $r->stuMajor,
-            		'stuId' => $r->stuId,
-            		'stuName' => $r->stuName,
-            		'stuSex' => $r->stuSex,
-            		        
-                );
-            array_push($data, $arr);
-        }
-        return $data;
+    public function getCourses($array,$offset) {
+    	$this->timeOut();
+    	$this->load->model('m_ncourse');
+    	$data = array();
+    	$result = $this->m_ncourse->getNcoursesLike($array, PER_PAGE, $offset);
+    
+    	$this->load->model('m_course');
+    	$i = 0;
+    	foreach ($result as $r) {
+    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->term,'cour_publish'=>1);
+    		$resCourse = $this->getCoursep($arrCourse);
+    		if($resCourse){
+    			$arr = array(
+    					'id'=>$r->id,
+    					'courseId' => $r->courseId,
+    					'courseNum' => $r->courseNum,
+    					'courseName' => $r->courseName,
+    					'coursePattern' => $resCourse->patt_type,
+    					'coursePublish' => $resCourse->cour_publish,
+    					'cour_id' => $resCourse->cour_id
+    			);
+    			array_push($data, $arr);
+    		}else{
+    			$i++;
+    		}
+    
+    	}
+    	$data1['num']=$i;
+    	$data1['data']=$data;
+    	return $data1;
+    }
+    // 获取单个
+    function getCoursep($array) {
+    	$this->load->model('m_course');
+    	$result = $this->m_course->getCourse_ws($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
     
-    public function getStudents2($offset) {
-        $this->timeOut();
-        $this->load->model('m_student');
-        $data = array();
-        $result = $this->m_student->getStudents2($data, PER_PAGE, $offset);
-
-        foreach ($result as $r) {
-            $arr = array( 'userId' => $r->userId,'stuname' => $r->stuname, 'sturealname' => $r->sturealname,
-                'stusex' => $r->stusex, 'c_id' => $r->c_id, 'comId' => $r->comId, 'yu_id' => $r->yu_id,
-                'comName' => $r->comName, 'content' => $r->content, 'plan' => $r->plan,
-                'stateId' => $r->stateId, 'p_id' => $r->p_id, 'yu_name' => $r->yu_name, 'ypassword' => $r->ypassword,
-                'yrealname' => $r->yrealname, 'yphone' => $r->yphone, 'yemail' => $r->yemail, 'yaddress' => $r->yaddress,'state' => $r->state,
-                'p_name' => $r->p_name, 'patternId' => $r->patternId, 'depart' => $r->depart, 'ycollegeId' => $r->ycollegeId,
-                'pattern' => $r->pattern, 'ysex' => $r->ysex, 'u_id' => $r->u_id, 'u_name' => $r->u_name,
-                'roleId' => $r->roleId, 'password' => $r->password, 'realname' => $r->realname, 'phone' => $r->phone, 'email' => $r->email,
-                'address' => $r->address, 'classId' => $r->classId, 'sex' => $r->sex, 'ustateId' => $r->ustateId, 'collegeId' => $r->collegeId,
-                'trealname' => $r->trealname,'class' => $r->class, 'stuId' => $r->stuId, 'fb_id' => $r->fb_id
-                );
-            array_push($data, $arr);
-        }
-        return $data;
+    //已提交基地学生
+    function getStudent($array){
+    	$data = array();
+    	$this->load->model('m_elecom');
+    	$result = $this->m_elecom->getElecom_ws($array);
+    	foreach ($result as $r) {
+    		$arr = array(
+    				'stu_num'=>$r->elco_stu_num,
+    				'stu_name' => $r->elco_stu_name,
+    				'stu_class' => $r->elco_stu_class,
+    				'elco_name' => $r->comp_name,
+    				'elco_id' => $r->elco_id,
+    				'elco_state' => $r->usta_type
+    		);
+    		array_push($data, $arr);
+    	}
+    	 
+    	return $data;
     }
-
-    // 获取单个实验任务信息
-    function getStudent1($id) {
-        $this->load->model('m_student');
-        $result = $this->m_student->getOneInfo1($id);
-        $data = array();
-        foreach ($result as $r) {
-            $data = $r;
-        }
-        return $data;
+    // 获取单个
+    function getCoursepById($id) {
+    	$this->load->model('m_course');
+    	$result = $this->m_course->getCourseById_ws($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
-    
-    // 获取单个实验任务信息
-    function getStudent2($id) {
-        $this->load->model('m_student');
-        $result = $this->m_student->getOneInfo2($id);
-        $data = array();
-        foreach ($result as $r) {
-            $data = $r;
-        }
-        return $data;
+    // 获取单个
+    function getElecom($id) {
+    	$this->load->model('m_elecom');
+    	$result = $this->m_elecom->getElecomById_ws($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
    
     // session中的role不存在的时候退出系统
