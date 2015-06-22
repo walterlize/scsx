@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <link href="<?= base_url(); ?>css/css1.css" type="text/css" rel="stylesheet" />
-        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="<?=base_url()?>js/jquery.min.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>left</title>
     </head>
@@ -26,7 +26,7 @@
                     <div style="display:block" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1" title="选择实习模式、编辑实习基底、发布实习课程">实习课程发布</a>
                         <a href="<?= base_url(); ?>index.php/teacher/audit/courseList" target="content1" title="审核报名学生的实习课程报名">实习学生审核</a>
-                            <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1">实习基地管理</a>
+                            <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1" title="编辑实习基底">实习基地管理</a>
                     </div> 
                     <p class="menu_head">学生管理</p>
                     <div style="display:none" class=menu_body >                       

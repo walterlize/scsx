@@ -28,7 +28,7 @@ class Student extends CI_Controller {
         $num = $num - $num1;
 
         $data['course'] = $data1['data'];
-        
+        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
         $config['base_url'] = base_url() . 'index.php/teacher/student/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -54,13 +54,12 @@ class Student extends CI_Controller {
     	 
     	$offset = $this->uri->segment(5);
     	$num = count($audit);
-    	
     	$config['base_url'] = base_url() . 'index.php/teacher/student/studentList/'.$cour_id;
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 5;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
-    	 
+        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
     	$data['audit'] = array_slice($audit,$offset,PER_PAGE);
     	$data['cour_id'] = $cour_id;
     		

@@ -36,6 +36,7 @@ class Compmanage extends CI_Controller {
     	$config['uri_segment'] = 4;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
+        $data['num']=$num;
 
     	$data['company'] = array_slice($company,$offset,PER_PAGE);
     	$this->load->view('common/header3');
