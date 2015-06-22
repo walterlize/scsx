@@ -19,16 +19,15 @@ class Course extends CI_Controller {
         $this->timeOut();
         //教师工号
         $teaNum = $this->session->userdata('u_num');
-        $array=array('courseTeaId'=>$teaNum.'*');
-        $num = $this->m_ncourse->getNum($array);
+         //$array=array('courseTeaId'=>$teaNum.'*');
+        $num = $this->m_ncourse->getNumLike($teaNum.'*');
         $offset = $this->uri->segment(4);
-        $data['course'] = $this->getCourses($array,$offset);
+        $data['course'] = $this->getCourses($teaNum.'*',$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-
         $this->load->view('common/header3');
         $this->load->view('teacher/course/course', $data);
         $this->load->view('common/footer');
@@ -194,8 +193,8 @@ class Course extends CI_Controller {
      */
     function coursePublish2(){
     	//自选式课程发布 coursep表中cour_publish置1
-    	$o_id = $this->uri->segment(4);
-    	$m_id = $this->uri->segment(5);
+    	$o_id = $this->uri->segment(5);
+    	$m_id = $this->uri->segment(4);
     	$array = array('cour_publish'=>1);
     	$this->load->model('m_course');
     	$result = $this->m_course->updateCourse($m_id, $array);
@@ -233,11 +232,11 @@ class Course extends CI_Controller {
     
     
     // 分页获取全部实验任务信息
-    public function getCourses($array,$offset) {
+    public function getCourses($tea_num,$offset) {
         $this->timeOut();
         $this->load->model('m_ncourse');
         $data = array();
-        $result = $this->m_ncourse->getNcourses($array, PER_PAGE, $offset);
+        $result = $this->m_ncourse->getNcoursesLike($tea_num, PER_PAGE, $offset);
 
         $this->load->model('m_course');
         foreach ($result as $r) {
@@ -277,6 +276,8 @@ class Course extends CI_Controller {
         }
         return $data;
     }
+    
+    
     
     // 获取单个
     function getCoursep($array) {

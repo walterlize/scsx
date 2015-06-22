@@ -58,45 +58,58 @@ class Variablebm extends CI_Controller {
         	$arrElco = array('elco_cour_no'=>$r->courseId,'elco_cour_num'=>$r->courseNum,'elco_cour_term'=>$r->courseTerm,'elco_stu_num'=>$stu_num);
         	$resElco = $this->getElecom($arrElco);
         	if($resCourse){
-        		if($resCourse->cour_publish == 1){
-        			if($resElco){
-        				switch ($resElco->elco_state){
-        					case 5:
-					    		$arr = array(
-					    				'id' => $r->id,
-									    'courseId' => $r->courseId,
-									    'courseNum' => $r->courseNum,
-									    'courseName' => $r->courseName,
-					    				'coursePattern' => $resCourse->patt_type,
-						            	'coursePublish' => $resCourse->cour_publish,
-						            	'courseCompany' => "已提交基地",
-						            	'courseState' => "审核中"
-					    				);
-					    		break;
-        					case 6:
-        						$arr = array(
-        								'id' => $r->id,
-        								'courseId' => $r->courseId,
-        								'courseNum' => $r->courseNum,
-        								'courseName' => $r->courseName,
-        								'coursePattern' => $resCourse->patt_type,
-        								'coursePublish' => $resCourse->cour_publish,
-        								'courseCompany' => "已提交基地",
-        								'courseState' => "审核成功"
-        						);
-        						break;
-        					case 7:
-        						$arr = array(
-					    				'id' => $r->id,
-									    'courseId' => $r->courseId,
-									    'courseNum' => $r->courseNum,
-									    'courseName' => $r->courseName,
-					    				'coursePattern' => $resCourse->patt_type,
-						            	'coursePublish' => $resCourse->cour_publish,
-						            	'courseCompany' => "已提交基地",
-						            	'courseState' => "审核失败"
-					    				);
-					    		break;
+        		if($resCourse->cour_publish == 1){//课程发布
+        			if($resElco){//已提交基地
+        				if($resCourse->cour_pattern_id == 1){//自选式课程
+	        				switch ($resElco->elco_state){
+	        					case 5:
+						    		$arr = array(
+						    				'id' => $r->id,
+										    'courseId' => $r->courseId,
+										    'courseNum' => $r->courseNum,
+										    'courseName' => $r->courseName,
+						    				'coursePattern' => $resCourse->patt_type,
+							            	'coursePublish' => $resCourse->cour_publish,
+							            	'courseCompany' => "已提交基地",
+							            	'courseState' => "审核中"
+						    				);
+						    		break;
+	        					case 6:
+	        						$arr = array(
+	        								'id' => $r->id,
+	        								'courseId' => $r->courseId,
+	        								'courseNum' => $r->courseNum,
+	        								'courseName' => $r->courseName,
+	        								'coursePattern' => $resCourse->patt_type,
+	        								'coursePublish' => $resCourse->cour_publish,
+	        								'courseCompany' => "已提交基地",
+	        								'courseState' => "审核成功"
+	        						);
+	        						break;
+	        					case 7:
+	        						$arr = array(
+						    				'id' => $r->id,
+										    'courseId' => $r->courseId,
+										    'courseNum' => $r->courseNum,
+										    'courseName' => $r->courseName,
+						    				'coursePattern' => $resCourse->patt_type,
+							            	'coursePublish' => $resCourse->cour_publish,
+							            	'courseCompany' => "已提交基地",
+							            	'courseState' => "审核失败"
+						    				);
+						    		break;
+	        				}
+        				}elseif($resCourse->cour_pattern_id == 2){//志愿式课程
+        					$arr = array(
+        							'id' => $r->id,
+        							'courseId' => $r->courseId,
+        							'courseNum' => $r->courseNum,
+        							'courseName' => $r->courseName,
+        							'coursePattern' => $resCourse->patt_type,
+        							'coursePublish' => $resCourse->cour_publish,
+        							'courseCompany' => "已提交基地",
+        							'courseState' => "--"
+        					);
         				}
 			    		
         			}else{

@@ -1,40 +1,37 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3>学生信息列表</h3>
+    <h3>已发布课程列表</h3>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
-            <th scope="col">实习项目名称</th>
-            <th scope="col">学生院系</th>
-            <th scope="col">学生学号</th>
-            <th scope="col">学生姓名</th>
-            <th scope="col">学生性别</th>
+            <th scope="col">学号</th>
+            <th scope="col">姓名</th>
+            <th scope="col">班级</th>
+            <th scope="col">基地</th>
+            <th scope="col">状态</th>
             <th scope="col">操作</th>
         </tr>
-        <?php if (is_array($student1)) foreach ($student1 as $r): ?>
+        <?php if (is_array($audit)) foreach ($audit as $r): ?>
                 <tr class="RowStyle" align="center">
-                    <td><?= $r['courseName'] ?></td>
-                    <td><?= $r['stuMajor'] ?></td>
-                    <td><?= $r['stuId'] ?></td>
-                    <td><?= $r['stuName'] ?></td>
-                    <td><?= $r['stuSex'] ?></td>
+                    <td><?= $r['stu_num'] ?></td>
+                    <td><?= $r['stu_name'] ?></td>
+                    <td><?= $r['stu_class'] ?></td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/teacher/student/studentDetail1/<?= $r['b_id'] ?>">详细</a>
+                    <?php if($r['elco_id']!=0){?>
+                        <?= $r['elco_name'] ?>
+                    <?php }else{?>
+                    	<?= $r['elco_name'] ?>
+                    <?php }?>
+                    </td>
+                    
+                    
+                    <td><?= $r['elco_state'] ?></td>
+                    <td style="width: 200px;">
+                   <a id="" href="<?= base_url() ?>index.php/teacher/student/studentDetail/<?=$cour_id?>/<?= $r['elco_id'] ?>">详细</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <tr><td></td></tr>
-        <?php if (is_array($student2)) foreach ($student2 as $r): ?>
-                <tr class="RowStyle" align="center">
-                    <td><?= $r['p_name'] ?></td>
-                    <td><?= $r['depart'] ?></td>
-                    <td><?= $r['stuname'] ?></td>
-                    <td><?= $r['sturealname'] ?></td>
-                    <td><?= $r['stusex'] ?></td>
-                    <td>
-                        <a id="" href="<?= base_url() ?>index.php/teacher/student/studentDetail2/<?= $r['fb_id'] ?>">详细</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+
     </table>
     <div align="center"><?= $page ?></div>
 </div>
+

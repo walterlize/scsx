@@ -45,11 +45,15 @@
             ?>&nbsp;
             </td>
         </tr>
-        
+        <tr>
+            <td class="td1" colspan="2">
+            <span style="color: red">课程为分配式，请为课程设置基地并为选课学生分配基地</span>
+            </td>
+        </tr>
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            	<input type="button" name="btnReturn" value="设 置 模 式" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseNew/<?=$course->id?>';" id="btnReturn" class="input" />
+            	<input type="button" name="btnReturn" value="设 置 基 地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyList/<?=$coursep->cour_id?>/<?=$course->id?>';" id="btnReturn" class="input" />
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/courseList';" id="btnReturn" class="input" />      
             </td>
         </tr>

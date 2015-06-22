@@ -111,7 +111,7 @@ class m_course extends CI_Model {
     function getCourse_ws($array) {
     	$this->db->select();
     	$this->db->from('ws_coursep');
-    	$this->db->where('cour_coll_name',$this->session->userdata('college'));
+    	
     	$this->db->where($array);
     	$q = $this->db->get();
     	return $q->result();
@@ -176,6 +176,19 @@ class m_course extends CI_Model {
     function deleteCourse($id) {
     	$this->db->where('cour_id', $id);
     	$this->db->delete('coursep');
+    }
+    
+    
+    
+    //分页查询
+    function getCoursesLike($tea_num, $array) {
+    	$this->db->select();
+    	$this->db->like('cour_teac_num',$tea_num);
+    	$this->db->where($array);
+    	$this->db->order_by('cour_no','asc');
+    	$this->db->order_by('cour_num','asc');
+    	$q = $this->db->get('coursep');
+    	return $q->result();
     }
     
 

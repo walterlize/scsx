@@ -20,6 +20,11 @@ class Company extends CI_Controller {
     	$this->timeOut();
     	//课程在MySQL表中的id
     	$cour_id= $this->uri->segment(4); 
+    	$coursep = $this->getCoursepById($cour_id);
+    	$show = 'display:none';
+    	if($coursep->cour_pattern_id == 1 ){
+    		$show = '';
+    	}
     	//根据课程号查找审核成功的基地
     	$array=array('cour_id'=>$cour_id,'comp_stat_id'=>6);
     	
@@ -37,6 +42,7 @@ class Company extends CI_Controller {
     	$data['page'] = $this->pagination->create_links();
 
     	$data['cour_id']=$cour_id;
+    	$data['show']=$show;
     	$this->load->view('common/header3');
     	$this->load->view('student/company/company', $data);
     	$this->load->view('common/footer');

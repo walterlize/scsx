@@ -30,7 +30,7 @@
                     </div> 
                     <p class="menu_head">学生管理</p>
                     <div style="display:none" class=menu_body >                       
-                        <a href="<?= base_url(); ?>index.php/teacher/student/studentList" target="content1">查看学生信息</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/student/courseList" target="content1">查看学生信息</a>
                         <a href="<?= base_url(); ?>index.php/teacher/mission/missionList" target="content1">下达实习总结任务</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryList" target="content1">审核实习总结</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryLists" target="content1">查看实习总结</a>

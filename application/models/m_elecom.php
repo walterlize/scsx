@@ -104,6 +104,13 @@ class m_elecom extends CI_Model {
         return $this->db->affected_rows();
     }
     
+    //更新
+    function updateElecomByArr($array1, $array2) {
+    	$this->db->where($array1);
+    	$this->db->update('elecom', $array2);
+    	return $this->db->affected_rows();
+    }
+    
     function deleteElecom($id) {
     	$this->db->where('elco_id', $id);
     	$this->db->delete('elecom');
@@ -119,6 +126,7 @@ class m_elecom extends CI_Model {
     	$this->db->select();
     	$this->db->from('ws_elecom');
     	$this->db->where($array);
+    	$this->db->order_by('elco_stu_num');
     	$q = $this->db->get();
     	return $q->result();
     }

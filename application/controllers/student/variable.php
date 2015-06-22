@@ -43,11 +43,15 @@ class Variable extends CI_Controller {
     	$this->timeOut();
     	$this->load->model('m_nvariable');
     	$result = $this->m_nvariable->getNvariables($array, PER_PAGE, $offset);
-    
+        //var_dump($result);echo "<br>";
     	$data = array();
     	foreach ($result as $r) {
+    		
     		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->courseTerm);
-        	$resCourse = $this->getCoursep($arrCourse);
+    		//var_dump($arrCourse);echo "<br>";
+    		$resCourse = $this->getCoursep($arrCourse);
+    		//var_dump($resCourse);echo "<br>";
+    		//----------------
         	if($resCourse){
 	    		$arr = array(
 	    				'id' => $r->id,

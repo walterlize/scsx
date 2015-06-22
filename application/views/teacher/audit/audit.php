@@ -16,17 +16,30 @@
                     <td class="td3"><?= $r['stu_name'] ?></td>
                     <td class="td1"><?= $r['stu_class'] ?></td>
                     <td class="td3"><?= $r['elco_name'] ?></td>
-                    <td class="td1"><?= $r['elco_state'] ?></td>
-                    <td class="td3">
+                    <td class="td1">
                     <?php if($r['elco_id']!=0){?>
-                        <a id="" href="<?= base_url() ?>index.php/teacher/audit/auditDetail/<?=$cour_id?>/<?= $r['elco_id'] ?>">详细基地信息</a>
+                        <a id="" href="<?= base_url() ?>index.php/teacher/audit/auditDetail/<?=$cour_id?>/<?= $r['elco_id'] ?>"><?= $r['elco_name'] ?></a>
                     <?php }else{?>
-                    	无基地信息
+                    	<?= $r['elco_name'] ?>
+                    <?php }?>
+                    </td>
+                    
+                    
+                     <td class="td1"><?= $r['elco_state'] ?></td>
+                    <td style="width: 200px;">
+                    <?php if($r['elco_id']!=0){?>
+                        <input type="button" name="btnReturn" value="通过" onclick="window.location.href='<?= base_url() ?>index.php/teacher/audit/auditPassa/<?= $cour_id ?>/<?= $r['elco_id']?>';" id="btnReturn" class="input" /> 
+						<input type="button" name="btnReturn" value="失败" onclick="window.location.href='<?= base_url() ?>index.php/teacher/audit/auditFaila/<?= $cour_id ?>/<?= $r['elco_id']?>';" id="btnReturn" class="input" /> 
+                    <?php }else{?>
+                    	未提交基地
                     <?php }?>
                     </td>
                 </tr>
             <?php endforeach; ?>
 
     </table>
-    <div  class="page"><?= $page ?></div>
+
+    <div align="center"><?= $page ?></div>
 </div>
+
+

@@ -1,5 +1,5 @@
 <?php
-
+//志愿式分配基地
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -40,9 +40,17 @@ class Compcourpublish extends CI_Controller {
 		$companyu = $this->myArrDiff($company,$companyc,'comp_id');//不匹配基地
 		$offset = $this->uri->segment(6);
 		$company = array_merge($companyc,$companyu);
+		
+		//若基地数小于1，将课程改为未发布
+		$comNum = count($companyc);
+		if($comNum < 1){
+			$this->load->model('m_course');
+			$arrCourse = array('cour_publish'=>0);
+			$this->m_course->updateCourse($cour_id, $arrCourse);
+		}
+
 		$num = count($company);
-		 
-		$config['base_url'] = base_url() . 'index.php/teacher/company/companyList/'.$cour_id.'/'.$o_id;
+		$config['base_url'] = base_url() . 'index.php/teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id;
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 6;
 		$this->pagination->initialize($config);
@@ -55,7 +63,7 @@ class Compcourpublish extends CI_Controller {
 		$data['flag']= count($companyc);
 		
 		$this->load->view('common/header3');
-		$this->load->view('teacher/company/compCourPublish', $data);
+		$this->load->view('teacher/compcourp/compCourPublish', $data);
 		$this->load->view('common/footer');
 	}
     
@@ -71,7 +79,7 @@ class Compcourpublish extends CI_Controller {
         $data['comp']=$comp;
         $data['cour_id']=$cour_id;
         $this->load->view('common/header3');
-        $this->load->view('teacher/company/companyDetail', $data);
+        $this->load->view('teacher/compcourp/companyDetail', $data);
         $this->load->view('common/footer');
     }
     
@@ -82,7 +90,7 @@ class Compcourpublish extends CI_Controller {
     	//1
     	$this->timeOut();
     	//print_r($this->session->all_userdata());
-    	
+    	$o_id=$this->uri->segment(5);
     	$cour_id=$this->uri->segment(4);
     	$coursep = $this->getCoursepById($cour_id);
     	
@@ -118,9 +126,10 @@ class Compcourpublish extends CI_Controller {
     	$data['user']=$user;
     	$data['coco']=$coco;
     	$data['elco']=$elco;
+    	$data['o_id']=$o_id;
     	
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/company/companyEdit', $data);
+    	$this->load->view('teacher/compcourp/companyEdit', $data);
     	$this->load->view('common/footer');
     }
     
@@ -150,7 +159,7 @@ class Compcourpublish extends CI_Controller {
     	$data['elco']=$elco;
     	 
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/company/companyEdit', $data);
+    	$this->load->view('teacher/compcourp/companyEdit', $data);
     	$this->load->view('common/footer');
     }
     
@@ -159,6 +168,7 @@ class Compcourpublish extends CI_Controller {
     function save(){
     	//1
     	$this->timeOut();
+    	
     	$cour_id = $this->uri->segment(4);
     	$coursep = $this->getCoursepById($cour_id);
     	//1.user表
@@ -181,8 +191,9 @@ class Compcourpublish extends CI_Controller {
     	echo '<script language="JavaScript">alert("添加成功");</script>';
     	
     	$data['comp']=$comp;
+    	$data['o_id'] = $this->uri->segment(5);
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/company/comcouDetail', $data);
+    	$this->load->view('teacher/compcourp/comcouDetail', $data);
     	$this->load->view('common/footer');
     }
     
@@ -199,6 +210,7 @@ class Compcourpublish extends CI_Controller {
     	$cour_id = $this->uri->segment(4);
     	$coco_id = $this->uri->segment(5);
     	$comp_id = $this->uri->segment(6);
+    	$o_id = $this->uri->segment(7);
     	
     	$this->load->model('m_coucom');
     	$this->m_coucom->deleteCoucom($coco_id);
@@ -209,8 +221,7 @@ class Compcourpublish extends CI_Controller {
     	$array=array('elco_cour_id'=>$cour_id,'elco_comp_id'=>$comp_id);
     	
     	$this->m_elecom->deleteElecomByArr($array);
-    	
-    	redirect('teacher/compcourpublish/companyList/'.$cour_id);
+    	redirect('teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id);
     }
     
     /*
@@ -221,6 +232,7 @@ class Compcourpublish extends CI_Controller {
     	//新增coucom表
     	$cour_id = $this->uri->segment(4);
     	$comp_id = $this->uri->segment(5);
+    	$o_id = $this->uri->segment(6);
     	//课程相关信息
     	$coursep = $this->getCoursepById($cour_id);
     	
@@ -232,8 +244,7 @@ class Compcourpublish extends CI_Controller {
     	$coco->coco_comp_id = $comp_id;
     	$this->load->model('m_coucom');
     	$coco_id = $this->m_coucom->saveInfoByArr($coco);
-    	
-    	redirect('teacher/compcourpublish/companyList/'.$cour_id);
+    	redirect('teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id);
     	
     }
     

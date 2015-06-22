@@ -1,5 +1,7 @@
 <?php
-
+//---------------------------
+//oracle---------------------
+//---------------------------
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -18,109 +20,138 @@ class Summary extends CI_Controller {
 
     public function summaryList() {
         $this->timeOut();
+        $stu_num = $this->session->userdata('u_num');
+        //$array = array('summ_stu_num'=>$stu_num);
+        //1.已发布选课列表
+        $array=array('stuId'=>$stu_num);
+    	$this->load->model('m_nvariable');
+    	$num = $this->m_nvariable->getNum($array);
+    	$data1 = $this->getVariables($array);
+    	$variable = $data1['data'];
+    	$num = $num - $data1['num'];
+        //2.课程任务
+        $mission = array();
+        foreach ($variable as $r){
+        	$arraym = array('miss_cour_id'=>$r['cour_id']);
+        	$mission[$r['cour_id']]=$this->getMission($arraym);
+        }
 
-        $this->load->model('m_summary');
-        $num1 = $this->m_summary->getNum11(array());
-        $num2 = $this->m_summary->getNum12(array());
-        $num = $num1+$num2;
-        $offset = $this->uri->segment(4);
-
-        $data['summary1'] = $this->getSummarys1($offset);
-        $data['summary2'] = $this->getSummarys2($offset);
-        $config['base_url'] = base_url() . 'index.php/student/summary/summaryList';
-        $config['total_rows'] = $num;
-        $config['uri_segment'] = 4;
-        $this->pagination->initialize($config);
-        $data['page'] = $this->pagination->create_links();
-
+       
+		$data['variable']=$variable;
+		$data['mission']=$mission;
         $this->load->view('common/header3');
         $this->load->view('student/summary/summary', $data);
         $this->load->view('common/footer');
     }
     
-    public function summaryLists() {
-        $this->timeOut();
-
-        $this->load->model('m_summary');
-        $num = $this->m_summary->getNum2(array());
-        $offset = $this->uri->segment(4);
-
-        $data['summary'] = $this->sgetSummarys($offset);
-        $config['base_url'] = base_url() . 'index.php/student/summary/summaryLists';
-        $config['total_rows'] = $num;
-        $config['uri_segment'] = 4;
-        $this->pagination->initialize($config);
-        $data['page'] = $this->pagination->create_links();
-
-        $this->load->view('common/header3');
-        $this->load->view('student/summary/summarys', $data);
-        $this->load->view('common/footer');
-    }
-
-    // 实验任务详细信息页面
-    public function summaryDetail1() {   
-        $this->timeOut();
-        $stuId = $this->session->userdata('u_name');
-        $id = $this->uri->segment(4);
-        $array = array('m_id' => $id, 'stuId' => $stuId);
-        $result = $this->m_summary->getExist($array);
-
-        if ($result) {
-            $show = 'display:none';
-            $show1 = 'display';
-        } else {
-            $show = 'display';
-            $show1 = 'display:none';
-        }
-        $data['show'] = $show;
-        $data['show1'] = $show1;
-        $data['summary'] = $this->getSummary($id);
-
-        $this->load->view('common/header3');
-        $this->load->view('student/summary/summaryDetail1', $data);
-        $this->load->view('common/footer');
-    }
-    public function summaryDetail2() {   
-        $this->timeOut();
-        $stuId = $this->session->userdata('u_id');
-        $id = $this->uri->segment(4);
-        $array = array('m_id' => $id, 'stuId' => $stuId);
-        $result = $this->m_summary->getExist($array);
-
-        if ($result) {
-            $show = 'display:none';
-            $show1 = 'display';
-        } else {
-            $show = 'display';
-            $show1 = 'display:none';
-        }
-        $data['show'] = $show;
-        $data['show1'] = $show1;
-        $data['summary'] = $this->getSummary($id);
-
-        $this->load->view('common/header3');
-        $this->load->view('student/summary/summaryDetail2', $data);
-        $this->load->view('common/footer');
+    // 分页获取全部实验任务信息
+    public function getVariables($array) {
+    	$this->timeOut();
+    	$this->load->model('m_nvariable');
+    	$result = $this->m_nvariable->getNvariable($array);
+    	
+    	$data = array();
+    	foreach ($result as $r) {
+    
+    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->courseTerm);
+    		//var_dump($arrCourse);echo "<br>";
+    		$resCourse = $this->getCoursep($arrCourse);
+    		//var_dump($resCourse);echo "<br>";
+    		$i=0;
+    		//课程已发布
+    		if($resCourse){
+    			$arr = array(
+    					'cour_id' => $resCourse->cour_id,
+    					'cour_no' => $r->courseId,
+    					'cour_num' => $r->courseNum,
+    					'cour_name' => $r->courseName,
+    					
+    			);
+    			array_push($data, $arr);
+    		}else{
+    			//课程未发布
+    			$i++;
+    		}
+    		
+    	}
+    	$data1['data']=$data;
+    	$data1['num']=$i;
+    	return $data1;
     }
     
-    // 实验任务详细信息页面
-    public function summaryDetails() {
-        $this->timeOut();
-        $id = $this->uri->segment(4);
-        $data = $this->sgetSummary($id);
-
-
-        $this->load->view('common/header3');
-        $this->load->view('student/summary/summaryDetails', $data);
-        $this->load->view('common/footer');
+    function getMission($array){
+    	$this->load->model('m_mission');
+    	$result = $this->m_mission->getMission($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$arr = array(
+    				'miss_id'=>$r->miss_id,
+    				'miss_title'=>$r->miss_title,
+    				'miss_start_time'=>$r->miss_start_time,
+    				'miss_end_time'=>$r->miss_end_time,
+    		);
+    		array_push($data,$arr);
+    	}
+    	return $data;
     }
+    
+    function getMissionById($id){
+    	$this->load->model('m_mission');
+    	$result = $this->m_mission->getMissionById_ws($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
+    }
+    
+    
+    
+    // 实验任务详细信息页面
+    public function summaryDetail() {   
+        $this->timeOut();
+        $stu_num = $this->session->userdata('u_name');
+        //任务详情
+        $miss_id = $this->uri->segment(4);
+        $mission = $this->getMissionById($miss_id);
+        $data['mission'] = $mission;
+
+        //查看是否提交
+        $array = array('summ_stu_num'=>$stu_num,'summ_miss_id'=>$miss_id);
+        $summary = $this->getSummaryByArr($array);
+        if($summary){
+        	$data['summary']=$summary;
+        	$this->load->view('common/header3');
+        	$this->load->view('student/summary/summaryDetaily', $data);
+        	$this->load->view('common/footer');
+        }else{
+        	$flag=0;
+        	$date1=date('Y-m-d H:m:s');
+        	if($mission->miss_end_time!="0000-00-00 00:00:00"){
+        		if(strtotime($date1) > strtotime($mission->miss_end_time)){
+        			$flag = 1;//超时
+        		}
+        	}
+        	$data['flag']=$flag;
+        	
+	        $this->load->view('common/header3');
+	        $this->load->view('student/summary/summaryDetailn', $data);
+	        $this->load->view('common/footer');
+        }
+    }
+    
+    
 
     // 实验任务信息编辑页面
     public function summaryEdit() {
         $this->timeOut();
-        $id = $this->uri->segment(4);
-        $data['summary'] = $this->getSummary($id);
+        $summ_id = $this->uri->segment(4);
+        $summary = $this->getSummaryById($summ_id);
+        $summary->summ_time = date('Y-m-d H:m:s');
+        $mission = $this->getMissionById($summary->summ_miss_id);
 
+        $data['summary'] = $summary;
+        $data['mission'] = $mission;
         $data['showActive'] = '';
         $data['showUnactive'] = 'display:none';
 
@@ -133,16 +164,20 @@ class Summary extends CI_Controller {
     public function summaryNew() {
         $this->timeOut();
 
-        @$ws_summary->sumId = 0;
-        $ws_summary->m_id = $this->uri->segment(4);
-        $ws_summary->stuId = $this->session->userdata('u_id');
-        $ws_summary->content = '';
-        $ws_summary->sendTime = '';
-        $ws_summary->s_state = '';
+        $miss_id = $this->uri->segment(4);
+        @$summary->summ_id = 0;
+        $summary->summ_miss_id = $miss_id;
+        $summary->summ_stu_num = $this->session->userdata('u_num');
+        $summary->summ_content = '';
+        $summary->summ_time = date("Y-m-d H:m:s");
+        
+        $summary->summ_appr_id = 5;
+        $summary->summ_appr_time = '0000-00-00';
+        $summary->summ_result = '';
 
-        $id = $this->uri->segment(4);
-        $data['mission'] = $this->getSummary($id);
-        $data['summary'] = $ws_summary;
+        
+        $data['mission'] = $this->getMissionById($miss_id);
+        $data['summary'] = $summary;
 
         $data['show'] = 'display:none';
         $data['showActive'] = 'display:none';
@@ -155,63 +190,31 @@ class Summary extends CI_Controller {
 
     public function summaryDelete() {
         $this->timeOut();
-        $id = $this->uri->segment(4);
+        $summ_id = $this->uri->segment(4);
         $this->load->model('m_summary');
-        $this->m_summary->delete($id);
+        $this->m_summary->deleteSummary($summ_id);
 
-        $num = $this->m_summary->getNum1(array());
-        $offset = 0;
-
-        $data['summary'] = $this->getSummarys($offset);
-        $config['base_url'] = base_url() . 'index.php/student/summary/summaryList';
-        $config['total_rows'] = $num;
-        $config['uri_segment'] = 4;
-        $this->pagination->initialize($config);
-        $data['page'] = $this->pagination->create_links();
-
-        $this->load->view('common/header3');
-        $this->load->view('student/summary/summary', $data);
-        $this->load->view('common/footer');
+        redirect('student/summary/summaryList');
     }
 
     // 保存实验任务信息
     public function save() {
         $this->timeOut();
+        $miss_id = $this->uri->segment(4);
 
         $this->load->model('m_summary');
-        $m_id = $this->uri->segment(4);
-        
-        $id = $this->m_summary->saveInfo($m_id);
-        $data = $this->sgetSummary($id);
+        $summ_id = $this->m_summary->saveInfo();
 
+        $summary = $this->getSummaryById($summ_id);
+        $mission = $this->getMissionById($miss_id);
+        $data['summary']=$summary;
+        $data['mission']=$mission;
         $this->load->view('common/header3');
-        $this->load->view('student/summary/summaryDetails', $data);
+        $this->load->view('student/summary/summaryDetaily', $data);
         $this->load->view('common/footer');
     }
 
-    // 分页获取全部实验任务信息
-    public function getSummarys1($offset) {
-        $this->timeOut();
-        $this->load->model('m_summary');
-        $data = array();
-        $result = $this->m_summary->getSummarys1($data, PER_PAGE, $offset);
-
-        foreach ($result as $r) {
-            $arr = array(
-            		'm_id' => $r->m_id, 
-            		'content' => $r->content,
-            		'workTime' => $r->workTime,
-                    'stateId' => $r->stateId, 
-            		'title' => $r->title, 
-            		'teaId' => $r->teaId,
-            		'p_name' => $r->courseName,
-            		'stuId' => $r->stuId,
-                    'stu_name' => $r->stuName,  
-            		'trealname' => $r->courseTeaName);
-            array_push($data, $arr);
-        }
-        return $data;
-    }
+    /*
     public function getSummarys2($offset) {
         $this->timeOut();
         $this->load->model('m_summary');
@@ -233,51 +236,42 @@ class Summary extends CI_Controller {
         }
         return $data;
     }
+    */
 
-    public function sgetSummarys($offset) {
-        $this->timeOut();
-        $this->load->model('m_summary');
-        $data = array();
-        $result = $this->m_summary->sgetSummarys($data, PER_PAGE, $offset);
-
-        foreach ($result as $r) {
-            $arr = array('sumId' => $r->sumId, 
-            		'content' => $r->content,
-            		'sendTime' => $r->sendTime,
-                    's_state' => $r->s_state, 
-            		'm_id' => $r->m_id,
-            		'teaId' => $r->teaId,
-                    'mcontent' => $r->mcontent,  
-            		'workTime' => $r->workTime,'stuId' => $r->stuId,
-                
-            		  
-            		'title' => $r->title);
-            array_push($data, $arr);
-        }
-        return $data;
-    }
+    
 
     // 获取单个实验任务信息
-    function getSummary($id) {
+    function getSummaryByArr($array) {
         $this->load->model('m_summary');
-        $result = $this->m_summary->getOneInfo($id);
+        $result = $this->m_summary->getSummary($array);
         $data = array();
         foreach ($result as $r) {
             $data = $r;
         }
         return $data;
+    }
+    // 获取单个实验任务信息
+    function getSummaryById($id) {
+    	$this->load->model('m_summary');
+    	$result = $this->m_summary->getSummaryById($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
     
-    // 获取单个实验任务信息
-    function sgetSummary($id) {
-        $this->load->model('m_summary');
-        $result = $this->m_summary->sgetOneInfo($id);
-        $data = array();
-        foreach ($result as $r) {
-            $data = $r;
-        }
-        return $data;
+    // 获取单个
+    function getCoursep($array) {
+    	$this->load->model('m_course');
+    	$result = $this->m_course->getCourse_ws($array);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
+
 
     // session中的role不存在的时候退出系统
     function timeOut() {

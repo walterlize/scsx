@@ -1,9 +1,9 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
     <h3>课程基地信息</h3>
-    <span >请选择基地或
+    <span style="<?php if(isset($show)) echo $show?>">请选择基地或
     
-    	<input type="button" name="btnReturn" value="新增基地" onclick="window.location.href='<?= base_url() ?>index.php/student/company/companyNew/<?=$cour_id?>';" id="btnReturn" class="input" />
+    	<input type="button" name="btnReturn" value="新增基地" onclick="window.location.href='<?= base_url() ?>index.php/student/company/companyNew/<?=$cour_id?>';" id="btnReturn" class="input"  />
     </span><br><br>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">

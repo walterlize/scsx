@@ -42,7 +42,8 @@
         
         <tr>
             <td colspan="2" class="td3" align="center">
-                <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/variable/variableList';" id="btnReturn" class="input" />      
+            <input type="button" name="btnReturn" value="提 交 基 地" onclick="window.location.href='<?= base_url() ?>index.php/student/companyz/companyList/<?= $coursep->cour_id ?>';" id="btnReturn" class="input" />
+                <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/variablebm/variableList';" id="btnReturn" class="input" />      
             </td>
         </tr>
     </table>
