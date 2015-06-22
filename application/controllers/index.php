@@ -94,28 +94,38 @@ class Index extends CI_Controller {
         $u_name = $this->input->post('u_name');
         $password = $this->input->post('password');
         $userType = $this->input->post('userType');
-
+        //echo $password;
         //$array = array('u_name' => $u_name, 'password' => $password);
     	switch ($userType){
     		case 1:
     		case 2:
     		case 3:
     			//查询教师表
-    			$this->load->model('m_nteacher');
-    			$array = array('teaId' => $u_name, 'password' => $password);
+
     			//$result = $this->m_nteacher->getTea($array);
+
+               /*
+                $this->load->model('m_nteacher');
                 $result = $this->m_nteacher->getTea_orcl($u_name,$password);
+                */
+            //$conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+            $conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
 
-
+            $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
+            $result = OCIParse($conn, $query);
+            OCIExecute($stid);
+            if($result==null){
+                show_404();
+            }
             $data = array();
     			foreach ($result as $r) {
     				$data = $r;
     			}
     			
-    			if (isset($data->teaId)) {
+    			if ($result) {
     				//获得学院id
     				$this->load->model('m_college');
-    				$reco = $this->m_college->getCollege(array('college'=>$r->college));
+    				$reco = $this->m_college->getCollege(array('college'=>$r->XSM));
     				$codata = array();
     				foreach ($reco as $r) {
     					$codata = $r;
