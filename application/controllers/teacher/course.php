@@ -11,6 +11,7 @@ class Course extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->library('pagination');
+        $this->load->model('m_ncourse');
         date_default_timezone_set('PRC');
     }
 
@@ -18,20 +19,15 @@ class Course extends CI_Controller {
         $this->timeOut();
         //教师工号
         $teaNum = $this->session->userdata('u_num');
-        $this->load->model('m_ncourse');
-        //$array=array('courseTeaId'=>$teaNum.'*');
+         //$array=array('courseTeaId'=>$teaNum.'*');
         $num = $this->m_ncourse->getNumLike($teaNum.'*');
-       
         $offset = $this->uri->segment(4);
-
         $data['course'] = $this->getCourses($teaNum.'*',$offset);
-        
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-
         $this->load->view('common/header3');
         $this->load->view('teacher/course/course', $data);
         $this->load->view('common/footer');

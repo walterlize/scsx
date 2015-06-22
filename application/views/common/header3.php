@@ -4,11 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 <link href="<?=base_url();?>css/style.css" rel="stylesheet" type="text/css" />
+ <link href="<?=base_url();?>css/walter.css" rel="stylesheet" type="text/css" />
 <link href="<?=base_url();?>jquery_ui/css/cupertino/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script src="<?=base_url();?>javascript/jquery.js" type="text/javascript"></script>
 <script src="<?=base_url();?>jquery_ui/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="<?=base_url();?>calender/WdatePicker.js" type="text/javascript"></script>
-<!--<script src="<?=base_url();?>ckeditor/ckeditor.js" type="text/javascript"></script>-->
 <script src="<?=base_url();?>kindeditor/kindeditor.js" type="text/javascript"></script>
 <script src="<?=base_url();?>kindeditor/lang/zh_CN.js" type="text/javascript"></script>
 <script src="<?=base_url();?>javascript/validation.js" type="text/javascript"></script>

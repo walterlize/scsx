@@ -68,6 +68,8 @@ class Audit extends CI_Controller {
     	$config['base_url'] = base_url() . 'index.php/teacher/audit/auditList/'.$cour_id;
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 5;
+        $config['num_links'] = 4;
+
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
     	
@@ -453,6 +455,7 @@ class Audit extends CI_Controller {
     	return $data;
     }
     
+
 	//返回两数组差集（按指定键值）
 	function myArrDiff($array1,$array2,$key){
 		if(count($array1) != count($array2)){
@@ -469,9 +472,7 @@ class Audit extends CI_Controller {
 		}
 		return $array1;
 	}
-    
-    
-   
+
     // session中的role不存在的时候退出系统
     function timeOut() {
         $role = $this->session->userdata('roleId');

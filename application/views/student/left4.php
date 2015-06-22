@@ -22,7 +22,7 @@
                     </div>
                     <p class="menu_head">实习报名管理</p>
                     <div style="display:none" class=menu_body >            
-                        <a href="<?= base_url(); ?>index.php/student/variablebm/variableList" target="content1">实习报名</a>
+                        <a href="<?= base_url(); ?>index.php/student/variablebm/variableList" target="content1" title="报名参加实习">实习报名</a>
                         <a href="<?= base_url(); ?>index.php/student/chakan/chakanList" target="content1">报名查看</a>              
                     </div>
                     <!--  

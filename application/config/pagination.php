@@ -11,7 +11,8 @@ $config['num_links'] = 2;
 $config['first_link'] = "首页";
 $config['last_link'] = "末页";
 $config['first_tag_open'] = '<div>';
-$config['first_tag_close'] = '</div>';
+//$config['first_tag_close'] = '</div>';
 $config['last_tag_open'] = '<div>';
-$config['last_tag_close'] = '</div>';
+//$config['last_tag_close'] = '</div>';
+$config['full_tag_open'] = '<p>';
 
