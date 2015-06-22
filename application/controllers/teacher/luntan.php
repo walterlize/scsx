@@ -190,7 +190,7 @@ class Luntan extends CI_Controller {
      // 获取单个实验任务信息
     function sgetLuntan($id) {
         $this->load->model('m_tluntan');
-        $result = $this->m_tluntan->sgetOneInfo($id);
+        $result = $this->m_tluntan->getOneInfo($id);
         $data = array();
         foreach ($result as $r) {
             $data = $r;

@@ -53,7 +53,7 @@ class m_tluntan extends CI_Model {
         $this->db->select();
         $this->db->where('teaId', $this->session->userdata('u_name'));
         $this->db->order_by("l_id", "asc");
-        $q = $this->db->get('ws_lunta', $per_page, $offset);
+        $q = $this->db->get('ws_luntan_type', $per_page, $offset);
         return $q->result();
     }
 
@@ -67,7 +67,7 @@ class m_tluntan extends CI_Model {
 
     function getOneInfo($id) {
         $this->db->select();
-        $this->db->from('ws_lunta');
+        $this->db->from('ws_luntan_type');
         $this->db->where('l_id', $id);
         $q = $this->db->get();
         return $q->result();
@@ -89,7 +89,7 @@ class m_tluntan extends CI_Model {
     }
     function getNum2($array) {
         $this->db->where('teaId', $this->session->userdata('u_name'));
-        $this->db->from('ws_lunta');
+        $this->db->from('ws_luntan_type');
         $this->db->where($array);
         return $this->db->count_all_results();
     }

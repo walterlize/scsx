@@ -47,17 +47,19 @@
                     <div style="display:none" class=menu_body >   
                         <a href="<?= base_url(); ?>index.php/student/summary/summaryList" target="content1">填写实习总结</a>
                         <a href="<?= base_url(); ?>index.php/student/summarysub/summarysubList" target="content1">实习总结状态</a>
-                        <a href="<?= base_url(); ?>index.php/student/chakan1/chakan1List" target="content1">查看评价</a>                    
+                        <a href="<?= base_url(); ?>index.php/student/scoreteac/scoreList" target="content1">查看评价</a>                    
                     </div>
                     <p class="menu_head">互动管理</p>
                     <div style="display:none" class=menu_body >                  
                         <a href="<?= base_url(); ?>index.php/student/luntan/luntanList" target="content1">发帖提问</a>
                         <a href="<?= base_url(); ?>index.php/student/luntan/cluntanList" target="content1">查看回帖</a>                    
                     </div>
+                    <!--  
                     <p class="menu_head">个人信息查看</p>
                     <div style="display:none" class=menu_body > 
                         <a href="<?= base_url(); ?>index.php/student/student/studentDetail" target="content1">个人信息查看</a>                   
                     </div>
+                    -->
                 </div>        
             </div>
         </div>

@@ -7,6 +7,8 @@
     
     	<input type="button" name="btnReturn" value="新增基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyNew/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
     </span><br><br>
+    
+    <div style="color: red"><?php if(isset($btn)) echo $btn;?></div>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             
@@ -59,7 +61,7 @@
             		<?php 
                     		if($flag>0){
                     	?>
-                    	<input type="button" name="btnReturn" value="发布课程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish2/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
+                    	<input type="button" name="btnReturn" value="发布课程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish3/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
                     	<?php 
                     		}else{
                     	?>

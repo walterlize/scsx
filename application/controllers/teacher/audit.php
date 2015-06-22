@@ -114,6 +114,7 @@ class Audit extends CI_Controller {
     // 审核通过
     public function auditPass() {
     	$this->timeOut();
+    	$tea_num = $this->session->userdata("u_num");
     	$cour_id = $this->uri->segment(4);
     	$elco_id = $this->uri->segment(5);
     	$this->load->model('m_elecom');
@@ -125,7 +126,7 @@ class Audit extends CI_Controller {
     	$this->m_user->updateUser($elecom->comp_user_id, array('user_stat_id'=>1));
     	//3.公司状态5=>6
     	$this->load->model('m_company');
-    	$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>6));
+    	$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>6,'comp_audit_num'=>$tea_num));
     	   	
     	$elecom = $this->getElecom($elco_id);
     	$data['elco'] = $elecom;
@@ -139,6 +140,7 @@ class Audit extends CI_Controller {
     // 审核失败
     public function auditFail() {
     	$this->timeOut();
+    	$tea_num = $this->session->userdata("u_num");
     	$cour_id = $this->uri->segment(4);
     	$elco_id = $this->uri->segment(5);
     	$this->load->model('m_elecom');
@@ -148,7 +150,7 @@ class Audit extends CI_Controller {
 		if($elecom->elco_stu_num == $elecom->comp_add_num){
 	    	//2.公司状态5=>7
 	    	$this->load->model('m_company');
-	    	$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>7));
+	    	$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>7,'comp_audit_num'=>$tea_num));
 		}
     	$elecom = $this->getElecom($elco_id);
     	$data['elco'] = $elecom;
@@ -162,6 +164,7 @@ class Audit extends CI_Controller {
     //审核通过
     public function auditPassa() {
     	$this->timeOut();
+    	$tea_num = $this->session->userdata("u_num");
     	$cour_id = $this->uri->segment(4);
     	$elco_id = $this->uri->segment(5);
     	$this->load->model('m_elecom');
@@ -175,7 +178,7 @@ class Audit extends CI_Controller {
     	$this->m_user->updateUser($elecom->comp_user_id, array('user_stat_id'=>1));
     	//3.公司状态5=>6
     	$this->load->model('m_company');
-    	$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>6));
+    	$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>6,'comp_audit_num'=>$tea_num));
 
     	redirect('teacher/audit/auditList/'.$cour_id);
     	
@@ -184,6 +187,7 @@ class Audit extends CI_Controller {
     // 审核失败
     public function auditFaila() {
     	$this->timeOut();
+    	$tea_num = $this->session->userdata("u_num");
     	$cour_id = $this->uri->segment(4);
     	$elco_id = $this->uri->segment(5);
     	$this->load->model('m_elecom');
@@ -193,7 +197,7 @@ class Audit extends CI_Controller {
     	if($elecom->elco_stu_num == $elecom->comp_add_num){
     		//2.公司状态5=>7
     		$this->load->model('m_company');
-    		$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>7));
+    		$this->m_company->updateCompany($elecom->elco_comp_id, array('comp_stat_id'=>7,'comp_audit_num'=>$tea_num));
     	}
     	redirect('teacher/audit/auditList/'.$cour_id);
     }

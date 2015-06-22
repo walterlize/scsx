@@ -1,9 +1,9 @@
 <?php
-
+//已审核
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Tsummary extends CI_Controller {
+class Tsummaryappr extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -19,23 +19,23 @@ class Tsummary extends CI_Controller {
         $this->timeOut();
 
         $tea_num = $this->session->userdata('u_num');
-        //查询该老师名下所有summary未审核
+        //查询该老师名下所有summary已审核
         //========================
-        $array = array('miss_teac_num'=>$tea_num,'summ_appr_id'=>5);
+        $array = array('miss_teac_num'=>$tea_num,'summ_appr_id !='=>5);
         
         $this->load->model('m_summary');
         $num = $this->m_summary->getNum_ws($array);
         $offset = $this->uri->segment(4);
 
         $data['tsummary'] = $this->getSummarys($array,$offset);
-        $config['base_url'] = base_url() . 'index.php/teacher/tsummary/tsummaryList';
+        $config['base_url'] = base_url() . 'index.php/teacher/tsummaryappr/tsummaryList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
 
         $this->load->view('common/header3');
-        $this->load->view('teacher/tsummary/tsummary', $data);
+        $this->load->view('teacher/tsummaryappr/tsummary', $data);
         $this->load->view('common/footer');
     }
     
@@ -48,27 +48,11 @@ class Tsummary extends CI_Controller {
         $data['summary'] = $this->getSummary($summ_id);
 
         $this->load->view('common/header3');
-        $this->load->view('teacher/tsummary/tsummaryDetail', $data);
+        $this->load->view('teacher/tsummaryappr/tsummaryDetail', $data);
         $this->load->view('common/footer');
     }
      
 
-    public function updateState() {
-        $this->timeOut();
-
-        $summ_id = $this->uri->segment(4);
-        
-        $array = array('summ_appr_id' => 6);
-
-        $this->load->model('m_summary');
-        $this->m_summary->updateSummary($summ_id, $array);
-
-        $data['summary'] = $this->getSummary($summ_id);
-
-        $this->load->view('common/header3');
-        $this->load->view('teacher/tsummary/tsummaryDetail', $data);
-        $this->load->view('common/footer');
-    }
     
     // 分页获取全部实验任务信息
     public function getSummarys($array,$offset) {

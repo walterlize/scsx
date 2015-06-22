@@ -2,28 +2,8 @@
     <br />
     <div>
     <h3 style="float: left;">实习基地信息</h3>
-    <div style="float: right;">
-    <br>
-    <?php 
-    switch ($show){
-    	case 1:
-    ?>
-    <input type="button" name="btnReturn" value="请选择学生"  id="btnReturn" class="input" style="background-image: url('<?=base_url()?>/images/btnbg2.gif')" />
-	<?php 
-			break;
-		case 2:
-	?>
-	<input type="button" name="btnReturn" value="基地已设置"  id="btnReturn" class="input" style="background-image: url('<?=base_url()?>/images/btnbg2.gif')" />
-	<?php 
-			break;
-		case 3:
-	?>
-	
-	<input type="button" name="btnReturn" value="设置基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companySet/<?=$cour->cour_id?>/<?=$comp->comp_id?>';" id="btnReturn" class="input" />
-	<?php 
-			break;
-    }?>
-    </div>
+    
+    
     </div>
     
         <table cellpadding="0" cellspacing="1" class="tablist2">
@@ -67,7 +47,7 @@
         </table>
         <br><br>
         <h4>本基地分配学生</h4>
-        <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourdist/companystuCan/<?=$cour->cour_id?>/<?=$comp->comp_id?>" id="form1">
+        <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourdist/companystuCan/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$o_id?>" id="form1">
         <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
 	        <tr class="HeaderStyle">
 	        	<th scope="col">
@@ -77,7 +57,7 @@
 	            <th scope="col">学生学号</th>
 	            <th scope="col">学生姓名</th>
 	            <th scope="col">学生班级</th>
-	            <th scope="col">详情</th>
+	            <!--  <th scope="col">详情</th>-->
 	            <th scope="col">操作</th>
 	        </tr>
 	        <?php 
@@ -91,11 +71,11 @@
                     <td><?= $r['stu_num'] ?></td>
                     <td><?= $r['stu_name'] ?></td>
                     <td><?= $r['stu_class'] ?></td>
-                    <td>
+                    <!--<td>
                     	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuDetail/<?= $r['stu_num'] ?>">详细</a>
-                    </td>
+                    </td>-->
                     <td>
-                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuCanByOne/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$stuStr?>">删除</a>
+                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuCanByOne/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$stuStr?>/<?=$o_id?>">删除</a>
                     </td>
                 </tr>
         	<?php endforeach;?>
@@ -109,7 +89,7 @@
         <br><br>
         
         <h4>未分配学生</h4>
-        <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourdist/companystuSet/<?=$cour->cour_id?>/<?=$comp->comp_id?>" id="form1">
+        <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourdist/companystuSet/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$o_id?>" id="form1">
         <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
 	        <tr class="HeaderStyle">
 	        	<th scope="col">
@@ -119,7 +99,7 @@
 	            <th scope="col">学生学号</th>
 	            <th scope="col">学生姓名</th>
 	            <th scope="col">学生班级</th>
-	            <th scope="col">详情</th>
+	            <!--<th scope="col">详情</th>-->
 	            <th scope="col">操作</th>
 	        </tr>
 	        <?php 
@@ -135,11 +115,11 @@
                     <td><?= $r['stu_num'] ?></td>
                     <td><?= $r['stu_name'] ?></td>
                     <td><?= $r['stu_class'] ?></td>
-                    <td>
+                    <!--<td>
                     	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuDetail/<?= $r['stu_num'] ?>">详细</a>
-                    </td>
+                    </td>-->
                     <td>
-                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuSetByOne/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$stuStr1?>">添加</a>
+                    	<a id="" href="<?= base_url() ?>index.php/teacher/compcourdist/companystuSetByOne/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$stuStr1?>/<?=$o_id?>">添加</a>
                     </td>
                 </tr>
         	<?php endforeach;?>
@@ -151,5 +131,7 @@
         </table>
     </form>
     <br><br>
-    
+    <div style="text-align: center;">
+    <input type="button" name="btnReturn" value="返回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyDetail/<?=$cour->cour_id?>/<?=$comp->comp_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
+    </div>
     </div>

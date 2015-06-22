@@ -1,10 +1,10 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3 class="lz_title"></h3>
+    <h3 class="lz_title">
     	<div>课程详细信息</div>
-    	<div style="float: left; font-size:12px; <?php if(isset($show3)) echo $show3; ?> ">&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<a  href="<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>" target="_blank">查看基地</a>&nbsp;&nbsp;)</div>
+    	<div style="float: left; font-size:12px; <?php if(isset($show3)) echo $show3; ?> ">&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<a  href="<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>" target="_blank">查看基地</a>&nbsp;&nbsp;) <br><br><br><br></div>
     </h3>
-    <br><br>
+    
     <table cellpadding="0" cellspacing="1" class="tablist2">
 
         <tr>

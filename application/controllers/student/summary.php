@@ -168,6 +168,7 @@ class Summary extends CI_Controller {
         @$summary->summ_id = 0;
         $summary->summ_miss_id = $miss_id;
         $summary->summ_stu_num = $this->session->userdata('u_num');
+        $summary->summ_stu_name = $this->session->userdata('realname');
         $summary->summ_content = '';
         $summary->summ_time = date("Y-m-d H:m:s");
         

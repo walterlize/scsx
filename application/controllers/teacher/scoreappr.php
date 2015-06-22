@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Score extends CI_Controller {
+class Scoreappr extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -29,14 +29,14 @@ class Score extends CI_Controller {
 
         $data['course'] = $data1['data'];
         
-        $config['base_url'] = base_url() . 'index.php/teacher/score/courseList';
+        $config['base_url'] = base_url() . 'index.php/teacher/scoreappr/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
 
         $this->load->view('common/header3');
-        $this->load->view('teacher/score/course', $data);
+        $this->load->view('teacher/scoreappr/course', $data);
         $this->load->view('common/footer');
     } 
     
@@ -95,13 +95,11 @@ class Score extends CI_Controller {
         $stuall = $this->getStuAll($array1);//全部选课学生
         //已评价学生
         $stuscore = $this->getStuscore($array2);
-        //未评价学生
-        $stuscoreu = $this->myArrDiff($stuall,$stuscore,'stu_num');
         
         $offset = $this->uri->segment(5);  	
-    	$num = count($stuscoreu);
+    	$num = count($stuscore);
     
-    	$config['base_url'] = base_url() . 'index.php/teacher/score/scoreList/'.$cour_id;
+    	$config['base_url'] = base_url() . 'index.php/teacher/scoreappr/scoreList/'.$cour_id;
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 5;
         $config['num_links'] = 4;
@@ -109,11 +107,11 @@ class Score extends CI_Controller {
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
     	
-    	$data['stuscoreu'] = array_slice($stuscoreu,$offset,PER_PAGE);
+    	$data['stuscore'] = array_slice($stuscore,$offset,PER_PAGE);
         $data['cour_id'] = $cour_id;
 
         $this->load->view('common/header3');
-        $this->load->view('teacher/score/score', $data);
+        $this->load->view('teacher/scoreappr/score', $data);
         $this->load->view('common/footer');
     }
     
@@ -142,6 +140,8 @@ class Score extends CI_Controller {
     	$result = $this->m_scoreteac->getScore($array);
     	foreach ($result as $r) {
     		$arr = array(
+    				'scor_id'=>$r->scor_id,
+    				'scor_teac_score'=>$r->scor_teac_score,
     				'stu_num'=>$r->scor_stu_num,
     				'stu_name' => $r->scor_stu_name,
     				'stu_class' => $r->scor_stu_class,
@@ -163,45 +163,7 @@ class Score extends CI_Controller {
     	return $data;
     }
     
-    // 实验任务详细信息新增页面
-    public function scoreNew() {
-    	$this->timeOut();
-    	$stu_num = $this->uri->segment(4);
-    	$cour_id = $this->uri->segment(5);
-    	$coursep = $this->getCoursepById($cour_id);
-    	//获取学生基地信息
-    	$arrComp = array('elco_cour_id'=>$cour_id,'elco_stu_num'=>$stu_num);
-    	$elco = $this->getElecom($arrComp);
-    	
-    	//var_dump($elco);
-    	//获取学生信息
-    	$arrStu = array('stuId'=>$stu_num);
-    	$stu = $this->getStu($arrStu);
-    	
     
-    	@$score->scor_id = 0;
-    	$score->scor_stu_num = $stu_num;
-    	$score->scor_stu_name = $stu->stuName;
-    	$score->scor_stu_class = $stu->class;
-    	$score->scor_cour_id = $cour_id;
-    	$score->scor_teac_num = $this->session->userdata('u_num');
-    	$score->scor_teac_name = $this->session->userdata('realname');;
-    	$score->scor_teac_score = '';
-    	$score->scor_teac_comment = '';
-    	
-        $data['score']=$score;
-        $data['cour']=$coursep;
-        $data['stu']=$stu;
-        $data['elco']=$elco;//基地信息
-        $data['cour_id'] = $cour_id;
-    	$data['show'] = 'display:none';
-    	$data['showActive'] = 'display:none';
-    	$data['showUnactive'] = 'display:none';
-    
-    	$this->load->view('common/header3');
-    	$this->load->view('teacher/score/scoreEdit', $data);
-    	$this->load->view('common/footer');
-    }
     
     function getStu($array){
     	$this->load->model('m_nstudent');
@@ -237,12 +199,12 @@ class Score extends CI_Controller {
     	$data['cour']=$coursep;
     
     	$this->load->view('common/header3');
-    	$this->load->view('teacher/score/scoreDetail', $data);
+    	$this->load->view('teacher/scoreappr/scoreDetail', $data);
     	$this->load->view('common/footer');
     }
 
 
-// 实验任务详细信息页面
+    // 实验任务详细信息页面
     public function scoreDetail() {
         $this->timeOut();
         $score_id = $this->uri->segment(4);
@@ -296,7 +258,7 @@ class Score extends CI_Controller {
 		$data['showUnactive'] = 'display:none';
 	
 		$this->load->view('common/header3');
-		$this->load->view('teacher/score/scoreEdit', $data);
+		$this->load->view('teacher/scoreappr/scoreEdit', $data);
 		$this->load->view('common/footer');
 	}
    

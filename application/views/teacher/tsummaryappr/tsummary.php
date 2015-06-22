@@ -19,7 +19,7 @@
                     <td><?= $r['summ_stu_name'] ?></td>
                     <td><?= $r['summ_time'] ?></td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/teacher/tsummary/tsummaryDetail/<?= $r['summ_id'] ?>">详细</a>
+                        <a id="" href="<?= base_url() ?>index.php/teacher/tsummaryappr/tsummaryDetail/<?= $r['summ_id'] ?>">详细</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

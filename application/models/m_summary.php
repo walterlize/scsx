@@ -7,6 +7,7 @@ class m_summary extends CI_Model {
     var $summ_content = '';
     var $summ_time = '';
     var $summ_stu_num = '';
+    var $summ_stu_name = '';
     var $summ_appr_id = '';
     var $summ_appr_time = '';
     var $summ_result = '';
@@ -16,6 +17,7 @@ class m_summary extends CI_Model {
         $this->summ_miss_id = $this->input->post('summ_miss_id');
         $this->summ_content = $this->input->post('summ_content');
         $this->summ_stu_num = $this->input->post('summ_stu_num');
+        $this->summ_stu_name = $this->input->post('summ_stu_name');
         $this->summ_appr_id = $this->input->post('summ_appr_id');
         $this->summ_appr_time = $this->input->post('summ_appr_time');
         $this->summ_time = $this->input->post('summ_time');
@@ -76,8 +78,8 @@ class m_summary extends CI_Model {
     function getSummarys_ws($array, $per_page, $offset) {
     	$this->db->select();
     	$this->db->where($array);
-    	$this->db->order_by("miss_cour_no", "asc");
-    	$this->db->order_by("miss_cour_num", "asc");
+    	$this->db->order_by("cour_no", "asc");
+    	$this->db->order_by("cour_num", "asc");
     	$q = $this->db->get('ws_summary', $per_page, $offset);
     	return $q->result();
     }

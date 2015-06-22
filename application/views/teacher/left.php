@@ -33,9 +33,9 @@
                         <a href="<?= base_url(); ?>index.php/teacher/student/courseList" target="content1">查看学生信息</a>
                         <a href="<?= base_url(); ?>index.php/teacher/mission/missionList" target="content1">下达实习总结任务</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryList" target="content1">审核实习总结</a>
-                        <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryLists" target="content1">查看实习总结</a>
-                        <a href="<?= base_url(); ?>index.php/teacher/score/scoreList" target="content1">评价实习结果</a>
-                        <a href="<?= base_url(); ?>index.php/teacher/score/scoreLists" target="content1">查看评价结果</a>                                       
+                        <a href="<?= base_url(); ?>index.php/teacher/tsummaryappr/tsummaryList" target="content1">查看实习总结</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/score/courseList" target="content1">评价实习结果</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/scoreappr/courseList" target="content1">查看评价结果</a>                                       
                     </div>             
                     <p class="menu_head">个人管理</p>
                     <div style="display:none" class=menu_body >               

@@ -54,8 +54,9 @@
             <td colspan="2" class="td3" align="center">
             <?php if($summary->summ_appr_id == 5){?>
                 <input type="button" name="btnReturn" value="修 改" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryEdit/<?= $summary->summ_id ?>';" id="btnReturn" class="input" />
-            <?php }?>
+            
             <input type="button" name="btnDelete" value="删 除" onclick="deleteInfo('<?= base_url() ?>index.php/student/summary/summaryDelete/<?= $summary->summ_id ?>')" id="btnDelete" class="input" />
+            <?php }?>
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryList';" id="btnReturn" class="input" />      
             </td>
         </tr>

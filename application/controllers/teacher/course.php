@@ -163,28 +163,19 @@ class Course extends CI_Controller {
     		echo '<script language="JavaScript">alert("发布失败");</script>';
     	}
     	
-    	$show1 = 'display:none';
-    	$show2 = 'display:none';
-    	$course  = $this->getCourse($o_id);
-    	$coursep = $this->getCoursepById($m_id);
-    	if(!$coursep){
-    		$coursep = $this->getEmptyCoursep();
-    		$show1 = '';
-    	}else{
-    		if($coursep->cour_publish != 1){
-    			//已存储未发布
-    			$show2 = '';
-    		}
-    	}
-    	
-    	$data['course'] = $course;
-    	$data['coursep'] = $coursep;
-    	$data['show1'] = $show1;
-    	$data['show2'] = $show2;
-    	
-    	$this->load->view('common/header3');
-    	$this->load->view('teacher/course/courseDetail', $data);
-    	$this->load->view('common/footer');
+    	 $teaNum = $this->session->userdata('u_num');
+         //$array=array('courseTeaId'=>$teaNum.'*');
+        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $offset = 0;
+        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
+        $config['total_rows'] = $num;
+        $config['uri_segment'] = 4;
+        $this->pagination->initialize($config);
+        $data['page'] = $this->pagination->create_links();
+        $this->load->view('common/header3');
+        $this->load->view('teacher/course/course', $data);
+        $this->load->view('common/footer');
     		
     }
     
@@ -204,28 +195,48 @@ class Course extends CI_Controller {
     		echo '<script language="JavaScript">alert("发布失败");</script>';
     	}
     	 
-    	$show1 = 'display:none';
-    	$show2 = 'display:none';
-    	$course  = $this->getCourse($o_id);
-    	$coursep = $this->getCoursepById($m_id);
-    	if(!$coursep){
-    		$coursep = $this->getEmptyCoursep();
-    		$show1 = '';
+    	$teaNum = $this->session->userdata('u_num');
+         //$array=array('courseTeaId'=>$teaNum.'*');
+        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $offset = 0;
+        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
+        $config['total_rows'] = $num;
+        $config['uri_segment'] = 4;
+        $this->pagination->initialize($config);
+        $data['page'] = $this->pagination->create_links();
+        $this->load->view('common/header3');
+        $this->load->view('teacher/course/course', $data);
+        $this->load->view('common/footer');
+    
+    }
+    
+    function coursePublish3(){
+    	//自选式课程发布 coursep表中cour_publish置1
+    	$o_id = $this->uri->segment(5);
+    	$m_id = $this->uri->segment(4);
+    	$array = array('cour_publish'=>1);
+    	$this->load->model('m_course');
+    	$result = $this->m_course->updateCourse($m_id, $array);
+    	if($result > 0){
+    		echo '<script language="JavaScript">alert("发布成功");</script>';
     	}else{
-    		if($coursep->cour_publish != 1){
-    			//已存储未发布
-    			$show2 = '';
-    		}
+    		echo '<script language="JavaScript">alert("发布失败");</script>';
     	}
-    	 
-    	$data['course'] = $course;
-    	$data['coursep'] = $coursep;
-    	$data['show1'] = $show1;
-    	$data['show2'] = $show2;
-    	 
-    	$this->load->view('common/header3');
-    	$this->load->view('teacher/course/courseDetail', $data);
-    	$this->load->view('common/footer');
+    
+    	 $teaNum = $this->session->userdata('u_num');
+         //$array=array('courseTeaId'=>$teaNum.'*');
+        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $offset = 0;
+        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
+        $config['total_rows'] = $num;
+        $config['uri_segment'] = 4;
+        $this->pagination->initialize($config);
+        $data['page'] = $this->pagination->create_links();
+        $this->load->view('common/header3');
+        $this->load->view('teacher/course/course', $data);
+        $this->load->view('common/footer');
     
     }
     

@@ -22,6 +22,8 @@ class Compcourpublish extends CI_Controller {
 	public function companyList(){
 		//1
 		$this->timeOut();
+		$flag = 1;
+		$btn = "";
 
 		$o_id= $this->uri->segment(5);
 		//课程在MySQL表中的id
@@ -48,6 +50,15 @@ class Compcourpublish extends CI_Controller {
 			$arrCourse = array('cour_publish'=>0);
 			$this->m_course->updateCourse($cour_id, $arrCourse);
 		}
+		$coursep = $this->getCoursepById($cour_id);
+		if($coursep->cour_publish == 1 ){
+			$flag = 0;
+			$btn = "课程已发布";
+		}
+		if(count($companyc)==0){
+			$flag = 0;
+			$btn = "没有基地，请设置基地";
+		}
 
 		$num = count($company);
 		$config['base_url'] = base_url() . 'index.php/teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id;
@@ -60,7 +71,8 @@ class Compcourpublish extends CI_Controller {
 		$data['cour_id']=$cour_id;
 		$data['coursep']=$coursep;
 		$data['o_id']=$o_id;
-		$data['flag']= count($companyc);
+		$data['flag']= $flag;
+		$data['btn']=$btn;
 		
 		$this->load->view('common/header3');
 		$this->load->view('teacher/compcourp/compCourPublish', $data);

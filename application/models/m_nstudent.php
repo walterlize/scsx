@@ -6,7 +6,7 @@ class m_nstudent extends CI_Model {
     function getStu($array){
     	$this->db->select();
     	$this->db->from('ostudent');
-    	$this->db->where('college',$this->session->userdata('college'));
+    	//$this->db->where('college',$this->session->userdata('college'));
     	$this->db->where($array);
     	$q = $this->db->get();
     	return $q->result();
@@ -23,7 +23,7 @@ class m_nstudent extends CI_Model {
     }
     
     //通过学号查询
-    function getStuById($teaId) {
+    function getStuById($stuId) {
         $this->db->select();
         $this->db->from('ostudent');
         $this->db->where('stuId', $teaId);

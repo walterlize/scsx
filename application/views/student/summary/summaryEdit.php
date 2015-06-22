@@ -5,6 +5,7 @@
         <input type="hidden" value="<?= $summary->summ_id ?>" name="summ_id" id="summ_id" />
         <input type="hidden" value="<?= $mission->miss_id ?>" name="summ_miss_id" id="summ_miss_id" />
         <input type="hidden" value="<?= $summary->summ_stu_num ?>" name="summ_stu_num" id="summ_stu_num" />
+        <input type="hidden" value="<?= $summary->summ_stu_name ?>" name="summ_stu_name" id="summ_stu_name" />
         <input type="hidden" value="<?= $summary->summ_appr_id ?>" name="summ_appr_id" id="summ_appr_id" />
         <input type="hidden" value="<?= $summary->summ_appr_time ?>" name="summ_appr_time" id="summ_appr_time" />
         <input type="hidden" value="<?= $summary->summ_time?>" name="summ_time" id="summ_time" />

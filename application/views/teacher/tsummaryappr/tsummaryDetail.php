@@ -2,7 +2,7 @@
     <br />
     <h3>审核实习总结信息</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">
-  		  <tr>
+    	<tr>
             <td class="td1" style="width: 111px" colspan=2>
             <?= $summary->cour_name ?>(<?= $summary->cour_no ?>-<?= $summary->cour_num ?>)
             </td>
@@ -41,8 +41,7 @@
         </tr>
         <tr>
             <td colspan="2" class="td3" align="center">
-                <input type="button" value="审 核" class="input" onclick="window.location.href='<?= base_url(); ?>index.php/teacher/tsummary/updateState/<?= $summary->summ_id ?>'">
-                <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/tsummary/tsummaryList';" id="btnReturn" class="input" />      
+                <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/tsummaryappr/tsummaryList';" id="btnReturn" class="input" />      
             </td>
         </tr>
     </table>

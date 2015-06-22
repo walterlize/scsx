@@ -1,7 +1,7 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
     <h3>评价实习结果</h3>
-    <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/score/save/<?=$cour_id?>" id="form1">
+    <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/scoreappr/save/<?=$cour_id?>" id="form1">
         <input type="hidden" value="<?= $score->scor_id ?>" name="scor_id" id="scor_id" />
         <input type="hidden" value="<?= $score->scor_cour_id ?>" name="scor_cour_id" id="scor_cour_id" />
         <input type="hidden" value="<?= $score->scor_teac_num ?>" name="scor_teac_num" id="scor_teac_num" />
@@ -68,7 +68,7 @@
             <tr>
                 <td colspan="2" class="td3" align="center">
                     <input type="submit" name="btnSave" value="提 交" onclick="return check('form1');" id="btnSave" class="input" />
-                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/score/scoreList/<?=$cour_id?>';" id="btnReturn" class="input" />
+                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/scoreappr/scoreList/<?=$cour_id?>';" id="btnReturn" class="input" />
                 </td>
             </tr>
         </table>

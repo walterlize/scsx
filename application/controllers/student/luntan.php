@@ -36,7 +36,7 @@ class Luntan extends CI_Controller {
 
     public function cluntanList() {
         $this->load->model('m_sluntan');
-        $num = $this->m_sluntan->getNum2(array());
+        $num = $this->m_sluntan->getNum1(array());
         $offset = $this->uri->segment(4);
 
         $data['luntan'] = $this->sgetLuntans($offset);
@@ -161,9 +161,16 @@ class Luntan extends CI_Controller {
         $result = $this->m_sluntan->getLuntans($data, PER_PAGE, $offset);
 
         foreach ($result as $r) {
-            $arr = array('l_id' => $r->l_id, 'stuId' => $r->stuId, 'time1' => $r->time1,
-                'content' => $r->content, 'teaId' => $r->teaId, 'time2' => $r->time2,
-                'reply' => $r->reply,'typeId' => $r->typeId,'type' => $r->type,'theme' => $r->theme);
+            $arr = array('l_id' => $r->l_id, 
+            		'stuId' => $r->stuId, 
+            		'time1' => $r->time1,
+                	'content' => $r->content, 
+            		'teaId' => $r->teaId, 
+            		'time2' => $r->time2,
+                	'reply' => $r->reply,
+            		'typeId' => $r->typeId,
+            		'type' => $r->type,
+            		'theme' => $r->theme);
             array_push($data, $arr);
         }
         return $data;

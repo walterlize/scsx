@@ -3,23 +3,26 @@
     <h3>实习报名查看列表</h3>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
-            <th scope="col">实习项目模式</th>
-            <th scope="col">实习项目名称</th>
-            <th scope="col">实习基地名称</th>
-            
+            <th scope="col">模式</th>
+            <th scope="col">课程号</th>
+            <th scope="col">课序号</th>
+            <th scope="col">课程名</th>
+            <th scope="col">基地名</th>
             <th scope="col">指导教师姓名</th>
             <th scope="col">报名状态</th>
             <th scope="col">操作</th>
         </tr>
         <?php if (is_array($chakan)) foreach ($chakan as $r): ?>
                 <tr class="RowStyle" align="center">
-                    <td>志愿式</td>
-                    <td><?= $r['courseName'] ?></td>
-                    <td><?= $r['comName'] ?></td>
-                    <td><?= $r['courseTeaName'] ?></td>
-                    <td><?= $r['state'] ?></td>
+                    <td><?= $r['patt_type'] ?></td>
+                    <td><?= $r['elco_cour_no'] ?></td>
+                    <td><?= $r['elco_cour_num'] ?></td>
+                    <td><?= $r['cour_name'] ?></td>
+                    <td><?= $r['comp_name'] ?></td>
+                    <td><?= $r['cour_teac_name'] ?></td>
+                    <td><?= $r['usta_type'] ?></td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/student/chakan/chakanDetail/<?= $r['b_id'] ?>">详细</a>
+                        <a id="" href="<?= base_url() ?>index.php/student/chakan/chakanDetail/<?= $r['elco_id'] ?>">详细</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

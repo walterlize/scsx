@@ -140,6 +140,50 @@ class m_elecom extends CI_Model {
     	return $q->result();
     }
     
+    //按条件获得实习项目条数
+    function getNum_ws($array) {
+    	$this->db->select();
+    	$this->db->from('ws_elecom');
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
+    }
+    
+    
+    //分页查询
+    function getElecoms_ws($array, $per_page, $offset) {
+    	$this->db->select();
+    	$this->db->where($array);
+    	$q = $this->db->get('ws_elecom', $per_page, $offset);
+    	return $q->result();
+    }
+    
+    function getElecomcourById_ws($id) {
+    	$this->db->select();
+    	$this->db->from('ws_elecom_courp');
+    	$this->db->where('elco_id',$id);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
+    
+    //按条件获得实习项目条数
+    function getElcoNum_ws($array) {
+    	$this->db->select();
+    	$this->db->from('ws_elecom_courp');
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
+    }
+    
+    
+    //分页查询
+    function getElecomcours_ws($array, $per_page, $offset) {
+    	$this->db->select();
+    	$this->db->where($array);
+    	$q = $this->db->get('ws_elecom_courp', $per_page, $offset);
+    	return $q->result();
+    }
+    
+    
+    
 
 }
 ?>

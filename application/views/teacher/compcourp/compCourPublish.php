@@ -7,6 +7,7 @@
     
     	<input type="button" name="btnReturn" value="新增基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyNew/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
     </span><br><br>
+    <div style="color: red"><?php if(isset($btn)) echo $btn;?></div>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             
