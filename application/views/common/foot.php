@@ -11,7 +11,7 @@
                 <td valign="top" align="center" style=" border:#d5d5d5 solid 1px; border-bottom:none; padding-top:10px">
                     <div class="bottom">
                         <div class="bottombox">
-                            <p>Copyright@ 2013 All rights reserved 中国农业大学</p>
+                            <p>Copyright@ 2015 All rights reserved 中国农业大学</p>
                             <p>联系方式（电话/传真）：010-62737959</p>
                             <p>地址：北京市海淀区清华东路17号</p>
                             <p>E-mail：fanqin@cau.edu.cn</p>

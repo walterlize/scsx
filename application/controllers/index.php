@@ -11,6 +11,7 @@ class Index extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->model('m_user');
+
     }
 
     public function index() {
@@ -101,14 +102,20 @@ class Index extends CI_Controller {
     		case 2:
     		case 3:
     			//查询教师表
-
+/*----------------------两种查询方式------------------------------------------×/
     			//$result = $this->m_nteacher->getTea($array);
 
-               /*
-                $this->load->model('m_nteacher');
+              /*
+
                 $result = $this->m_nteacher->getTea_orcl($u_name,$password);
                 */
-            //$conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+
+/* ---------------------两种连接方式----------------------------------------*/
+
+            /*第一种connect的方式
+            $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+            */
+            /*第二种connect方式
             $conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
 
             $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
@@ -117,6 +124,12 @@ class Index extends CI_Controller {
             if($result==null){
                 show_404();
             }
+            */
+
+/*-------------------普通模式下查询---------------------------------------------*/
+            $this->load->model('m_nteacher');
+            $array = array('teaId' => $u_name, 'password' => $password);
+            $result = $this->m_nteacher->getTea($array);
             $data = array();
     			foreach ($result as $r) {
     				$data = $r;

@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <link href="<?= base_url(); ?>css/css1.css" type="text/css" rel="stylesheet" />
-        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="<?=base_url()?>js/jquery.min.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>left</title>
     </head>

@@ -1,7 +1,7 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3 class="lz_title"></h3>
-    	<div>课程详细信息</div>
+    <h3 class="lz_title">课程详细信息</h3>
+
     	<div style="float: left; font-size:12px; <?php if(isset($show3)) echo $show3; ?> ">&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<a  href="<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>" target="_blank">查看基地</a>&nbsp;&nbsp;)</div>
     </h3>
     <br><br>

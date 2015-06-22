@@ -75,6 +75,7 @@ class Audit extends CI_Controller {
     	
     	$data['audit'] = array_slice($audit,$offset,PER_PAGE);
         $data['cour_id'] = $cour_id;
+        $data['num']=$num;
         switch($coursep->cour_pattern_id){
         	case 1:
         		$this->load->view('common/header3');

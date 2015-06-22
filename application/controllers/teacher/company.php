@@ -53,6 +53,7 @@ class Company extends CI_Controller {
     	$data['coursep']=$coursep;
     	$data['company'] = array_slice($company,$offset,PER_PAGE);
     	$data['o_id']=$o_id;
+        $data['num']=$num;
     	$this->load->view('common/header3');
     	$this->load->view('teacher/company/company', $data);
     	$this->load->view('common/footer');

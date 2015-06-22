@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3>课程基地信息 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; "><?=$coursep->cour_no?>(<?=$coursep->cour_num?>)--<?=$coursep->cour_name?></span></h3>
+    <h3 class="lz_title">课程基地信息 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; "><?=$coursep->cour_no?>(<?=$coursep->cour_num?>)--<?=$coursep->cour_name?></span></h3>
     
     <br>
     <span >请选择基地或

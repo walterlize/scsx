@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3 class="lz_title">本学期实习课程列表 （<?=date("Y")?>年度）</h3>
+    <h3 class="lz_title">本学期实习课程列表</h3>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             <th scope="col" class="td1">序号</th>

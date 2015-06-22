@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3>课程模式设置</h3>
+    <h3 class="lz_title">课程模式设置</h3>
     <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/course/courseSet/<?= $course->id ?>" id="form1">
         <input type="hidden" value="<?= $coursep->cour_id ?>" name="cour_id" id="cour_id" />
         <input type="hidden" value="<?= $course->courseId ?>" name="cour_no" id="cour_no" />
@@ -51,10 +51,11 @@
 	            <td class="td1" style="width: 111px">课程模式</td>
 	            <td class="td2" >
 	            	<select name="cour_pattern_id">
-	            		<option value="1">自选式</option>
-	            		<option value="2">志愿式</option>
-	            		<option value="3">分配式</option>
+	            		<option value="1" title="学生可自行寻找实习基底">自选式</option>
+	            		<option value="2" title="教师提供实习基底供学生选择">志愿式</option>
+	            		<option value="3" title="教师指派学生至制定的实习基底">分配式</option>
 	            	</select>
+
 	            </td>
 	        </tr>
 	        <tr>

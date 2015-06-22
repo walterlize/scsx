@@ -240,6 +240,7 @@ class Course extends CI_Controller {
 
         $this->load->model('m_course');
         foreach ($result as $r) {
+            //判断是否已经分配了实习模式
         	$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->term);
         	$resCourse = $this->getCoursep($arrCourse);
         	if($resCourse){
