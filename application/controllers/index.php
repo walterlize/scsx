@@ -113,10 +113,10 @@ class Index extends CI_Controller {
 /* ---------------------两种连接方式----------------------------------------*/
 
             /*第一种connect的方式
-            $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+            $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/urpjw');
             */
             /*第二种connect方式
-            $conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+            $conn = OCI. LOGON('sjk', 'sjk#_2015$', '202.205.91.55/urpjw');
 
             $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
             $result = OCIParse($conn, $query);
