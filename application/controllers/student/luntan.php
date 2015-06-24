@@ -17,7 +17,7 @@ class Luntan extends CI_Controller {
 
     public function luntanList() {
         $this->timeOut();
-
+		
         $this->load->model('m_sluntan');
         $num = $this->m_sluntan->getNum1(array());
         $offset = $this->uri->segment(4);
@@ -93,10 +93,12 @@ class Luntan extends CI_Controller {
         $this->timeOut();
 
         @$luntan->l_id = 0;
-        $luntan->stuId = $this->session->userdata('u_id');
+        $luntan->stuId = $this->session->userdata('u_num');
+        $luntan->stuName = $this->session->userdata('realname');
         $luntan->time1 = '';
         $luntan->content = '';
         $luntan->teaId = '';
+        $luntan->teaName = '';
         $luntan->time2 = '';
         $luntan->reply = '';
         $luntan->typeId = '';
@@ -163,9 +165,11 @@ class Luntan extends CI_Controller {
         foreach ($result as $r) {
             $arr = array('l_id' => $r->l_id, 
             		'stuId' => $r->stuId, 
+            		'stuName' => $r->stuName,
             		'time1' => $r->time1,
                 	'content' => $r->content, 
             		'teaId' => $r->teaId, 
+            		'teaName' => $r->teaName,
             		'time2' => $r->time2,
                 	'reply' => $r->reply,
             		'typeId' => $r->typeId,
@@ -184,8 +188,9 @@ class Luntan extends CI_Controller {
         foreach ($result as $r) {
             $arr = array('l_id' => $r->l_id, 
             		'stuId' => $r->stuId, 
+            		'stuName' => $r->stuName,
             		'time1' => $r->time1,
-                'content' => $r->content, 
+               		'content' => $r->content, 
             		'teaId' => $r->teaId, 
             		'time2' => $r->time2,
                 

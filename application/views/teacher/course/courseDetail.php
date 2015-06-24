@@ -9,27 +9,27 @@
 
         <tr>
             <td class="td1" style="width: 111px">序号</td>
-            <td class="td2" ><?= $course->courseNum ?>&nbsp;</td>
+            <td class="td2" ><?= $course->KCH ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程编号</td>
-            <td class="td2" ><?= $course->courseId ?>&nbsp;</td>
+            <td class="td2" ><?= $course->KXH ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程名称</td>
-            <td class="td2" ><?= $course->courseName ?>&nbsp;</td>
+            <td class="td2" ><?= $course->KCM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程英文名</td>
-            <td class="td2" ><?= $course->courseNameEn ?>&nbsp;</td>
+            <td class="td2" ><?= $course->YWKCM ?>&nbsp;</td>
         </tr>  
         <tr>
             <td class="td1" style="width: 111px">学分</td>
-            <td class="td2" ><?= $course->courseCredit ?>&nbsp;</td>
+            <td class="td2" ><?= $course->XF ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">学时</td>
-            <td class="td2" ><?= $course->courseHour ?>&nbsp;</td>
+            <td class="td2" ><?= $course->XS ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程实习模式</td>

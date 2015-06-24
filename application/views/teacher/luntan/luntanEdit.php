@@ -4,6 +4,7 @@
     <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/luntan/save" id="form1">
         <input type="hidden" value="<?= $luntan->l_id ?>" name="l_id" id="l_id" />
         <input type="hidden" value="<?= $luntan->stuId ?>" name="stuId" id="stuId" />
+        <input type="hidden" value="<?= $luntan->stuName ?>" name="stuId" id="stuId" />
         <input type="hidden" value="<?= $luntan->time1 ?>" name="time1" id="time1" />
         <input type="hidden" value="<?= $luntan->content ?>" name="content" id="content" />
         <input type="hidden" value="<?= $luntan->typeId ?>" name="typeId" id="typeId" />

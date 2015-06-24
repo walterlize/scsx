@@ -4,9 +4,11 @@ class m_tluntan extends CI_Model {
 
     var $l_id = '';
     var $stuId = '';
+    var $stuName ='';
     var $time1 = '';
     var $content = '';
     var $teaId = '';
+    var $teaName ='';
     var $time2 = '';
     var $reply = '';
     var $typeId = '';
@@ -15,9 +17,11 @@ class m_tluntan extends CI_Model {
     function saveInfo() {
         $this->l_id = $this->input->post('l_id');
         $this->stuId = $this->input->post('stuId');
+        $this->stuName = $this->input->post('stuName');
         $this->time1 = $this->input->post('time1');
         $this->content = $this->input->post('content');
         $this->teaId = $this->session->userdata('u_name');
+        $this->teaName = $this->session->userdata('realname');
         $this->time2 = date("Y-m-d H:i:s");
         $this->reply = $this->input->post('reply');
         $this->typeId = $this->input->post('typeId');

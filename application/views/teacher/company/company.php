@@ -63,5 +63,6 @@
                 </td>
             </tr>
     </table>
-    <div align="center">共有<?=$num?>条数据。<?= $page ?></div>
+    <div align="right">共有<?=$num?>条数据。</div>
+    <div align="center"><?= $page ?></div>
 </div>
