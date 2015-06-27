@@ -55,13 +55,14 @@
             
             <tr>
             	<td colspan="8" class="td3" align="center">
-            		<!--
-            		<input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish/<?=$o_id?>/<?=$cour_id?>';" id="btnReturn" class="input" />
-            	     -->
+            		
+            		<input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish/<?=$cour_id?>';" id="btnReturn" class="input" />
+            	     <!--
                     <input type="button" name="btnReturn" value="返 回" onclick="window.history.go(-1)" id="btnReturn" class="input" />
-
+-->
                 </td>
             </tr>
     </table>
-    <div align="center">共有<?=$num?>条数据。<?= $page ?></div>
+    <div align="right">共有<?=$num?>条数据。</div>
+    <div align="center"><?= $page ?></div>
 </div>

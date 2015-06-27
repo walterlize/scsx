@@ -11,9 +11,10 @@ class Frame extends CI_Controller {
 	}
 
 	public function index(){
-            $this->load->view('superadmin/frame1');
+            $this->load->view('superadmin/frame');
 	}
 
+       
         public function main(){
             $this->load->view('common/header');
             $this->load->view('superadmin/main');
@@ -21,20 +22,9 @@ class Frame extends CI_Controller {
         }
 
         public function menu(){
-            $this->load->view('common/header');
-            $this->load->view('superadmin/left');
-            $this->load->view('common/footer');
-        }
-        public function main1(){
-            $this->load->view('common/header');
-            $this->load->view('superadmin/main1');
-            $this->load->view('common/footer');
-        }
-
-        public function menu1(){
             $data['name'] = $this->session->userdata('u_name');
             $this->load->view('common/header');
-            $this->load->view('superadmin/left1',$data);
+            $this->load->view('superadmin/left',$data);
             $this->load->view('common/footer');
         }
 

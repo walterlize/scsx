@@ -106,7 +106,7 @@ class m_user extends CI_Model {
     //分页获取具体学院用户
     function getUsersByCol($array, $per_page, $offset) {
     	$this->db->select();
-    	$this->db->where("collegeId",$this->session->userdata('collegeId'));
+    	$this->db->where("college",$this->session->userdata('college'));
     	$this->db->where($array);
     	$q = $this->db->get('ws_user', $per_page, $offset);
     	return $q->result();

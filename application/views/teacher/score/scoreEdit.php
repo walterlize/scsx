@@ -16,16 +16,20 @@
                 <td class="td2" ><?= $cour->cour_name ?>(<?= $cour->cour_no ?>-<?= $cour->cour_num ?>)&nbsp;</td>
             </tr>  
             <tr>
+                <td class="td1" style="width: 111px">学生学号</td>
+                <td class="td2" ><?= $stu->XH?>&nbsp;</td>
+            </tr>   
+            <tr>
                 <td class="td1" style="width: 111px">学生姓名</td>
-                <td class="td2" ><?= $stu->stuName ?>&nbsp;</td>
+                <td class="td2" ><?= $stu->XM ?>&nbsp;</td>
             </tr>      
             <tr>
                 <td class="td1" style="width: 111px">学生院系</td>
-                <td class="td2" ><?= $stu->major ?>&nbsp;</td>
+                <td class="td2" ><?= $stu->ZYM ?>&nbsp;</td>
             </tr>
             <tr>
                 <td class="td1" style="width: 111px">学生班级</td>
-                <td class="td2" ><?= $stu->class ?>&nbsp;</td>
+                <td class="td2" ><?= $stu->BM ?>&nbsp;</td>
             </tr>
             <tr>
                 <td class="td1" style="width: 111px">学生基地</td>

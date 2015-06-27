@@ -24,7 +24,7 @@ class Compcourdist extends CI_Controller {
 		$this->timeOut();
 		$btn="";
 
-		$o_id= $this->uri->segment(5);
+		
 		//课程在MySQL表中的id
 		$cour_id= $this->uri->segment(4);
 		$coursep = $this->getCoursepById($cour_id);
@@ -39,11 +39,11 @@ class Compcourdist extends CI_Controller {
 		$array1=array('comp_add_num'=>$tea_num,'cour_id'=>$cour_id);
 		$companyc = $this->getCocos($array1);//匹配基地
 		$companyu = $this->myArrDiff($company,$companyc,'comp_id');//不匹配基地
-		$offset = $this->uri->segment(6);
+		$offset = $this->uri->segment(5);
 		$company = array_merge($companyc,$companyu);
 		
 		//全部选课人数
-		$arrStuAll = array('courseId'=>$coursep->cour_no,'courseNum'=>$coursep->cour_num,'courseTerm'=>$coursep->cour_term);
+		$arrStuAll = array('KCH'=>$coursep->cour_no,'KXH'=>$coursep->cour_num,'ZXJXJHH'=>$coursep->cour_term);
 		$this->load->model("m_nvariable");
 		$stuAllNum = $this->m_nvariable->getNum($arrStuAll);
 		//echo $stuAllNum;
@@ -67,16 +67,16 @@ class Compcourdist extends CI_Controller {
 		}
 
 		$num = count($company);
-		$config['base_url'] = base_url() . 'index.php/teacher/compcourpublish/companyList/'.$cour_id.'/'.$o_id;
+		$config['base_url'] = base_url() . 'index.php/teacher/compcourpublish/companyList/'.$cour_id;
 		$config['total_rows'] = $num;
-		$config['uri_segment'] = 6;
+		$config['uri_segment'] = 5;
 		$this->pagination->initialize($config);
 		$data['page'] = $this->pagination->create_links();
 		$data['company'] = array_slice($company,$offset,PER_PAGE);
 		
 		$data['cour_id']=$cour_id;
 		$data['coursep']=$coursep;
-		$data['o_id']=$o_id;
+		
 		$data['flag']= $flag;
 		$data['btn']= $btn;
 		
@@ -109,7 +109,7 @@ class Compcourdist extends CI_Controller {
     	//1
     	$this->timeOut();
     	//print_r($this->session->all_userdata());
-    	$o_id=$this->uri->segment(5);
+    	
     	$cour_id=$this->uri->segment(4);
     	$coursep = $this->getCoursepById($cour_id);
     	
@@ -145,7 +145,7 @@ class Compcourdist extends CI_Controller {
     	$data['user']=$user;
     	$data['coco']=$coco;
     	$data['elco']=$elco;
-    	$data['o_id']=$o_id;
+    	
     	
     	$this->load->view('common/header3');
     	$this->load->view('teacher/compcourd/companydEdit', $data);
@@ -206,7 +206,7 @@ class Compcourdist extends CI_Controller {
     	$this->load->model('m_coucom');
     	//$coco_id = $this->m_coucom->saveInfoByArr($coco);
     	$comp = $this->getCocoById($comp_id);
-    	print_r($comp);
+    	//print_r($comp);
     	//存储结束
     	echo '<script language="JavaScript">alert("添加成功");</script>';
     	
@@ -284,7 +284,7 @@ class Compcourdist extends CI_Controller {
     	$cour_id = $this->uri->segment(4);
     	$coursep = $this->getCoursepById($cour_id);
     	//获取选课名单
-    	$array1 = array('courseId'=>$coursep->cour_no,'courseNum'=>$coursep->cour_num,'courseTerm'=>$coursep->cour_term);
+    	$array1 = array('KCH'=>$coursep->cour_no,'KXH'=>$coursep->cour_num,'ZXJXJHH'=>$coursep->cour_term);
     	$array2 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term);
     	$array3 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term,'elco_comp_id'=>$comp_id);
     	$stu = $this->getStu($array1);
@@ -340,7 +340,7 @@ class Compcourdist extends CI_Controller {
     	}
     	
     	//全部选课人数
-    	$arrStuAll = array('courseId'=>$coursep->cour_no,'courseNum'=>$coursep->cour_num,'courseTerm'=>$coursep->cour_term);
+    	$arrStuAll = array('KCH'=>$coursep->cour_no,'KXH'=>$coursep->cour_num,'ZXJXJHH'=>$coursep->cour_term);
     	$this->load->model("m_nvariable");
     	$stuAllNum = $this->m_nvariable->getNum($arrStuAll);
     	//echo $stuAllNum;
@@ -361,17 +361,19 @@ class Compcourdist extends CI_Controller {
     	$data['comp']=$comp;
     	$data['cour']=$coursep;
     	$data['show']=$show;
-    	$data['o_id']=$this->uri->segment(6);
+    	
 
     	$this->load->view('common/header3');
     	$this->load->view('teacher/compcourd/companydStu', $data);
     	$this->load->view('common/footer');
     }
     
+   
+    
     function companystuSet(){
     	$cour_id = $this->uri->segment(4);
     	$comp_id = $this->uri->segment(5);
-    	$o_id = $this->uri->segment(6);
+    	
     	$coursep = $this->getCoursepById($cour_id);
     	$stustr = $this->input->post('stu_num');
     	//var_dump($stustr);
@@ -398,13 +400,13 @@ class Compcourdist extends CI_Controller {
     		//未选择学生，不能设置该基地
     		echo '<script language="JavaScript">alert("未选择学生，不能设置该基地");</script>';
     	}
-    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id.'/'.$o_id);
+    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
     }
     
     function companystuSetByOne(){
     	$cour_id = $this->uri->segment(4);
     	$comp_id = $this->uri->segment(5);
-    	$o_id = $this->uri->segment(7);
+    	
     	$coursep = $this->getCoursepById($cour_id);
     	$stustr = urldecode($this->uri->segment(6));
     	
@@ -426,14 +428,14 @@ class Compcourdist extends CI_Controller {
     		$this->load->model('m_elecom');
     		$this->m_elecom->saveInfoByArr($elco);
     	}
-    		redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id.'/'.$o_id);
+    		redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
     }
     
     
     function companystuCan(){
     	$cour_id = $this->uri->segment(4);
     	$comp_id = $this->uri->segment(5);
-    	$o_id = $this->uri->segment(6);
+    	
     	$stustr = $this->input->post('stu_numc');
     	//var_dump($stustr);
     	if($stustr){
@@ -449,13 +451,13 @@ class Compcourdist extends CI_Controller {
     		//未选择学生，不能设置该基地
     		echo '<script language="JavaScript">alert("未选择学生，不能删除");</script>';
     	}
-    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id.'/'.$o_id);
+    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
     }
     
     function companystuCanByOne(){
     	$cour_id = $this->uri->segment(4);
     	$comp_id = $this->uri->segment(5);
-    	$o_id = $this->uri->segment(7);
+    	
     	$stustr = $this->uri->segment(6);
     	var_dump($stustr);
     	if($stustr){
@@ -466,7 +468,7 @@ class Compcourdist extends CI_Controller {
     			$this->m_elecom->deleteElecom($elco_id);
     		
     	}
-    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id.'/'.$o_id);
+    	redirect('teacher/compcourdist/companystu/'.$cour_id.'/'.$comp_id);
     }
     
     
@@ -480,9 +482,9 @@ class Compcourdist extends CI_Controller {
     	$result = $this->m_nvariable->getNvariable($array);
     	foreach ($result as $r) {
     		$arr = array(
-    				'stu_num'=>$r->stuId,
-    				'stu_name' => $r->stuName,
-    				'stu_class' => $r->stuClass,
+    				'stu_num'=>$r->XH,
+    				'stu_name' => $r->XM,
+    				'stu_class' => $r->BM,
     				'elco_name' => "未提交",
     				'elco_id' => 0,
     				'elco_state' => '无信息'

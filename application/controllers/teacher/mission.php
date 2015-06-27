@@ -53,7 +53,7 @@ class Mission extends CI_Controller {
         $this->timeOut();
         //教师课程列表
         $tea_num = $this->session->userdata('u_num');
-        $courp=$this->getCoursep($tea_num."*",array());
+        $courp=$this->getCoursep($tea_num,array());
         
         $id = $this->uri->segment(4);
         $data['mission'] = $this->getMission($id);
@@ -73,7 +73,7 @@ class Mission extends CI_Controller {
         $this->timeOut();
         //教师课程列表
         $tea_num = $this->session->userdata('u_num');
-        $courp=$this->getCoursep($tea_num."*",array());
+        $courp=$this->getCoursep($tea_num,array());
         if($courp){
 
 	        @$mission->miss_id = 0;
@@ -107,16 +107,19 @@ class Mission extends CI_Controller {
         $this->load->model('m_mission');
         $this->m_mission->deleteMission($id);
 
-        $num = $this->m_mission->getNum(array());
+        $tea_num = $this->session->userdata('u_num');
+        $array = array('miss_teac_num'=>$tea_num);
+        $this->load->model('m_mission');
+        $num = $this->m_mission->getNum($array);
         $offset = 0;
 
-        $data['mission'] = $this->getMissions($offset);
+        $data['mission'] = $this->getMissions($array,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/mission/missionList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-
+        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
         $this->load->view('common/header3');
         $this->load->view('teacher/mission/mission', $data);
         $this->load->view('common/footer');

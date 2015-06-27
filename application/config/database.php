@@ -51,7 +51,7 @@ $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
-$db['default']['database'] = 'scsx';
+$db['default']['database'] = 'scsx1';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -72,7 +72,7 @@ $db['default']['stricton'] = FALSE;
 
 //先编程后连接
 
-/*
+
 $db['db2']['hostname'] = '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=202.205.91.55)(PORT=1521))(SERVICE_NAME = newjw))';
 $db['db2']['username'] = 'sjk';
 $db['db2']['password'] = 'sjk#_2015$';
@@ -89,6 +89,6 @@ $db['db2']['swap_pre'] = '';
 $db['db2']['autoinit'] = TRUE;
 $db['db2']['stricton'] = FALSE;
 
-*/
+
 /* End of file database.php */
 /* Location: ./application/config/database.php */

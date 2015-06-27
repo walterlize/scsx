@@ -19,7 +19,7 @@ class Company extends CI_Controller {
     public function companyList(){
     	//1
     	$this->timeOut();
-    	$o_id= $this->uri->segment(5);
+    	
     	//课程在MySQL表中的id
     	$cour_id= $this->uri->segment(4); 
     	$coursep = $this->getCoursepById($cour_id);
@@ -39,20 +39,20 @@ class Company extends CI_Controller {
     	print_r($companyc);echo "<br/>";echo count($companyc);echo "<br/>";
     	print_r($companyu);echo "<br/>";echo count($companyu);echo "<br/>";
     	*/
-    	$offset = $this->uri->segment(6);
+    	$offset = $this->uri->segment(5);
     	$company = array_merge($companyc,$companyu);
     	$num = count($company);
     	
-    	$config['base_url'] = base_url() . 'index.php/teacher/company/companyList/'.$cour_id.'/'.$o_id;
+    	$config['base_url'] = base_url() . 'index.php/teacher/company/companyList/'.$cour_id;
     	$config['total_rows'] = $num;
-    	$config['uri_segment'] = 6;
+    	$config['uri_segment'] = 5;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
 
     	$data['cour_id']=$cour_id;
     	$data['coursep']=$coursep;
     	$data['company'] = array_slice($company,$offset,PER_PAGE);
-    	$data['o_id']=$o_id;
+    	
         $data['num']=$num;
     	$this->load->view('common/header3');
     	$this->load->view('teacher/company/company', $data);
@@ -479,7 +479,7 @@ class Company extends CI_Controller {
 	/*
 	 * 志愿式发布课程——设置基地
 	 */
-    
+    /*
 	public function companyListZ(){
 		//1
 		$this->timeOut();
@@ -519,6 +519,7 @@ class Company extends CI_Controller {
 		$this->load->view('teacher/company/compCourPublish', $data);
 		$this->load->view('common/footer');
 	}
+	*/
     
     // session中的role不存在的时候退出系统
     function timeOut() {

@@ -19,8 +19,9 @@ class Variablebm extends CI_Controller {
     public function variableList(){
     	$this->timeOut();
     	
-    	$stuId = $this->session->userdata('u_name');
-    	$array=array('stuId'=>$stuId);
+    	$stuId = $this->session->userdata('u_num');
+    	$term = $this->session->userdata('term');
+    	$array=array('XH'=>$stuId,'ZXJXJHH'=>$term);
     	$this->load->model('m_nvariable');
     	
     	$offset = $this->uri->segment(4);
@@ -30,7 +31,7 @@ class Variablebm extends CI_Controller {
     	$num = $num - $num1;
     	
     	$data['variable'] = $data1['data'];
-    	$config['base_url'] = base_url() . 'index.php/student/variable/variableList';
+    	$config['base_url'] = base_url() . 'index.php/student/variablebm/variableList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
     	$this->pagination->initialize($config);
@@ -52,10 +53,10 @@ class Variablebm extends CI_Controller {
     	$i = 0;
     	foreach ($result as $r) {
     		//查看课程是否发布
-    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->courseTerm);
+    		$arrCourse = array('cour_no'=>$r->KCH,'cour_num'=>$r->KXH,'cour_term'=>$r->ZXJXJHH);
         	$resCourse = $this->getCoursep($arrCourse);
         	//查看是否提交基地
-        	$arrElco = array('elco_cour_no'=>$r->courseId,'elco_cour_num'=>$r->courseNum,'elco_cour_term'=>$r->courseTerm,'elco_stu_num'=>$stu_num);
+        	$arrElco = array('elco_cour_no'=>$r->KCH,'elco_cour_num'=>$r->KXH,'elco_cour_term'=>$r->ZXJXJHH,'elco_stu_num'=>$stu_num);
         	$resElco = $this->getElecom($arrElco);
         	if($resCourse){
         		if($resCourse->cour_publish == 1){//课程发布
@@ -64,10 +65,10 @@ class Variablebm extends CI_Controller {
 	        				switch ($resElco->elco_state){
 	        					case 5:
 						    		$arr = array(
-						    				'id' => $r->id,
-										    'courseId' => $r->courseId,
-										    'courseNum' => $r->courseNum,
-										    'courseName' => $r->courseName,
+						    				
+										    'courseId' => $r->KCH,
+										    'courseNum' => $r->KXH,
+										    'courseName' => $r->KCM,
 						    				'coursePattern' => $resCourse->patt_type,
 							            	'coursePublish' => $resCourse->cour_publish,
 							            	'courseCompany' => "已提交基地",
@@ -76,10 +77,10 @@ class Variablebm extends CI_Controller {
 						    		break;
 	        					case 6:
 	        						$arr = array(
-	        								'id' => $r->id,
-	        								'courseId' => $r->courseId,
-	        								'courseNum' => $r->courseNum,
-	        								'courseName' => $r->courseName,
+	        								
+	        								'courseId' => $r->KCH,
+	        								'courseNum' => $r->KXH,
+	        								'courseName' => $r->KCM,
 	        								'coursePattern' => $resCourse->patt_type,
 	        								'coursePublish' => $resCourse->cour_publish,
 	        								'courseCompany' => "已提交基地",
@@ -88,10 +89,10 @@ class Variablebm extends CI_Controller {
 	        						break;
 	        					case 7:
 	        						$arr = array(
-						    				'id' => $r->id,
-										    'courseId' => $r->courseId,
-										    'courseNum' => $r->courseNum,
-										    'courseName' => $r->courseName,
+						    				
+										    'courseId' => $r->KCH,
+										    'courseNum' => $r->KXH,
+										    'courseName' => $r->KCM,
 						    				'coursePattern' => $resCourse->patt_type,
 							            	'coursePublish' => $resCourse->cour_publish,
 							            	'courseCompany' => "已提交基地",
@@ -101,23 +102,34 @@ class Variablebm extends CI_Controller {
 	        				}
         				}elseif($resCourse->cour_pattern_id == 2){//志愿式课程
         					$arr = array(
-        							'id' => $r->id,
-        							'courseId' => $r->courseId,
-        							'courseNum' => $r->courseNum,
-        							'courseName' => $r->courseName,
+        							
+        							'courseId' => $r->KCH,
+        							'courseNum' => $r->KXH,
+        							'courseName' => $r->KCM,
         							'coursePattern' => $resCourse->patt_type,
         							'coursePublish' => $resCourse->cour_publish,
         							'courseCompany' => "已提交基地",
         							'courseState' => "--"
         					);
+        				}elseif($resCourse->cour_pattern_id == 3){//分配式课程
+        					$arr = array(
+        							
+        							'courseId' => $r->KCH,
+        							'courseNum' => $r->KXH,
+        							'courseName' => $r->KCM,
+        							'coursePattern' => $resCourse->patt_type,
+        							'coursePublish' => $resCourse->cour_publish,
+        							'courseCompany' => "已分配基地",
+        							'courseState' => "审核通过"
+        					);
         				}
 			    		
         			}else{
         				$arr = array(
-        						'id' => $r->id,
-        						'courseId' => $r->courseId,
-        						'courseNum' => $r->courseNum,
-        						'courseName' => $r->courseName,
+        						
+        						'courseId' => $r->KCH,
+        						'courseNum' => $r->KXH,
+        						'courseName' => $r->KCM,
         						'coursePattern' => $resCourse->patt_type,
         						'coursePublish' => $resCourse->cour_publish,
         						'courseCompany' => "未提交基地",
@@ -142,23 +154,26 @@ class Variablebm extends CI_Controller {
     public function variableDetail(){
     	$this->timeOut();
     	
-    	$id = $this->uri->segment(4);
+    	$cour_no = $this->uri->segment(4);
+    	$cour_num = $this->uri->segment(5);
+    	$term = $this->session->userdata("term");
+    	$stu_num = $this->session->userdata("u_num");
     	//获取单个选课信息
     	//oracle
-    	$variable = $this->getVariable($id);
+    	$arrVari = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term,'XH'=>$stu_num);
+    	$variable = $this->getVariable($arrVari);
     	//获取单个信息
     	//oracle
-    	$arrCourse = array('courseId'=>$variable->courseId,'courseNum'=>$variable->courseNum,'term'=>$variable->courseTerm);
+    	$arrCourse = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term);
     	$course = $this->getNCourse($arrCourse);
     	//mysql
-    	$arrCoursep = array('cour_no'=>$variable->courseId,'cour_num'=>$variable->courseNum,'cour_term'=>$variable->courseTerm);
+    	$arrCoursep = array('cour_no'=>$cour_no,'cour_num'=>$cour_num,'cour_term'=>$term);
     	$coursep = $this->getCoursep($arrCoursep);
     	if(!$coursep){
     		$coursep = $this->getEmptyCoursep();
     	}
     	//查看是否报名
-    	$stu_num = $this->session->userdata('u_num');
-    	$arrElco = array('elco_cour_no'=>$variable->courseId,'elco_cour_num'=>$variable->courseNum,'elco_cour_term'=>$variable->courseTerm,'elco_stu_num'=>$stu_num);
+    	$arrElco = array('elco_cour_no'=>$cour_no,'elco_cour_num'=>$cour_num,'elco_cour_term'=>$term,'elco_stu_num'=>$stu_num);
     	$elecom = $this->getElecom($arrElco);
     	
     	$data['course'] = $course;
@@ -191,9 +206,9 @@ class Variablebm extends CI_Controller {
     
     
     // 获取单个选课信息
-    function getVariable($id) {
+    function getVariable($array) {
     	$this->load->model('m_nvariable');
-    	$result = $this->m_nvariable->getNvariableById($id);
+    	$result = $this->m_nvariable->getNvariable($array);
     	$data = array();
     	foreach ($result as $r) {
     		$data = $r;
@@ -262,11 +277,13 @@ class Variablebm extends CI_Controller {
     public function variableDelete(){
     	$this->timeOut();
     	$elco_id = $this->uri->segment(4);
+    	$term = $this->session->userdata("term");
+    	
     	$this->load->model('m_elecom');
     	$this->m_elecom->deleteElecom($elco_id); 
     	
     	$stuId = $this->session->userdata('u_name');
-    	$array=array('stuId'=>$stuId);
+    	$array=array('XH'=>$stuId,'ZXJXJHH'=>$term);
     	$this->load->model('m_nvariable');
     	 
     	$offset = 0;
@@ -276,7 +293,7 @@ class Variablebm extends CI_Controller {
     	$num = $num - $num1;
     	 
     	$data['variable'] = $data1['data'];
-    	$config['base_url'] = base_url() . 'index.php/student/variable/variableList';
+    	$config['base_url'] = base_url() . 'index.php/student/variablebm/variableList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
     	$this->pagination->initialize($config);
@@ -295,7 +312,7 @@ class Variablebm extends CI_Controller {
     	$cour_id=$this->uri->segment(4);
     	$comp_id=$this->uri->segment(5);
     	$elco_id=$this->uri->segment(6);
-    	
+    	$term = $this->session->userdata("term");
     	//2.删除公司信息
     	$this->load->model('m_company');
     	$company = $this->getCompanyById($comp_id);
@@ -313,7 +330,7 @@ class Variablebm extends CI_Controller {
     	$this->m_elecom->deleteElecom($elco_id);
     	 
     	$stuId = $this->session->userdata('u_name');
-    	$array=array('stuId'=>$stuId);
+    	$array=array('XH'=>$stuId,'ZXJXJHH'=>$term);
     	$this->load->model('m_nvariable');
     
     	$offset = 0;
@@ -323,7 +340,7 @@ class Variablebm extends CI_Controller {
     	$num = $num - $num1;
     
     	$data['variable'] = $data1['data'];
-    	$config['base_url'] = base_url() . 'index.php/student/variable/variableList';
+    	$config['base_url'] = base_url() . 'index.php/student/variablebm/variableList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
     	$this->pagination->initialize($config);

@@ -99,7 +99,70 @@ class Index extends CI_Controller {
         //$array = array('u_name' => $u_name, 'password' => $password);
     	switch ($userType){
     		case 1:
+    			//校级管理员
+    			$this->load->model('m_admin');
+    			$array = array('admin_num' => $u_name, 'admin_password' => $password,'admin_roleId'=>1);
+    			$result = $this->m_admin->getAdmin($array);
+    			
+    			if($result){
+    				$data = array();
+    				foreach ($result as $r) {
+    					$data = $r;
+    				}
+    				$array = array(
+    						'u_id' => $data->admin_num,
+    						'roleId' => 1,
+    						'college' => 0,
+    						'realname' => $data->admin_name,
+    						'u_name' => $data->admin_num,
+    						'u_num' => $data->admin_num,
+    						'ustateId' => 1,
+    						'grade'=> 0,
+    						'major'=> 0,
+    						'class'=> 0,
+    						'term'=>"2013-2014学年夏(三学期)"
+    				
+    				);
+    				$this->session->set_userdata($array);
+    				redirect('superadmin/frame/index');
+    				
+    			} else {
+    				redirect('index/erro');
+    			}
+    			break;
     		case 2:
+    			//院级管理员
+    			//校级管理员
+    			$this->load->model('m_admin');
+    			$array = array('admin_num' => $u_name, 'admin_password' => $password,'admin_roleId'=>2);
+    			$result = $this->m_admin->getAdmin($array);
+    			 
+    			if($result){
+    				$data = array();
+    				foreach ($result as $r) {
+    					$data = $r;
+    				}
+    				$array = array(
+    						'u_id' => $data->admin_num,
+    						'roleId' => 2,
+    						'college' => $data->admin_coll_name,
+    						'realname' => $data->admin_name,
+    						'u_name' => $data->admin_num,
+    						'u_num' => $data->admin_num,
+    						'ustateId' => 1,
+    						'grade'=> 0,
+    						'major'=> 0,
+    						'class'=> 0,
+    						'term'=>"2013-2014学年夏(三学期)"
+    			
+    				);
+    				$this->session->set_userdata($array);
+    				redirect('admin/frame/index');
+    			
+    			} else {
+    				redirect('index/erro');
+    			}
+    			break;
     		case 3:
     			//查询教师表
 /*----------------------两种查询方式------------------------------------------×/
@@ -112,11 +175,11 @@ class Index extends CI_Controller {
 
 /* ---------------------两种连接方式----------------------------------------*/
 
-            /*第一种connect的方式
+            //第一种connect的方式
             $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
-            */
-            /*第二种connect方式
-            $conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+            
+            //第二种connect方式
+            //$conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
 
             $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
             $result = OCIParse($conn, $query);
@@ -124,113 +187,71 @@ class Index extends CI_Controller {
             if($result==null){
                 show_404();
             }
-            */
+            
 
 /*-------------------普通模式下查询---------------------------------------------*/
-            $this->load->model('m_nteacher');
-            $array = array('teaId' => $u_name, 'password' => $password);
-            $result = $this->m_nteacher->getTea($array);
-            $data = array();
-    			foreach ($result as $r) {
-    				$data = $r;
-    			}
-    			
-    			if ($result) {
-    				//获得学院id
-    				$this->load->model('m_college');
-    				$reco = $this->m_college->getCollege(array('college'=>$r->XSM));
-    				$codata = array();
-    				foreach ($reco as $r) {
-    					$codata = $r;
-    				}
-    				if(!$codata)
-    					@$codata->collegeId=0;
-    				switch ($data->teaRole){
-    					case "普通老师":
-    						$roleId = 3;
-    						break;
-    					case "校级管理员":
-    						$roleId = 1;
-    						break;
-    					case "院系管理员":
-    						$roleId = 2;
-    						break;
-    					default:
-    						$roleId = 0;
-    						break;
-    				}
-    				$array = array(
-    						'u_id' => $data->id, 
-    						'roleId' => $roleId, 
-    						'college' => $data->college,
-    						'collegeId' => $codata->collegeId, 
-    						'realname' => $data->teaName,
-    						'u_name' => $data->teaId, 
-    						'u_num' => $data->teaId, 
-    						'ustateId' => 1,
-    						'grade'=> 0,
-    						'major'=> 0,
-    						'class'=> 0);
-    				$this->session->set_userdata($array);
-    				print_r($array);
-    				if ($array['ustateId'] == 0) {
-    					redirect('index/erro1');
-    					
-    				} else if ($array['ustateId'] == 1) {
-    					if ($array['roleId'] == 1) {
-    						redirect('superadmin/frame/index');
-    					} else if ($array['roleId'] == 2) {
-    						redirect('admin/frame/index');
-    					} else if ($array['roleId'] == 3) {
-    						redirect('teacher/frame/index');
-    					} 
-    				}
-    			} else {
-    				redirect('index/erro');
-    			}
-    			break;
+	           // $this->load->model('m_nteacher');
+	            //$array = array('JSH' => $u_name, 'MM' => $password);
+	            //$result = $this->m_nteacher->getTea($array);
+	            
+	    		if ($result) {
+	    			$data = array();
+	    			foreach ($result as $r) {
+	    				$data = $r;
+	    			}
+	    			$array = array(
+	    					'u_id' => $data->JSH, 
+	    					'roleId' => 3, 
+	    					'college' => $data->XSM,
+	    					'realname' => $data->JSM,
+	    					'u_name' => $data->JSM, 
+	    					'u_num' => $data->JSH, 
+	    					'ustateId' => 1,
+	    					'grade'=> 0,
+	    					'major'=> 0,
+	    					'class'=> 0,
+    						'term'=>"2013-2014学年夏(三学期)"
+	    					
+	    			);
+	    			$this->session->set_userdata($array);
+	    			//普通教师
+	    			redirect('teacher/frame/index');
+	    			
+	    			
+	    		} else {
+	    			redirect('index/erro');
+	    		}
+	    		break;
     		
     		case 4:
     			//查询基地用户表
     			$this->load->model('m_user');
-    			$array = array('u_name' => $u_name, 'password' => $password);
+    			$array = array('user_num' => $u_name, 'user_password' => $password);
     			$result = $this->m_user->getNCompUserL($array);
     			
-    			$data = array();
-    			foreach ($result as $r) {
-    				$data = $r;
-    			}
     			
-    			if (isset($data->u_id)) {
-    				//获得学院
-    				$this->load->model('m_college');
-    				$reco = $this->m_college->getCollege(array('collegeId'=>$r->collegeId));
-    				$codata = array();
-    				foreach ($reco as $r) {
-    					$codata = $r;
-    				}
-    				if(!$codata)
-    					@$codata->college='';
     			
-    				if(!$data->collegeId){
-    					$roleId = 0;
-    				}else{
-    					$roleId = 4;
-    				}
+    			if ($result) {
+	    			$data = array();
+	    			foreach ($result as $r) {
+	    				$data = $r;
+	    			}
+
     				$array = array(
     						'u_id' => $data->u_id,
-    						'roleId' => $roleId,
+    						'roleId' => 4,
     						'college' => $codata->college,
-    						'collegeId' => $data->collegeId,
+    						
     						'realname' => $data->realname,
     						'u_name' => $data->u_name,
     						'u_num' => $data->u_name,
     						'ustateId' => $data->ustateId,
     						'grade'=> 0,
     						'major'=> 0,
-    						'class'=> 0);
+    						'class'=> 0,
+    						'term'=>"2013-2014学年夏(三学期)");
     				$this->session->set_userdata($array);
-    				if ($array['ustateId'] == 0) {
+    				if ($array['ustateId'] == 2) {
     					redirect('index/erro1');
     				} else if ($array['ustateId'] == 1) {
     					if ($array['roleId']) {
@@ -242,52 +263,41 @@ class Index extends CI_Controller {
     			}
     			
     			break;
+    			
     		case 5:
     			//查询学生表
     			$this->load->model('m_nstudent');
-    			$array = array('stuId' => $u_name, 'password' => $password);
+    			$array = array('XH' => $u_name, 'MM' => $password);
     			$result = $this->m_nstudent->getStu($array);
     				 
-    			$data = array();
-    			foreach ($result as $r) {
-    				$data = $r;
-    			}
-    			
-    			if (isset($data->stuId)) {
-    				//获得学院id
-    				$this->load->model('m_college');
-    				$reco = $this->m_college->getCollege(array('college'=>$r->college));
-    				$codata = array();
-    				foreach ($reco as $r) {
-    					$codata = $r;
-    				}
-    				if(!$codata)
-    					@$codata->collegeId=0;
-    			
-    				if(!$data->college){
-    					$roleId = 0;
-    				}else{
-    					$roleId = 5;
-    				}
+    			if ($result) {
+	    			$data = array();
+	    			foreach ($result as $r) {
+	    				$data = $r;
+	    			}
+    				
     				$array = array(
-    						'u_id' => $data->id,
-    						'roleId' => $roleId,
-    						'college' => $data->college,
-    						'collegeId' => $codata->collegeId,
-    						'realname' => $data->stuName,
-    						'u_name' => $data->stuId,
-    						'u_num' => $data->stuId,
+    						'u_id' => $data->XH,
+    						'roleId' => 5,
+    						'college' => $data->XSM,
+    						
+    						'realname' => $data->XM,
+    						'u_name' => $data->XH,
+    						'u_num' => $data->XH,
     						'ustateId' => 1,
-    						'grade'=>$data->grade,
-    						'major'=>$data->major,
-    						'class'=>$data->class);
+    						'grade'=>$data->NJMC,
+    						'major'=>$data->ZYM,
+    						'class'=>$data->BM,
+    						'term'=>"2013-2014学年夏(三学期)",
+    						
+    				);
     				$this->session->set_userdata($array);
     				if ($array['ustateId'] == 0) {
     					redirect('index/erro1');
     				} else if ($array['ustateId'] == 1) {
-    					if ($array['roleId'] == 5) {
+    					
     						redirect('student/frame/index');
-    					}
+    					
     				}
     			} else {
     				redirect('index/erro');

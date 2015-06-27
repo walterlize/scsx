@@ -71,7 +71,7 @@
             </tr>
             <tr>
                 <td colspan="2" class="td3" align="center">
-                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyList/<?=$comp->cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
+                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourpublish/companyList/<?=$comp->cour_id?>';" id="btnReturn" class="input" />
                 </td>
             </tr>
         </table>

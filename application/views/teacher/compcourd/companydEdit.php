@@ -1,7 +1,7 @@
 <div style="margin-left:20px; margin-right:20px;width:900px;">
     <br />
     <h3>实习基地信息编辑</h3>
-    <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourdist/save/<?=$coursep->cour_id?>/<?=$o_id?>" id="form1">
+    <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourdist/save/<?=$coursep->cour_id?>" id="form1">
         <input type="hidden" value="<?= $comp->comp_id ?>" name="comp_id" id="comp_id" />
         <input type="hidden" value="<?= $user->user_id ?>" name="user_id" id="user_id" />
         <input type="hidden" value="<?= $coco->coco_id ?>" name="coco_id" id="coco_id" />
@@ -147,7 +147,7 @@
             <tr>
                 <td colspan="2" class="td3" align="center">
                     <input type="submit" name="btnSave" value="保 存" onclick="return check('form1');" id="btnSave" class="input" />
-                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyList/<?=$coursep->cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
+                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyList/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
                 </td>
             </tr>
         </table>

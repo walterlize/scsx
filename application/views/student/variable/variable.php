@@ -18,7 +18,7 @@
                     <td><?= $r['coursePattern'] ?></td>
                     <td><?php if($r['coursePublish']==1) echo "已发布";elseif ($r['coursePublish']==0)echo "未发布";else echo $r['coursePublish']; ?></td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/student/variable/variableDetail/<?= $r['id'] ?>">详细</a>
+                        <a id="" href="<?= base_url() ?>index.php/student/variable/variableDetail/<?= $r['courseId'] ?>/<?= $r['courseNum'] ?>">详细</a>
                     </td>
                 </tr>
          <?php endforeach; ?>
