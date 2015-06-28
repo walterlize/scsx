@@ -9,8 +9,10 @@ class m_nteacher extends CI_Model {
         $this->db_connect1 = $this->load->database('default', TRUE);
         /*
          *引入远程的oracle数据库
-         * $this->db_connect2= $this->load->database ('db2', TRUE);
          */
+
+        $this->db_connect2= $this->load->database ('db2', TRUE);
+
     }
 
     //查询所有教师
@@ -22,14 +24,20 @@ class m_nteacher extends CI_Model {
     	$q = $this->db->get();
     	return $q->result();
     }
-    /*
-     * ------Oracle数据库查询-------
+
+    /*-----Oracle数据库查询------- */
     function getTea_orcl($u_name,$password){
         $oracle= $this->load->database('db2', TRUE);
-        $q = $oracle->query("SELECT * FROM v_sx_jsxxb where JSH='$u_name' and MM='$password'");
+        $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
+       /* $q = $oracle->query("SELECT * FROM V_SX_JSXXB where JSH='$u_name' and MM='$password'");
+        return $q->result();
+       */
+        $orc=oci_parse($oracle,$query);
+        oci_execute($orc);
+        $q=oci_fetch_array($orc, OCI_BOTH);
         return $q->result();
     }
-    */
+
 
     //分页显示
     function getTeas($array, $per_page, $offset) {

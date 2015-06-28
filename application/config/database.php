@@ -72,14 +72,15 @@ $db['default']['stricton'] = FALSE;
 
 //先编程后连接
 
-/*
-$db['db2']['hostname'] = '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=202.205.91.55)(PORT=1521))(SERVICE_NAME = newjw))';
+
+$db['db2']['hostname'] = '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=202.205.91.55)(PORT=1521))(SERVICE_NAME = URPJW))';
 $db['db2']['username'] = 'sjk';
 $db['db2']['password'] = 'sjk#_2015$';
 $db['db2']['database'] = '';
 $db['db2']['dbdriver'] = 'oci8';
 $db['db2']['dbprefix'] = '';
-$db['db2']['pconnect'] = TRUE;
+//$db['db2']['pconnect'] = TRUE;
+$db['db2']['pconnect'] = FALSE;
 $db['db2']['db_debug'] = FALSE;
 $db['db2']['cache_on'] = FALSE;
 $db['db2']['cachedir'] = '';
@@ -89,6 +90,6 @@ $db['db2']['swap_pre'] = '';
 $db['db2']['autoinit'] = TRUE;
 $db['db2']['stricton'] = FALSE;
 
-*/
+
 /* End of file database.php */
 /* Location: ./application/config/database.php */

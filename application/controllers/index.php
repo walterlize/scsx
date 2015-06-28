@@ -101,96 +101,95 @@ class Index extends CI_Controller {
     		case 1:
     		case 2:
     		case 3:
-    			//查询教师表
-/*----------------------两种查询方式------------------------------------------×/
-    			//$result = $this->m_nteacher->getTea($array);
 
-              /*
+            //$this->load->model('m_nteacher');
 
-                $result = $this->m_nteacher->getTea_orcl($u_name,$password);
-                */
+            //$result = $this->m_nteacher->getTea_orcl($u_name,$password);
 
-/* ---------------------两种连接方式----------------------------------------*/
-
-            /*第一种connect的方式
-            $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/urpjw');
-            */
-            /*第二种connect方式
-            $conn = OCI. LOGON('sjk', 'sjk#_2015$', '202.205.91.55/urpjw');
-
-            $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
-            $result = OCIParse($conn, $query);
-            OCIExecute($stid);
-            if($result==null){
-                show_404();
+            $conn=oci_connect('sjk','sjk#_2015$','202.205.91.55/urpjw');
+            if($conn==null){
+              show_404();
+            }else{
+                echo "woshi";
             }
-            */
+            $query = "select * from V_SX_JSXXB where JSH =(:name) and MM = (:password1)";
 
-/*-------------------普通模式下查询---------------------------------------------*/
-            $this->load->model('m_nteacher');
-            $array = array('teaId' => $u_name, 'password' => $password);
-            $result = $this->m_nteacher->getTea($array);
+            $content=oci_parse($conn,$query);
+            $name=$u_name;
+            $password1=$password;
+            oci_bind_by_name($content,":name",$name);
+            oci_bind_by_name($content,":password1",$password1);
+            oci_execute($content);
+
+
+            $nrows=oci_fetch_all($content,$result);
+
+            if($nrows==1){
+                foreach ($result as $data) {
+                    $array = array(
+                        'college' => $data[0]->XSM,
+                        'collegeId' => $data[0]->XSH,
+                        'realname' => $data[0]->JSM,
+                        'u_name' => $data[0]->JSM,
+                        'u_num' => $data[0]->JSH,
+                        'ustateId' => 1,
+                        'grade'=> 0,
+                        'major'=> 0,
+                        'class'=> 0);
+                    $this->session->set_userdata($array);
+
+                    }
+                }
+            if ($result) {
+                // redirect('teacher/frame/index');
+                echo "fsfsa"."$result->JSM";
+            }
+         else {
+            redirect('index/erro');
+        }
+
+
+/*
             $data = array();
-    			foreach ($result as $r) {
-    				$data = $r;
-    			}
-    			
-    			if ($result) {
-    				//获得学院id
-    				$this->load->model('m_college');
-    				$reco = $this->m_college->getCollege(array('college'=>$r->XSM));
-    				$codata = array();
-    				foreach ($reco as $r) {
-    					$codata = $r;
-    				}
-    				if(!$codata)
-    					@$codata->collegeId=0;
-    				switch ($data->teaRole){
-    					case "普通老师":
-    						$roleId = 3;
-    						break;
-    					case "校级管理员":
-    						$roleId = 1;
-    						break;
-    					case "院系管理员":
-    						$roleId = 2;
-    						break;
-    					default:
-    						$roleId = 0;
-    						break;
-    				}
-    				$array = array(
-    						'u_id' => $data->id, 
-    						'roleId' => $roleId, 
-    						'college' => $data->college,
-    						'collegeId' => $codata->collegeId, 
-    						'realname' => $data->teaName,
-    						'u_name' => $data->teaId, 
-    						'u_num' => $data->teaId, 
-    						'ustateId' => 1,
-    						'grade'=> 0,
-    						'major'=> 0,
-    						'class'=> 0);
-    				$this->session->set_userdata($array);
-    				print_r($array);
-    				if ($array['ustateId'] == 0) {
-    					redirect('index/erro1');
-    					
-    				} else if ($array['ustateId'] == 1) {
-    					if ($array['roleId'] == 1) {
-    						redirect('superadmin/frame/index');
-    					} else if ($array['roleId'] == 2) {
-    						redirect('admin/frame/index');
-    					} else if ($array['roleId'] == 3) {
-    						redirect('teacher/frame/index');
-    					} 
-    				}
-    			} else {
-    				redirect('index/erro');
-    			}
-    			break;
-    		
-    		case 4:
+            foreach ($result as $r) {
+                $data = $r;
+            }
+            if($data==null){
+                show_404();
+            }else{
+                echo "1". $data['XSH'];
+
+            }
+            print_r($result);
+
+            if ($data) {
+
+                $array = array(
+
+
+                    'college' => $data->XSM,
+                    'collegeId' => $data->XSH,
+                    'realname' => $data->JSM,
+                    'u_name' => $data->JSM,
+                    'u_num' => $data->JSH,
+                    'ustateId' => 1,
+                    'grade'=> 0,
+                    'major'=> 0,
+                    'class'=> 0);
+                $this->session->set_userdata($array);
+                print_r($array);
+
+                if ($result) {
+                   // redirect('teacher/frame/index');
+                    echo "fsfsa"."$result->JSM";
+                }
+            } else {
+                redirect('index/erro');
+            }
+
+*/
+            break;
+            case 4:
     			//查询基地用户表
     			$this->load->model('m_user');
     			$array = array('u_name' => $u_name, 'password' => $password);
