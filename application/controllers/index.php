@@ -11,6 +11,9 @@ class Index extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('session');
         $this->load->model('m_user');
+        $this->load->model('m_nteacher');
+
+    
 
     }
 
@@ -168,32 +171,37 @@ class Index extends CI_Controller {
 /*----------------------两种查询方式------------------------------------------×/
     			//$result = $this->m_nteacher->getTea($array);
 
-              /*
+              /*  */
 
-                $result = $this->m_nteacher->getTea_orcl($u_name,$password);
-                */
+                //$result = $this->m_nteacher->getTea_orcl($u_name,$password);
+                //if ($result==null) {
+                  //  show_404();
+                //}
+              
 
 /* ---------------------两种连接方式----------------------------------------*/
 
             //第一种connect的方式
-            $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+         //   $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/urpjw');
             
             //第二种connect方式
-            //$conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
+            /*$conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
 
+            
             $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
             $result = OCIParse($conn, $query);
             OCIExecute($stid);
             if($result==null){
                 show_404();
-            }
+            }*/
             
 
 /*-------------------普通模式下查询---------------------------------------------*/
-	           // $this->load->model('m_nteacher');
-	            //$array = array('JSH' => $u_name, 'MM' => $password);
-	            //$result = $this->m_nteacher->getTea($array);
-	            
+	            $this->load->model('m_nteacher');
+	            $array = array('JSH' => $u_name, 'MM' => $password);
+                    
+	            $result = $this->m_nteacher->getTea($array);
+	           
 	    		if ($result) {
 	    			$data = array();
 	    			foreach ($result as $r) {
@@ -214,6 +222,7 @@ class Index extends CI_Controller {
 	    					
 	    			);
 	    			$this->session->set_userdata($array);
+                                //print_r($this->session->all_userdata());
 	    			//普通教师
 	    			redirect('teacher/frame/index');
 	    			

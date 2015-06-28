@@ -21,7 +21,7 @@ class Frame extends CI_Controller {
         }
 
         public function menu(){
-        	$data['id'] = $this->session->userdata('u_name');
+            $data['id'] = $this->session->userdata('u_name');
             $data['name'] = $this->session->userdata('realname');
             $this->load->view('common/header');
             $this->load->view('admin/left',$data);

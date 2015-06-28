@@ -365,9 +365,9 @@ class Course extends CI_Controller {
    
     // session中的role不存在的时候退出系统
     function timeOut() {
-        $role = $this->session->userdata('roleId');
+        $u_id = $this->session->userdata('u_id');
 
-        if ($role != 3) {
+        if ($u_id== NULL) {
             $this->load->view('logout');
         }
     }
