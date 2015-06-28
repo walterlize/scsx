@@ -44,7 +44,7 @@ body{font-family:"宋体"; font-size:12px; color:#666666; background-color:#f8f8
 
 /*右侧内容*/
 .enterright{
-	width:100%;
+	width:99%;
 	overflow:hidden;
 	border:1px #d9d9d9 solid;
 	margin-top:28px;
