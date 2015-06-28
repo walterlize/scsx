@@ -14,10 +14,12 @@
     	<div class="logo">
         	<img src="<?= base_url(); ?>images/backstage6.png"/>
             <div class="righttopbox">
-        		<div class="righttop">
-                	<a href="<?= base_url() ?>"; target="_top">返回首页</a>
+        		<div class="righttop" style="text-align:center; ">
+                	<a href="<?= base_url() ?>"; target="_top" style="margin-left: 40px;">返回首页</a>
+                	<!--  
                     <p><img src="<?= base_url(); ?>images/backstage8.png" /></p>
                     <a href="<?= base_url() ?>index.php/user/password"; target="content1">修改密码</a>
+                    -->
                     <p><img src="<?= base_url(); ?>images/backstage8.png" /></p>
                     <a href="<?= base_url() ?>index.php/index/logOut"; target="_top">退出</a>
                 </div>

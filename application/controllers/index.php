@@ -12,9 +12,7 @@ class Index extends CI_Controller {
         $this->load->library('session');
         $this->load->model('m_user');
         $this->load->model('m_nteacher');
-
-    
-
+        
     }
 
     public function index() {
@@ -29,12 +27,12 @@ class Index extends CI_Controller {
         $data['notice'] = array();
         $data['guiding'] = array();
         $data['summary'] = array();
-        /*
-        $data['news'] = $this->getNews1();
-        $data['notice'] = $this->getNews2();
-        $data['guiding'] = $this->getNews3();       
-        $data['summary'] = $this->getNews4();
-        */
+        
+        $data['news'] = $this->getNews();
+        $data['notice'] = $this->getNotice();
+        $data['guiding'] = $this->getRule();       
+        $data['summary'] = $this->getSum();
+        $data['img'] = $this->getImg();
         
         if ($name == '' || $name == null) {
             $data['form'] = '';
@@ -53,24 +51,34 @@ class Index extends CI_Controller {
         $this->load->view('common/foot');
     }
     //获取新闻
-    public function getNews1() {
+    public function getNews() {
+    	$array = array("news_audit"=>"6","news_type_id"=>1);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews1();
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getNews2() {
+    public function getNotice() {
+       $array = array("news_audit"=>"6","news_type_id"=>2);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews2();
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getNews3() {
+    public function getRule() {
+        $array = array("news_audit"=>"6","news_type_id"=>3);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews3();
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getNews4() {
+    public function getSum() {
+        $array = array("news_audit"=>"6","news_type_id"=>4);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews4();
+        $data = $this->m_news->getNewss($array, 5, 0);
+        return $data;
+    }
+    public function getImg() {
+    	$array = array("news_audit"=>"6","news_type_id"=>5);
+        $this->load->model('m_news');
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
 
