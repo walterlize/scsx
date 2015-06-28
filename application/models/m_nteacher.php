@@ -1,20 +1,171 @@
 <?php
 
 class m_nteacher extends CI_Model {
-
+/*
 	var $table = "oteacher";
 	//var $table = "V_SX_JSXXB";
-	var $db_connect1;
-    var $db_connect2;
-    /*
-    public function __construct(){
-        parent::__construct();
-        //$this->db_connect1 = $this->load->database('default', TRUE);
-        //
-        //引入远程的oracle数据库
-         $this->load->database('db2', TRUE);
-         
-    }*/
+	
+    
+    //查询所有教师
+    function getTea1($array){
+    	$this->db->select();
+    	$this->db->from($this->table);
+    	 
+    	$this->db->where($array);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
+
+    //分页显示
+    function getTeasByCol1($array, $per_page, $offset) {
+    	$this->db->select();
+    	$this->db->where('college',$this->session->userdata('college'));
+    	$this->db->where($array);
+    	$q = $this->db->get($this->table, $per_page, $offset);
+    	return $q->result();
+    }
+    
+    //通过教师号查询
+    function getTeaById1($teaId) {
+        $this->db->select();
+        $this->db->from($this->table);
+        $this->db->where('JSH', $teaId);
+        $q = $this->db->get();
+        return $q->result();
+    }
+    
+    function getNumByCol1($array){
+    	$this->db->select();
+    	$this->db->from($this->table);
+    	$this->db->where('college',$this->session->userdata('college'));
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
+    }
+    
+    function getNumALL1($array){
+    	$this->db->select();
+    	$this->db->from($this->table);
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
+    }
+    
+    //分页显示
+    function getTeasALL1($array, $per_page, $offset) {
+    	$this->db->select();
+    	$this->db->where($array);
+    	$q = $this->db->get($this->table, $per_page, $offset);
+    	return $q->result();
+    }
+*/
+    
+    function getTea($array){
+    	$conn = $this->dbConn();
+    	//处理array
+    	$str = $this->arrToStr($array);
+    
+    	$query = "select * from V_SX_JSXXB WHERE ".$str;
+    	 
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	oci_execute($content);//执行被解析语句
+    	$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	return $results;
+    }
+    
+    function getTeasByCol($array, $per_page, $offset) {
+    	$conn = $this->dbConn();
+    	//处理array
+    	$str = $this->arrToStr($array);
+    	$college = $this->session->userdata('college');
+    	$strCol = " and XSM = ".$college;
+    	if($offset =='' || !$offset) $offset=0;
+        $strLimit1 = "  and rownum <= ".($offset+$per_page);
+        $strLimit2 = "  and rownum <= ".$offset;
+        $query = "select * from V_SX_JSXXB WHERE ".$str.$strCol;
+        $query = $query.$strLimit1." minus ".$query.$strLimit2;  
+        
+    	//$query = "select * from V_SX_JSXXB WHERE ".$str.$strCol.$strLimit;
+    	 
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	oci_execute($content);//执行被解析语句
+    	 
+    	$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	return $results;
+    
+    }
+    
+    //分页显示
+    function getTeasALL($array, $per_page, $offset) {
+    	$conn = $this->dbConn();
+    	//处理array
+    	$str = $this->arrToStr($array);
+    	 
+    	if($offset =='' || !$offset) $offset=0;
+        $strLimit1 = "  and rownum <= ".($offset+$per_page);
+        $strLimit2 = "  and rownum <= ".$offset;
+        $query = "select * from V_SX_JSXXB WHERE ".$str;
+        $query = $query.$strLimit1." minus ".$query.$strLimit2;  
+        
+    	//$query = "select * from V_SX_JSXXB WHERE ".$str.$strLimit;
+    
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	oci_execute($content);//执行被解析语句
+    	 
+    	$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	return $results;
+    }
+    
+    //通过教师号查询
+    function getTeaById($teaId) {
+    	$conn = $this->dbConn();
+    
+    	$query = "select * from V_SX_JSXXB WHERE JSH = '".$teaId."'";
+        	 
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	oci_execute($content);//执行被解析语句
+    	 
+    	//$results = oci_fetch_object($content);
+    	//$num = oci_fetch_all($content,$results);
+    	//echo $num;
+    	$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	return $results;
+    }
+    
+    function getNumALL($array){
+    	$conn = $this->dbConn();
+    	$str = $this->arrToStr($array);    	 
+    	$query = "select * from V_SX_JSXXB WHERE ".$str;
+
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	oci_execute($content);//执行被解析语句
+    	 
+    	$num = oci_fetch_all($content,$results);
+    	//$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	return $num;
+    }
+    
+    function getNumByCol($array){
+    	$conn = $this->dbConn();
+    	$str = $this->arrToStr($array);    	 
+    	
+    	$college = $this->session->userdata('college');
+    	$strCol = " and XSM = ".$college;
+    	$query = "select * from V_SX_JSXXB WHERE ".$str.$strCol;
+
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	oci_execute($content);//执行被解析语句
+    	 
+    	$num = oci_fetch_all($content,$results);
+    	//$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	return $num;
+    }
+    
+    
     
     //连接数据库
     function dbConn(){
@@ -34,40 +185,17 @@ class m_nteacher extends CI_Model {
         oci_close($conn);
     }
     
-    function getTea($array){
-        $conn = $this->dbConn();
-        //处理array
-        $str = '';
-        $i = 0;
-        $ai = count($array);
-        foreach($array as $key => $val){
-            $str = $str." ".$key." = '".$val."'";
-            $i++;
-            if($i < $ai)$str = $str." and ";
-            
-        }
-        //$query = "select * from V_SX_JSXXB WHERE JSH =(:name) and MM = (:password1)";
-        //$query = "select * from V_SX_JSXXB WHERE JSH ='96521' and MM = 'FUVQNQ'";
-        $query = "select * from V_SX_JSXXB WHERE ".$str;
-        
-       
-        $content=oci_parse($conn,$query);  //被解析语句     
-        oci_execute($content);//执行被解析语句
-       
-        //$results = oci_fetch_object($content);
-        //$num = oci_fetch_all($content,$results);
-        //echo $num;
+    function resToObj($content){
         $results = array();
         while (($row = oci_fetch_object($content)) != false) {
         // Use upper case attribute names for each standard Oracle column
             //echo $row->JSH . "<br>\n";
             $this->zhandi_iconv($row,"GB2312","UTF-8");
-            array_push($results,$row);
-            
+            array_push($results,$row); 
         }
-        $this->dbClose($content,$conn);
         return $results;
     }
+    
     
     /**
         * 循环实现编码互转
@@ -77,8 +205,7 @@ class m_nteacher extends CI_Model {
 
         */
 
-       function zhandi_iconv($param,$currCharset,$toCharset){
-
+    function zhandi_iconv($param,$currCharset,$toCharset){
 
         if ($currCharset != $toCharset){
            if (is_string($param)){
@@ -98,65 +225,20 @@ class m_nteacher extends CI_Model {
          }
        }
         return $param;
-       }
-
-    //查询所有教师
-        
-    function getTea1($array){
-    	$this->db->select();
-    	$this->db->from($this->table);
-    	
-    	$this->db->where($array);
-    	$q = $this->db->get();
-    	return $q->result();
     }
-    
-    function getTea_orcl($u_name,$password){
-        $oracle= $this->load->database('db2', TRUE);
-        $q = $oracle->query("SELECT * FROM v_sx_jsxxb where JSH='$u_name' and MM='$password'");
-        return $q->result();
-    }
-   
-
-    //分页显示
-    function getTeasByCol($array, $per_page, $offset) {
-    	$this->db->select();
-    	$this->db->where('college',$this->session->userdata('college'));
-    	$this->db->where($array);
-    	$q = $this->db->get($this->table, $per_page, $offset);
-    	return $q->result();
-    }
-    
-    //通过教师号查询
-    function getTeaById($teaId) {
-        $this->db->select();
-        $this->db->from($this->table);
-        $this->db->where('JSH', $teaId);
-        $q = $this->db->get();
-        return $q->result();
-    }
-    
-    function getNumByCol($array){
-    	$this->db->select();
-    	$this->db->from($this->table);
-    	$this->db->where('college',$this->session->userdata('college'));
-    	$this->db->where($array);
-    	return $this->db->count_all_results();
-    }
-    
-    function getNumALL($array){
-    	$this->db->select();
-    	$this->db->from($this->table);
-    	$this->db->where($array);
-    	return $this->db->count_all_results();
-    }
-    
-    //分页显示
-    function getTeasALL($array, $per_page, $offset) {
-    	$this->db->select();
-    	$this->db->where($array);
-    	$q = $this->db->get($this->table, $per_page, $offset);
-    	return $q->result();
+       
+       
+    function arrToStr($array){
+       	//处理array
+       	$str = '';
+       	$i = 0;
+       	$ai = count($array);
+       	foreach($array as $key => $val){
+       		$str = $str." ".$key." = '".$val."'";
+       		$i++;
+       		if($i < $ai)$str = $str." and ";
+       	}
+       	return $str;
     }
 
 

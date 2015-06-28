@@ -1,3 +1,12 @@
+<style>
+<!--
+.botlink{
+	width:160px;
+	float:left;
+}
+-->
+</style>
+
 <div class="contenttop">
     <div class="contenttopleft">
         <div class="logintopbox">
@@ -24,7 +33,7 @@
                     	<option value="2">----院级管理员----</option>
                     	<option value="3">-------教 师------</option>
                     	<option value="5">-------学 生------</option>
-                    	<option value="4">-----基地用户-----</option>
+                    	<!--  <option value="4">-----基地用户-----</option>-->
                     </select>
                 </div>
                 <div class="buttonbox" >
@@ -43,29 +52,14 @@
 
     <div id="fsD1" class="contenttopcenter" style="margin-left:400px">
         <div id="D1pic1" class="fPic">
+        <?php if (is_array($img)) foreach ($img as $r): ?>
             <div class="fcon" style="display: none;">
-                <a target="_blank" href="#"><img src="images0/adimg1.png"  style="opacity: 1; "></a><!--不透明度-->
-                <span class="shadow"><a target="_blank" href="#">拼尽全力，再创辉煌——记2014级新生排球赛季军争夺战</a></span>
+                <a target="_blank" href="#"><img src="<?=$r->news_img?>"  style="opacity: 1; "></a><!--不透明度-->
+                <span class="shadow"><a target="_blank" href="#"><?=$r->news_title?></a></span>
             </div>
+        <?php endforeach;?>
 
-            <div class="fcon" style="display: none;">
-                <a target="_blank" href="#"><img src="images0/adimg2.png"  style="opacity: 1; "></a>
-                <span class="shadow"><a target="_blank" href="#">新生欢迎会如期举行</a></span>
-            </div>
-
-            <div class="fcon" style="display: none;">
-                <a target="_blank" href="#"><img src="images0/adimg3.png"  style="opacity: 1; "></a>
-                <span class="shadow"><a target="_blank" href="#">第21届DIY手动大赛进行</a></span>
-            </div>
-
-            <div class="fcon" style="display: none;">
-                <a target="_blank" href="#"><img src="images0/adimg4.png"  style="opacity: 1; "></a>
-                <span class="shadow"><a target="_blank" href="#">校运会长跑活动专题</a></span>
-            </div> 
-            <div class="fcon" style="display: none;">
-                <a target="_blank" href="#"><img src="images0/adimg3.png"  style="opacity: 1; "></a>
-                <span class="shadow"><a target="_blank" href="#">DIY手工大赛</a></span>
-            </div>   
+            
         </div>
 
         <div class="fbg">  
@@ -102,33 +96,24 @@
     <div class="contenttopright">
         <div class="noticetopbox">
             <div class="noticeimg"><img src="images0/login1.png" /></div>
-            <div class="noticetop"><p>通知公告</p><a href="<?= base_url() ?>index.php/admin/news/noticeLists" target="_blank">更多>></a></div>
+            <div class="noticetop"><p>通知公告</p><a href="<?= base_url() ?>index.php/frnot/news/noticeList" target="_blank">更多>></a></div>
         </div>
 
         <div class="noticelist">
-            <!--
-            <ul>
-            	<li style="margin-top:10px;"><span><img src="images/pointer.png" /></span><a href="#">关于召开2013年“生产认识实习”交流...</a></li>
-                <li><span><img src="images/pointer.png" /></span><a href="#">关于征集“本科生实践教学基地”的通...</a></li>
-                <li><span><img src="images/pointer.png" /></span><a href="#">2009级本科生各专业生产实习优秀团队...</a></li>
-                <li><span><img src="images/pointer.png" /></span><a href="#">2010级本科生各专业生产实习优秀团队...</a></li>
-                <li><span><img src="images/pointer.png" /></span><a href="#">2009级本科生各专业生产实习优秀团队...</a></li>
-                <li style="margin-bottom:6px;"><span><img src="images/pointer.png" /></span><a href="#">2010级本科生各专业生产实习优秀团队...</a></li>
-            </ul>
-            -->
+            
             <ul>
             <?php if (is_array($notice)) foreach ($notice as $r): ?>
                 <li style="margin-top:1px;">
                     <tr>
-                        <!--<td><span><img src="images/pointer.png" /></td> -->                     
-                        <td><a title="<?= $r->title ?>" href="<?= base_url() ?>index.php/admin/news/newsDetails1/<?= $r->newsId ?>" target="_blank">
-                                <b>.
+                        <td><span><img src="images/pointer.png" /></td>                     
+                        <td><a title="<?= $r->news_title ?>" href="<?= base_url() ?>index.php/front/news/newsDetail/<?= $r->news_id ?>" target="_blank">
+                                <b>
                                     <?php
-                                    if (strLength($r->title, $charset = 'utf-8') > 15) {
-                                        echo utf8Substr($r->title, $from = 0, 15);
+                                    if (strLength($r->news_title, $charset = 'utf-8') > 15) {
+                                        echo utf8Substr($r->news_title, $from = 0, 15);
                                         echo "...";
                                     } else {
-                                        echo $r->title;
+                                        echo $r->news_title;
                                     }
                                     ?>
                                 </b>         
@@ -145,33 +130,25 @@
         <div class="providebox">
             <div class="providetop">
                 <div class="providetitle"><p>实习规定</p></div>
-                <a href="<?= base_url() ?>index.php/admin/news/guidingLists" target="_blank">更多>></a>
+                <a href="<?= base_url() ?>index.php/front/news/ruleList" target="_blank">更多>></a>
             </div>
         </div>
 
         <div class="providelist">
-            <!--
-            <ul>
-                <li><span class="provitedate">2014-03-26</span><span><img src="images0/pointer.png" /></span><a href="#">本科生生产实习管理办法</a></li>
-                <li><span class="provitedate">2014-03-26</span><span><img src="images0/pointer.png" /></span><a href="#">本科生实践教学基地申请表</a></li>
-                <li><span class="provitedate">2014-03-26</span><span><img src="images0/pointer.png" /></span><a href="#">本科生生产实习指导书</a></li>
-                <li><span class="provitedate">2014-03-26</span><span><img src="images0/pointer.png" /></span><a href="#">本科生生产实习保密承诺书</a></li>
-                <li><span class="provitedate">2014-03-26</span><span><img src="images0/pointer.png" /></span><a href="#">2009本科生生产实习指导书</a></li>
-                <li><span class="provitedate">2014-03-26</span><span><img src="images0/pointer.png" /></span><a href="#">本科生生产实习保密承诺书</a></li>
-            </ul>-->
+            
             <ul>
             <?php if (is_array($guiding)) foreach ($guiding as $r): ?>
                 <li>
                     <tr>
-                <!-- <td><span class="provitedate"><?= $r->sendTime ?></span><span><img src="images0/pointer.png" /></td>-->
-                        <td><a title="<?= $r->title ?>" href="<?= base_url() ?>index.php/admin/news/newsDetails2/<?= $r->newsId ?>" target="_blank">
+                        <td><span><img src="images0/pointer.png" /></td>
+                        <td><a title="<?= $r->news_title ?>" href="<?= base_url() ?>index.php/front/news/newsDetail/<?= $r->news_id ?>" target="_blank">
                                 <b>.
                                     <?php
-                                    if (strLength($r->title, $charset = 'utf-8') > 14) {
-                                        echo utf8Substr($r->title, $from = 0, 14);
+                                    if (strLength($r->news_title, $charset = 'utf-8') > 14) {
+                                        echo utf8Substr($r->news_title, $from = 0, 14);
                                         echo "...";
                                     } else {
-                                        echo $r->title;
+                                        echo $r->news_title;
                                     }
                                     ?>
                                 </b>         
@@ -185,7 +162,7 @@
         <div class="newstitlebox">
             <div class="newstop">
                 <div class="newstitle"><p>实习新闻</p></div>
-                <a href="<?= base_url() ?>index.php/admin/news/newsLists" target="_blank">更多>></a>
+                <a href="<?= base_url() ?>index.php/front/news/newsList" target="_blank">更多>></a>
             </div>
         </div>
 
@@ -194,15 +171,15 @@
             <?php if (is_array($news)) foreach ($news as $r): ?>
                 <li>
                     <tr>
-                        <td><span class="newsdate"><?= $r->sendTime ?></span></td>
-                        <td><a title="<?= $r->title ?>" href="<?= base_url() ?>index.php/admin/news/newsDetails3/<?= $r->newsId ?>" target="_blank">
+                        <td><span class="newsdate" style="margin-right: 30px;"><?= $r->news_time ?></span></td>
+                        <td><a title="<?= $r->news_title ?>" href="<?= base_url() ?>index.php/front/news/newsDetail/<?= $r->news_id ?>" target="_blank">
                                 <b>.
                                     <?php
-                                    if (strLength($r->title, $charset = 'utf-8') > 24) {
-                                        echo utf8Substr($r->title, $from = 0, 24);
+                                    if (strLength($r->news_title, $charset = 'utf-8') > 24) {
+                                        echo utf8Substr($r->news_title, $from = 0, 24);
                                         echo "...";
                                     } else {
-                                        echo $r->title;
+                                        echo $r->news_title;
                                     }
                                     ?>
                                 </b>         
@@ -214,7 +191,7 @@
     </div>		
 </div>
 
-
+<!--  
 <div class="contentbottom">
     <div id="newsimgbox">
         <div id="indemo">
@@ -254,26 +231,35 @@
     tab.onmouseover=function() {clearInterval(MyMar)};
     tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
 </script>
+-->
 
 
-<div class="linkbox">
-    <div class="linktop">
-        <div class="linktitle"><p>友情链接</p></div>
+        
+    <div class="linkbox">
+	<div class="linktop">
+    	<div class="linktitle"><p>友情链接</p></div>
     </div>
-    <div class="linklist">
-        <a href="http://www.moe.gov.cn/">教育部</a>
-        <a href="http://cau.edu.cn">中国农业大学</a>
-        <a href="http://nxy.cau.edu.cn/">农学与生物技术学院</a>
-        <a href="http://cbs.cau.edu.cn/">生物学院</a>
-        <a href="http://cast1.cau.edu.cn/">动物科技学院</a>
-        <a href="http://cvm.cau.edu.cn/">动物医学院</a>
-        <a href="http://spxy.cau.edu.cn/">食品科学与营养工程学院</a>
-        <a href="http://zihuan1.cau.edu.cn/">资源与环境学院</a>
-        <a href="http://www.ciee.cn/">信息与电气工程学院</a></br>
-        <a href="http://coe.cau.edu.cn/">工学院</a>
-        <a href="http://water.cau.edu.cn/">水利与土木工程学院</a>
-        <a href="http://sci.cau.edu.cn/">理学院</a>
-        <a href="http://www2003.cau.edu.cn/cem/">经济管理学院</a>
-        <a href="http://cohd.cau.edu.cn/">人文与发展学院(公共管理学院) </a>
+	<div class="linklist">
+	
+    	<div class="botlink"><a href="http://www.moe.gov.cn/" target="_blank">教育部</a></div>
+		<div class="botlink"><a href="http://cau.edu.cn" target="_blank">中国农业大学</a></div>
+		<div class="botlink"><a href="http://spxy.cau.edu.cn/" target="_blank">食品科学与营养工程学院</a></div>
+		
+		<div class="botlink"><a href="http://nxy.cau.edu.cn/" target="_blank">农学与生物技术学院</a></div>
+		<div class="botlink"><a href="http://cbs.cau.edu.cn/" target="_blank">生物学院</a></div>
+		<div class="botlink"><a href="http://zihuan1.cau.edu.cn/" target="_blank">资源与环境学院</a></div>
+		<div class="botlink"><a href="http://cast1.cau.edu.cn/" target="_blank">动物科技学院</a></div>
+		<div class="botlink"><a href="http://cvm.cau.edu.cn/" target="_blank">动物医学院</a></div>		
+		<div class="botlink"><a href="http://coe.cau.edu.cn/" target="_blank">工学院</a></div>
+		<div class="botlink"><a href="http://ciee.cau.edu.cn/" target="_blank">信息与电气工程学院</a></div>
+		<div class="botlink"><a href="http://water.cau.edu.cn/" target="_blank">水利与土木工程学院</a></div>
+		<div class="botlink"><a href="http://sci.cau.edu.cn/" target="_blank">理学院</a></div>
+		<div class="botlink"><a href="http://www2003.cau.edu.cn/cem" target="_blank">经济管理学院</a></div>
+		<div class="botlink"><a href="http://cohd.cau.edu.cn/" target="_blank">人文与发展学院</a></div>
+		<div class="botlink"><a href="http://szxy1.cau.edu.cn/" target="_blank">思想政治教育学院</a></div>
+        <div class="botlink"><a href="http://icb.cau.edu.cn/" target="_blank">国际学院</a></div>		
     </div>
+
+    
+
 </div>

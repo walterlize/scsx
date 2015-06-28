@@ -17,7 +17,9 @@ class Luntan extends CI_Controller {
 
     public function luntanList() {
         $this->timeOut();
+
         //print_r($this->session->all_userdata());
+
         $this->load->model('m_sluntan');
         $num = $this->m_sluntan->getNum1(array());
         $offset = $this->uri->segment(4);
@@ -97,7 +99,9 @@ class Luntan extends CI_Controller {
         $luntan->stuName = $this->session->userdata('realname');
         $luntan->time1 = '';
         $luntan->content = '';
+
         $luntan->teaId = '0';
+
         $luntan->teaName = '';
         $luntan->time2 = '';
         $luntan->reply = '';
@@ -190,7 +194,7 @@ class Luntan extends CI_Controller {
             		'stuId' => $r->stuId, 
             		'stuName' => $r->stuName,
             		'time1' => $r->time1,
-                'content' => $r->content, 
+               		'content' => $r->content, 
             		'teaId' => $r->teaId, 
             		'time2' => $r->time2,
                 

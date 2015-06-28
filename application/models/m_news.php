@@ -60,6 +60,7 @@ class m_news extends CI_Model {
         $this->db->select();
         $this->db->where($array);
         $this->db->order_by("news_auditer_id","asc");
+        $this->db->order_by("news_time","desc");
         $q = $this->db->get('ws_news', $per_page, $offset);
         return $q->result();
     }
