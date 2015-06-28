@@ -20,7 +20,9 @@ class m_tluntan extends CI_Model {
         $this->stuName = $this->input->post('stuName');
         $this->time1 = $this->input->post('time1');
         $this->content = $this->input->post('content');
+
         $this->teaId = $this->session->userdata('u_num');
+
         $this->teaName = $this->session->userdata('realname');
         $this->time2 = date("Y-m-d H:i:s");
         $this->reply = $this->input->post('reply');
