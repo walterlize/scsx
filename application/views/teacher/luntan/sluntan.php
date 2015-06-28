@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3>查看回帖列表</h3>
+    <h3 class="lz_title">查看回帖列表</h3>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             <th scope="col">发帖类别</th><th scope="col">发帖主题</th><th scope="col">发帖时间</th><th scope="col">回帖时间</th><th scope="col">操作</th>

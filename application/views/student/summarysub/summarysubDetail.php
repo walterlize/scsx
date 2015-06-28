@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3>填写实习总结信息</h3>
+    <h3 class="lz_title>填写实习总结信息</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">
         <tr>
             <td class="td1" style="width: 111px" colspan="2">

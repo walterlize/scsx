@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3>实习总结任务信息编辑</h3>
+    <h3 class="lz_title">实习总结任务信息编辑</h3>
     <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/mission/save" id="form1">
         <input type="hidden" value="<?= $mission->miss_id ?>" name="miss_id" id="miss_id" />
 

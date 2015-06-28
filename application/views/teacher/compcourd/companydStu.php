@@ -3,8 +3,8 @@
 <div style="margin-left:20px; margin-right:20px;width:900px;">
     <br />
     <div>
-    <h3 style="float: left;">实习基地信息</h3>
-    
+   <!-- <h3 style="float: left;">实习基地信息</h3>-->
+    <h3 class="lz_title">实习基地信息</h3>
     
     </div>
     

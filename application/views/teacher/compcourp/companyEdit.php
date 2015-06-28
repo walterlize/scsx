@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px;width:900px;">
     <br />
-    <h3>实习基地信息编辑</h3>
+    <h3 class="lz_title">实习基地信息编辑</h3>
     <form name="form1" method="post" action="<?= base_url() ?>index.php/teacher/compcourpublish/save/<?=$coursep->cour_id?>" id="form1">
         <input type="hidden" value="<?= $comp->comp_id ?>" name="comp_id" id="comp_id" />
         <input type="hidden" value="<?= $user->user_id ?>" name="user_id" id="user_id" />
