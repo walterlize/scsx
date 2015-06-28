@@ -4,35 +4,35 @@
     <table cellpadding="0" cellspacing="1" class="tablist2">
         <tr>
             <td class="td1" style="width: 111px">课程号</td>
-            <td class="td2" ><?= $variable->courseId ?>&nbsp;</td>
+            <td class="td2" ><?= $variable->KCH ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课序号</td>
-            <td class="td2" ><?= $variable->courseNum ?>&nbsp;</td>
+            <td class="td2" ><?= $variable->KXH ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程名</td>
-            <td class="td2" ><?= $variable->courseName ?>&nbsp;</td>
+            <td class="td2" ><?= $variable->KCM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程英文名</td>
-            <td class="td2" ><?= $course->courseNameEn ?>&nbsp;</td>
+            <td class="td2" ><?= $course->YWKCM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程学分</td>
-            <td class="td2" ><?= $course->courseCredit ?>&nbsp;</td>
+            <td class="td2" ><?= $course->XF ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程学时</td>
-            <td class="td2" ><?= $course->courseTime ?>&nbsp;</td>
+            <td class="td2" ><?= $course->XS ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">课程上课周次</td>
-            <td class="td2" ><?= $course->courseWeekly ?>&nbsp;</td>
+            <td class="td2" ><?= $course->ZCSM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">指导教师姓名</td>
-            <td class="td2" ><?= $course->courseTeaName ?>&nbsp;</td>
+            <td class="td2" ><?= $course->JSM ?>&nbsp;</td>
         </tr>
         
         <tr>

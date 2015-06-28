@@ -21,9 +21,10 @@ class Summary extends CI_Controller {
     public function summaryList() {
         $this->timeOut();
         $stu_num = $this->session->userdata('u_num');
+        $term = $this->session->userdata('term');
         //$array = array('summ_stu_num'=>$stu_num);
         //1.已发布选课列表
-        $array=array('stuId'=>$stu_num);
+        $array=array('XH'=>$stu_num,'ZXJXJHH'=>$term);
     	$this->load->model('m_nvariable');
     	$num = $this->m_nvariable->getNum($array);
     	$data1 = $this->getVariables($array);
@@ -53,7 +54,7 @@ class Summary extends CI_Controller {
     	$data = array();
     	foreach ($result as $r) {
     
-    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->courseTerm);
+    		$arrCourse = array('cour_no'=>$r->KCH,'cour_num'=>$r->KXH,'cour_term'=>$r->ZXJXJHH);
     		//var_dump($arrCourse);echo "<br>";
     		$resCourse = $this->getCoursep($arrCourse);
     		//var_dump($resCourse);echo "<br>";
@@ -62,9 +63,9 @@ class Summary extends CI_Controller {
     		if($resCourse){
     			$arr = array(
     					'cour_id' => $resCourse->cour_id,
-    					'cour_no' => $r->courseId,
-    					'cour_num' => $r->courseNum,
-    					'cour_name' => $r->courseName,
+    					'cour_no' => $r->KCH,
+    					'cour_num' => $r->KXH,
+    					'cour_name' => $r->KCM,
     					
     			);
     			array_push($data, $arr);

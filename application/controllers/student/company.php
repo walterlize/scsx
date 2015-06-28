@@ -216,7 +216,7 @@ function companyDetaile($elco_id){
     	
     	//获取单个课程信息
     	//oracle
-    	$arrCourse = array('courseId'=>$elco->elco_cour_no,'courseNum'=>$elco->elco_cour_num,'term'=>$elco->elco_cour_term);
+    	$arrCourse = array('KCH'=>$elco->elco_cour_no,'KXH'=>$elco->elco_cour_num,'ZXJXJHH'=>$elco->elco_cour_term);
     	$course = $this->getNCourse($arrCourse);
     	
     	$data['course'] = $course;

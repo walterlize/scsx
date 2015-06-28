@@ -22,7 +22,7 @@
                     <td><?= $r['courseCompany'] ?></td>
                     <td><?= $r['courseState'] ?></td>
                     <td>
-                        <a id="" href="<?= base_url() ?>index.php/student/variablebm/variableDetail/<?= $r['id'] ?>">详细</a>
+                        <a id="" href="<?= base_url() ?>index.php/student/variablebm/variableDetail/<?= $r['courseId'] ?>/<?= $r['courseNum'] ?>">详细</a>
                     </td>
                 </tr>
          <?php endforeach; ?>

@@ -19,9 +19,10 @@ class Variable extends CI_Controller {
     public function variableList(){
     	$this->timeOut();
     	
-    	$stuId = $this->session->userdata('u_name');
+    	$stuId = $this->session->userdata('u_num');
+    	$term = $this->session->userdata('term');
     	
-    	$array=array('stuId'=>$stuId);
+    	$array=array('XH'=>$stuId,'ZXJXJHH'=>$term);
     	$this->load->model('m_nvariable');
     	$num = $this->m_nvariable->getNum($array);
     	$offset = $this->uri->segment(4);
@@ -47,26 +48,26 @@ class Variable extends CI_Controller {
     	$data = array();
     	foreach ($result as $r) {
     		
-    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->courseTerm);
+    		$arrCourse = array('cour_no'=>$r->KCH,'cour_num'=>$r->KXH,'cour_term'=>$r->ZXJXJHH);
     		//var_dump($arrCourse);echo "<br>";
     		$resCourse = $this->getCoursep($arrCourse);
     		//var_dump($resCourse);echo "<br>";
     		//----------------
         	if($resCourse){
 	    		$arr = array(
-	    				'id' => $r->id,
-					    'courseId' => $r->courseId,
-					    'courseNum' => $r->courseNum,
-					    'courseName' => $r->courseName,
+	    				
+					    'courseId' => $r->KCH,
+					    'courseNum' => $r->KXH,
+					    'courseName' => $r->KCM,
 	    				'coursePattern' => $resCourse->patt_type,
 		            	'coursePublish' => $resCourse->cour_publish
 	    				);
         	}else{
         		$arr = array(
-        				'id' => $r->id,
-        				'courseId' => $r->courseId,
-        				'courseNum' => $r->courseNum,
-        				'courseName' => $r->courseName,
+        				
+        				'courseId' => $r->KCH,
+        				'courseNum' => $r->KXH,
+        				'courseName' => $r->KCM,
         				'coursePattern' => "未分配",
         				'coursePublish' => "未发布"
         		);
@@ -81,20 +82,21 @@ class Variable extends CI_Controller {
     public function variableDetail(){
     	$this->timeOut();
     	
-    	$id = $this->uri->segment(4);
+    	$cour_no = $this->uri->segment(4);
+    	$cour_num = $this->uri->segment(5);
+    	$term = $this->session->userdata("term");
     	//获取单个选课信息
-    	$variable = $this->getVariable($id);
+    	
     	//获取单个信息
-    	$arrCourse = array('courseId'=>$variable->courseId,'courseNum'=>$variable->courseNum,'term'=>$variable->courseTerm);
+    	$arrCourse = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term);
     	$course = $this->getNCourse($arrCourse);
-    	$arrCoursep = array('cour_no'=>$variable->courseId,'cour_num'=>$variable->courseNum,'cour_term'=>$variable->courseTerm);
+    	$arrCoursep = array('cour_no'=>$cour_no,'cour_num'=>$cour_num,'cour_term'=>$term);
     	$coursep = $this->getCoursep($arrCoursep);
     	if(!$coursep){
     		$coursep = $this->getEmptyCoursep();
     	}
     	$data['course'] = $course;
     	$data['coursep'] = $coursep;
-    	$data['variable'] = $variable;
     	
     	$this->load->view('common/header3');
     	$this->load->view('student/variable/variableDetail', $data);
@@ -103,9 +105,9 @@ class Variable extends CI_Controller {
     
     
     // 获取单个选课信息
-    function getVariable($id) {
+    function getVariable($array) {
     	$this->load->model('m_nvariable');
-    	$result = $this->m_nvariable->getNvariableById($id);
+    	$result = $this->m_nvariable->getNvariable($array);
     	$data = array();
     	foreach ($result as $r) {
     		$data = $r;

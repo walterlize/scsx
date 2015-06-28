@@ -18,8 +18,8 @@ class Teacher extends CI_Controller {
     // 用户详细信息页面
     public function teacherDetail() {
         $this->timeOut();
-        $id = $this->session->userdata('u_name');
-        $data = $this->getTeacher($id);
+        $id = $this->session->userdata('u_num');
+        $data['tea'] = $this->getTeacher($id);
 
         $this->load->view('common/header3');
         $this->load->view('teacher/teacher/teacherDetail', $data);

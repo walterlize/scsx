@@ -65,8 +65,8 @@
             </tr>
             <tr>
                 <td colspan="2" class="td3" align="center">
-                	<input type="button" name="btnReturn" value="选择学生" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companystu/<?=$cour_id?>/<?=$comp->comp_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
-                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyList/<?=$cour_id?>/<?=$o_id?>';" id="btnReturn" class="input" />
+                    <input type="button" name="btnReturn" value="选择学生" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companystu/<?=$cour_id?>/<?=$comp->comp_id?>';" id="btnReturn" class="input" />
+                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/compcourdist/companyList/<?=$cour_id?>';" id="btnReturn" class="input" />
                 </td>
             </tr>
         </table>

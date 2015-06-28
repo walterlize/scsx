@@ -17,7 +17,7 @@ class Luntan extends CI_Controller {
 
     public function luntanList() {
         $this->timeOut();
-
+        
         $this->load->model('m_tluntan');
         $num = $this->m_tluntan->getNum1(array());
         $offset = $this->uri->segment(4);
@@ -36,10 +36,12 @@ class Luntan extends CI_Controller {
 
     public function cluntanList() {
         $this->load->model('m_tluntan');
-        $num = $this->m_tluntan->getNum2(array());
+        $tea_num = $this->session->userdata("u_num");
+        $array = array('teaId' =>$tea_num);
+        $num = $this->m_tluntan->getNum2($array);
         $offset = $this->uri->segment(4);
 
-        $data['luntan'] = $this->sgetLuntans($offset);
+        $data['luntan'] = $this->sgetLuntans($array,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/luntan/cluntanList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -160,14 +162,20 @@ class Luntan extends CI_Controller {
         return $data;
     }
 
-    public function sgetLuntans($offset) {
+    public function sgetLuntans($array,$offset) {
         $this->load->model('m_tluntan');
         $data = array();
-        $result = $this->m_tluntan->sgetLuntans($data, PER_PAGE, $offset);
+        $result = $this->m_tluntan->sgetLuntans($array, PER_PAGE, $offset);
 
         foreach ($result as $r) {
-            $arr = array('l_id' => $r->l_id, 'stuId' => $r->stuId, 'time1' => $r->time1,
-                'content' => $r->content, 'teaId' => $r->teaId, 'time2' => $r->time2,
+            $arr = array('l_id' => $r->l_id, 
+            		'stuId' => $r->stuId, 
+            		'stuName' => $r->stuName,
+            		'time1' => $r->time1,
+                	'content' => $r->content, 
+            		'teaId' => $r->teaId, 
+            		'teaName' => $r->teaName,
+            		'time2' => $r->time2,
                 'reply' => $r->reply,
                
                 'typeId' => $r->typeId, 'type' => $r->type, 'theme' => $r->theme);

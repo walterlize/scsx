@@ -121,11 +121,12 @@ class m_course extends CI_Model {
     function getNum_ws($array) {
     	$this->db->select();
     	$this->db->from('ws_coursep');
-    	$this->db->where('cour_coll_name',$this->session->userdata('college'));
+    	$this->db->where('cour_coll_name');
     	$this->db->where($array);
     	return $this->db->count_all_results();
     }
-    //分页查询视图
+    
+    //分页查询
     function getCourses_ws($array, $per_page, $offset) {
     	$this->db->select();
     	$this->db->where('cour_coll_name',$this->session->userdata('college'));
@@ -133,37 +134,8 @@ class m_course extends CI_Model {
     	$q = $this->db->get('ws_coursep', $per_page, $offset);
     	return $q->result();
     }
+   
     
-    //按条件获得实习项目条数分配式 志愿式
-    function getNum1_ws($array) {
-    	$this->db->select();
-    	$this->db->from('ws_coursep');
-    	$college = $this->session->userdata('college');
-    	$where = "(patternId = '1' or patternId = '3') AND (cour_coll_name = '".$college."')";
-    	$this->db->where($where);
-    	$this->db->where($array);
-    	return $this->db->count_all_results();
-    }
-    //分页查询视图
-    function getCourses1_ws($array ,$per_page, $offset) {
-    	$this->db->select();
-    	$college = $this->session->userdata('college');
-    	$where = "(cour_patt_id = '1' or cour_patt_id = '3') AND (cour_coll_name = '".$college."')";
-    	$this->db->where($where);
-    	$this->db->where($array);
-    	$q = $this->db->get('ws_coursep', $per_page, $offset);
-    	return $q->result();
-    }
-    //查询视图
-    function getCourse1_ws($array) {
-    	$this->db->select();
-    	$college = $this->session->userdata('college');
-    	$where = "(cour_patt_id = '1' or cour_patt_id = '3') AND (cour_coll_name = '".$college."')";
-    	$this->db->where($where);
-    	$this->db->where($array);
-    	$q = $this->db->get('ws_coursep');
-    	return $q->result();
-    }
     
     //按条件获得实习项目条数
     function getNumALL($array) {

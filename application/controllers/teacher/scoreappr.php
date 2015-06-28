@@ -15,61 +15,54 @@ class Scoreappr extends CI_Controller {
         date_default_timezone_set('PRC');
     }
     
-	public function courseList() {
+public function courseList() {
         $this->timeOut();
         //教师工号
         $teaNum = $this->session->userdata('u_num');
-        $this->load->model('m_ncourse');
-        $array=array('courseTeaId'=>$teaNum.'*');
+        $term = $this->session->userdata('term');//学期
+        
+        $this->load->model('m_course');
+        $array=array('cour_teac_num'=>$teaNum,'cour_term'=>$term);
         $offset = $this->uri->segment(4);
-        $data1 = $this->getCourses($array,$offset);
-        $num1 = $data1['num'];
-        $num = $this->m_ncourse->getNum($array);
-        $num = $num - $num1;
-
-        $data['course'] = $data1['data'];
+        $data['course'] = $this->getCourses($array,$offset);
+        
+        $num = $this->m_course->getNum($array);
         
         $config['base_url'] = base_url() . 'index.php/teacher/scoreappr/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
 
         $this->load->view('common/header3');
         $this->load->view('teacher/scoreappr/course', $data);
         $this->load->view('common/footer');
-    } 
+    }
     
-    public function getCourses($array,$offset) {
-    	$this->timeOut();
-    	$this->load->model('m_ncourse');
-    	$data = array();
-    	$result = $this->m_ncourse->getNcourses($array, PER_PAGE, $offset);
-    
-    	$this->load->model('m_course');
-    	$i = 0;
-    	foreach ($result as $r) {
-    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->term,'cour_publish'=>1);
-    		$resCourse = $this->getCoursep($arrCourse);
-    		if($resCourse){
-    			$arr = array(
-    					'id'=>$r->id,
-    					'courseId' => $r->courseId,
-    					'courseNum' => $r->courseNum,
-    					'courseName' => $r->courseName,
-    					'coursePattern' => $resCourse->patt_type,
-    					'coursePublish' => $resCourse->cour_publish,
-    					'cour_id' => $resCourse->cour_id
-    			);
-    			array_push($data, $arr);
-    		}else{
-    			$i++;
-    		}
-    
-    	}
-    	$data1['num']=$i;
-    	$data1['data']=$data;
-    	return $data1;
+public function getCourses($array,$offset) {
+        $this->timeOut();
+        $this->load->model('m_course');
+        $data = array();
+        $result = $this->m_course->getCourses_ws($array, PER_PAGE, $offset);
+
+        foreach ($result as $r) {
+        	
+	        $arr = array( 
+	            		
+	            		'courseId' => $r->cour_no,
+	            		'courseNum' => $r->cour_num,
+	            		'courseName' => $r->cour_name,
+	            		'coursePattern' => $r->patt_type,
+	            		'coursePublish' => $r->cour_publish,
+	            		'cour_id' => $r->cour_id
+	            );
+	        array_push($data, $arr);
+        	
+            
+        }
+       
+        return $data;
     }
     // 获取单个
     function getCoursep($array) {
@@ -89,7 +82,7 @@ class Scoreappr extends CI_Controller {
         $cour_id = $this->uri->segment(4);
         //查找本门课未评价的学生
         $coursep = $this->getCoursepById($cour_id);
-        $array1 = array('courseId'=>$coursep->cour_no,'courseNum'=>$coursep->cour_num,'courseTerm'=>$coursep->cour_term);
+        $array1 = array('KCH'=>$coursep->cour_no,'KXH'=>$coursep->cour_num,'ZXJXJHH'=>$coursep->cour_term);
         $array2 = array('scor_cour_id'=>$cour_id);
          
         $stuall = $this->getStuAll($array1);//全部选课学生
@@ -122,9 +115,9 @@ class Scoreappr extends CI_Controller {
     	$result = $this->m_nvariable->getNvariable($array);
     	foreach ($result as $r) {
     		$arr = array(
-    				'stu_num'=>$r->stuId,
-    				'stu_name' => $r->stuName,
-    				'stu_class' => $r->stuClass,
+    				'stu_num'=>$r->XH,
+    				'stu_name' => $r->XM,
+    				'stu_class' => $r->BM,
     				
     		);
     		array_push($data, $arr);
@@ -243,7 +236,7 @@ class Scoreappr extends CI_Controller {
     	$elco = $this->getElecom($arrComp);
     	//var_dump($elco);
     	//获取学生信息
-    	$arrStu = array('stuId'=>$stu_num);
+    	$arrStu = array('XH'=>$stu_num);
     	$stu = $this->getStu($arrStu);
     	
     	$score = $this->getScoreById($scor_id);

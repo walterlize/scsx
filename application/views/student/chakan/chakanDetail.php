@@ -70,14 +70,14 @@
                 </td>
             </tr>
              <tr>
-                <td class="td1" style="width: 111px">基地负责人地址</td>
+                <td class="td1" style="width: 111px">审核状态</td>
                 <td class="td2" >
                 	<span style="color: red"><?= $comp->usta_type ?></span>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" class="td3" align="center">
-                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/chakan/chakanList;" id="btnReturn" class="input" />
+                    <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/chakan/chakanList';" id="btnReturn" class="input" />      
                 </td>
             </tr>
         </table>

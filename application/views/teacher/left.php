@@ -26,11 +26,12 @@
                     <div style="display:block" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1" title="选择实习模式、编辑实习基底、发布实习课程">实习课程发布</a>
                         <a href="<?= base_url(); ?>index.php/teacher/audit/courseList" target="content1" title="审核报名学生的实习课程报名">实习学生审核</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/student/courseList" target="content1" title="已审核学生信息查询">已审核学生信息</a>
                             <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1" title="编辑实习基底">实习基地管理</a>
                     </div> 
                     <p class="menu_head">学生管理</p>
                     <div style="display:none" class=menu_body >                       
-                        <a href="<?= base_url(); ?>index.php/teacher/student/courseList" target="content1">查看学生信息</a>
+                        
                         <a href="<?= base_url(); ?>index.php/teacher/mission/missionList" target="content1">下达实习总结任务</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryList" target="content1">审核实习总结</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummaryappr/tsummaryList" target="content1">查看实习总结</a>

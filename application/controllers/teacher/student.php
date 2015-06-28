@@ -15,25 +15,25 @@ class Student extends CI_Controller {
         date_default_timezone_set('PRC');
     }
 
-	public function courseList() {
+public function courseList() {
         $this->timeOut();
         //教师工号
         $teaNum = $this->session->userdata('u_num');
-        $this->load->model('m_ncourse');
-        $array=array('courseTeaId'=>$teaNum.'*');
+        $term = $this->session->userdata('term');//学期
+        
+        $this->load->model('m_course');
+        $array=array('cour_teac_num'=>$teaNum,'cour_term'=>$term);
         $offset = $this->uri->segment(4);
-        $data1 = $this->getCourses($teaNum.'*',$offset);
-        $num1 = $data1['num'];
-        $num = $this->m_ncourse->getNumLike($teaNum.'*');
-        $num = $num - $num1;
-
-        $data['course'] = $data1['data'];
-        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
+        $data['course'] = $this->getCourses($array,$offset);
+        
+        $num = $this->m_course->getNum($array);
+        
         $config['base_url'] = base_url() . 'index.php/teacher/student/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
 
         $this->load->view('common/header3');
         $this->load->view('teacher/student/course', $data);
@@ -84,36 +84,30 @@ class Student extends CI_Controller {
     }
     
 
+// 分页获取全部实验任务信息
     public function getCourses($array,$offset) {
-    	$this->timeOut();
-    	$this->load->model('m_ncourse');
-    	$data = array();
-    	$result = $this->m_ncourse->getNcoursesLike($array, PER_PAGE, $offset);
-    
-    	$this->load->model('m_course');
-    	$i = 0;
-    	foreach ($result as $r) {
-    		$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->term,'cour_publish'=>1);
-    		$resCourse = $this->getCoursep($arrCourse);
-    		if($resCourse){
-    			$arr = array(
-    					'id'=>$r->id,
-    					'courseId' => $r->courseId,
-    					'courseNum' => $r->courseNum,
-    					'courseName' => $r->courseName,
-    					'coursePattern' => $resCourse->patt_type,
-    					'coursePublish' => $resCourse->cour_publish,
-    					'cour_id' => $resCourse->cour_id
-    			);
-    			array_push($data, $arr);
-    		}else{
-    			$i++;
-    		}
-    
-    	}
-    	$data1['num']=$i;
-    	$data1['data']=$data;
-    	return $data1;
+        $this->timeOut();
+        $this->load->model('m_course');
+        $data = array();
+        $result = $this->m_course->getCourses_ws($array, PER_PAGE, $offset);
+
+        foreach ($result as $r) {
+        	
+	        $arr = array( 
+	            		
+	            		'courseId' => $r->cour_no,
+	            		'courseNum' => $r->cour_num,
+	            		'courseName' => $r->cour_name,
+	            		'coursePattern' => $r->patt_type,
+	            		'coursePublish' => $r->cour_publish,
+	            		'cour_id' => $r->cour_id
+	            );
+	        array_push($data, $arr);
+        	
+            
+        }
+       
+        return $data;
     }
     // 获取单个
     function getCoursep($array) {

@@ -17,12 +17,16 @@ class Course extends CI_Controller {
 
     public function courseList() {
         $this->timeOut();
-        //教师工号
-        $teaNum = $this->session->userdata('u_num');
-         //$array=array('courseTeaId'=>$teaNum.'*');
-        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        
+        $teaNum = $this->session->userdata('u_num');//教师工号
+        $term = $this->session->userdata('term');//学期
+        //print_r($this->session->all_userdata());
+
+        $arrTerm=array("ZXJXJHH"=>$term);
+        
+        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
         $offset = $this->uri->segment(4);
-        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -42,9 +46,13 @@ class Course extends CI_Controller {
         $show3 = 'display:none';
         $flag = 0;
         
-        $id = $this->uri->segment(4);
-        $course = $this->getCourse($id);
-        $array = array('cour_no'=>$course->courseId,'cour_num'=>$course->courseNum,'cour_term'=>$course->term);
+        $cour_no = $this->uri->segment(4);
+        $cour_num = $this->uri->segment(5);
+        $term = $this->session->userdata("term");
+        
+        $arrCourse = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term);
+        $course = $this->getCourse($arrCourse);
+        $array = array('cour_no'=>$cour_no,'cour_num'=>$cour_num,'cour_term'=>$term);
         $coursep = $this->getCoursep($array);
         if(!$coursep){
         	//未选择模式
@@ -77,8 +85,12 @@ class Course extends CI_Controller {
     function courseNew(){
     	$this->timeOut();
     	//oracle课程详情
-    	$id = $this->uri->segment(4);
-    	$course = $this->getCourse($id);
+    	$cour_no = $this->uri->segment(4);
+    	$cour_num = $this->uri->segment(5);
+    	$term = $this->session->userdata("term");
+        
+        $arrCourse = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term);
+        $course = $this->getCourse($arrCourse);
     	//新增mysql课程表
     	@$coursep->cour_id = 0;
     	$coursep->cour_no = '';
@@ -102,6 +114,8 @@ class Course extends CI_Controller {
     	
     	$data['course'] = $course;
     	$data['coursep'] = $coursep;
+    	$data['tea_num'] = $this->session->userdata("u_num");
+    	$data['tea_name'] = $this->session->userdata("realname");
     	$this->load->view('common/header3');
     	$this->load->view('teacher/course/courseEdit', $data);
     	$this->load->view('common/footer');
@@ -111,32 +125,34 @@ class Course extends CI_Controller {
     function courseSet(){
     	$this->timeOut();
     	//oracle课程详情
-    	$o_id = $this->uri->segment(4);
+    	
     	
     	$this->load->model('m_course');
     	$m_id = $this->m_course->saveInfo();
     	
-    	redirect('teacher/course/coursePublish/'.$o_id.'/'.$m_id);
+    	redirect('teacher/course/coursePublish/'.$m_id);
     	 
     }
     function coursePublish(){
-    	$o_id = $this->uri->segment(4);
-    	$m_id = $this->uri->segment(5);
+    	//$o_id = $this->uri->segment(4);
+    	$cour_id = $this->uri->segment(4);
     	
-    	$course = $this->getCourse($o_id);
-    	$coursep = $this->getCoursepById($m_id);
+    	$coursep = $this->getCoursepById($cour_id);
+    	
+    	$arrCourse = array('KCH'=>$coursep->cour_no,'KXH'=>$coursep->cour_num,'ZXJXJHH'=>$coursep->cour_term);
+    	$course = $this->getCourse($arrCourse);
     	$data['course']=$course;
     	$data['coursep']=$coursep;
     	
     	switch($coursep->cour_pattern_id){
     		case 1 :
-    			//自选式
+    			//分散式
     			$this->load->view('common/header3');
     			$this->load->view('teacher/course/coursePublish1', $data);
     			$this->load->view('common/footer');
     			break;
     		case 2 :
-    			//志愿式
+    			//集中式
     			$this->load->view('common/header3');
     			$this->load->view('teacher/course/coursePublish2', $data);
     			$this->load->view('common/footer');
@@ -152,22 +168,24 @@ class Course extends CI_Controller {
     
     function coursePublish1(){
     	//自选式课程发布 coursep表中cour_publish置1
-    	$o_id = $this->uri->segment(4);
-    	$m_id = $this->uri->segment(5);
+    	//$o_id = $this->uri->segment(4);
+    	$term = $this->session->userdata("term");
+    	$cour_id = $this->uri->segment(4);
     	$array = array('cour_publish'=>1);
     	$this->load->model('m_course');
-    	$result = $this->m_course->updateCourse($m_id, $array);
+    	$result = $this->m_course->updateCourse($cour_id, $array);
     	if($result > 0){
     		echo '<script language="JavaScript">alert("发布成功");</script>';
     	}else{
     		echo '<script language="JavaScript">alert("发布失败");</script>';
     	}
     	
-    	 $teaNum = $this->session->userdata('u_num');
+    	$teaNum = $this->session->userdata('u_num');
          //$array=array('courseTeaId'=>$teaNum.'*');
-        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $arrTerm=array("ZXJXJHH"=>$term);
+        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
         $offset = 0;
-        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -184,11 +202,12 @@ class Course extends CI_Controller {
      */
     function coursePublish2(){
     	//自选式课程发布 coursep表中cour_publish置1
-    	$o_id = $this->uri->segment(5);
-    	$m_id = $this->uri->segment(4);
+    	$term = $this->session->userdata("term");
+    	
+    	$cour_id = $this->uri->segment(4);
     	$array = array('cour_publish'=>1);
     	$this->load->model('m_course');
-    	$result = $this->m_course->updateCourse($m_id, $array);
+    	$result = $this->m_course->updateCourse($cour_id, $array);
     	if($result > 0){
     		echo '<script language="JavaScript">alert("发布成功");</script>';
     	}else{
@@ -197,9 +216,10 @@ class Course extends CI_Controller {
     	 
     	$teaNum = $this->session->userdata('u_num');
          //$array=array('courseTeaId'=>$teaNum.'*');
-        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $arrTerm=array("ZXJXJHH"=>$term);
+        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
         $offset = 0;
-        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -213,6 +233,7 @@ class Course extends CI_Controller {
     
     function coursePublish3(){
     	//自选式课程发布 coursep表中cour_publish置1
+    	$term = $this->session->userdata("term");
     	$o_id = $this->uri->segment(5);
     	$m_id = $this->uri->segment(4);
     	$array = array('cour_publish'=>1);
@@ -224,11 +245,13 @@ class Course extends CI_Controller {
     		echo '<script language="JavaScript">alert("发布失败");</script>';
     	}
     
-    	 $teaNum = $this->session->userdata('u_num');
+    	$teaNum = $this->session->userdata('u_num');
+        $term = $this->session->userdata('term');//学期
          //$array=array('courseTeaId'=>$teaNum.'*');
-        $num = $this->m_ncourse->getNumLike($teaNum.'*');
+        $arrTerm=array("ZXJXJHH"=>$term);
+        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
         $offset = 0;
-        $data['course'] = $this->getCourses($teaNum.'*',$offset);
+        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -243,32 +266,32 @@ class Course extends CI_Controller {
     
     
     // 分页获取全部实验任务信息
-    public function getCourses($tea_num,$offset) {
+    public function getCourses($tea_num,$array,$offset) {
         $this->timeOut();
         $this->load->model('m_ncourse');
         $data = array();
-        $result = $this->m_ncourse->getNcoursesLike($tea_num, PER_PAGE, $offset);
+        $result = $this->m_ncourse->getNcoursesLike($tea_num,$array, PER_PAGE, $offset);
 
         $this->load->model('m_course');
         foreach ($result as $r) {
             //判断是否已经分配了实习模式
-        	$arrCourse = array('cour_no'=>$r->courseId,'cour_num'=>$r->courseNum,'cour_term'=>$r->term);
+        	$arrCourse = array('cour_no'=>$r->KCH,'cour_num'=>$r->KXH,'cour_term'=>$r->ZXJXJHH);
         	$resCourse = $this->getCoursep($arrCourse);
         	if($resCourse){
 	            $arr = array( 
-	            		'id'=>$r->id,
-	            		'courseId' => $r->courseId,
-	            		'courseNum' => $r->courseNum,
-	            		'courseName' => $r->courseName,
+	            		
+	            		'courseId' => $r->KCH,
+	            		'courseNum' => $r->KXH,
+	            		'courseName' => $r->KCM,
 	            		'coursePattern' => $resCourse->patt_type,
 	            		'coursePublish' => $resCourse->cour_publish
 	                );
         	}else{
         		$arr = array(
-        				'id'=>$r->id,
-        				'courseId' => $r->courseId,
-        				'courseNum' => $r->courseNum,
-        				'courseName' => $r->courseName,
+        				
+        				'courseId' => $r->KCH,
+        				'courseNum' => $r->KXH,
+        				'courseName' => $r->KCM,
         				'coursePattern' => "未分配",
         				'coursePublish' => "未发布"
         		);
@@ -279,9 +302,9 @@ class Course extends CI_Controller {
     }
 
     // 获取单个oracle数据
-    function getCourse($id) {
+    function getCourse($array) {
         $this->load->model('m_ncourse');
-        $result = $this->m_ncourse->getNcourseById($id);
+        $result = $this->m_ncourse->getNcourse($array);
         $data = array();
         foreach ($result as $r) {
             $data = $r;
@@ -342,9 +365,9 @@ class Course extends CI_Controller {
    
     // session中的role不存在的时候退出系统
     function timeOut() {
-        $role = $this->session->userdata('roleId');
+        $u_id = $this->session->userdata('u_id');
 
-        if ($role != 3) {
+        if ($u_id== NULL) {
             $this->load->view('logout');
         }
     }

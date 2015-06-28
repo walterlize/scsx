@@ -5,23 +5,20 @@
         <input type="hidden" value="<?= $this->session->userdata('u_id') ?>" name="u_id" id="u_id" />  
         <tr>
             <td class="td1" style="width: 111px">教师工号</td>
-            <td class="td2" ><?= $teaId ?>&nbsp;</td>
+            <td class="td2" ><?= $tea->JSH ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">教师姓名</td>
-            <td class="td2" ><?= $teaName ?>&nbsp;</td>
+            <td class="td2" ><?= $tea->JSM ?>&nbsp;</td>
         </tr>
-        <tr>
-            <td class="td1" style="width: 111px">教师权限</td>
-            <td class="td2" ><?= $teaRole ?>&nbsp;</td>
-        </tr>
+        
         <tr>
             <td class="td1" style="width: 111px">教师职称</td>
-            <td class="td2" ><?= $teaTitle ?>&nbsp;</td>
+            <td class="td2" ><?= $tea->ZCSM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">学院</td>
-            <td class="td2" ><?= $college ?>&nbsp;</td>
+            <td class="td2" ><?= $tea->XSM ?>&nbsp;</td>
         </tr>
         
     </table>

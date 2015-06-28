@@ -4,9 +4,11 @@ class m_tluntan extends CI_Model {
 
     var $l_id = '';
     var $stuId = '';
+    var $stuName ='';
     var $time1 = '';
     var $content = '';
     var $teaId = '';
+    var $teaName ='';
     var $time2 = '';
     var $reply = '';
     var $typeId = '';
@@ -15,9 +17,13 @@ class m_tluntan extends CI_Model {
     function saveInfo() {
         $this->l_id = $this->input->post('l_id');
         $this->stuId = $this->input->post('stuId');
+        $this->stuName = $this->input->post('stuName');
         $this->time1 = $this->input->post('time1');
         $this->content = $this->input->post('content');
-        $this->teaId = $this->session->userdata('u_name');
+
+        $this->teaId = $this->session->userdata('u_num');
+
+        $this->teaName = $this->session->userdata('realname');
         $this->time2 = date("Y-m-d H:i:s");
         $this->reply = $this->input->post('reply');
         $this->typeId = $this->input->post('typeId');
@@ -51,7 +57,7 @@ class m_tluntan extends CI_Model {
 
     function sgetLuntans($array, $per_page, $offset) {
         $this->db->select();
-        $this->db->where('teaId', $this->session->userdata('u_name'));
+        $this->db->where($array);
         $this->db->order_by("l_id", "asc");
         $q = $this->db->get('ws_luntan_type', $per_page, $offset);
         return $q->result();
@@ -88,7 +94,7 @@ class m_tluntan extends CI_Model {
         return $this->db->count_all_results();
     }
     function getNum2($array) {
-        $this->db->where('teaId', $this->session->userdata('u_name'));
+        $this->db->where($array);
         $this->db->from('ws_luntan_type');
         $this->db->where($array);
         return $this->db->count_all_results();
