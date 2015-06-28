@@ -100,6 +100,7 @@ class Luntan extends CI_Controller {
         $luntan->time1 = '';
         $luntan->content = '';
 
+
         $luntan->teaId = '0';
 
         $luntan->teaName = '';

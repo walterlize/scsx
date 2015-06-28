@@ -5,7 +5,9 @@
         <input type="hidden" value="<?= $luntan->l_id ?>" name="l_id" id="l_id" />
         <input type="hidden" value="<?= $luntan->stuId ?>" name="stuId" id="stuId" />
 
+
         <input type="hidden" value="<?= $luntan->stuName ?>" name="stuName" id="stuName" />
+
 
         <input type="hidden" value="<?= $luntan->time1 ?>" name="time1" id="time1" />
         <input type="hidden" value="<?= $luntan->content ?>" name="content" id="content" />
