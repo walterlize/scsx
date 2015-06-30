@@ -23,7 +23,7 @@
             <tr>
                 <td class="td1" style="width: 111px">截止时间</td>
             	<td class="td2">
-            		<input name="miss_end_time" type="text" id="miss_end_time" value="<?=$mission->miss_end_time?>" size="50"   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" class="Wdate"/>
+            		<input name="miss_end_time" type="text" id="miss_end_time" value="<?=$mission->miss_end_time?>" size="50"   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="Wdate"/>
                      <font color="red">若未失效不需填写</font>
             	</td>    
             </tr>

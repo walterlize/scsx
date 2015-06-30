@@ -15,7 +15,7 @@ class Frame extends CI_Controller {
 	}
 
         public function main(){
-            // print_r($this->session->all_userdata());
+            //print_r($this->session->all_userdata());
             $this->load->view('common/header');
             $this->load->view('teacher/main');
             $this->load->view('common/footer');

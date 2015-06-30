@@ -73,9 +73,10 @@ class m_nvariable extends CI_Model {
 	function getNvariable($array) {
 		$conn = $this->dbConn();
         //处理array
-        $str = $this->arrToStr($array);
+        $str1 = $this->arrToStr($array);
+        $str=iconv('UTF-8', 'GBK', $str1);
               
-        $query = "select * from V_SX_XSXKB WHERE ".$str;
+        $query = "select * from V_SX_XSXKB ".$str;
                
         $content=oci_parse($conn,$query);  //被解析语句     
         oci_execute($content);//执行被解析语句       
@@ -87,9 +88,10 @@ class m_nvariable extends CI_Model {
 	function getNum($array) {
 		$conn = $this->dbConn();
         //处理array
-        $str = $this->arrToStr($array);
+        $str1 = $this->arrToStr($array);
+        $str=iconv('UTF-8', 'GBK', $str1);
               
-        $query = "select * from V_SX_XSXKB WHERE ".$str;
+        $query = "select * from V_SX_XSXKB ".$str;
                
         $content=oci_parse($conn,$query);  //被解析语句
     	oci_execute($content);//执行被解析语句
@@ -102,11 +104,14 @@ class m_nvariable extends CI_Model {
 	function getNumByCol($array) {
 		$conn = $this->dbConn();
         //处理array
-        $str = $this->arrToStr($array);            
+        $str1 = $this->arrToStr($array);            
         $college = $this->session->userdata('college');
-        $strCol = " and XSM = ".$college;
+        $strCol1 = " and XSM = ".$college;
+        if(!$str) $strCol1="WHERE XSM = ".$college;
+        $str=iconv('UTF-8', 'GBK', $str1);
+        $strCol=iconv('UTF-8', 'GBK', $strCol1);
+        $query = "select * from V_SX_XSXKB ".$str.$strCol;
         
-        $query = "select * from V_SX_XSXKB WHERE ".$str.$strCol;
                
         $content=oci_parse($conn,$query);  //被解析语句     
         oci_execute($content);//执行被解析语句       
@@ -123,8 +128,13 @@ class m_nvariable extends CI_Model {
         if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
-        $query = "select * from V_SX_XSXKB WHERE ".$str;
-        $query = $query.$strLimit1." minus ".$query.$strLimit2;
+        if(!$str) {
+        	$strLimit1 = " WHERE rownum <= ".($offset+$per_page);
+        	$strLimit2 = " WHERE rownum <= ".$offset;
+        }
+        $query2 = "select * from V_SX_XSXKB ".$str;
+        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;
+        $query=iconv('UTF-8', 'GBK', $query1);
         
                
         $content=oci_parse($conn,$query);  //被解析语句     
@@ -141,10 +151,11 @@ class m_nvariable extends CI_Model {
         $str = $this->arrToStr($array);
         $college = $this->session->userdata('college');
         $strCol = " and XSM = ".$college;
+        if(!$str) $strCol1="WHERE XSM = ".$college;
         if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
-        $query = "select * from V_SX_XSXKB WHERE ".$str.$strCol;
+        $query = "select * from V_SX_XSXKB ".$str.$strCol;
         $query = $query.$strLimit1." minus ".$query.$strLimit2;
         //$query = "select * from V_SX_XSXKB WHERE ".$str.$strCol.$strLimit;
                
@@ -178,24 +189,26 @@ class m_nvariable extends CI_Model {
 		while (($row = oci_fetch_object($content)) != false) {
 			// Use upper case attribute names for each standard Oracle column
 			//echo $row->JSH . "<br>\n";
-			$this->zhandi_iconv($row,"GB2312","UTF-8");
+			$this->zhandi_iconv($row,"GBK","UTF-8");
 			array_push($results,$row);
 		}
 		return $results;
 	}
 	
 	function arrToStr($array){
-		//处理array
-		$str = '';
-		$i = 0;
-		$ai = count($array);
-		foreach($array as $key => $val){
-			$str = $str." ".$key." = '".$val."'";
-			$i++;
-			if($i < $ai)$str = $str." and ";
-		}
-		return $str;
-	}
+    	//处理array
+    	$str = '';
+    	$i = 0;
+    	$ai = count($array);
+    	foreach($array as $key => $val){
+    		$str = $str." ".$key." = '".$val."'";
+    		$i++;
+    		if($i < $ai)$str = $str." and ";
+    	}
+    	if($str) $str1 = "WHERE ".$str;
+    	else $str1 = $str;
+    	return $str1;
+    }
 	
 	/**
 	 * 循环实现编码互转

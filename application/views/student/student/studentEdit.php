@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3 class="lz_title>学生信息编辑</h3>
+    <h3 class="lz_title">学生信息编辑</h3>
     <form name="form1" method="post" action="<?= base_url() ?>index.php/student/student/save" id="form1">
         <input type="hidden" value="<?= $student->u_id ?>" name="u_id" id="u_id" />
         <input type="hidden" value="<?= $student->classId ?>" name="classId" id="classId" />

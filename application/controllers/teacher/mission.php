@@ -19,9 +19,10 @@ class Mission extends CI_Controller {
         $this->timeOut();
 
         $tea_num = $this->session->userdata('u_num');
-        $array = array('miss_teac_num'=>$tea_num);
+        $term = $this->session->userdata('term');
+        $array = array('miss_teac_num'=>$tea_num,'cour_term'=>$term);
         $this->load->model('m_mission');
-        $num = $this->m_mission->getNum($array);
+        $num = $this->m_mission->getNum_ws($array);
         $offset = $this->uri->segment(4);
 
         $data['mission'] = $this->getMissions($array,$offset);

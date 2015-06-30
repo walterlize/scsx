@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px;width:900px;">
     <br />
-    <h3 class="td1">实习基地信息</h3>
+    <h3 class="lz_title">实习基地信息</h3>
     
         <table cellpadding="0" cellspacing="1" class="tablist2">
         	<tr>

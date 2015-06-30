@@ -7,18 +7,18 @@
         <input type="hidden" value="<?= $course->KXH ?>" name="cour_num" id="cour_num" />
         <input type="hidden" value="<?= $course->ZXJXJHH ?>" name="cour_term" id="cour_term" />
         <input type="hidden" value="" name="cour_coll_id" id="cour_coll_id" />
-        <input type="hidden" value="<?= $course->XSM ?>" name="cour_coll_name" id="cour_coll_name" />
+        <input type="hidden" value="<?= $course->KKXSJC ?>" name="cour_coll_name" id="cour_coll_name" />
         <input type="hidden" value="<?= $course->KCM ?>" name="cour_name" id="cour_name" />
         <input type="hidden" value="<?= $course->YWKCM ?>" name="cour_name_en" id="cour_name_en" />
         <input type="hidden" value="<?= $course->XF ?>" name="cour_cerdit" id="cour_cerdit" />
         <input type="hidden" value="<?= $course->XS ?>" name="cour_hours" id="cour_hours" />
-        <input type="hidden" value="<?= $course->courseClass ?>" name="cour_class" id="cour_class" />
+        <input type="hidden" value="" name="cour_class" id="cour_class" />
         <input type="hidden" value="<?= $tea_num ?>" name="cour_teac_num" id="cour_teac_num" />
         <input type="hidden" value="<?= $tea_name ?>" name="cour_teac_name" id="cour_teac_name" />
-        <input type="hidden" value="<?= $course->courseType ?>" name="cour_mode" id="cour_mode" />
-        <input type="hidden" value="<?= $course->courseTime ?>" name="cour_time" id="cour_time" />
-        <input type="hidden" value="<?= $course->JXLM ?>" name="cour_place" id="cour_place" />
-        <input type="hidden" value="<?= $course->ZCSM ?>" name="cour_week" id="cour_week" />
+        <input type="hidden" value="<?= $course->XKMSSM ?>" name="cour_mode" id="cour_mode" />
+        <input type="hidden" value="" name="cour_time" id="cour_time" />
+        <input type="hidden" value="<?= $course->XQM ?>" name="cour_place" id="cour_place" />
+        <input type="hidden" value="" name="cour_week" id="cour_week" />
         <input type="hidden" value="<?= $coursep->cour_publish ?>" name="cour_publish" id="cour_publish" />
 
 

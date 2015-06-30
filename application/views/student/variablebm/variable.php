@@ -4,7 +4,7 @@
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             <th scope="col" class="td1">课程号</th>
-            <th scope="col" class="td3">课序号</th>
+            <th scope="col" class="td2">课序号</th>
             <th scope="col" class="td1">课程名</th>
             <th scope="col" class="td3">课程模式</th>
             <th scope="col" class="td1">是否发布</th>

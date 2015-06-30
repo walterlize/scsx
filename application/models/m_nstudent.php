@@ -59,7 +59,7 @@ class m_nstudent extends CI_Model {
         $str1 = $this->arrToStr($array);
         $str=iconv('UTF-8', 'GBK', $str1);
         
-        $query = "select * from V_SX_XSXXB WHERE ".$str;
+        $query = "select * from V_SX_XSXXB ".$str;
        
                
         $content=oci_parse($conn,$query);  //被解析语句     
@@ -90,8 +90,13 @@ class m_nstudent extends CI_Model {
         if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
-        $query = "select * from V_SX_XSXXB WHERE ".$str;
-        $query = $query.$strLimit1." minus ".$query.$strLimit2;        
+        if(!$str) {
+        	$strLimit1 = " WHERE rownum <= ".($offset+$per_page);
+        	$strLimit2 = " WHERE rownum <= ".$offset;
+        }
+        $query2 = "select * from V_SX_XSXXB ".$str;
+        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;    
+        $query=iconv('UTF-8', 'GBK', $query1);
         //$query = "select * from V_SX_XSXXB WHERE ".$str.$strLimit;
                
         $content=oci_parse($conn,$query);  //被解析语句     
@@ -108,11 +113,13 @@ class m_nstudent extends CI_Model {
         $str = $this->arrToStr($array);           
         $college = $this->session->userdata('college');
         $strCol = " and XSM = ".$college;
+        if(!$str) $strCol="WHERE XSM = ".$college;
         if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
-        $query = "select * from V_SX_XSXXB WHERE ".$str.$strCol;
-        $query = $query.$strLimit1." minus ".$query.$strLimit2;      
+        $query2 = "select * from V_SX_XSXXB ".$str.$strCol;
+        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;  
+        $query=iconv('UTF-8', 'GBK', $query1);
         //$query = "select * from V_SX_XSXXB WHERE ".$str.$strCol.$strLimit;
                
         $content=oci_parse($conn,$query);  //被解析语句     
@@ -129,8 +136,10 @@ class m_nstudent extends CI_Model {
         $str = $this->arrToStr($array);           
         $college = $this->session->userdata('college');
         $strCol = " and XSM = ".$college;
+        if(!$str) $strCol="WHERE XSM = ".$college;
         
-        $query = "select * from V_SX_XSXXB WHERE ".$str.$strCol;
+        $query1 = "select * from V_SX_XSXXB ".$str.$strCol;
+        $query=iconv('UTF-8', 'GBK', $query1);
                
         $content=oci_parse($conn,$query);  //被解析语句     
         oci_execute($content);//执行被解析语句       
@@ -145,7 +154,7 @@ class m_nstudent extends CI_Model {
     	//处理array
     	$str = $this->arrToStr($array);
     	
-    	$query1 = "select * from V_SX_XSXXB WHERE ".$str;
+    	$query1 = "select * from V_SX_XSXXB ".$str;
     	$query=iconv('UTF-8', 'GB2312', $query1);
     	
     	//echo $query;
@@ -158,6 +167,22 @@ class m_nstudent extends CI_Model {
         return $num;
     }
     
+    function countStuNumByCol(){
+    	$conn = $this->dbConn();
+    	//$query1 = "select * from V_SX_XSXXB WHERE ".$str;
+    	$query1 = "SELECT XSM, NJMC , count(*) AS COSTU FROM V_SX_XSXXB GROUP BY XSM , NJMC ORDER BY XSM ASC,NJMC DESC";
+    	$query=iconv('UTF-8', 'GB2312', $query1);
+    	 
+    	//echo $query;
+    	 
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	//echo $content; echo "<br>";
+    	oci_execute($content);//执行被解析语句
+    	$results = $this->resToObj($content);
+        $this->dbClose($content,$conn);
+        //print_r($results);
+        return $results;
+    }
     
     //连接数据库
     function dbConn(){
@@ -229,7 +254,9 @@ class m_nstudent extends CI_Model {
     		$i++;
     		if($i < $ai)$str = $str." and ";
     	}
-    	return $str;
+    	if($str) $str1 = "WHERE ".$str;
+    	else $str1 = $str;
+    	return $str1;
     }
     
     

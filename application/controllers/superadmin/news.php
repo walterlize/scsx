@@ -9,6 +9,7 @@ class News extends CI_Controller {
             $this->load->helper('form');
             $this->load->library('session');
             $this->load->library('pagination');
+            date_default_timezone_set('PRC');
 	}
 
 	public function newsList(){

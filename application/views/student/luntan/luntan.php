@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3 class="lz_title>学生发帖列表</h3>
+    <h3 class="lz_title">学生发帖列表</h3>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             <th scope="col"class="td1">学号</th>
@@ -21,7 +21,7 @@
                 </tr>
             <?php endforeach; ?>
         <tr>
-            <td colspan="5" align="center">
+            <td colspan="5" align="center" class="td1">
                 <input type="button" name="btnDelete" value="发 帖" onclick="window.location.href='<?= base_url() ?>index.php/student/luntan/luntanNew';" id="btnDelete" class="input" />
             </td>
         </tr>

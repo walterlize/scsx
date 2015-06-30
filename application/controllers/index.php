@@ -108,6 +108,9 @@ class Index extends CI_Controller {
         $userType = $this->input->post('userType');
         //echo $password;
         //$array = array('u_name' => $u_name, 'password' => $password);
+        $t = $this->getNowTerm(1);
+        $term = $t->term;
+        
     	switch ($userType){
     		case 1:
     			//校级管理员
@@ -131,7 +134,7 @@ class Index extends CI_Controller {
     						'grade'=> 0,
     						'major'=> 0,
     						'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)"
+    						'term'=>$term
     				
     				);
     				$this->session->set_userdata($array);
@@ -164,7 +167,7 @@ class Index extends CI_Controller {
     						'grade'=> 0,
     						'major'=> 0,
     						'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)"
+    						'term'=>$term
     			
     				);
     				$this->session->set_userdata($array);
@@ -226,7 +229,7 @@ class Index extends CI_Controller {
 	    					'grade'=> 0,
 	    					'major'=> 0,
 	    					'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)"
+    						'term'=>$term
 	    					
 	    			);
 	    			$this->session->set_userdata($array);
@@ -266,7 +269,9 @@ class Index extends CI_Controller {
     						'grade'=> 0,
     						'major'=> 0,
     						'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)");
+    						'term'=>$term
+    						
+    				);
     				$this->session->set_userdata($array);
     				if ($array['ustateId'] == 2) {
     					redirect('index/erro1');
@@ -305,7 +310,7 @@ class Index extends CI_Controller {
     						'grade'=>$data->NJMC,
     						'major'=>$data->ZYM,
     						'class'=>$data->BM,
-    						'term'=>"2013-2014学年夏(三学期)",
+    						'term'=>$term,
     						
     				);
     				$this->session->set_userdata($array);
@@ -459,6 +464,16 @@ class Index extends CI_Controller {
         $this->session->set_userdata($array);
         $this->session->sess_destroy();
         redirect(base_url());
+    }
+    
+    function getNowTerm($id){
+    	$this->load->model('m_nowterm');
+    	$result = $this->m_nowterm->getNowtermById($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
 
 }

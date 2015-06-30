@@ -36,6 +36,7 @@ class m_company extends CI_Model {
         $id = $this->comp_id;
         if ($id == 0) {
             $this->db->insert('company', $this);
+            
             $id = $this->db->insert_id();
         } else {
             $this->db->update('company', $this, array('comp_id' => $this->comp_id));
@@ -151,6 +152,14 @@ class m_company extends CI_Model {
     function deleteCompany($id) {
         $this->db->where('comp_id', $id);
         $this->db->delete('company');
+    }
+    
+    function countCompanyByCol(){
+    	$query = "SELECT comp_coll_name, comp_add_type , count(*) AS c_comp FROM company GROUP BY comp_coll_name, comp_add_type  ORDER BY comp_coll_name ASC,comp_add_type ASC";
+    	$q = $this->db->query($query);
+    	
+    	return $q->result();
+    	
     }
 
 }

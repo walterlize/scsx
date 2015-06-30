@@ -54,7 +54,7 @@
         <div id="D1pic1" class="fPic">
         <?php if (is_array($img)) foreach ($img as $r): ?>
             <div class="fcon" style="display: none;">
-                <a target="_blank" href="#"><img src="<?=$r->news_img?>"  style="opacity: 1; "></a><!--不透明度-->
+                <a target="_blank" href="<?= base_url() ?>index.php/front/imgnews/imgDetail/<?= $r->news_id ?>"><img src="<?=$r->news_img?>"  style="opacity: 1; "></a><!--不透明度-->
                 <span class="shadow"><a target="_blank" href="#"><?=$r->news_title?></a></span>
             </div>
         <?php endforeach;?>
@@ -96,7 +96,7 @@
     <div class="contenttopright">
         <div class="noticetopbox">
             <div class="noticeimg"><img src="images0/login1.png" /></div>
-            <div class="noticetop"><p>通知公告</p><a href="<?= base_url() ?>index.php/frnot/news/noticeList" target="_blank">更多>></a></div>
+            <div class="noticetop"><p>通知公告</p><a href="<?= base_url() ?>index.php/front/news/noticeList" target="_blank">更多>></a></div>
         </div>
 
         <div class="noticelist">

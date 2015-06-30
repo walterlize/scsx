@@ -20,9 +20,9 @@ class Variable extends CI_Controller {
     	$this->timeOut();
     	
     	$stuId = $this->session->userdata('u_num');
-    	//$term = $this->session->userdata('term');
+    	$term = $this->session->userdata('term');
     	
-    	$term = "2014-2015-2-2";
+    	//$term = "2014-2015-2-2";
     	$array=array('XH'=>$stuId,'ZXJXJHH'=>$term);
     	
     	$this->load->model('m_nvariable');

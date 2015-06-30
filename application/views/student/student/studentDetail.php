@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3 class="lz_title>学生个人信息</h3>
+    <h3 class="lz_title">学生个人信息</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">  
         <input type="hidden" value="<?= $this->session->userdata('u_id') ?>" name="u_id" id="u_id" />  
         <tr>

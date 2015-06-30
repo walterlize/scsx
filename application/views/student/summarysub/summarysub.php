@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3 class="lz_title>实习任务列表</h3>
+    <h3 class="lz_title">实习任务列表</h3>
     <?php if (is_array($variable)) foreach ($variable as $r): ?>
     <table class="tablist2" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">

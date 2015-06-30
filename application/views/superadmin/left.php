@@ -40,7 +40,7 @@
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList1" target="content1">学院学生人数统计</a>
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList2" target="content1">学院教师人数统计</a>
-                        <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList3" target="content1">学院开课数目统计</a>
+                        <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList3" target="content1">学院基地数目统计</a>
                     </div>
                 </div>        
             </div>

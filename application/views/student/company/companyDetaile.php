@@ -27,8 +27,8 @@
             <td class="td2" ><?= $course->XS ?>&nbsp;</td>
         </tr>
         <tr>
-            <td class="td1" style="width: 111px">课程上课周次</td>
-            <td class="td2" ><?= $course->ZCSM ?>&nbsp;</td>
+            <td class="td1" style="width: 111px">开课校区</td>
+            <td class="td2" ><?= $course->XQM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">指导教师姓名</td>

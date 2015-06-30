@@ -54,7 +54,7 @@ padding-left: 10px;
           
                 
             </table>
-            <div align="center"><?= $page ?></div>
+            
         </div>
         
 </div>

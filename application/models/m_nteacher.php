@@ -63,7 +63,8 @@ class m_nteacher extends CI_Model {
     	//处理array
     	$str = $this->arrToStr($array);
     
-    	$query = "select * from V_SX_JSXXB WHERE ".$str;
+    	$query1 = "select * from V_SX_JSXXB ".$str;
+    	$query=iconv('UTF-8', 'GBK', $query1);
     	 
     	$content=oci_parse($conn,$query);  //被解析语句
     	oci_execute($content);//执行被解析语句
@@ -78,11 +79,14 @@ class m_nteacher extends CI_Model {
     	$str = $this->arrToStr($array);
     	$college = $this->session->userdata('college');
     	$strCol = " and XSM = ".$college;
+    	if(!$str) $strCol="WHERE XSM = ".$college;
     	if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
-        $query = "select * from V_SX_JSXXB WHERE ".$str.$strCol;
-        $query = $query.$strLimit1." minus ".$query.$strLimit2;  
+        
+        $query2 = "select * from V_SX_JSXXB ".$str.$strCol;
+        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;  
+        $query=iconv('UTF-8', 'GBK', $query1);
         
     	//$query = "select * from V_SX_JSXXB WHERE ".$str.$strCol.$strLimit;
     	 
@@ -104,8 +108,13 @@ class m_nteacher extends CI_Model {
     	if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
-        $query = "select * from V_SX_JSXXB WHERE ".$str;
-        $query = $query.$strLimit1." minus ".$query.$strLimit2;  
+        if(!$str) {
+        	$strLimit1 = " WHERE rownum <= ".($offset+$per_page);
+        	$strLimit2 = " WHERE rownum <= ".$offset;
+        }
+        $query2 = "select * from V_SX_JSXXB ".$str;
+        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;  
+        $query=iconv('UTF-8', 'GBK', $query1);
         
     	//$query = "select * from V_SX_JSXXB WHERE ".$str.$strLimit;
     
@@ -121,7 +130,8 @@ class m_nteacher extends CI_Model {
     function getTeaById($teaId) {
     	$conn = $this->dbConn();
     
-    	$query = "select * from V_SX_JSXXB WHERE JSH = '".$teaId."'";
+    	$query1 = "select * from V_SX_JSXXB WHERE JSH = '".$teaId."'";
+    	$query=iconv('UTF-8', 'GBK', $query1);
         	 
     	$content=oci_parse($conn,$query);  //被解析语句
     	oci_execute($content);//执行被解析语句
@@ -137,7 +147,8 @@ class m_nteacher extends CI_Model {
     function getNumALL($array){
     	$conn = $this->dbConn();
     	$str = $this->arrToStr($array);    	 
-    	$query = "select * from V_SX_JSXXB WHERE ".$str;
+    	$query1 = "select * from V_SX_JSXXB ".$str;
+    	$query=iconv('UTF-8', 'GBK', $query1);
 
     	$content=oci_parse($conn,$query);  //被解析语句
     	oci_execute($content);//执行被解析语句
@@ -154,7 +165,10 @@ class m_nteacher extends CI_Model {
     	
     	$college = $this->session->userdata('college');
     	$strCol = " and XSM = ".$college;
-    	$query = "select * from V_SX_JSXXB WHERE ".$str.$strCol;
+    	if(!$str) $strCol="WHERE XSM = ".$college;
+    	$query1 = "select * from V_SX_JSXXB ".$str.$strCol;
+    	
+    	$query=iconv('UTF-8', 'GBK', $query1);
 
     	$content=oci_parse($conn,$query);  //被解析语句
     	oci_execute($content);//执行被解析语句
@@ -165,7 +179,22 @@ class m_nteacher extends CI_Model {
     	return $num;
     }
     
+    function countTeaNumByCol(){
+    	$conn = $this->dbConn();
+    	//$query1 = "select * from V_SX_XSXXB WHERE ".$str;
+    	$query1 = "SELECT XSM, XSH,count(*) AS COTEA FROM V_SX_JSXXB GROUP BY XSM,XSH ORDER BY XSH";
+    	$query=iconv('UTF-8', 'GB2312', $query1);
     
+    	//echo $query;
+    
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	//echo $content; echo "<br>";
+    	oci_execute($content);//执行被解析语句
+    	$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	//print_r($results);
+    	return $results;
+    }
     
     //连接数据库
     function dbConn(){
@@ -228,17 +257,19 @@ class m_nteacher extends CI_Model {
     }
        
        
-    function arrToStr($array){
-       	//处理array
-       	$str = '';
-       	$i = 0;
-       	$ai = count($array);
-       	foreach($array as $key => $val){
-       		$str = $str." ".$key." = '".$val."'";
-       		$i++;
-       		if($i < $ai)$str = $str." and ";
-       	}
-       	return $str;
+	function arrToStr($array){
+    	//处理array
+    	$str = '';
+    	$i = 0;
+    	$ai = count($array);
+    	foreach($array as $key => $val){
+    		$str = $str." ".$key." = '".$val."'";
+    		$i++;
+    		if($i < $ai)$str = $str." and ";
+    	}
+    	if($str) $str1 = "WHERE ".$str;
+    	else $str1 = $str;
+    	return $str1;
     }
 
 

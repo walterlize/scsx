@@ -10,19 +10,19 @@ padding-left: 10px;
 <div class="enterright" style="background-color: #F8F8F8">
     	<div class="enterrighttitle">
     		<p style="float: left;">用户列表</p>
-    		<div style="float: right; height: 100%; margin-top: 10px; margin-right: 10px;">
-	    		<form action="<?=  base_url()?>index.php/admin/user/searchTea" method="post">
-				     
-				        <select name="selectType" id="selectType">
-                        <option value="1">教师号</option>
-                        <option value="2">教师名</option>
-                        
+            <div style="float: right; height: 100%; margin-top: 10px; margin-right: 10px;">
+                <form action="<?=  base_url()?>index.php/admin/user/searchStu" method="post">
+                    查询方式：
+                    <select name="selectType" id="selectType">
+                        <option value="1">学号</option>
+                        <option value="2">姓名</option>
+                        <option value="3">班级</option>
                     </select>
                     <input name="searchTerm" type="text" size="10" id="searchTerm" />
                     <input type="submit" name="submit" value="查询"/>
                     <br/><br/>
-				    </form>
-    		</div>
+                </form>
+            </div>
     	</div>
         <div class="enterrightlist" style="margin-top: 10px;">
         
@@ -31,22 +31,23 @@ padding-left: 10px;
             	<tr class="tabletitle">
             		
                 	
-           	 		<td class="line2" >教师号</td>
+           	 		<td class="line2" >学号</td>
             		<td class="line2" >姓名</td>
                     
-            		<td class="line2" >职称</td>
+            		<td class="line2" >系别</td>
+            		<td class="line2" >班级</td>
             		<td class="line2" >密码</td>
                 </tr>
                 
-                 <?php if (is_array($tea)) foreach ($tea as $r): ?>
+                 <?php if (is_array($stu)) foreach ($stu as $r): ?>
                 <tr class="tablecontent">
                		
                 	
-                    <td class="line2" ><?= $r['tea_num'] ?></td>
-                    <td class="line2" ><?= $r['tea_name'] ?></td>
-                    
-                    <td class="line2" ><?= $r['tea_title'] ?></td>
-                    <td class="line2" ><?= $r['tea_password'] ?></td>
+                    <td class="line2" ><?= $r['stu_num'] ?></td>
+                    <td class="line2" ><?= $r['stu_name'] ?></td>
+                    <td class="line2" ><?= $r['stu_major'] ?></td>
+                    <td class="line2" ><?= $r['stu_class'] ?></td>
+                    <td class="line2" ><?= $r['stu_password'] ?></td>
                     
                 </tr>
                 <?php endforeach; ?>
@@ -54,7 +55,7 @@ padding-left: 10px;
           
                 
             </table>
-            <div align="center"><?= $page ?></div>
+            
         </div>
         
 </div>

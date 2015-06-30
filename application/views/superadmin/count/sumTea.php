@@ -18,20 +18,20 @@ padding-left: 10px;
         	<table width="100%" cellpadding="0" cellspacing="0">
             	<tr class="tabletitle">
             		
-                	<td class="line2"  >学院</td>
+                	<td class="line2"  >学院/部门</td>
+                	
                 	<td class="line2"  >人数</td>
-                	<td class="line2"  >操作</td>
+                	
                 </tr>
                 
-                <?php if (is_array($collegeName)) foreach ($collegeName as $key=>$val): ?>
+                <?php if (is_array($tea)) foreach ($tea as $r): ?>
                 <tr class="tablecontent">
                		 
-                	<td class="line1" ><?= $val ?></td>
-                	<td class="line2"><?= $stuNum[$key] ?></td>
+                	<td class="line1" ><?= $r->XSM ?></td>
+                	
+                	<td class="line2"><?= $r->COTEA ?></td>
 
-                	<td class="line2">
-                		<a id="" href="<?= base_url() ?>index.php/superadmin/sum/sumDetail1/">详细</a>
-                	</td>
+                	
                 </tr>
                 <?php endforeach; ?>
             
