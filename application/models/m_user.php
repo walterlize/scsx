@@ -103,6 +103,14 @@ class m_user extends CI_Model {
         return $q->result();
     }
     
+    function getOneInfo($id){
+    	$this->db->select();
+    	$this->db->from('ws_user');
+    	$this->db->where('user_id', $id);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
+    
     //分页获取具体学院用户
     function getUsersByCol($array, $per_page, $offset) {
     	$this->db->select();

@@ -184,6 +184,24 @@ class m_nstudent extends CI_Model {
         return $results;
     }
     
+    function countStuNumByBM($array){
+    	$conn = $this->dbConn();
+    	$str = $this->arrToStr($array);
+    	//$query1 = "select * from V_SX_XSXXB WHERE ".$str;
+    	$query1 = "SELECT BM,NJMC, count(*) AS COSTU FROM V_SX_XSXXB ".$str." GROUP BY BM,NJMC ORDER BY NJMC DESC , BM ASC";
+    	$query=iconv('UTF-8', 'GB2312', $query1);
+    
+    	//echo $query;
+    
+    	$content=oci_parse($conn,$query);  //被解析语句
+    	//echo $content; echo "<br>";
+    	oci_execute($content);//执行被解析语句
+    	$results = $this->resToObj($content);
+    	$this->dbClose($content,$conn);
+    	//print_r($results);
+    	return $results;
+    }
+    
     //连接数据库
     function dbConn(){
     	$conn = oci_connect('sjk','sjk#_2015$','202.205.91.55/urpjw');

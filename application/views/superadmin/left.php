@@ -42,6 +42,15 @@
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList2" target="content1">学院教师人数统计</a>
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList3" target="content1">学院基地数目统计</a>
                     </div>
+                    <p class="menu_head">管理员管理</p>
+		    		<div  style="display:none" class="menu_body">
+		      			<a href="<?=base_url();?>index.php/superadmin/admin/adminList" target="content1">管理员信息</a>
+		    		</div>
+		            <p class="menu_head">个人信息</p>
+		    		<div style="display:none" class="menu_body">
+		      			<a href="<?=base_url();?>index.php/superadmin/aself/selfDetail" target="content1">基本信息</a>
+		      			<a href="<?= base_url() ?>index.php/user/password" target="content1">密码修改</a>
+		    		</div>
                 </div>        
             </div>
         </div>

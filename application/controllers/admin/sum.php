@@ -18,49 +18,14 @@ class Sum extends CI_Controller {
     public function sumList1() {
         $this->timeOut();
         //院列表
-        $this->load->model('m_college');
-        $college = $this->m_college->getCollege(array());
-         
-        //院名数组
-        $collegeName=array("农院","生院","资环","动科","动医","食院","工学院","信电","水院","理学院","经管","人发","国院","烟院","思政","体艺","继续教育");
-        $collegeNames=array(
-        		"农学与生物技术学院",
-        		"生物学院",
-        		"资源与环境学院",
-        		"动物科学技术学院",
-        		"动物医学院",
-        		"食品科学与营养工程学院",
-        		"工学院",
-        		"信息与电气工程学院",
-        		"水利与土木工程学院",
-        		"理学院",
-        		"经济管理学院",
-        		"人文与发展学院",
-        		"国际学院",
-        		"烟台研究院",
-        		"思政学院",
-        		"体育与艺术教学部",
-        		"继续教育学院"
-        );
-        $collegeNames1=array(
-        		"01","02","03","04","05","06","07","08","09","10","11","12","14","40",        
-        );
+        
         //各院人数数组
         $this->load->model('m_nstudent');
-        $stu = $this->m_nstudent->countStuNumByCol();
+        $college = $this->session->userdata('college');
+        $stu = $this->m_nstudent->countStuNumByBM(array('XSM'=>$college));
+        //print_r($stu);
         
-        $arrNum1 = array();
-        $arrCol1 = array();
-        $arrYear1 = array();
-        foreach ($stu as $r){
-        	array_push($arrYear1,$r->NJMC);
-        	array_push($arrCol1,$r->XSM);
-        }
-        $arrYear = array_unique($arrYear1);
-        rsort($arrYear);
-        //print_r($arrYear);
-        $arrColq = array_unique($arrCol1);
-        $arrCol = array_merge($arrColq);
+        
         /*
         $stum = array();
         foreach ($stu as $r){
@@ -83,7 +48,7 @@ class Sum extends CI_Controller {
         $data['stu'] = $stu;
         
         $this->load->view('common/header3');
-        $this->load->view('superadmin/count/sumStu',$data);
+        $this->load->view('admin/count/sumStu',$data);
         $this->load->view('common/footer');
     }
     public function sumList2() {
@@ -95,15 +60,17 @@ class Sum extends CI_Controller {
         $data['tea'] = $tea;
         
         $this->load->view('common/header3');
-        $this->load->view('superadmin/count/sumTea',$data);
+        $this->load->view('admin/count/sumTea',$data);
         $this->load->view('common/footer');
     }
     
     public function sumList3() {
     	$this->timeOut();
     	//
-    	$this->load->model("m_company");
-    	$res = $this->m_company->countCompanyByCol();
+    	$this->load->model("m_elecom");
+    	$res = $this->m_elecom->countCompStuNum();
+    	//print_r($res);
+    	/*
     	//处理
     	$comp = array();
     	foreach ($res as $r){
@@ -123,11 +90,11 @@ class Sum extends CI_Controller {
     		
     	}
     	
-
-    	$data['comp']=$comp;
+*/
+    	$data['comp']=$res;
     
     	$this->load->view('common/header3');
-    	$this->load->view('superadmin/count/sumCompany',$data);
+    	$this->load->view('admin/count/sumCompany',$data);
     	$this->load->view('common/footer');
     }
     

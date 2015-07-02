@@ -161,6 +161,8 @@ class m_company extends CI_Model {
     	return $q->result();
     	
     }
+    
+    
 
 }
 
