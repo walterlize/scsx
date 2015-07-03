@@ -12,9 +12,7 @@ class Index extends CI_Controller {
         $this->load->library('session');
         $this->load->model('m_user');
         $this->load->model('m_nteacher');
-
-    
-
+        
     }
 
     public function index() {
@@ -22,30 +20,42 @@ class Index extends CI_Controller {
         // 用户登录部分
         $name = $this->session->userdata('u_name');
         $data['userid'] = $this->session->userdata('u_id');
-        $role = $this->session->userdata('roleId');
-        $offset = $this->uri->segment(4);
+        $data['role'] = $this->session->userdata('roleId');
+
         //新闻公告
         $data['news'] = array();
         $data['notice'] = array();
         $data['guiding'] = array();
         $data['summary'] = array();
-        /*
-        $data['news'] = $this->getNews1();
-        $data['notice'] = $this->getNews2();
-        $data['guiding'] = $this->getNews3();       
-        $data['summary'] = $this->getNews4();
-        */
+        
+        $data['news'] = $this->getNews();
+        $data['notice'] = $this->getNotice();
+        $data['guiding'] = $this->getRule();       
+        $data['summary'] = $this->getSum();
+        $data['img'] = $this->getImg();
+        if($data['role']==1){
+            $data['role_name']='学校管理员';
+        }elseif($data['role']==2){
+            $data['role_name']='学院管理员';
+        }elseif($data['role']==3){
+            $data['role_name']='老师';
+        }elseif($data['role']==4){
+            $data['role_name']='基地管理员';
+        }elseif($data['role']==5){
+            $data['role_name']='学生';
+        }
         
         if ($name == '' || $name == null) {
+            $data['name'] = $name;
             $data['form'] = '';
             $data['welcome'] = 'display:none';
-            $data['welcome1'] = 'display:none';
+
         } else {
 
-            $data['u_name'] = $name;
+            $data['name'] = $name;
             $data['form'] = 'display:none';
-            $data['welcome'] = 'display:none';
-            $data['welcome1'] = '';
+            $data['welcome'] = '';
+
         }
 
         $this->load->view('common/title');
@@ -53,24 +63,34 @@ class Index extends CI_Controller {
         $this->load->view('common/foot');
     }
     //获取新闻
-    public function getNews1() {
+    public function getNews() {
+    	$array = array("news_audit"=>"6","news_type_id"=>1);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews1();
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getNews2() {
+    public function getNotice() {
+       $array = array("news_audit"=>"6","news_type_id"=>2);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews2();
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getNews3() {
+    public function getRule() {
+        $array = array("news_audit"=>"6","news_type_id"=>3);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews3();
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getNews4() {
+    public function getSum() {
+        $array = array("news_audit"=>"6","news_type_id"=>4);
         $this->load->model('m_news');
-        $data = $this->m_news->getNews4();
+        $data = $this->m_news->getNewss($array, 5, 0);
+        return $data;
+    }
+    public function getImg() {
+    	$array = array("news_audit"=>"6","news_type_id"=>5);
+        $this->load->model('m_news');
+        $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
 
@@ -100,6 +120,9 @@ class Index extends CI_Controller {
         $userType = $this->input->post('userType');
         //echo $password;
         //$array = array('u_name' => $u_name, 'password' => $password);
+        $t = $this->getNowTerm(1);
+        $term = $t->term;
+        
     	switch ($userType){
     		case 1:
     			//校级管理员
@@ -123,7 +146,7 @@ class Index extends CI_Controller {
     						'grade'=> 0,
     						'major'=> 0,
     						'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)"
+    						'term'=>$term
     				
     				);
     				$this->session->set_userdata($array);
@@ -156,7 +179,7 @@ class Index extends CI_Controller {
     						'grade'=> 0,
     						'major'=> 0,
     						'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)"
+    						'term'=>$term
     			
     				);
     				$this->session->set_userdata($array);
@@ -207,11 +230,11 @@ class Index extends CI_Controller {
 	    					'grade'=> 0,
 	    					'major'=> 0,
 	    					'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)"
+    						'term'=>$term
 	    					
 	    			);
 	    			$this->session->set_userdata($array);
-                                //print_r($this->session->all_userdata());
+                    //print_r($this->session->all_userdata());
 	    			//普通教师
 	    			redirect('teacher/frame/index');
 	    			
@@ -248,7 +271,9 @@ class Index extends CI_Controller {
     						'grade'=> 0,
     						'major'=> 0,
     						'class'=> 0,
-    						'term'=>"2013-2014学年夏(三学期)");
+    						'term'=>$term
+    						
+    				);
     				$this->session->set_userdata($array);
     				if ($array['ustateId'] == 2) {
     					redirect('index/erro1');
@@ -287,7 +312,7 @@ class Index extends CI_Controller {
     						'grade'=>$data->NJMC,
     						'major'=>$data->ZYM,
     						'class'=>$data->BM,
-    						'term'=>"2013-2014学年夏(三学期)",
+    						'term'=>$term,
     						
     				);
     				$this->session->set_userdata($array);
@@ -337,30 +362,30 @@ class Index extends CI_Controller {
         }*/
     }
 
-    // 登陆2
-    public function getin() {
-        $id = $this->uri->segment(3);
-        $this->load->model('m_user');
-        $result = $this->m_user->getOneInfo($id);
-        $data = array();
-        foreach ($result as $r) {
-            $data = $r;
-        }
+    // 如果已经登录，则可以在首页直接登录
+    public function getin()
+    {
 
-        if (isset($data->u_name)) {
-            if ($data->roleId == 1) {
-                redirect('admin/frame/index');
-            } else if ($data->roleId == 4) {
-                redirect('master/frame/index');
-            } else if ($data->roleId == 2) {
-                redirect('teacher/frame/index');
-            } else if ($data->roleId == 3) {
-                redirect('student/frame/index');
-            }
-        } else {
-            redirect(base_url());
+        $this->load->model('m_user');
+        $role = $this->uri->segment(3);
+
+        if ($role == 1) {
+            redirect('superadmin/frame/index');
+        }
+        else if ($role == 2) {
+            redirect('admin/frame/index');
+        }
+        else if ($role == 3) {
+            redirect('teacher/frame/index');
+        }
+        else if ($role == 4) {
+            redirect('master/frame/index');
+        }
+        else if ($role == 5) {
+            redirect('student/frame/index');
         }
     }
+
 
     public function erro() {
         $this->load->view('common/erro');
@@ -441,6 +466,16 @@ class Index extends CI_Controller {
         $this->session->set_userdata($array);
         $this->session->sess_destroy();
         redirect(base_url());
+    }
+    
+    function getNowTerm($id){
+    	$this->load->model('m_nowterm');
+    	$result = $this->m_nowterm->getNowtermById($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
+    	}
+    	return $data;
     }
 
 }

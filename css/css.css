@@ -38,7 +38,7 @@ body{font-family:"宋体"; font-size:12px; color:#666666; background-color:#f8f8
 .loginimg,.logintop{float:left;}
 .logintop,.noticetop{width:241px; height:35px; line-height:36px; background:url(../images/login2.png) repeat-x; border-bottom:1px #e4e4e4 solid;}
 .logintop p,.noticetop p{font-family:"微软雅黑"; font-size:18px; font-weight:bold; color:#16830c; margin-left:13px;}
-.loginbottombox{width:198px; margin:0 auto; padding-top:35px; overflow:hidden;}
+.loginbottombox{width:198px; height:222px; margin:0 auto; padding-top:35px; overflow:hidden;}
 .name,.password{overflow:hidden; margin-bottom:17px;}
 .name p,.password p{height:26px; line-height:26px;}
 .name p,.loginname{float:left;}
@@ -50,6 +50,18 @@ body{font-family:"宋体"; font-size:12px; color:#666666; background-color:#f8f8
 .zhuce{margin-right:5px; display:inline;}
 .forget a{color:#555555; float:right; margin-bottom:20px;}
 .forget a:hover{color:blue;}
+/*首页登录后的页面*/
+.loginbottombox2{
+    width:198px;
+    height:222px;
+    margin:0 auto;
+    padding-top:26px;
+    overflow:hidden;
+    font-family: "微软雅黑", "宋体";
+    font-size: 16px;
+    color: #0B0B0B;
+    text-align: center;
+}
 
 /*滚动图*/
 .contenttopcenter{position:absolute; left:-148px; top:0; width:500px; height:250px; background-color:#000;}  

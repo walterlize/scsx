@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3>填写实习总结信息</h3>
+    <h3 class="lz_title">填写实习总结信息</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">
         <tr>
             <td class="td1" style="width: 111px" colspan="2">
@@ -22,7 +22,7 @@
         </tr> 
         <tr>
             <td class="td1" style="width: 111px">截止时间</td>
-            <td class="td2" ><?= $mission->miss_end_time ?>&nbsp;</td>
+            <td class="td2" ><?php if($mission->miss_end_time == "0000-00-00 00:00:00") echo "无";else echo $mission->miss_end_time?>&nbsp;</td>
         </tr> 
         <tr>
             <td class="td1" style="width: 111px">实习任务内容</td>

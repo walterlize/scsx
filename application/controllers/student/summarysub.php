@@ -52,6 +52,7 @@ class Summarysub extends CI_Controller {
     	$result = $this->m_nvariable->getNvariable($array);
     	
     	$data = array();
+    	$i=0;
     	foreach ($result as $r) {
     
     		$arrCourse = array('cour_no'=>$r->KCH,'cour_num'=>$r->KXH,'cour_term'=>$r->ZXJXJHH);

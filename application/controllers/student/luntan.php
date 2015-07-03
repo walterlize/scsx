@@ -99,7 +99,10 @@ class Luntan extends CI_Controller {
         $luntan->stuName = $this->session->userdata('realname');
         $luntan->time1 = '';
         $luntan->content = '';
+
+
         $luntan->teaId = '0';
+
         $luntan->teaName = '';
         $luntan->time2 = '';
         $luntan->reply = '';

@@ -49,24 +49,7 @@ class Frame extends CI_Controller {
             $this->load->view('common/footer');
         }
 
-        public function menu1(){
-            $data['name'] = $this->session->userdata('u_name');
-            $this->load->view('common/header');
-            $this->load->view('student/left1',$data);
-            $this->load->view('common/footer');
-        }
-        public function menu2(){
-            $data['name'] = $this->session->userdata('u_name');
-            $this->load->view('common/header');
-            $this->load->view('student/left2',$data);
-            $this->load->view('common/footer');
-        }
-        public function menu3(){
-            $data['name'] = $this->session->userdata('u_name');
-            $this->load->view('common/header');
-            $this->load->view('student/left3',$data);
-            $this->load->view('common/footer');
-        }
+        
         public function menu4(){
         	$data['id'] = $this->session->userdata('u_name');
         	$data['name'] = $this->session->userdata('realname');

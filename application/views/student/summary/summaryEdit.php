@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3>填写实习总结</h3>
+    <h3 class="lz_title">填写实习总结</h3>
     <form name="form1" method="post" action="<?= base_url() ?>index.php/student/summary/save/<?= $mission->miss_id ?>" id="form1">
         <input type="hidden" value="<?= $summary->summ_id ?>" name="summ_id" id="summ_id" />
         <input type="hidden" value="<?= $mission->miss_id ?>" name="summ_miss_id" id="summ_miss_id" />

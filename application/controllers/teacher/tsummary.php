@@ -19,9 +19,10 @@ class Tsummary extends CI_Controller {
         $this->timeOut();
 
         $tea_num = $this->session->userdata('u_num');
-        //查询该老师名下所有summary未审核
+        $term = $this->session->userdata('term');
+        //查询该老师名下所有本学期summary未审核
         //========================
-        $array = array('miss_teac_num'=>$tea_num,'summ_appr_id'=>5);
+        $array = array('miss_teac_num'=>$tea_num,'summ_appr_id'=>5,'cour_term'=>$term);
         
         $this->load->model('m_summary');
         $num = $this->m_summary->getNum_ws($array);
@@ -33,6 +34,7 @@ class Tsummary extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='共有'.$num.'条记录。';
 
         $this->load->view('common/header3');
         $this->load->view('teacher/tsummary/tsummary', $data);

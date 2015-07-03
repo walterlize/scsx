@@ -22,7 +22,7 @@
                                     </td>
                                     <td width="849" valign="top" height="575">
                                                           <!--<iframe name="content" scrolling="no" noresize src="index.html" height="100%" width="100%" frameborder="0"></iframe>-->
-                                        <iframe name="content1"  noresize src="<?= base_url(); ?>index.php/student/frame/main" height="100%" width="100%" frameborder="0">                
+                                        <iframe name="content1"   src="<?= base_url(); ?>index.php/student/frame/main" height="100%" width="100%" frameborder="0" style="overflow:scroll;overflow-x:hidden">                
                                         </iframe>
                                     </td>
                                 </tr>

@@ -20,22 +20,25 @@ class Course extends CI_Controller {
         
         $teaNum = $this->session->userdata('u_num');//教师工号
         $term = $this->session->userdata('term');//学期
+        
         //print_r($this->session->all_userdata());
 
-        $arrTerm=array("ZXJXJHH"=>$term);
+        $arrTerm=array("ZXJXJHH"=>$term,'JSH'=>$teaNum);
         
-        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
+        $num = $this->m_ncourse->getNum($arrTerm);
         $offset = $this->uri->segment(4);
-        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
+        $data['course'] = $this->getCourses($arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='共有'.$num.'条记录。';
         $this->load->view('common/header3');
         $this->load->view('teacher/course/course', $data);
         $this->load->view('common/footer');
     }
+    //===========================
 
     // 实验任务详细信息页面
     public function courseDetail() {
@@ -182,10 +185,10 @@ class Course extends CI_Controller {
     	
     	$teaNum = $this->session->userdata('u_num');
          //$array=array('courseTeaId'=>$teaNum.'*');
-        $arrTerm=array("ZXJXJHH"=>$term);
-        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
+        $arrTerm=array("ZXJXJHH"=>$term,'JSH'=>$teaNum);
+        $num = $this->m_ncourse->getNum($arrTerm);
         $offset = 0;
-        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
+        $data['course'] = $this->getCourses($arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -216,10 +219,10 @@ class Course extends CI_Controller {
     	 
     	$teaNum = $this->session->userdata('u_num');
          //$array=array('courseTeaId'=>$teaNum.'*');
-        $arrTerm=array("ZXJXJHH"=>$term);
-        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
+        $arrTerm=array("ZXJXJHH"=>$term,'JSH'=>$teaNum);
+        $num = $this->m_ncourse->getNum($arrTerm);
         $offset = 0;
-        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
+        $data['course'] = $this->getCourses($arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -248,10 +251,10 @@ class Course extends CI_Controller {
     	$teaNum = $this->session->userdata('u_num');
         $term = $this->session->userdata('term');//学期
          //$array=array('courseTeaId'=>$teaNum.'*');
-        $arrTerm=array("ZXJXJHH"=>$term);
-        $num = $this->m_ncourse->getNumLike($teaNum.'*',$arrTerm);
+        $arrTerm=array("ZXJXJHH"=>$term,'JSH'=>$teaNum);
+        $num = $this->m_ncourse->getNum($arrTerm);
         $offset = 0;
-        $data['course'] = $this->getCourses($teaNum.'*',$arrTerm,$offset);
+        $data['course'] = $this->getCourses($arrTerm,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/course/courseList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -266,11 +269,11 @@ class Course extends CI_Controller {
     
     
     // 分页获取全部实验任务信息
-    public function getCourses($tea_num,$array,$offset) {
+    public function getCourses($array,$offset) {
         $this->timeOut();
         $this->load->model('m_ncourse');
         $data = array();
-        $result = $this->m_ncourse->getNcoursesLike($tea_num,$array, PER_PAGE, $offset);
+        $result = $this->m_ncourse->getNcourses($array, PER_PAGE, $offset);
 
         $this->load->model('m_course');
         foreach ($result as $r) {
@@ -363,7 +366,7 @@ class Course extends CI_Controller {
     
     
    
-    // session中的role不存在的时候退出系统
+    // session注销不存在的时候退出系统
     function timeOut() {
         $u_id = $this->session->userdata('u_id');
 

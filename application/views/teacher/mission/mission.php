@@ -20,7 +20,7 @@
                     <td class="td3"><?= $r['miss_cour_name'] ?></td>
                     <td class="td1"><?= $r['miss_title'] ?></td>
                     <td class="td3"><?= $r['miss_start_time'] ?></td>
-                    <td class="td1"><?= $r['miss_end_time'] ?></td>
+                    <td class="td1"><?php if($r['miss_end_time'] ="0000-00-00 00:00:00")echo "无";else echo $r['miss_end_time'] ?></td>
                     <td class="td3">
                         <a id="" href="<?= base_url() ?>index.php/teacher/mission/missionDetail/<?= $r['miss_id'] ?>">详细</a>
                     </td>

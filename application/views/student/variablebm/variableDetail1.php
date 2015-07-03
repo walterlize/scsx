@@ -1,7 +1,7 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3>实习报名信息</h3>
-    <table cellpadding="0" cellspacing="1" class="tablist2">
+    <h3 class="lz_title">实习报名信息</h3>
+    <table cellpadding="0" cellspacing="1"  class="tablist2">
         <tr>
             <td class="td1" style="width: 111px">课程号</td>
             <td class="td2" ><?= $variable->KCH ?>&nbsp;</td>
@@ -27,8 +27,8 @@
             <td class="td2" ><?= $course->XS ?>&nbsp;</td>
         </tr>
         <tr>
-            <td class="td1" style="width: 111px">课程上课周次</td>
-            <td class="td2" ><?= $course->ZCSM ?>&nbsp;</td>
+            <td class="td1" style="width: 111px">开课校区</td>
+            <td class="td2" ><?= $course->XQM ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">指导教师姓名</td>

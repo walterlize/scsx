@@ -2,250 +2,133 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="767a19c1-b5f6-4501-85a1-c0a39b8a33d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kindeditor/attached/image/20150627/20150627132040_90845.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kindeditor/attached/image/20150627/20150627132715_31862.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kindeditor/attached/image/20150627/20150627133934_90755.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/config.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/img/img.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/img/img.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/img/imgDetail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/img/imgDetail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/img/imgEdit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/img/imgEdit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/admin/imgnews.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/superadmin/imgnews.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/m_admin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/superadmin/news.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/news/news.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/news/newsDetail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/news/newsEdit.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/Copy of user.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/allocation.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/choose_teacher.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/cla.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/company.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/luntan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/nclass.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/ncomcou.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/ncompany.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/ncompanyuser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/ncourse.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/program.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/reader.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/shenhe.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/sum.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/sum1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/type.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/user.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/admin/variable.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/achakan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/baoming.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/bmresult.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/chakan1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/company1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/pastchakan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/student/pastsummary.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/superadmin/college.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/controllers/superadmin/sum.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_achakan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_allocation.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_aluntan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_baoming.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_chakan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_chakan1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_chakans.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_choose_teacher.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_cla.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_company1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_fbaoming.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_free.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_free1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_free2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_freestudent.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_luntan_1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_mscore.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_mscores.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_ncomcou.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_ncompany.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_ncompanys.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_ncompanyuser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_nfcompany.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_nfcompanyuser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_program.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_role.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_score1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_scores.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_stu.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_student.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_sum.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_tsummary.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/m_user1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/pastm_mission.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/pastm_score.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/models/pastm_summary.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/allocation/allocation.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/allocation/allocation1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/allocation/allocationEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/choose_teacher/choose_teacher.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/choose_teacher/choose_teacherDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/choose_teacher/choose_teacherDetails.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/choose_teacher/choose_teacherEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/choose_teacher/schoose_teacher.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/class/class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/class/classDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/class/classEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/comcou/comcou.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/comcou/comcouEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/comcou/comcouEdit2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/company/company.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/company/companyDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/company/companyDetails.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/company/companyEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/company/results.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/company/scompany.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/course/course.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/course/courseEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/luntan/luntan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/luntan/luntanDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/nclass/class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompany.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompanyDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompanyDetailf.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompanyEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompanyEditf.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompanyf.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompuser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompuserDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/ncompany/ncompuserEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/newsDetails1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/newsDetails2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/newsDetails3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/newsDetails4.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/results.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/snews1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/snews2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/snews3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/news/snews4.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/program/program.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/program/programDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/program/programEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/shenhe/shenhe.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/Copy of sum1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/Copy of sum2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/Copy of sum3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/sum1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/sum2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/sum3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/sum_1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum/test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum1/sum1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum1/sum2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum1/sum3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum1/sum_1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/sum1/test.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/type/type.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/type/typeDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/type/typeEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/admin/var/var.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/achakan/achakan.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/achakan/achakanDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/baoming/baoming.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/baoming/baomingDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/company1/companyDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/company1/companyEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/company2/company.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/company2/companyDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/company2/companyEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/freestudent/Copy of freestudentDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/freestudent/course.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/freestudent/freestudentDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/pastsummary/summary.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/pastsummary/summaryDetail1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/pastsummary/summaryDetail2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/pastsummary/summaryDetails.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/pastsummary/summaryEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/pastsummary/summarys.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/program/programDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/score.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scoreDetail1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scoreDetail2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scoreDetails.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scoreEdit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scoreEdit1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scoreEdit2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pastscore/scores.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pasttsummary/tsummary.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pasttsummary/tsummaryDetail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pasttsummary/tsummaryDetails.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/teacher/pasttsummary/tsummarys.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/superadmin/frame.php" afterPath="$PROJECT_DIR$/application/views/superadmin/frame222.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/superadmin/frame1.php" afterPath="$PROJECT_DIR$/application/views/superadmin/frame.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/superadmin/left1.php" afterPath="$PROJECT_DIR$/application/views/superadmin/left.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/superadmin/main.php" afterPath="$PROJECT_DIR$/application/views/superadmin/main11.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/application/views/superadmin/main1.php" afterPath="$PROJECT_DIR$/application/views/superadmin/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kindeditor/attached/image/20150628/20150628193559_48026.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kindeditor/attached/image/20150628/20150628193719_19028.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/front/news/img.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/front/news/imgDetail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/front/imgnews.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/m_nowterm.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/m_term.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/front/news.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/front/news/news.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/front/news/newsDetail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/user/stuResult.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/admin/sum.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/superadmin/sum.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/count/sumCompany.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/count/sumStu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/count/sumTea.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/admin/user/teaResult.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/superadmin/term.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/term/term.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/term/termEdit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/term/termList.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/term/termNew.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/superadmin/term/termNowEdit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/admin/user.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/frame1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/frame2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/frame3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/left1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/left2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/student/left3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/superadmin/frame222.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/superadmin/main11.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/private/config.properties" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/audit.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/audit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/audit/auditDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/audit/auditDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/audit/auditDetail2.php" afterPath="$PROJECT_DIR$/application/views/teacher/audit/auditDetail2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/audit/auditDetail3.php" afterPath="$PROJECT_DIR$/application/views/teacher/audit/auditDetail3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/chakan/chakan.php" afterPath="$PROJECT_DIR$/application/views/student/chakan/chakan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/chakan1/chakan1.php" afterPath="$PROJECT_DIR$/application/views/student/chakan1/chakan1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/chakan1/chakan1Detail.php" afterPath="$PROJECT_DIR$/application/views/student/chakan1/chakan1Detail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/chakan/chakanDetail.php" afterPath="$PROJECT_DIR$/application/views/student/chakan/chakanDetail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourp/comcouDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourp/comcouDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourd/comcoudDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourd/comcoudDetail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourp/compCourPublish.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourp/compCourPublish.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourd/compCourdPublish.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourd/compCourdPublish.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/company.php" afterPath="$PROJECT_DIR$/application/controllers/student/company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/company.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/company.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/company/company.php" afterPath="$PROJECT_DIR$/application/views/teacher/company/company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/company/company.php" afterPath="$PROJECT_DIR$/application/views/student/company/company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/companyz/company.php" afterPath="$PROJECT_DIR$/application/views/student/companyz/company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/company/companyDetail.php" afterPath="$PROJECT_DIR$/application/views/student/company/companyDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/companyz/companyDetail.php" afterPath="$PROJECT_DIR$/application/views/student/companyz/companyDetail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourp/companyDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourp/companyDetail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/company/companyDetaile.php" afterPath="$PROJECT_DIR$/application/views/student/company/companyDetaile.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/companyz/companyDetaile.php" afterPath="$PROJECT_DIR$/application/views/student/companyz/companyDetaile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/company/companyEdit.php" afterPath="$PROJECT_DIR$/application/views/student/company/companyEdit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourp/companyEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourp/companyEdit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourd/companydDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourd/companydDetail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourd/companydEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourd/companydEdit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/compcourd/companydStu.php" afterPath="$PROJECT_DIR$/application/views/teacher/compcourd/companydStu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/companyz.php" afterPath="$PROJECT_DIR$/application/controllers/student/companyz.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/compcourdist.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/compcourdist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/compcourpublish.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/compcourpublish.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/compmanage.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/compmanage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/course.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/course.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/course/course.php" afterPath="$PROJECT_DIR$/application/views/student/course/course.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/audit/course.php" afterPath="$PROJECT_DIR$/application/views/teacher/audit/course.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/course/course.php" afterPath="$PROJECT_DIR$/application/views/teacher/course/course.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/course/courseDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/course/courseDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/score/course.php" afterPath="$PROJECT_DIR$/application/views/teacher/score/course.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/scoreappr/course.php" afterPath="$PROJECT_DIR$/application/views/teacher/scoreappr/course.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/course/courseDetail.php" afterPath="$PROJECT_DIR$/application/views/student/course/courseDetail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/course/courseEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/course/courseEdit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/course/coursePublish1.php" afterPath="$PROJECT_DIR$/application/views/teacher/course/coursePublish1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/course/coursePublish2.php" afterPath="$PROJECT_DIR$/application/views/teacher/course/coursePublish2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/course/coursePublish3.php" afterPath="$PROJECT_DIR$/application/views/teacher/course/coursePublish3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/css.css" afterPath="$PROJECT_DIR$/css/css.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/css1.css" afterPath="$PROJECT_DIR$/css/css1.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/frame.php" afterPath="$PROJECT_DIR$/application/controllers/admin/frame.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/superadmin/frame.php" afterPath="$PROJECT_DIR$/application/controllers/superadmin/frame.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/common/foot.php" afterPath="$PROJECT_DIR$/application/views/common/foot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/frame.php" afterPath="$PROJECT_DIR$/application/controllers/student/frame.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/frame.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/frame.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/frame4.php" afterPath="$PROJECT_DIR$/application/views/student/frame4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/superadmin/imgnews.php" afterPath="$PROJECT_DIR$/application/controllers/superadmin/imgnews.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/index.php" afterPath="$PROJECT_DIR$/application/controllers/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/left.php" afterPath="$PROJECT_DIR$/application/views/admin/left.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/superadmin/left.php" afterPath="$PROJECT_DIR$/application/views/superadmin/left.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/left.php" afterPath="$PROJECT_DIR$/application/views/teacher/left.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/interface/login2.php" afterPath="$PROJECT_DIR$/application/views/interface/login2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/luntan/luntan.php" afterPath="$PROJECT_DIR$/application/controllers/luntan/luntan.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/luntan.php" afterPath="$PROJECT_DIR$/application/controllers/student/luntan.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/luntan.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/luntan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/luntan/luntan.php" afterPath="$PROJECT_DIR$/application/views/student/luntan/luntan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/luntan/luntan.php" afterPath="$PROJECT_DIR$/application/views/teacher/luntan/luntan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/luntan/luntanDetail.php" afterPath="$PROJECT_DIR$/application/views/student/luntan/luntanDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/luntan/luntanDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/luntan/luntanDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/luntan/luntanDetails.php" afterPath="$PROJECT_DIR$/application/views/student/luntan/luntanDetails.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/luntan/luntanDetails.php" afterPath="$PROJECT_DIR$/application/views/teacher/luntan/luntanDetails.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/luntan/luntanEdit.php" afterPath="$PROJECT_DIR$/application/views/student/luntan/luntanEdit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/luntan/luntanEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/luntan/luntanEdit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_course.php" afterPath="$PROJECT_DIR$/application/models/m_course.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_company.php" afterPath="$PROJECT_DIR$/application/models/m_company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_mission.php" afterPath="$PROJECT_DIR$/application/models/m_mission.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_ncourse.php" afterPath="$PROJECT_DIR$/application/models/m_ncourse.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_news.php" afterPath="$PROJECT_DIR$/application/models/m_news.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_nstudent.php" afterPath="$PROJECT_DIR$/application/models/m_nstudent.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_nteacher.php" afterPath="$PROJECT_DIR$/application/models/m_nteacher.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_nvariable.php" afterPath="$PROJECT_DIR$/application/models/m_nvariable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_sluntan.php" afterPath="$PROJECT_DIR$/application/models/m_sluntan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_tluntan.php" afterPath="$PROJECT_DIR$/application/models/m_tluntan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/m_user.php" afterPath="$PROJECT_DIR$/application/models/m_user.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/mission.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/mission.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/news.php" afterPath="$PROJECT_DIR$/application/controllers/admin/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/news/news.php" afterPath="$PROJECT_DIR$/application/views/admin/news/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/news/newsDetail.php" afterPath="$PROJECT_DIR$/application/views/admin/news/newsDetail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/news/newsEdit.php" afterPath="$PROJECT_DIR$/application/views/admin/news/newsEdit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/mission/mission.php" afterPath="$PROJECT_DIR$/application/views/teacher/mission/mission.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/mission/missionDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/mission/missionDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/mission/missionEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/mission/missionEdit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/superadmin/news.php" afterPath="$PROJECT_DIR$/application/controllers/superadmin/news.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.properties" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/project.xml" afterPath="$PROJECT_DIR$/nbproject/project.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/score.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/score.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/score/scoreEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/score/scoreEdit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/scoreappr/scoreEdit.php" afterPath="$PROJECT_DIR$/application/views/teacher/scoreappr/scoreEdit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/scoreappr.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/scoreappr.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/score/scoreDetail.php" afterPath="$PROJECT_DIR$/application/views/student/score/scoreDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/luntan/sluntan.php" afterPath="$PROJECT_DIR$/application/views/student/luntan/sluntan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/luntan/sluntan.php" afterPath="$PROJECT_DIR$/application/views/teacher/luntan/sluntan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/user/stu.php" afterPath="$PROJECT_DIR$/application/views/admin/user/stu.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/student.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/student.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/student/studentDetail.php" afterPath="$PROJECT_DIR$/application/views/student/student/studentDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/student/studentEdit.php" afterPath="$PROJECT_DIR$/application/views/student/student/studentEdit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/summary.php" afterPath="$PROJECT_DIR$/application/controllers/student/summary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/summary/summary.php" afterPath="$PROJECT_DIR$/application/views/student/summary/summary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/summary/summaryDetailn.php" afterPath="$PROJECT_DIR$/application/views/student/summary/summaryDetailn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/summary/summaryDetaily.php" afterPath="$PROJECT_DIR$/application/views/student/summary/summaryDetaily.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/summary/summaryEdit.php" afterPath="$PROJECT_DIR$/application/views/student/summary/summaryEdit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/summarysub.php" afterPath="$PROJECT_DIR$/application/controllers/student/summarysub.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/teacher.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/teacher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/teacher/teacherDetail.php" afterPath="$PROJECT_DIR$/application/views/teacher/teacher/teacherDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/summarysub/summarysub.php" afterPath="$PROJECT_DIR$/application/views/student/summarysub/summarysub.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/summarysub/summarysubDetail.php" afterPath="$PROJECT_DIR$/application/views/student/summarysub/summarysubDetail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/user/tea.php" afterPath="$PROJECT_DIR$/application/views/admin/user/tea.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/common/title.php" afterPath="$PROJECT_DIR$/application/views/common/title.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/common/top3.php" afterPath="$PROJECT_DIR$/application/views/common/top3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/common/top5.php" afterPath="$PROJECT_DIR$/application/views/common/top5.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/tsummary.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/tsummary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/tsummary/tsummary.php" afterPath="$PROJECT_DIR$/application/views/teacher/tsummary/tsummary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/teacher/tsummaryappr/tsummary.php" afterPath="$PROJECT_DIR$/application/views/teacher/tsummaryappr/tsummary.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/teacher/tsummaryappr.php" afterPath="$PROJECT_DIR$/application/controllers/teacher/tsummaryappr.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/variable.php" afterPath="$PROJECT_DIR$/application/controllers/student/variable.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/variable/variable.php" afterPath="$PROJECT_DIR$/application/views/student/variable/variable.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/variablebm/variable.php" afterPath="$PROJECT_DIR$/application/views/student/variablebm/variable.php" />
@@ -253,7 +136,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/variablebm/variableDetail1.php" afterPath="$PROJECT_DIR$/application/views/student/variablebm/variableDetail1.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/variablebm/variableDetail2.php" afterPath="$PROJECT_DIR$/application/views/student/variablebm/variableDetail2.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/student/variablebm/variableDetail3.php" afterPath="$PROJECT_DIR$/application/views/student/variablebm/variableDetail3.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/student/variablebm.php" afterPath="$PROJECT_DIR$/application/controllers/student/variablebm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/walter.css" afterPath="$PROJECT_DIR$/css/walter.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="campus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -281,61 +165,102 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5925927" vertical-offset="3143" max-vertical-offset="8154">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+            <state vertical-scroll-proportion="10.166667" vertical-offset="2151" max-vertical-offset="8784">
+              <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="frame.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/teacher/frame.php">
+      <file leaf-file-name="m_admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/m_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="702">
-              <caret line="26" column="47" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="62" />
+            <state vertical-scroll-proportion="16.0" vertical-offset="432" max-vertical-offset="1728">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="m_nteacher.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/m_nteacher.php">
+      <file leaf-file-name="imgnews.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/superadmin/imgnews.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.2247558" vertical-offset="324" max-vertical-offset="3258">
-              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+            <state vertical-scroll-proportion="72.0" vertical-offset="1944" max-vertical-offset="3960">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imgEdit.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/superadmin/img/imgEdit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.027692307" vertical-offset="162" max-vertical-offset="2376">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m_news.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/m_news.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="24.0" vertical-offset="648" max-vertical-offset="1962">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/interface/login2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.8333333" vertical-offset="1089" max-vertical-offset="5148">
+              <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
               <folding>
-                <marker date="1435463596982" expanded="true" signature="1252:1283" placeholder="select * fro..V_SX_JSXXB..." />
-                <marker date="1435463596982" expanded="true" signature="3186:3258" placeholder="select * fro..V_SX_JSXXB..." />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="frame.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/teacher/frame.php">
+      <file leaf-file-name="imgnews.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/front/imgnews.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="828">
-              <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
+            <state vertical-scroll-proportion="-4.8333335" vertical-offset="495" max-vertical-offset="1944">
+              <caret line="42" column="22" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <file leaf-file-name="constants.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/constants.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-64.0" vertical-offset="0" max-vertical-offset="1872">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state vertical-scroll-proportion="6.111111" vertical-offset="165" max-vertical-offset="828">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oci8_driver.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system/database/drivers/oci8/oci8_driver.php">
+      <file leaf-file-name="css.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="14652">
-              <caret line="185" column="26" selection-start-line="185" selection-start-column="19" selection-end-line="185" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="4626">
+              <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagination.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/pagination.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="432">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -349,18 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/interface/login2.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/news/snews1.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/news/snews2.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/news/snews3.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/news/snews4.php" />
-        <option value="$PROJECT_DIR$/application/views/common/contact.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/frame.php" />
-        <option value="$PROJECT_DIR$/application/views/superadmin/frame.php" />
-        <option value="$PROJECT_DIR$/application/views/superadmin/frame1.php" />
-        <option value="$PROJECT_DIR$/application/views/luntan/frame.php" />
-        <option value="$PROJECT_DIR$/application/views/master/frame.php" />
-        <option value="$PROJECT_DIR$/application/views/student/frame1.php" />
         <option value="$PROJECT_DIR$/application/views/student/frame2.php" />
         <option value="$PROJECT_DIR$/application/views/student/frame3.php" />
         <option value="$PROJECT_DIR$/application/views/student/frame4.php" />
@@ -368,32 +281,50 @@
         <option value="$PROJECT_DIR$/application/views/admin/user/stu.php" />
         <option value="$PROJECT_DIR$/application/views/admin/var/var.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/user.php" />
-        <option value="$PROJECT_DIR$/application/controllers/teacher/course.php" />
         <option value="$PROJECT_DIR$/application/views/common/header3.php" />
         <option value="$PROJECT_DIR$/application/views/teacher/frame.php" />
         <option value="$PROJECT_DIR$/application/views/teacher/course/courseDetail.php" />
         <option value="$PROJECT_DIR$/application/views/teacher/audit/audit.php" />
         <option value="$PROJECT_DIR$/css/walter.css" />
-        <option value="$PROJECT_DIR$/application/controllers/teacher/audit.php" />
         <option value="$PROJECT_DIR$/application/config/pagination.php" />
         <option value="$PROJECT_DIR$/application/views/common/top1.php" />
         <option value="$PROJECT_DIR$/application/views/common/top5.php" />
         <option value="$PROJECT_DIR$/application/views/common/top3.php" />
         <option value="$PROJECT_DIR$/application/views/common/top4.php" />
         <option value="$PROJECT_DIR$/application/views/common/top2.php" />
-        <option value="$PROJECT_DIR$/application/views/teacher/audit/course.php" />
-        <option value="$PROJECT_DIR$/application/views/teacher/course/course.php" />
         <option value="$PROJECT_DIR$/application/views/student/left4.php" />
         <option value="$PROJECT_DIR$/application/views/student/left1.php" />
         <option value="$PROJECT_DIR$/application/controllers/teacher/frame.php" />
-        <option value="$PROJECT_DIR$/application/views/teacher/left.php" />
         <option value="$PROJECT_DIR$/application/views/teacher/company/company.php" />
         <option value="$PROJECT_DIR$/application/views/teacher/company/comcouDetail.php" />
         <option value="$PROJECT_DIR$/application/views/teacher/compmanage/company.php" />
         <option value="$PROJECT_DIR$/system/database/DB_driver.php" />
-        <option value="$PROJECT_DIR$/application/models/m_nteacher.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/models/m_nteacher.php" />
+        <option value="$PROJECT_DIR$/application/models/m_ncourse.php" />
+        <option value="$PROJECT_DIR$/application/models/m_nstudent.php" />
+        <option value="$PROJECT_DIR$/application/models/m_nvariable.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/student.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/audit.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/audit/course.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/course/course.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/mission.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/tsummary.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/tsummary/tsummary.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/tsummaryappr/tsummary.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/tsummaryappr.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/score.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/score/course.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/scoreappr/course.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/left.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/course.php" />
+        <option value="$PROJECT_DIR$/application/controllers/luntan/luntan.php" />
+        <option value="$PROJECT_DIR$/application/controllers/teacher/luntan.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/luntan/luntan.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/luntan/sluntan.php" />
         <option value="$PROJECT_DIR$/application/controllers/index.php" />
+        <option value="$PROJECT_DIR$/css/css.css" />
+        <option value="$PROJECT_DIR$/application/views/interface/login2.php" />
       </list>
     </option>
   </component>
@@ -402,9 +333,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
     <option name="width" value="1366" />
-    <option name="height" value="744" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -473,73 +403,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scsx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scsx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scsx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scsx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drivers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scsx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scsx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drivers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oci8" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -593,7 +457,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="teacher" />
+              <option name="myItemId" value="superadmin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -611,7 +475,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="superadmin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -651,7 +523,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="teacher" />
+              <option name="myItemId" value="superadmin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -669,7 +541,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -682,10 +558,10 @@
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../news" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ssyz" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="false" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -711,6 +587,9 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -718,9 +597,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <configuration default="false" name="scsx" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -749,8 +625,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -764,13 +640,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935917" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -794,265 +670,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2178">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/audit/auditDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41930115" vertical-offset="0" max-vertical-offset="1890">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.666667" vertical-offset="108" max-vertical-offset="6066">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4410">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/walter.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="812" max-vertical-offset="1476">
-          <caret line="73" column="18" selection-start-line="73" selection-start-column="18" selection-end-line="73" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/course/courseDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0" vertical-offset="0" max-vertical-offset="1170">
-          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/pagination.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="432">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/audit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6888519" vertical-offset="810" max-vertical-offset="5256">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/audit/audit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.25926" vertical-offset="65" max-vertical-offset="666">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/header3.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="432">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/interface/login2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7487521" vertical-offset="3881" max-vertical-offset="5130">
-          <caret line="274" column="48" selection-start-line="274" selection-start-column="48" selection-end-line="274" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2448">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/header2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14975041" vertical-offset="0" max-vertical-offset="601">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/top5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/top4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14975041" vertical-offset="0" max-vertical-offset="630">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.88685524" vertical-offset="533" max-vertical-offset="1134">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/top2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/top1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26955074" vertical-offset="0" max-vertical-offset="972">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/common/top3.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14975041" vertical-offset="0" max-vertical-offset="630">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/course/course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="594">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/frame4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="810">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/left4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5391015" vertical-offset="162" max-vertical-offset="1548">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/student/frame.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="916" max-vertical-offset="1530">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/standardSchemas/xhtml1-transitional.dtd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34690553" vertical-offset="7419" max-vertical-offset="21942">
-          <caret line="424" column="10" selection-start-line="424" selection-start-column="10" selection-end-line="424" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/left1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1181" max-vertical-offset="1854">
-          <caret line="97" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/audit/course.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="558">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/company/company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="1242">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/company/comcouDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="1512">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/m_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="19.833334" vertical-offset="1431" max-vertical-offset="2520">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/compmanage/company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0" vertical-offset="72" max-vertical-offset="720">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/compmanage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4397394" vertical-offset="270" max-vertical-offset="4212">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_d.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34690553" vertical-offset="5151" max-vertical-offset="6534">
-          <caret line="298" column="9" selection-start-line="298" selection-start-column="9" selection-end-line="298" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/database/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="641">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.530782" vertical-offset="6329" max-vertical-offset="6930">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6838603" vertical-offset="2214" max-vertical-offset="7326">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/errors/error_php.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="641">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/errors/error_db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1206">
@@ -1061,26 +678,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.project">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40068492" vertical-offset="0" max-vertical-offset="584">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="641">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="9684">
-          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1105,61 +715,335 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/left.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5091514" vertical-offset="0" max-vertical-offset="1350">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/teacher/frame.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="702">
-          <caret line="26" column="47" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/teacher/frame.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="828">
-          <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="702">
+          <caret line="25" column="47" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/system/database/drivers/oci8/oci8_driver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="14652">
+        <state vertical-scroll-proportion="0.59900165" vertical-offset="2970" max-vertical-offset="14652">
           <caret line="185" column="26" selection-start-line="185" selection-start-column="19" selection-end-line="185" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/frame.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.259259" vertical-offset="227" max-vertical-offset="828">
+          <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_nteacher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.888889" vertical-offset="3414" max-vertical-offset="5238">
+          <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_coucom.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="2484">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_nstudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.740741" vertical-offset="3166" max-vertical-offset="4950">
+          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.333333" vertical-offset="216" max-vertical-offset="3222">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/audit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.333334" vertical-offset="162" max-vertical-offset="8892">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/audit/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="612">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/student/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76039934" vertical-offset="47" max-vertical-offset="648">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/teacher/teacherEdit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="882">
+          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/teacher/teacherDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_nowterm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7003257" vertical-offset="430" max-vertical-offset="1044">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_nvariable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39933443" vertical-offset="2838" max-vertical-offset="4518">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_ncourse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33226323" vertical-offset="2961" max-vertical-offset="4680">
+          <caret line="176" column="13" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/tsummary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.0" vertical-offset="216" max-vertical-offset="2376">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/course/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.666666" vertical-offset="0" max-vertical-offset="648">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/mission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.0" vertical-offset="270" max-vertical-offset="3798">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/tsummary/tsummary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72" vertical-offset="0" max-vertical-offset="650">
+          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/left.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60923076" vertical-offset="432" max-vertical-offset="1386">
+          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/scoreappr/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6646154" vertical-offset="0" max-vertical-offset="650">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/tsummaryappr/tsummary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72" vertical-offset="0" max-vertical-offset="650">
+          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/score/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6646154" vertical-offset="0" max-vertical-offset="650">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/score.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30461538" vertical-offset="432" max-vertical-offset="6408">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/tsummaryappr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.0" vertical-offset="162" max-vertical-offset="2088">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/compmanage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.4444447" vertical-offset="318" max-vertical-offset="4518">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.333333" vertical-offset="486" max-vertical-offset="9720">
+          <caret line="55" column="26" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/course.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.240741" vertical-offset="293" max-vertical-offset="6930">
+          <caret line="35" column="38" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/luntan/sluntan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19384615" vertical-offset="0" max-vertical-offset="650">
+          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/teacher/luntan/luntan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6369231" vertical-offset="0" max-vertical-offset="650">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/teacher/luntan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6676923" vertical-offset="466" max-vertical-offset="4104">
+          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/luntan/luntan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4092308" vertical-offset="1420" max-vertical-offset="4068">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6912">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6642">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-64.0" vertical-offset="0" max-vertical-offset="1872">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.1384616" vertical-offset="736" max-vertical-offset="1872">
+          <caret line="82" column="32" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/pagination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="641">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="576" max-vertical-offset="4626">
+          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.111111" vertical-offset="165" max-vertical-offset="828">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/front/imgnews.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8333335" vertical-offset="495" max-vertical-offset="1944">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/interface/login2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8333333" vertical-offset="1089" max-vertical-offset="5148">
+          <caret line="69" column="7" selection-start-line="69" selection-start-column="7" selection-end-line="69" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/m_news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="24.0" vertical-offset="648" max-vertical-offset="1962">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5925927" vertical-offset="3143" max-vertical-offset="8154">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state vertical-scroll-proportion="10.166667" vertical-offset="2151" max-vertical-offset="8784">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/m_nteacher.php">
+    <entry file="file://$PROJECT_DIR$/application/models/m_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2247558" vertical-offset="324" max-vertical-offset="3258">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding>
-            <marker date="1435463596982" expanded="true" signature="1252:1283" placeholder="select * fro..V_SX_JSXXB..." />
-            <marker date="1435463596982" expanded="true" signature="3186:3258" placeholder="select * fro..V_SX_JSXXB..." />
-          </folding>
+        <state vertical-scroll-proportion="16.0" vertical-offset="432" max-vertical-offset="1728">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/superadmin/imgnews.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="72.0" vertical-offset="1944" max-vertical-offset="3960">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/superadmin/img/imgEdit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.027692307" vertical-offset="162" max-vertical-offset="2376">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,6 +1,6 @@
 <div style="margin-left:20px; margin-right:20px;">
     <br />
-    <h3>学生发帖信息</h3>
+    <h3 class="lz_title">学生发帖信息</h3>
     <table cellpadding="0" cellspacing="1" class="tablist2">
         <tr>
             <td class="td1" style="width: 111px">学生发帖编号</td>

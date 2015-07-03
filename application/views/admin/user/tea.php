@@ -13,9 +13,14 @@ padding-left: 10px;
     		<div style="float: right; height: 100%; margin-top: 10px; margin-right: 10px;">
 	    		<form action="<?=  base_url()?>index.php/admin/user/searchTea" method="post">
 				     
-				        <input name="teaName" type="text" size="30"/>
-				        <input type="submit" name="submit" value="查询"/>
-				        <br/><br/>
+				        <select name="selectType" id="selectType">
+                        <option value="1">教师号</option>
+                        <option value="2">教师名</option>
+                        
+                    </select>
+                    <input name="searchTerm" type="text" size="10" id="searchTerm" />
+                    <input type="submit" name="submit" value="查询"/>
+                    <br/><br/>
 				    </form>
     		</div>
     	</div>
@@ -26,29 +31,26 @@ padding-left: 10px;
             	<tr class="tabletitle">
             		
                 	
-           	 		<td class="line2" style="width: 20%">登录名</td>
-            		<td class="line2" style="width: 23%">真实姓名</td>
-            		<td class="line2" style="width: 23%">密码</td>
-            		<td class="line2" style="width: 23%">职称</td>
-            		<td class="line2" style="width: 10%">类别</td>
+           	 		<td class="line2" >教师号</td>
+            		<td class="line2" >姓名</td>
+                    
+            		<td class="line2" >职称</td>
+            		<td class="line2" >密码</td>
                 </tr>
                 
-                 <?php if (is_array($user)) foreach ($user as $r): ?>
+                 <?php if (is_array($tea)) foreach ($tea as $r): ?>
                 <tr class="tablecontent">
                		
                 	
-                	<td class="line2" style="width: 20%"><?= $r['teaId'] ?></td>
-                    <td class="line2" style="width: 23%"><?= $r['teaName'] ?></td>
+                    <td class="line2" ><?= $r['tea_num'] ?></td>
+                    <td class="line2" ><?= $r['tea_name'] ?></td>
                     
-                    <td class="line2" style="width: 23%"><?= $r['password'] ?></td>
-                    <td class="line2" style="width: 23%" ><?= $r['teaTitle'] ?></td>
-                    <td class="line2" style="width: 10%"><?= $r['teaRole'] ?></td>
+                    <td class="line2" ><?= $r['tea_title'] ?></td>
+                    <td class="line2" ><?= $r['tea_password'] ?></td>
                     
                 </tr>
                 <?php endforeach; ?>
-                <tr>
-                
-            </tr>
+
           
                 
             </table>

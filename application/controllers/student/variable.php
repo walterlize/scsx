@@ -22,9 +22,12 @@ class Variable extends CI_Controller {
     	$stuId = $this->session->userdata('u_num');
     	$term = $this->session->userdata('term');
     	
+    	//$term = "2014-2015-2-2";
     	$array=array('XH'=>$stuId,'ZXJXJHH'=>$term);
+    	
     	$this->load->model('m_nvariable');
     	$num = $this->m_nvariable->getNum($array);
+    	
     	$offset = $this->uri->segment(4);
     	
     	$data['variable'] = $this->getVariables($array,$offset);

@@ -24,5 +24,6 @@
             <?php endforeach; ?>
 
     </table>
+    <div align="right"><?=$num?></div>
     <div class="page"><?= $page ?></div>
 </div>

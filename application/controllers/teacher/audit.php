@@ -33,7 +33,7 @@ class Audit extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-
+        $data['num']='共有'.$num.'条记录。';
         $this->load->view('common/header3');
         $this->load->view('teacher/audit/course', $data);
         $this->load->view('common/footer');

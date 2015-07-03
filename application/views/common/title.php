@@ -45,13 +45,15 @@
                 <div class="bannercontent">
                     <div style="width:112px;"><a href="<?= base_url() ?>">首页</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
-                    <div style="width:111px;"><a href="<?= base_url() ?>index.php/admin/news/noticeLists">通知公告</a></div>
+                    <div style="width:111px;"><a href="<?= base_url() ?>index.php/front/news/noticeList">通知公告</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
-                    <div style="width:114px;"><a href="<?= base_url() ?>index.php/admin/news/newsLists">实习新闻</a></div>                   
+                    <div style="width:114px;"><a href="<?= base_url() ?>index.php/front/news/newsList">实习新闻</a></div>                   
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
-                    <div style="width:107px;"><a href="<?= base_url() ?>index.php/admin/news/guidingLists">实习规定</a></div>
+                    <div style="width:107px;"><a href="<?= base_url() ?>index.php/front/news/ruleList">实习规定</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
-                    <div style="width:108px;"><a href="<?= base_url() ?>index.php/admin/news/summaryLists">实习总结</a></div>
+                    <div style="width:108px;"><a href="<?= base_url() ?>index.php/front/news/sumList">实习总结</a></div>
+                    <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
+                    <div style="width:108px;"><a href="<?= base_url() ?>index.php/front/imgnews/imgList">实习风采</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
                     <div style="width:110px;"><a href="<?= base_url() ?>index.php/index/instruction/7/7">互动交流</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>

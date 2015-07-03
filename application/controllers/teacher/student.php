@@ -33,7 +33,7 @@ public function courseList() {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
+        $data['num']='共有'.$num.'条记录。';
 
         $this->load->view('common/header3');
         $this->load->view('teacher/student/course', $data);

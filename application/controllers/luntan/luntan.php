@@ -26,6 +26,7 @@ class Luntan extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='共有'.$num.'条记录。';
 
         $this->load->view('common/title');
         $this->load->view('luntan/luntan1', $data);

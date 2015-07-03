@@ -19,7 +19,7 @@ class m_mission extends CI_Model {
         $this->miss_teac_name = $this->session->userdata('realname');
         $this->miss_title = $this->input->post('miss_title');
         $this->miss_content = $this->input->post('miss_content');
-        $this->miss_start_time= date("Y-m-d");
+        $this->miss_start_time= date("Y-m-d H:m:s");
         $this->miss_end_time= $this->input->post('miss_end_time');
         
 
@@ -88,6 +88,12 @@ class m_mission extends CI_Model {
     	$this->db->where('miss_id', $id);
     	$q = $this->db->get();
     	return $q->result();
+    }
+    
+    function getNum_ws($array) {
+    	$this->db->from('ws_mission');
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
     }
 
 }

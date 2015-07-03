@@ -38,14 +38,15 @@
                         <a href="<?= base_url(); ?>index.php/teacher/score/courseList" target="content1">评价实习结果</a>
                         <a href="<?= base_url(); ?>index.php/teacher/scoreappr/courseList" target="content1">查看评价结果</a>                                       
                     </div>             
-                    <p class="menu_head">个人管理</p>
-                    <div style="display:none" class=menu_body >               
-                        <a href="<?= base_url(); ?>index.php/teacher/teacher/teacherDetail" target="content1">个人信息查看</a>                                    
-                    </div>
+
                     <p class="menu_head">互动管理</p>
                     <div style="display:none" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/teacher/luntan/luntanList" target="content1">回复学生发帖</a>
                         <a href="<?= base_url(); ?>index.php/teacher/luntan/cluntanList" target="content1">查看已回贴</a>
+                    </div>
+                    <p class="menu_head">个人信息</p>
+                    <div style="display:none" class=menu_body >
+                        <a href="<?= base_url(); ?>index.php/teacher/teacher/teacherDetail" target="content1">个人信息查看</a>
                     </div>
                 </div>        
             </div>

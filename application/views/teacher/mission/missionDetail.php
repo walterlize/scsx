@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td class="td1" style="width: 111px">结束时间</td>
-            <td class="td2" ><?= $mission->miss_end_time ?>&nbsp;</td>
+            <td class="td2" ><?php if($r['miss_end_time'] ="0000-00-00 00:00:00")echo "无";else echo $r['miss_end_time'] ?>&nbsp;</td>
         </tr>
         <tr>
             <td class="td1" style="width: 111px">实习任务内容</td>

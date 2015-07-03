@@ -17,6 +17,10 @@
 
 
                 <div id="firstpane" class="menu_list">
+                <p class="menu_head current">学期管理</p>
+                    <div style="display:none" class=menu_body >   
+                        <a href="<?= base_url(); ?>index.php/superadmin/term/termNow" target="content1">设置当前学期</a>
+                    </div>
                		 <p class="menu_head">实习新闻</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/superadmin/news/newsList" target="content1">实习新闻</a>
@@ -25,16 +29,18 @@
                         <a href="<?= base_url(); ?>index.php/superadmin/news/sumList" target="content1">实习总结</a>  
                         <a href="<?= base_url(); ?>index.php/superadmin/imgnews/imgList" target="content1">实习风采</a>        
                     </div>
+                    <!--  
                     <p class="menu_head">信息管理</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/superadmin/college/collegeList" target="content1">学院名称管理</a>
                         <a href="<?= base_url(); ?>index.php/superadmin/user/userList" target="content1">院级管理员信息管理</a>
                     </div>
+                    -->
                     <p class="menu_head">统计分析</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList1" target="content1">学院学生人数统计</a>
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList2" target="content1">学院教师人数统计</a>
-                        <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList3" target="content1">学院开课数目统计</a>
+                        <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList3" target="content1">学院基地数目统计</a>
                     </div>
                 </div>        
             </div>

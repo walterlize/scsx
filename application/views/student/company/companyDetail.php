@@ -1,8 +1,8 @@
 <div style="margin-left:20px; margin-right:20px;width:900px;">
     <br />
-    <h3>实习基地信息</h3>
+    <h3 clas="lz_title">实习基地信息</h3>
     
-        <table cellpadding="0" cellspacing="1" class="tablist2">
+        <table cellpadding="0" cellsptacing="1" class="tablist2">
         	<tr>
                 <td class="td1" colspan=2>课程信息</td>
             </tr>

@@ -19,9 +19,10 @@ class Mission extends CI_Controller {
         $this->timeOut();
 
         $tea_num = $this->session->userdata('u_num');
-        $array = array('miss_teac_num'=>$tea_num);
+        $term = $this->session->userdata('term');
+        $array = array('miss_teac_num'=>$tea_num,'cour_term'=>$term);
         $this->load->model('m_mission');
-        $num = $this->m_mission->getNum($array);
+        $num = $this->m_mission->getNum_ws($array);
         $offset = $this->uri->segment(4);
 
         $data['mission'] = $this->getMissions($array,$offset);
@@ -30,7 +31,7 @@ class Mission extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
-        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
+        $data['num']='共有'.$num.'条记录。';
         $this->load->view('common/header3');
         $this->load->view('teacher/mission/mission', $data);
         $this->load->view('common/footer');
