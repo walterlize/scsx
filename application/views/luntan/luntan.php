@@ -265,7 +265,8 @@
         	<div class="noanswertitle">未回复贴子</div>
              <?php for($i=0;$i<count($luntan1);$i++):?>
             <div class="answerto">
-            	发帖人：<?=$stu1[$i]->stuName?>&nbsp;&nbsp;&nbsp;&nbsp;发帖时间：<?=$luntan1[$i]->time1?>
+            	发帖人：<?=$luntan1[$i]->stuName?>&nbsp;&nbsp;&nbsp;&nbsp;
+            	发帖时间：<?=$luntan1[$i]->time1?>
             </div>
             <div class="answerto1">
            		 <?=$luntan1[$i]->theme?>
@@ -286,7 +287,7 @@
             <div class="answertitle">已回复贴子</div>
             <?php for($i=0;$i<count($luntan2);$i++):?>
             <div class="answerto">
-            	发帖人：<?=$stu2[$i]->stuName?>&nbsp;&nbsp;&nbsp;&nbsp;发帖时间：<?=$luntan2[$i]->time1?>
+            	发帖人：<?=$luntan2[$i]->stuName?>&nbsp;&nbsp;&nbsp;&nbsp;发帖时间：<?=$luntan2[$i]->time1?>
             </div>
             <div class="answerto1">
            		 <?=$luntan2[$i]->theme?>
@@ -296,7 +297,7 @@
             	<p class="answerfrom1"></p>
             	<p class="answer"><?=$luntan2[$i]->reply?></p>
             	<p class="answertime"><?=$luntan2[$i]->time2?></p>
-            	<p class="answertime"><?=@$tea2[$i]->teaName?></p>
+            	<p class="answertime"><?=$luntan2[$i]->teaName?></p>
            </div>  
            <?php endfor;?>      
         </div>     

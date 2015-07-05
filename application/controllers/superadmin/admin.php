@@ -38,6 +38,8 @@ class Admin extends CI_Controller {
             $id = $this->uri->segment(4);
             $data['admin'] = $this->getAdminbyId($id);
             $data['title'] ="管理员信息编辑";
+            $this->load->model("m_college");
+            $data['college']=$this->m_college->getCollege(array());
    
             $this->load->view('common/header3');
             $this->load->view('superadmin/admin/adminEdit', $data);
@@ -70,6 +72,9 @@ class Admin extends CI_Controller {
             $admin->admin_coll_name = '';
             $admin->admin_roleId = '2';
             $admin->admin_stat_id = '1';
+            
+            $this->load->model("m_college");
+            $data['college']=$this->m_college->getCollege(array());
             
             $data['admin'] = $admin;
             $data['title'] = '管理员信息编辑';

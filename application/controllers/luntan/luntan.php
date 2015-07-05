@@ -77,7 +77,7 @@ class Luntan extends CI_Controller {
         foreach ($result as $r) {
             $arr = array('l_id' => $r->l_id, 'stuId' => $r->stuId, 'time1' => $r->time1,
                 'content' => $r->content, 'teaId' => $r->teaId, 'time2' => $r->time2, 'srealname' => $r->srealname,
-                'reply' => $r->reply,'typeId' => $r->typeId, 'type' => $r->type, 'theme' => $r->theme);
+                'reply' => $r->reply,'typeId' => $r->typeId, 'type' => $r->type, 'theme' => $r->theme,'stuName'=>$r->stuName,'teaName'=>$r->teaName);
             array_push($data, $arr);
         }
         return $data;
@@ -94,7 +94,7 @@ class Luntan extends CI_Controller {
                 'reply' => $r->reply, 'srealname' => $r->srealname, 'trealname' => $r->trealname,
                 'sphone' => $r->sphone, 'semail' => $r->semail, 'sclass' => $r->sclass,
                 'tphone' => $r->tphone, 'temail' => $r->temail, 'tclass' => $r->tclass,
-                'typeId' => $r->typeId, 'type' => $r->type, 'theme' => $r->theme);
+                'typeId' => $r->typeId, 'type' => $r->type, 'theme' => $r->theme,'stuName'=>$r->stuName,'teaName'=>$r->teaName);
             array_push($data, $arr);
         }
         return $data;

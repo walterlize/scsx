@@ -24,7 +24,8 @@ padding-left: 10px;
         	<tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">用户名</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                <input name="admin_num" value="<?= $admin->admin_num ?>" />  
+                <input name="admin_num" id="admin_num" value="<?= $admin->admin_num ?>" isRequired="true" />
+                    <font color="red">*</font><span id="admin_numMsg" class="MsgHide">用户名不能为空！</span> 
                 </td>
             </tr>
         	<tr>
@@ -38,7 +39,8 @@ padding-left: 10px;
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">密码</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                    <input name="admin_password" value="<?= $admin->admin_password ?>" />                
+                    <input name="admin_password" id="admin_password" value="<?= $admin->admin_password ?>" isRequired="true" />
+                    <font color="red">*</font><span id="admin_passwordMsg" class="MsgHide">密码不能为空！</span>                
                     </td>
             </tr>
             <tr>
@@ -54,7 +56,14 @@ padding-left: 10px;
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">学院</td>
                 <td class="tablecontent" style="padding-left: 15px" >
+                <select name="admin_coll_name">
+                <?php if(is_array($college)) {foreach ($college as $r):?>
+                <option value="<?=$r->college?>" <?php if($r->college == $admin->admin_coll_name) echo "selected"; ?>><?=$r->college?></option>
+                <?php endforeach;?>
+                </select>
+                <?php } else {?>
                     <input name="admin_coll_name" value="<?=$admin->admin_coll_name?>" />          
+                <?php }?>
                     </td>
             </tr>
             

@@ -27,6 +27,7 @@ class Frame extends CI_Controller {
 
         $data['luntan1'] = $this->getLuntans1($offset);
         $data['luntan2'] = $this->getLuntans2($offset);
+        //print_r($data['luntan1']);
         
         $config['base_url'] = base_url() . 'index.php/luntan/luntan/luntan1List';
         $config['total_rows'] = $num;
@@ -39,49 +40,14 @@ class Frame extends CI_Controller {
         $this->pagination->initialize($config2);
         $data['page2'] = $this->pagination->create_links();
         
-        //print_r($data['luntan1'] );
-        //echo "<br>";
-        //print_r($data['luntan2'] );
-        $tea1=array();$tea2=array();
-        $stu1=array();$stu2=array();
-        for($i = 0;$i<count($data['luntan1']);$i++){
-        	$tea1[$i] = $this->getTea($data['luntan1'][$i]->teaId);
-        	$stu1[$i] = $this->getStu($data['luntan1'][$i]->stuId);
-        }
-        for($i = 0;$i<count($data['luntan2']);$i++){
-        	$tea2[$i] = $this->getTea($data['luntan2'][$i]->teaId);
-        	$stu2[$i] = $this->getStu($data['luntan2'][$i]->stuId);
-        }
         
-        $data['stu1']=$stu1;
-        $data['stu2']=$stu2;
-        $data['tea1']=$tea1;
-        $data['tea2']=$tea2;
      
         $this->load->view('common/title');
         $this->load->view('luntan/luntan', $data);
         $this->load->view('common/foot');
     }
     
-    function getTea($teaId){
-    	$this->load->model('m_nteacher');
-    	$result=$this->m_nteacher->getTeaById($teaId);
-    	$data =array();
-    	foreach ($result as $r){
-    		$data = $r;
-    	}
-    	return $data;
-    }
     
-    function getStu($stuId){
-    	$this->load->model('m_nstudent');
-    	$result=$this->m_nstudent->getStuById($stuId);
-    	$data =array();
-    	foreach ($result as $r){
-    		$data = $r;
-    	}
-    	return $data;
-    }
 
     public function main() {
         //$this->load->view('common/title');
