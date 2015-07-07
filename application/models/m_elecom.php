@@ -182,6 +182,13 @@ class m_elecom extends CI_Model {
     	return $q->result();
     }
     
+    function  countCompStuNum(){
+    	$col = $this->session->userdata("college");
+    	$query = "SELECT comp_name, elco_stu_class , count(*) AS c_comp FROM ws_elecom WHERE comp_coll_name = '".$col."' GROUP BY comp_name, elco_stu_class  ORDER BY comp_name ASC,elco_stu_class ASC";
+    	$q = $this->db->query($query); 
+    	return $q->result();
+    }
+    
     
     
 

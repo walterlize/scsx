@@ -136,6 +136,7 @@ class Index extends CI_Controller {
     					$data = $r;
     				}
     				$array = array(
+    						'id' => $data->admin_id,
     						'u_id' => $data->admin_num,
     						'roleId' => 1,
     						'college' => 0,
@@ -169,6 +170,7 @@ class Index extends CI_Controller {
     					$data = $r;
     				}
     				$array = array(
+    						'id' => $data->admin_id,
     						'u_id' => $data->admin_num,
     						'roleId' => 2,
     						'college' => $data->admin_coll_name,

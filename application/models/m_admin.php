@@ -8,7 +8,7 @@ class m_admin extends CI_Model {
     var $admin_name = '';
     var $admin_phone = '';
     var $admin_email = '';
-    var $admin_address = '';
+    var $admin_roleId = '';
     var $admin_coll_name = '';
     var $admin_stat_id = '';
     
@@ -20,9 +20,9 @@ class m_admin extends CI_Model {
         $this->admin_name = $this->input->post('admin_name');
         $this->admin_phone = $this->input->post('admin_phone');
         $this->admin_email = $this->input->post('admin_email');
-        $this->admin_address = $this->input->post('admin_address');
+        $this->admin_roleId = $this->input->post('admin_roleId');
         $this->admin_coll_name = $this->input->post('admin_coll_name');
-        $this->admin_stat_id = 1;
+        $this->admin_stat_id = $this->input->post('admin_stat_id');
 
         $id = $this->admin_id;
         if ($id == 0) {
@@ -60,6 +60,13 @@ class m_admin extends CI_Model {
         return $q->result();
     }
     
+    function getOneInfo($id){
+    	$this->db->select();
+    	$this->db->from('admin');
+    	$this->db->where('admin_id', $id);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
     //分页获取具体学院用户
     function getAdminByCol($array, $per_page, $offset) {
     	$this->db->select();

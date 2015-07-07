@@ -35,14 +35,20 @@
                     <p class="menu_head">统计分析</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/admin/sum/sumList1" target="content1">班级人数统计</a>
-                        <a href="<?= base_url(); ?>index.php/admin/sum/sumList3" target="content1">实习成绩统计</a>
+                        <a href="<?= base_url(); ?>index.php/admin/sum/sumList3" target="content1">基地人数统计</a>
                     </div>
+                    <p class="menu_head">个人信息</p>
+		    		<div style="display:none" class="menu_body">
+		      			<a href="<?=base_url();?>index.php/admin/aself/selfDetail" target="content1">基本信息</a>
+		      			<a href="<?= base_url() ?>index.php/user/password" target="content1">密码修改</a>
+		    		</div>
+                    <!--  
                     <p class="menu_head">报表统计</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/admin/sum1/sumList1" target="content1">班级人数统计</a>
-                        <!-- <a href="<?= base_url(); ?>index.php/admin/sum1/sumList2" target="content1">学院基地信息统计</a> -->
+                         <a href="<?= base_url(); ?>index.php/admin/sum1/sumList2" target="content1">学院基地信息统计</a> 
                         <a href="<?= base_url(); ?>index.php/admin/sum1/sumList3" target="content1">实习成绩统计</a>
-                    </div>
+                    </div>-->
                 </div>        
             </div>
         </div>
