@@ -55,7 +55,7 @@
     </head>
     <body>
         <div class="box">
-            <div class="change">更改密码</div>
+            <div class="lz_title">更改密码</div>
             <div class="searchcontent">
                 <form name="form1" method="post" action="<?= base_url() ?>index.php/user/changePassword" id="form1">
                     <table width="100%" cellpadding="0" cellspacing="1" border="0" bgcolor="#a8a8a8">

@@ -21,7 +21,7 @@
                 </tr>
             <?php endforeach; ?>
         <tr>
-            <td colspan="5" align="center" class="td1">
+            <td colspan="5" align="center" class="td3">
                 <input type="button" name="btnDelete" value="发 帖" onclick="window.location.href='<?= base_url() ?>index.php/student/luntan/luntanNew';" id="btnDelete" class="input" />
             </td>
         </tr>

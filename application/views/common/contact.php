@@ -23,9 +23,10 @@
 
 
             <div class="practicenewslist">   
-                    <li><a><p align="center"><B>联系方式（电话/传真）：010-62737959</p></a></li>
+                    <li><a><p align="center"><B>联系方式（电话/传真）：010-62737851</p></a></li>
                 <li><a><p align="center"><B>地址：北京市海淀区清华东路17号</p></a></li>
-                <li><a><p align="center"><B>E-mail：fanqin@cau.edu.cn</p></a></li>              
+                <li><p align="center"><B><a href="mailto:zhaolei2011@cau.edu.cn">zhaolei2011@cau.edu.cn</a></p></li>
+
             </div>
            
         </div>

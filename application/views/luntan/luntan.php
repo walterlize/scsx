@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>中国农业大学食品科学与营养工程学院生产实习信息化系统--交流互动</title>       
+        <title>中国农业大学学生生产实习信息化系统--交流互动</title>
         </style>
         <script language="JavaScript" type="text/JavaScript">
             <!--
