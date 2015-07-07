@@ -1,7 +1,7 @@
 
 
 
-
+<script type="text/javascript" src="<?=base_url()?>js/jquery.min.js"></script>
 <link href="<?= base_url(); ?>css/css1.css" type="text/css" rel="stylesheet" />
 <style>
 <!--
@@ -46,7 +46,7 @@ padding-left: 10px;
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">权限</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                <select name="admin_roleId">
+                <select name="admin_roleId" onchange="selectCol()" id="admin_roleId">
                 <option value="1" <?php if($admin->admin_roleId == 1) echo "selected";?> >校级管理员</option>
                 <option value="2" <?php if($admin->admin_roleId == 2) echo "selected";?> >院级管理员</option>
                 </select>
@@ -56,14 +56,9 @@ padding-left: 10px;
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">学院</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                <select name="admin_coll_name">
-                <?php if(is_array($college)) {foreach ($college as $r):?>
-                <option value="<?=$r->college?>" <?php if($r->college == $admin->admin_coll_name) echo "selected"; ?>><?=$r->college?></option>
-                <?php endforeach;?>
+                <select name="admin_coll_name" id="admin_coll_name">
+                <option value="0">校级管理员</option>
                 </select>
-                <?php } else {?>
-                    <input name="admin_coll_name" value="<?=$admin->admin_coll_name?>" />          
-                <?php }?>
                     </td>
             </tr>
             
@@ -98,7 +93,59 @@ padding-left: 10px;
             </tr>
             </table>
         </form>
-        </div>     
+        </div>    
+        
+        <script type="text/javascript">
+        
+        //通过Ajax获得二级指标值
+        function selectCol(){
+            //获取所选一级指标值
+            var role = document.getElementById("admin_roleId").value;  
+            
+            var college = document.getElementById("admin_coll_name");
+            //alert(role);
+	        if(role){
+	        	
+	        	var urla = '<?=base_url();?>index.php/superadmin/admin/getAjaxCol/'+role;
+	    		//通过Ajax获取数据
+	            $.ajax({
+	                type: "get",               
+	                url: urla,
+	                dataType: "json", //返回数据形式为json	
+	                              
+	                success: function (data) {
+		                if(data){	     
+		                	        	
+		                	//为下拉框获取选项
+		                	college.options.length = 0;
+		                	if(role == 1){
+		                		for(var i=0;i<data.col.length;i++){    
+		                			college.options.add(new Option(data.col[i]['college'], data.col[i]['id']));
+		                		}
+		                	}else{
+		                	//indi2.options.add(new Option("--请选择二级指标--", ""));
+		                	for(var i=0;i<data.col.length;i++){    
+		                		college.options.add(new Option(data.col[i]['college'], data.col[i]['college']));
+		                	}
+		                	}
+		                }
+	
+	               },
+	                error: function(XMLHttpRequest, textStatus, errorThrown) {
+		                //以下代码供测试
+	                    //alert(XMLHttpRequest.status);
+	                    //alert(XMLHttpRequest.readyState);
+	                    //alert(textStatus);
+	                    alert("数据加载失败");
+	                }
+	            }); 
+            }else{
+            	//为下拉框获取选项
+            	indi2.options.length = 0;
+            	indi2.options.add(new Option("校级管理员", "0"));
+            }
+        }
+        </script> 
 </div>
 
 

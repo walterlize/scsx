@@ -74,7 +74,7 @@ padding-left: 10px;
             <br><br>
             <div style="text-align: center;">
                 <input type="button" name="btnEdit" value="编 辑" onclick="window.location.href='<?= base_url() ?>index.php/superadmin/admin/adminEdit/<?= $admin->admin_id ?>';" id="btnEdit" class="input" />
-                <input type="button" name="btnDelete" value="删 除" onclick="deleteInfo('<?= base_url() ?>index.php/superadmin/nadmin/adminDelete/<?= $admin->admin_id ?>')" id="btnDelete" class="input" />
+                <input type="button" name="btnDelete" value="删 除" onclick="deleteInfo('<?= base_url() ?>index.php/superadmin/admin/adminDelete/<?= $admin->admin_id ?>')" id="btnDelete" class="input" />
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/superadmin/admin/adminList';" id="btnReturn" class="input" />  
             </div>
         </div>     

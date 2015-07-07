@@ -56,6 +56,13 @@ class Admin extends CI_Controller {
         	$this->load->view('superadmin/admin/adminDetail', $data);
         	$this->load->view('common/footer');
         }
+        
+        public function adminDelete(){
+        	$this->timeOut();
+        	$id = $this->uri->segment(4);
+        	$this->m_admin->deleteAdmin($id);
+        	redirect("superadmin/admin/adminList");
+        }
 
         
 
@@ -70,7 +77,7 @@ class Admin extends CI_Controller {
             $admin->admin_email = '';
             $admin->admin_phone = '';
             $admin->admin_coll_name = '';
-            $admin->admin_roleId = '2';
+            $admin->admin_roleId = '1';
             $admin->admin_stat_id = '1';
             
             $this->load->model("m_college");
@@ -94,6 +101,7 @@ class Admin extends CI_Controller {
         	
         }
 
+        /*
         public function adminDelete(){
             $this->timeOut();
             $id = $this->uri->segment(4);
@@ -114,7 +122,7 @@ class Admin extends CI_Controller {
             $this->load->view('common/footer');
 
         }
-
+*/
         
 
         // 分页获取全部课题信息
@@ -149,6 +157,30 @@ class Admin extends CI_Controller {
                 //$data->state = $this->m_user->getState($r->state);
             }
             return $data;
+        }
+        
+        function getAjaxCol(){
+        	$role = $this->uri->segment(4);
+        	switch ($role){
+        		case 1:
+        			$college=array();
+        			@$arr->id = 0;
+        			$arr->college = "校级管理员";
+        			array_push($college,$arr);
+        			break;
+        		case 2:
+        			$this->load->model("m_college");
+        			$college=$this->m_college->getCollege(array());
+        			break;
+        	}
+        	
+        	
+        	
+        	//处理JSON数据
+        	$arr = array(
+        			'col'=>$college,
+        	);
+        	echo json_encode($arr);
         }
 
 
