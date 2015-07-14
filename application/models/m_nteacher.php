@@ -184,7 +184,7 @@ class m_nteacher extends CI_Model {
     	$conn = $this->dbConn();
     	//$query1 = "select * from V_SX_XSXXB WHERE ".$str;
     	$query1 = "SELECT XSM, XSH,count(*) AS COTEA FROM V_SX_JSXXB GROUP BY XSM,XSH ORDER BY XSH";
-    	$query=iconv('UTF-8', 'GB2312', $query1);
+    	$query=iconv('UTF-8', 'GBK', $query1);
     
     	//echo $query;
     
@@ -222,7 +222,7 @@ class m_nteacher extends CI_Model {
         while (($row = oci_fetch_object($content)) != false) {
         // Use upper case attribute names for each standard Oracle column
             //echo $row->JSH . "<br>\n";
-            $this->zhandi_iconv($row,"GB2312","UTF-8");
+            $this->zhandi_iconv($row,"GBK","UTF-8");
             array_push($results,$row); 
         }
         return $results;

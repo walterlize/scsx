@@ -155,7 +155,7 @@ class m_nstudent extends CI_Model {
     	$str = $this->arrToStr($array);
     	
     	$query1 = "select * from V_SX_XSXXB ".$str;
-    	$query=iconv('UTF-8', 'GB2312', $query1);
+    	$query=iconv('UTF-8', 'GBK', $query1);
     	
     	//echo $query;
     	
@@ -171,7 +171,7 @@ class m_nstudent extends CI_Model {
     	$conn = $this->dbConn();
     	//$query1 = "select * from V_SX_XSXXB WHERE ".$str;
     	$query1 = "SELECT XSM, NJMC , count(*) AS COSTU FROM V_SX_XSXXB GROUP BY XSM , NJMC ORDER BY XSM ASC,NJMC DESC";
-    	$query=iconv('UTF-8', 'GB2312', $query1);
+    	$query=iconv('UTF-8', 'GBK', $query1);
     	 
     	//echo $query;
     	 
@@ -189,7 +189,7 @@ class m_nstudent extends CI_Model {
     	$str = $this->arrToStr($array);
     	//$query1 = "select * from V_SX_XSXXB WHERE ".$str;
     	$query1 = "SELECT BM,NJMC, count(*) AS COSTU FROM V_SX_XSXXB ".$str." GROUP BY BM,NJMC ORDER BY NJMC DESC , BM ASC";
-    	$query=iconv('UTF-8', 'GB2312', $query1);
+    	$query=iconv('UTF-8', 'GBK', $query1);
     
     	//echo $query;
     
@@ -226,7 +226,7 @@ class m_nstudent extends CI_Model {
     	while (($row = oci_fetch_object($content)) != false) {
     		// Use upper case attribute names for each standard Oracle column
     		//echo $row->JSH . "<br>\n";
-    		@$this->zhandi_iconv($row,"GB2312","UTF-8");
+    		@$this->zhandi_iconv($row,"GBK","UTF-8");
     		array_push($results,$row);
     	}
     	return $results;
