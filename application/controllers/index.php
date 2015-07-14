@@ -118,18 +118,18 @@ class Index extends CI_Controller {
         $u_name = $this->input->post('u_name');
         $password = $this->input->post('password');
         $userType = $this->input->post('userType');
-        //echo $password;
-        //$array = array('u_name' => $u_name, 'password' => $password);
+
         $t = $this->getNowTerm(1);
         $term = $t->term;
         
     	switch ($userType){
     		case 1:
-    			//校级管理员
+    			//校级管理员 与院级管理员
     			$this->load->model('m_admin');
-    			$array = array('admin_num' => $u_name, 'admin_password' => $password,'admin_roleId'=>1);
+    			$array = array('admin_num' => $u_name, 'admin_password' => $password);
+                $num=$this->m_admin->getNum($array);
+                if($num==1){
     			$result = $this->m_admin->getAdmin($array);
-    			
     			if($result){
     				$data = array();
     				foreach ($result as $r) {
@@ -138,7 +138,7 @@ class Index extends CI_Controller {
     				$array = array(
     						'id' => $data->admin_id,
     						'u_id' => $data->admin_num,
-    						'roleId' => 1,
+    						'roleId' => $data->admin_roleId,
     						'college' => 0,
     						'realname' => $data->admin_name,
     						'u_name' => $data->admin_num,
@@ -148,22 +148,26 @@ class Index extends CI_Controller {
     						'major'=> 0,
     						'class'=> 0,
     						'term'=>$term
-    				
+
     				);
     				$this->session->set_userdata($array);
     				redirect('superadmin/frame/index');
-    				
+
     			} else {
     				redirect('index/erro');
     			}
-    			break;
+                }elseif($num==0){
+                    redirect('index/erro');
+                }else{
+                    echo "出现重复数据！请联系管理员！";
+                }
     		case 2:
     			//院级管理员
     			//校级管理员
     			$this->load->model('m_admin');
     			$array = array('admin_num' => $u_name, 'admin_password' => $password,'admin_roleId'=>2);
     			$result = $this->m_admin->getAdmin($array);
-    			 
+
     			if($result){
     				$data = array();
     				foreach ($result as $r) {
@@ -182,11 +186,11 @@ class Index extends CI_Controller {
     						'major'=> 0,
     						'class'=> 0,
     						'term'=>$term
-    			
+
     				);
     				$this->session->set_userdata($array);
     				redirect('admin/frame/index');
-    			
+
     			} else {
     				redirect('index/erro');
     			}
@@ -195,26 +199,14 @@ class Index extends CI_Controller {
 
 
 
-            //第一种connect的方式
-         //   $conn = oci_connect('sjk', 'sjk#_2015$', '202.205.91.55/urpjw');
-            
-            //第二种connect方式
-            /*$conn = OCILOGON('sjk', 'sjk#_2015$', '202.205.91.55/newsjw');
-
-            
-            $query = "select * from V_SX_JSXXB where JSH = ".$u_name." and MM = ".$password."";
-            $result = OCIParse($conn, $query);
-            OCIExecute($stid);
-            if($result==null){
-                show_404();
-            }*/
-            
-
 /*-------------------普通模式下查询---------------------------------------------*/
 	            $this->load->model('m_nteacher');
 	            $array = array('JSH' => $u_name, 'MM' => $password);
                     
 	            $result = $this->m_nteacher->getTea($array);
+                if($result==null){
+                    echo "查询结果为空请仔细检查输入。";
+                }
 	           
 	    		if ($result) {
 	    			$data = array();

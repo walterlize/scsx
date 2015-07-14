@@ -29,11 +29,11 @@
                 <div class="name">
                     <p>角&nbsp;&nbsp;色：</p>
                     <select name="userType" class="loginname">
-                    	<option value="" >--请选择用户角色--</option>
-                    	<option value="1">----校级管理员----</option>
-                    	<option value="2">----院级管理员----</option>
-                    	<option value="3">-------教 师------</option>
-                    	<option value="5">-------学 生------</option>
+                        <option value="" >--请选择用户角色--</option>
+                        <option value="5">-------学 生------</option>
+                        <option value="3">-------教 师------</option>
+                    	<option value="1">----管理员----</option>
+                    	<!--<option value="2">----院级管理员----</option>-->
                     	<!--  <option value="4">-----基地用户-----</option>-->
                     </select>
                 </div>
