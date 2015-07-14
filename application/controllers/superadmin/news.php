@@ -49,7 +49,7 @@ class News extends CI_Controller {
 		$news = $this->getNews($array,$offset);
 		 
 		 
-		$config['base_url'] = base_url() . 'index.php/superadmin/news/newsList';
+		$config['base_url'] = base_url() . 'index.php/superadmin/news/noticeList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);
@@ -75,7 +75,7 @@ class News extends CI_Controller {
 		$news = $this->getNews($array,$offset);
 		 
 		 
-		$config['base_url'] = base_url() . 'index.php/superadmin/news/newsList';
+		$config['base_url'] = base_url() . 'index.php/superadmin/news/ruleList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);
@@ -101,7 +101,7 @@ class News extends CI_Controller {
 		$news = $this->getNews($array,$offset);
 		 
 		 
-		$config['base_url'] = base_url() . 'index.php/superadmin/news/newsList';
+		$config['base_url'] = base_url() . 'index.php/superadmin/news/sumList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);

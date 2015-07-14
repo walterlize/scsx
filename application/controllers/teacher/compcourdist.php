@@ -67,7 +67,7 @@ class Compcourdist extends CI_Controller {
 		}
 
 		$num = count($company);
-		$config['base_url'] = base_url() . 'index.php/teacher/compcourpublish/companyList/'.$cour_id;
+		$config['base_url'] = base_url() . 'index.php/teacher/compcourdist/companyList/'.$cour_id;
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 5;
 		$this->pagination->initialize($config);

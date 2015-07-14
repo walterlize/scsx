@@ -26,7 +26,7 @@ class Course extends CI_Controller {
     	$offset = $this->uri->segment(4);
     	
     	$data['variable'] = $this->getVariables($array,$offset);
-    	$config['base_url'] = base_url() . 'index.php/student/variable/variableList';
+    	$config['base_url'] = base_url() . 'index.php/student/course/courseList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
     	$this->pagination->initialize($config);
@@ -74,7 +74,7 @@ class Course extends CI_Controller {
     	$data['variable'] = $variable;
     	//$data['pattern'] = $pattern;
     	$this->load->view('common/header3');
-    	$this->load->view('student/variable/variableDetail', $data);
+    	$this->load->view('student/course/courseDetail', $data);
     	$this->load->view('common/footer');
     }
     
