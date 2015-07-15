@@ -32,7 +32,7 @@
                         <option value="" >--请选择用户角色--</option>
                         <option value="5">-------学 生------</option>
                         <option value="3">-------教 师------</option>
-                    	<option value="1">----管理员----</option>
+                    	<option value="1">-------管理员----</option>
                     	<!--<option value="2">----院级管理员----</option>-->
                     	<!--  <option value="4">-----基地用户-----</option>-->
                     </select>
@@ -206,50 +206,7 @@
     </div>		
 </div>
 
-<!--  
-<div class="contentbottom">
-    <div id="newsimgbox">
-        <div id="indemo">
-            <div id="demo1">
-                <a href="#" class="newsimg1"><img src="images0/news1.png" border="0"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/>
-                    <p>我院第十三届学生会举行第一次例会</p>
-                </a>
-                <a href="#" class="newsimg2"><img src="images0/news2.png" border="0"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/>
-                    <p>包饺子大赛顺利举办</p>
-                </a>
-                <a href="#" class="newsimg3"><img src="images0/news3.png" border="0"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/>
-                    <p>2014级转说英语演讲俱乐部活动成功举办</p>
-                </a>
-                <a href="#" class="newsimg4"><img src="images0/news4.png" border="0"  onload="return imgzoom(this,600);" onclick="javascript:window.open(this.src);" style="cursor:pointer;"/>
-                    <p>第十三届宿舍文化节答辩评选活动</p>
-                </a>
-            </div>
-            <div id="demo2"></div>
-        </div>
-    </div>
-</div>
 
-<script>
-    var speed=15;
-    var tab=document.getElementById("newsimgbox");
-    var tab1=document.getElementById("demo1");
-    var tab2=document.getElementById("demo2");
-    tab2.innerHTML=tab1.innerHTML;
-    function Marquee(){
-        if(tab2.offsetWidth-tab.scrollLeft<=0)
-            tab.scrollLeft-=tab1.offsetWidth
-        else{
-            tab.scrollLeft++;
-        }
-    }
-    var MyMar=setInterval(Marquee,speed);
-    tab.onmouseover=function() {clearInterval(MyMar)};
-    tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
-</script>
--->
-
-
-        
     <div class="linkbox">
 	<div class="linktop">
     	<div class="linktitle"><p>友情链接</p></div>
