@@ -1,6 +1,13 @@
 <div style="margin-left:20px; margin-right:20px">
     <br />
-    <h3 class="lz_title">已发布课程列表</h3>
+    <div class="lz_title">
+    	学生报名信息 
+    	<div style="float: right; font-size: 15px; height: 30px;margin-bottom: 25px;margin-right: 25px;margin-top: 15px;">
+    		<input type="button" name="btnDelete" value="已审核信息" onclick="window.location.href='<?= base_url() ?>index.php/teacher/student/studentList/<?= $cour_id ?>';" id="btnDelete" class="input" />
+    		<input type="button" name="btnDelete" value="导出EXCEL" onclick="window.location.href='<?= base_url() ?>index.php/teacher/student/studentExcel/<?= $cour_id ?>';" id="btnDelete" class="input" />
+    	</div>
+    </div>
+    <div style="text-align: right; width: 100%;float: right; font-size: 14px; margin-bottom: 10px;">选课人数 <?=$num?>人，已提交基地人数<?=$num-$numf?>人。通过审核<?=$numtt?>人</div>
     <table class="tablist" cellpadding="0" cellspacing="1" style="width:100%;border-collapse:collapse;" border="1">
         <tr class="HeaderStyle">
             <th scope="col" class="td1">学号</th>

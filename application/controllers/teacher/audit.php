@@ -56,12 +56,17 @@ class Audit extends CI_Controller {
     	$coursep = $this->getCoursepById($cour_id);
     	$array1 = array('KCH'=>$coursep->cour_no,'KXH'=>$coursep->cour_num,'ZXJXJHH'=>$coursep->cour_term);
     	$array2 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term);
-    	
+    	$array3 = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term,'elco_state'=>6);
+    	$this->load->model("m_elecom");
+    	$numtt = $this->m_elecom->getNum($array3);//审核通过
     	$audit = $this->getAudit($array1);
     	//$audit1 = $audit;
-    	//
+    	//已提交
     	$auditt = $this->getAuditt($array2);
+    	$numt = count($auditt);
+    	//未提交
     	$auditf = $this->myArrDiff($audit,$auditt,'stu_num');
+    	$numf = count($auditf);
     	
     	$audit =array_merge($auditt,$auditf);
     	
@@ -69,16 +74,19 @@ class Audit extends CI_Controller {
     	$num = count($audit);
     
     	$config['base_url'] = base_url() . 'index.php/teacher/audit/auditList/'.$cour_id;
-    	$config['total_rows'] = $num;
+    	$config['total_rows'] = $numt;
     	$config['uri_segment'] = 5;
         $config['num_links'] = 4;
 
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
     	
-    	$data['audit'] = array_slice($audit,$offset,PER_PAGE);
+    	$data['audit'] = array_slice($auditt,$offset,PER_PAGE);//显示所有提交基地学生
         $data['cour_id'] = $cour_id;
-        $data['num']=$num;
+        $data['num']=$num;//总人数
+        $data['numt']=$numt;//
+        $data['numtt']=$numtt;//
+        $data['numf']=$numf;//未提交人数
         switch($coursep->cour_pattern_id){
         	case 1:
         		$this->load->view('common/header3');
@@ -98,7 +106,6 @@ class Audit extends CI_Controller {
         }
     	
     }
-    
     
 
     // 实验任务详细信息页面

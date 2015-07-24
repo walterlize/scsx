@@ -22,7 +22,7 @@ public function courseList() {
         $term = $this->session->userdata('term');//学期
         
         $this->load->model('m_course');
-        $array=array('cour_teac_num'=>$teaNum,'cour_term'=>$term);
+        $array=array('cour_teac_num'=>$teaNum,'cour_term'=>$term,'cour_publish'=>1);
         $offset = $this->uri->segment(4);
         $data['course'] = $this->getCourses($array,$offset);
         
@@ -59,7 +59,7 @@ public function courseList() {
     	$config['uri_segment'] = 5;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
-        $data['num']='每页最多有15条记录，本页面共有'.$num.'条记录。';
+        $data['num']='每页最多有10条记录，本页面共有'.$num.'条记录。';
     	$data['audit'] = array_slice($audit,$offset,PER_PAGE);
     	$data['cour_id'] = $cour_id;
     		
@@ -159,6 +159,94 @@ public function courseList() {
     	}
     	return $data;
     }
+    
+    
+    function studentExcel(){
+    	$this->timeOut();
+    	$cour_id = $this->uri->segment(4);
+    	
+    	$coursep = $this->getCoursepById($cour_id);
+    	$array = array('elco_cour_no'=>$coursep->cour_no,'elco_cour_num'=>$coursep->cour_num,'elco_cour_term'=>$coursep->cour_term,'elco_state'=>6);
+    	
+    	//已分配基地选课学生
+    	$this->load->model("m_elecom");
+    	$result = $this->m_elecom->getElecom_ws($array);
+    
+    	if($result){
+    		$this->load->library('PHPExcel');
+    		$this->load->library('PHPExcel/IOFactory');
+    
+    		$objPHPExcel = new PHPExcel();
+    		$objPHPExcel->getProperties()->setTitle("export")->setDescription("none");
+    
+    
+    		//设置excel的属性：
+    		//创建人
+    		$objPHPExcel->getProperties()->setCreator($realname);
+    		//最后修改人
+    		$objPHPExcel->getProperties()->setLastModifiedBy($realname);
+    		//标题
+    		$objPHPExcel->getProperties()->setTitle("StuComp");
+    		//题目
+    		$objPHPExcel->getProperties()->setSubject("StuComp");
+    		//设置当前的sheet
+    		$objPHPExcel->setActiveSheetIndex(0);
+    
+    		//设置单元格的值
+    		$objPHPExcel->getActiveSheet()->setCellValue('A1', $coursep->cour_teac_name);
+    		$objPHPExcel->getActiveSheet()->setCellValue('B1', $coursep->cour_name);
+    		$objPHPExcel->getActiveSheet()->setCellValue('C1', $coursep->cour_no."(".$coursep->cour_num.")");
+    		$objPHPExcel->getActiveSheet()->setCellValue('D1', $coursep->cour_term);
+    		
+    		$objPHPExcel->getActiveSheet()->setCellValue('A2', '学号');
+    		$objPHPExcel->getActiveSheet()->setCellValue('B2', '姓名');
+    		$objPHPExcel->getActiveSheet()->setCellValue('C2', '班级');
+    		$objPHPExcel->getActiveSheet()->setCellValue('D2', '基地名');
+    		$objPHPExcel->getActiveSheet()->setCellValue('E2', '基地地址');
+    		$objPHPExcel->getActiveSheet()->setCellValue('F2', '基地负责人');
+    		$objPHPExcel->getActiveSheet()->setCellValue('G2', '负责人电话');
+    		$objPHPExcel->getActiveSheet()->setCellValue('H2', '负责人邮箱');
+    
+    		$objPHPExcel->getActiveSheet()->getStyle('A')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_TEXT);
+    		$objPHPExcel->getActiveSheet()->getStyle('G')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_TEXT);
+    
+    		$count = count($result);
+    		for ($i = 3; $i <= $count+2; $i++) {
+    			$objPHPExcel->getActiveSheet()->setCellValue('A' . $i, " ". $result[$i-3]->elco_stu_num , PHPExcel_Cell_DataType::TYPE_STRING );
+    			$objPHPExcel->getActiveSheet()->setCellValue('B' . $i, $result[$i-3]->elco_stu_name );
+    			$objPHPExcel->getActiveSheet()->setCellValue('C' . $i, $result[$i-3]->elco_stu_class);
+    			$objPHPExcel->getActiveSheet()->setCellValue('D' . $i, $result[$i-3]->comp_name );
+    			$objPHPExcel->getActiveSheet()->setCellValue('E' . $i, $result[$i-3]->comp_address );
+    			$objPHPExcel->getActiveSheet()->setCellValue('F' . $i, $result[$i-3]->user_name);
+    			$objPHPExcel->getActiveSheet()->setCellValue('G' . $i, " ".$result[$i-3]->user_phone , PHPExcel_Cell_DataType::TYPE_STRING );
+    			$objPHPExcel->getActiveSheet()->setCellValue('H' . $i, $result[$i-3]->user_email );
+    			
+    
+    		}
+    		 
+    
+    		 
+    		$objPHPExcel->setActiveSheetIndex(0);
+    		 
+    		$objWriter = IOFactory::createWriter($objPHPExcel, 'Excel5');
+    		 
+    		//发送标题强制用户下载文件
+    		ob_end_clean();
+    		header('Content-Type: application/vnd.ms-excel');
+    		header('Content-Disposition: attachment;filename="'.$coursep->cour_no."(".$coursep->cour_num.")_".date('dmy').'.xls"');
+    		
+    		header('Cache-Control: max-age=0');
+    		 
+    		$objWriter->save('php://output');
+    
+    		 
+    	}
+    
+    }
+    
+    
+    
+    
    
     // session中的role不存在的时候退出系统
     function timeOut() {

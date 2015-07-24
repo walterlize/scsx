@@ -37,11 +37,22 @@
         </tr> 
         <tr>
             <td class="td1" style="width: 111px">实习总结状态</td>
-            <td class="td2" ><span style="color: red"><?php if($summary->summ_appr_id==5) echo "待审核"; else echo "已审核" ?>&nbsp;</span></td>
+            <td class="td2" >
+            <span style="color: red">
+            <?php 
+            if($summary->summ_appr_id==5) echo "待审核"; 
+            if($summary->summ_appr_id==6) echo "审核成功";
+            if($summary->summ_appr_id==7) echo "审核失败";
+            ?>&nbsp;
+            </span></td>
+        </tr>
+        <tr>
+            <td class="td1" style="width: 111px">实习总结评价</td>
+            <td class="td2" ><?= $summary->summ_result ?>&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2" class="td3" align="center">
-                <input type="button" value="审 核" class="input" onclick="window.location.href='<?= base_url(); ?>index.php/teacher/tsummary/updateState/<?= $summary->summ_id ?>'">
+                <input type="button" value="审 核" class="input" onclick="window.location.href='<?= base_url(); ?>index.php/teacher/tsummary/tsummaryEdit/<?= $summary->summ_id ?>'">
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/teacher/tsummary/tsummaryList';" id="btnReturn" class="input" />      
             </td>
         </tr>

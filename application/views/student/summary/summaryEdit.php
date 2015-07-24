@@ -69,7 +69,7 @@
             </tr>
             <tr>
                 <td colspan="2" class="td3" align="center">
-                    <input type="submit" name="btnSave" value="提 交" onclick="return check('form1');" id="btnSave" class="input" />
+                    <input type="submit" name="btnSave" value="保 存" onclick="return check('form1');" id="btnSave" class="input" />
                     <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryList';" id="btnReturn" class="input" />
                     <input type="button" name="btnCancel" value="取 消" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryDetail/<?= $summary->summ_miss_id ?>';" id="btnCancel" class="input" style="<?php if (isset($show)) echo $show; ?>" />      </td>
             </tr>

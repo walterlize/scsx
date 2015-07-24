@@ -20,9 +20,9 @@ class Tsummary extends CI_Controller {
 
         $tea_num = $this->session->userdata('u_num');
         $term = $this->session->userdata('term');
-        //查询该老师名下所有本学期summary未审核
+        //查询该老师名下所有本学期summary
         //========================
-        $array = array('miss_teac_num'=>$tea_num,'summ_appr_id'=>5,'cour_term'=>$term);
+        $array = array('miss_teac_num'=>$tea_num,'summ_appr_id !='=>4,'cour_term'=>$term);
         
         $this->load->model('m_summary');
         $num = $this->m_summary->getNum_ws($array);
@@ -47,11 +47,34 @@ class Tsummary extends CI_Controller {
     public function tsummaryDetail() {
         $this->timeOut();
         $summ_id = $this->uri->segment(4);
-        $data['summary'] = $this->getSummary($summ_id);
-
-        $this->load->view('common/header3');
-        $this->load->view('teacher/tsummary/tsummaryDetail', $data);
-        $this->load->view('common/footer');
+        $summary = $this->getSummary($summ_id);
+        $data['summary'] = $summary;
+        if($summary->summ_appr_id == 5){
+	        $this->load->view('common/header3');
+	        $this->load->view('teacher/tsummary/tsummaryDetail', $data);
+	        $this->load->view('common/footer');
+        }else{
+        	$this->load->view('common/header3');
+        	$this->load->view('teacher/tsummaryappr/tsummaryDetail', $data);
+        	$this->load->view('common/footer');
+        }
+    }
+    
+    // 实验任务详细信息页面
+    public function tsummaryEdit() {
+    	$this->timeOut();
+    	$summ_id = $this->uri->segment(4);
+    	$summary = $this->getSummary($summ_id);
+    	$data['summary'] = $summary;
+    	//if($summary->summ_appr_id == 5){
+    		$this->load->view('common/header3');
+    		$this->load->view('teacher/tsummary/tsummaryEdit', $data);
+    		$this->load->view('common/footer');
+    	//}elseif($summary->summ_appr_id == 6){
+    	//	$this->load->view('common/header3');
+    	//	$this->load->view('teacher/tsummaryappr/tsummaryDetail', $data);
+    	//	$this->load->view('common/footer');
+    	//}
     }
      
 
@@ -70,6 +93,25 @@ class Tsummary extends CI_Controller {
         $this->load->view('common/header3');
         $this->load->view('teacher/tsummary/tsummaryDetail', $data);
         $this->load->view('common/footer');
+    }
+    
+    public function update() {
+    	$this->timeOut();
+    
+    	$summ_id = $this->uri->segment(4);
+        $summ_appr_id = $this->input->post("summ_appr_id");
+        $summ_result = $this->input->post("summ_result");
+        $summ_appr_time = date("Y-m-d H:m:s");
+    	$array = array('summ_appr_id' => $summ_appr_id , 'summ_appr_time' => $summ_appr_time, 'summ_result'=>$summ_result );
+    
+    	$this->load->model('m_summary');
+    	$this->m_summary->updateSummary($summ_id, $array);
+    
+    	$data['summary'] = $this->getSummary($summ_id);
+    
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/tsummary/tsummaryDetail', $data);
+    	$this->load->view('common/footer');
     }
     
     // 分页获取全部实验任务信息

@@ -123,6 +123,8 @@ ul, li
 	background: #b8c7d1;
 	margin-top: 0px;
 	font-size: 15px;
+	WORD-BREAK: break-all;
+	word-wrap:break-all;
 }
 .tablist2 .td0
 {

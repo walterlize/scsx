@@ -17,24 +17,32 @@
                 <div class="fengeline"><img src="<?= base_url(); ?>images/backstage2.png" /></div>
                 <div id="firstpane" class="menu_list">
                 	
-                <p class="menu_head">实习新闻</p>
+                <p class="menu_head">实习资讯</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/admin/news/newsList" target="content1">实习新闻</a>
                         <a href="<?= base_url(); ?>index.php/admin/news/noticeList" target="content1">通知公告</a> 
                         <a href="<?= base_url(); ?>index.php/admin/news/ruleList" target="content1">实习规定</a>
+                        <!--  
                         <a href="<?= base_url(); ?>index.php/admin/news/sumList" target="content1">实习总结</a>  
+                        -->
                         <a href="<?= base_url(); ?>index.php/admin/imgnews/imgList" target="content1">实习风采</a>        
                     </div>
-                    
+                    <p class="menu_head">实习汇报审核</p>
+                    <div style="display:none" class=menu_body >                       
+                        <a href="<?= base_url(); ?>index.php/admin/report/reportList" target="content1">实习汇报审核</a>
+                    </div>   
                     <p class="menu_head">用户信息</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/admin/user/stuList" target="content1">学生信息查看</a>
                         <a href="<?= base_url(); ?>index.php/admin/user/teaList" target="content1">教师信息查看</a>
                     </div>
                     
+                    
                     <p class="menu_head">统计分析</p>
                     <div style="display:none" class=menu_body >
-                        <a href="<?= base_url(); ?>index.php/admin/sum/sumList1" target="content1">班级人数统计</a>
+                     
+                        <a href="<?= base_url(); ?>index.php/admin/sum/sumList1" target="content1">课程基地统计</a>
+                   
                         <a href="<?= base_url(); ?>index.php/admin/sum/sumList3" target="content1">基地人数统计</a>
                     </div>
                     <p class="menu_head">个人信息</p>

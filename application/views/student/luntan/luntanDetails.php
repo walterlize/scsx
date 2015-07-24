@@ -21,7 +21,9 @@
         </tr>
         <tr>
             <td class="td1" style="width: 111px">发帖内容</td>
-            <td class="td2" ><?= $content ?>&nbsp;</td>
+            <td class="td2" >
+            <textarea rows="5" cols="100" readonly="readonly"><?= $content ?></textarea>
+            </td>
         </tr>
         
         <tr>
@@ -30,7 +32,9 @@
         </tr>
         <tr>
             <td class="td1" style="width: 111px">回帖内容</td>
-            <td class="td2" ><?= $reply ?>&nbsp;</td>
+            <td class="td2" >
+            <textarea rows="5" cols="100" readonly="readonly"><?= $reply ?>&nbsp;</textarea>
+            </td>
         </tr>
         <tr>
             <td colspan="2" class="td3" align="center">

@@ -135,24 +135,31 @@ class Index extends CI_Controller {
     				foreach ($result as $r) {
     					$data = $r;
     				}
-    				$array = array(
-    						'id' => $data->admin_id,
-    						'u_id' => $data->admin_num,
-    						'roleId' => $data->admin_roleId,
-    						'college' => 0,
-    						'realname' => $data->admin_name,
-    						'u_name' => $data->admin_num,
-    						'u_num' => $data->admin_num,
-    						'ustateId' => 1,
-    						'grade'=> 0,
-    						'major'=> 0,
-    						'class'=> 0,
-    						'term'=>$term
-
-    				);
-    				$this->session->set_userdata($array);
-    				redirect('superadmin/frame/index');
-
+    				if($data->admin_stat_id == 1){
+	    				$array = array(
+	    						'id' => $data->admin_id,
+	    						'u_id' => $data->admin_num,
+	    						'roleId' => $data->admin_roleId,
+	    						'college' => $data->admin_coll_name,
+	    						'realname' => $data->admin_name,
+	    						'u_name' => $data->admin_num,
+	    						'u_num' => $data->admin_num,
+	    						'ustateId' => 1,
+	    						'grade'=> 0,
+	    						'major'=> 0,
+	    						'class'=> 0,
+	    						'term'=>$term
+	    				
+	    				);
+	    				$this->session->set_userdata($array);
+	    				if($data->admin_roleId == 1){
+		    				redirect('superadmin/frame/index');
+	    				}elseif($data->admin_roleId == 2){
+		    				redirect('admin/frame/index');
+	    				}
+    				}elseif ($data->admin_stat_id == 2){
+    					redirect('index/erro1');
+    				}
     			} else {
     				redirect('index/erro');
     			}

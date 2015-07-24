@@ -14,10 +14,12 @@ class User extends CI_Controller {
 	public function stuList(){
 		$this->timeOut();
     	$college =$this->session->userdata("college");
+    	
 		$array = array('XSM'=>$college);
     	
 		$this->load->model("m_nstudent");
 		$num = $this->m_nstudent->getNumALL($array);
+		
 		$offset = $this->uri->segment(4);
 		$stu = $this->getStus($array,$offset);
     	

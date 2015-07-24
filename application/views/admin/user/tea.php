@@ -35,7 +35,7 @@ padding-left: 10px;
             		<td class="line2" >姓名</td>
                     
             		<td class="line2" >职称</td>
-            		<td class="line2" >密码</td>
+            		
                 </tr>
                 
                  <?php if (is_array($tea)) foreach ($tea as $r): ?>
@@ -46,7 +46,7 @@ padding-left: 10px;
                     <td class="line2" ><?= $r['tea_name'] ?></td>
                     
                     <td class="line2" ><?= $r['tea_title'] ?></td>
-                    <td class="line2" ><?= $r['tea_password'] ?></td>
+                    
                     
                 </tr>
                 <?php endforeach; ?>

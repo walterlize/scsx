@@ -75,7 +75,7 @@ class Imgnews extends CI_Controller {
 	public function getNews($array,$offset) {
 		
 		$this->load->model('m_news');
-		$result = $this->m_news->getNewss($array,PER_PAGE,$offset);
+		$result = $this->m_news->getNewss($array,15,$offset);
 	
 		$data = array();
 		foreach ($result as $r) {

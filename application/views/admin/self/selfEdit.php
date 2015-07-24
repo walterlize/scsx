@@ -34,16 +34,17 @@ padding-left: 10px;
                 </td>
             </tr>
             
-            
+            <!-- 
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">密码</td>
                 <td class="tablecontent" style="padding-left: 15px" ><?= $admin->admin_password ?>
                     <input type="hidden" name="admin_password" value="<?= $admin->admin_password ?>" />                
                     </td>
             </tr>
+            -->
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">权限</td>
-                <td class="tablecontent" style="padding-left: 15px" >校级管理员
+                <td class="tablecontent" style="padding-left: 15px" >院级管理员
                 <select name="admin_roleId" style="display: none">
                 <option value="1" <?php if($admin->admin_roleId == 1) echo "selected";?> >校级管理员</option>
                 <option value="2" <?php if($admin->admin_roleId == 2) echo "selected";?> >院级管理员</option>

@@ -31,23 +31,25 @@ padding-left: 10px;
                 </td>
             </tr>
             
-            
+            <!--  
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">密码</td>
                 <td class="tablecontent" style="padding-left: 15px" >
                     <?= $admin->admin_password ?>&nbsp;               
                     </td>
             </tr>
+            -->
+            
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">权限</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                    <?=$admin->admin_roleId?>        
+                    校级管理员      
                     </td>
             </tr>
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">学院</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                    <?=$admin->admin_coll_name?>        
+                    <?php if($admin->admin_coll_name == 0) echo "无"; else  echo $admin->admin_coll_name;?>        
                     </td>
             </tr>
             
@@ -66,7 +68,7 @@ padding-left: 10px;
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">状态</td>
                 <td class="tablecontent" style="padding-left: 15px" >
-                    <?=$admin->admin_stat_id?>        
+                    <?php if($admin->admin_stat_id == 1)echo "正常"; else echo "停用";?>        
                     </td>
             </tr>
             

@@ -194,6 +194,7 @@ class Course extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='共有'.$num.'条记录。';
         $this->load->view('common/header3');
         $this->load->view('teacher/course/course', $data);
         $this->load->view('common/footer');
@@ -228,6 +229,7 @@ class Course extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='共有'.$num.'条记录。';
         $this->load->view('common/header3');
         $this->load->view('teacher/course/course', $data);
         $this->load->view('common/footer');
@@ -260,12 +262,83 @@ class Course extends CI_Controller {
         $config['uri_segment'] = 4;
         $this->pagination->initialize($config);
         $data['page'] = $this->pagination->create_links();
+        $data['num']='共有'.$num.'条记录。';
+        
         $this->load->view('common/header3');
         $this->load->view('teacher/course/course', $data);
         $this->load->view('common/footer');
     
     }
     
+    public function changeMode(){
+    	$this->timeOut();
+    	$cour_id = $this->uri->segment(4);
+    	$array1 = array('coco_cour_id'=>$cour_id);
+    	$this->load->model("m_coucom");
+    	$compnum = $this->m_coucom->getNum($array1);//基地数
+    	$array2 = array('elco_cour_id'=>$cour_id);
+    	$this->load->model("m_elecom");
+    	$stunum = $this->m_elecom->getNum($array2);//学生数
+    	
+    	if($compnum > 0 || $stunum > 0){
+    		//echo "<script></script>";
+    		//echo '<script language="JavaScript">if(window.confirm("你确定删除此记录吗？")){return true;}else{return false;}</script>';
+    		$data['cour_id']=$cour_id;
+    		$data['compnum']=$compnum;
+    		$data['stunum']=$stunum;
+    		$this->load->view('common/header3');
+    		$this->load->view('teacher/course/changeMode', $data);
+    		$this->load->view('common/footer');
+    		
+    	}else{
+    		$coursep = $this->getCoursepById($cour_id);
+    		//oracle课程详情
+    		$cour_no = $coursep->cour_no;
+    		$cour_num = $coursep->cour_num;
+    		$term = $this->session->userdata("term");
+    		
+    		$arrCourse = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term);
+    		$course = $this->getCourse($arrCourse);
+    		
+    		$data['course'] = $course;
+    		$data['coursep'] = $coursep;
+    		$data['tea_num'] = $this->session->userdata("u_num");
+    		$data['tea_name'] = $this->session->userdata("realname");
+    		$this->load->view('common/header3');
+    		$this->load->view('teacher/course/courseEdit', $data);
+    		$this->load->view('common/footer');
+    	}
+    	
+    }
+    
+    public function modeConfirm(){
+    	//删除数据
+    	$cour_id = $this->uri->segment(4);
+    	$array1 = array('coco_cour_id'=>$cour_id);
+    	$this->load->model("m_coucom");
+    	$this->m_coucom->deleteCoucomByArr($array1);//基地数
+    	$array2 = array('elco_cour_id'=>$cour_id);
+    	$this->load->model("m_elecom");
+    	$this->m_elecom->deleteElecomByArr($array2);//学生数
+    	
+    	$coursep = $this->getCoursepById($cour_id);
+    	//oracle课程详情
+    	$cour_no = $coursep->cour_no;
+    	$cour_num = $coursep->cour_num;
+    	$term = $this->session->userdata("term");
+    	
+    	$arrCourse = array('KCH'=>$cour_no,'KXH'=>$cour_num,'ZXJXJHH'=>$term);
+    	$course = $this->getCourse($arrCourse);
+    	$coursep->cour_publish = 0;
+    	$data['course'] = $course;
+    	$data['coursep'] = $coursep;
+    	$data['tea_num'] = $this->session->userdata("u_num");
+    	$data['tea_name'] = $this->session->userdata("realname");
+    	$this->load->view('common/header3');
+    	$this->load->view('teacher/course/courseEdit', $data);
+    	$this->load->view('common/footer');
+    	
+    }
     
     
     // 分页获取全部实验任务信息

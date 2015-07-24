@@ -17,6 +17,7 @@ padding-left: 10px;
         <div class="enterrightlist">
         <form name="form1" method="post" action="<?= base_url() ?>index.php/superadmin/admin/adminSet" id="form1">
         <input type="hidden" value="<?= $admin->admin_id ?>" name="admin_id" id="admin_id" />
+        <input type="hidden" value="2" name="admin_roleId" id="admin_roleId" />
                 	
         	<table width="99%" cellpadding="0" cellspacing="0">
         	
@@ -45,19 +46,22 @@ padding-left: 10px;
             </tr>
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">权限</td>
-                <td class="tablecontent" style="padding-left: 15px" >
+                <td class="tablecontent" style="padding-left: 15px" >院级管理员
+                <!--  
                 <select name="admin_roleId" onchange="selectCol()" id="admin_roleId">
                 <option value="1" <?php if($admin->admin_roleId == 1) echo "selected";?> >校级管理员</option>
                 <option value="2" <?php if($admin->admin_roleId == 2) echo "selected";?> >院级管理员</option>
                 </select>
-                      
+                -->    
                     </td>
             </tr>
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">学院</td>
                 <td class="tablecontent" style="padding-left: 15px" >
                 <select name="admin_coll_name" id="admin_coll_name">
-                <option value="0">校级管理员</option>
+                <?php foreach ($college as $r):?>
+                <option value="<?=$r->college?>" <?php if($admin->admin_coll_name == $r->college) echo "selected"; ?> ><?=$r->college?></option>
+                <?php endforeach;?>
                 </select>
                     </td>
             </tr>
