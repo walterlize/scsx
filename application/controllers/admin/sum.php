@@ -19,48 +19,63 @@ class Sum extends CI_Controller {
         $this->timeOut();
         //院列表
         
-        //各院人数数组
-        $this->load->model('m_nstudent');
-        $college = $this->session->userdata('college');
-        $stu = $this->m_nstudent->countStuNumByBM(array('XSM'=>$college));
-        //print_r($stu);
+        //1.学院名
+        $college = $this->session->userdata("college");
+        //2.查找该学院课程的基地
+        $this->load->model("m_coucom");
+        $res = $this->m_coucom->countCompanyByCol($college);
         
-        
-        /*
-        $stum = array();
-        foreach ($stu as $r){
+        //处理
+        $comp = array();
+        foreach ($res as $r){
+        	$comp[$r->cour_id]['cour_id']=$r->cour_id;
+        	$comp[$r->cour_id]['cour_name']=$r->cour_name;
+        	$comp[$r->cour_id]['cour_no']=$r->cour_no;
+        	$comp[$r->cour_id]['cour_num']=$r->cour_num;
+        	$comp[$r->cour_id]['cour_term']=$r->cour_term;
         	if($r->comp_add_type == 3)
-        		$comp[$r->comp_coll_name][0]=$r->c_comp;
+        		$comp[$r->cour_id][0]=$r->c_comp;
         	elseif($r->comp_add_type == 5)
-        	$comp[$r->comp_coll_name][1]=$r->c_comp;
+        		$comp[$r->cour_id][1]=$r->c_comp;
         }
         
-        foreach ($arrCol as $r) {
-	        foreach ($stu as $key=>$val){
-	        
-	        	print_r($val);echo"<br>";
-	        
-	        }
+        foreach ($comp as $key=>$val){
+        
+        	if(!isset($val[0]))$comp[$key][0]=0;
+        	if(!isset($val[1]))$comp[$key][1]=0;
+        	//$r[3]=$r[0]+$r[1];
+        	$comp[$key][2]=$comp[$key][0]+$comp[$key][1];
+        
         }
-        */
-        
-        
-        $data['stu'] = $stu;
-        
+                 
+        $data['comp']=$comp;       
         $this->load->view('common/header3');
-        $this->load->view('admin/count/sumStu',$data);
+        $this->load->view('admin/count/colCourCompany',$data);
         $this->load->view('common/footer');
     }
-    public function sumList2() {
-        $this->timeOut();
-        
-        $this->load->model('m_nteacher');
-        $tea = $this->m_nteacher->countTeaNumByCol();
-        
-        $data['tea'] = $tea;
-        
+	public function courcomp(){
+    	$this->timeOut();
+    	$cour_id = $this->uri->segment(4);
+    	//课程详情
+    	$this->load->model("m_course");
+    	$coursep = $this->getCoursepById($cour_id);
+    	
+    	$array = array('cour_id'=>$cour_id);
+    	$this->load->model('m_coucom');
+    	
+    	$num = $this->m_coucom->getNum_ws($array);
+        $offset = $this->uri->segment(5);
+
+        $data['coco'] = $this->getCoucoms($array,$offset);
+        $config['base_url'] = base_url() . 'index.php/admin/sum/courcomp/'.$cour_id;
+        $config['total_rows'] = $num;
+        $config['uri_segment'] = 5;
+        $this->pagination->initialize($config);
+        $data['page'] = $this->pagination->create_links();
+  
+        $data['cour']=$coursep;
         $this->load->view('common/header3');
-        $this->load->view('admin/count/sumTea',$data);
+        $this->load->view('admin/count/courcomp',$data);
         $this->load->view('common/footer');
     }
     
@@ -98,138 +113,25 @@ class Sum extends CI_Controller {
     	$this->load->view('common/footer');
     }
     
-    public function ajaxSum1(){
-    	 $this->load->model('m_nstudent');
-        $stu = $this->m_nstudent->countStuNumByCol();
-        
-        $arrNum = array();
-        $arrCol1 = array();
-        $arrYear1 = array();
-        foreach ($stu as $r){
-        	array_push($arrYear1,$r->NJMC);
-        	array_push($arrCol1,$r->XSM);
-        }
-        $arrYear = array_unique($arrYear1);
-        rsort($arrYear);
-        $arrColq = array_unique($arrCol1);
-        $arrCol = array_merge($arrColq);       
-        foreach ($arrYear as $y){
-        	$arrNum[$y]= array();
-        	foreach ($stu as $r){       	
-        		if($r->NJMC == $y){
-        			//print_r($r); echo "  1<br>";
-        			array_push($arrNum[$y],$r->COSTU);
-        		}else{
-        			array_push($arrNum[$y],0);
-        		}
-        		
-        	}
-        }
-        
-        //$data['stu'] = $stu;
-    	
-    	$arr = array( 'collegeName'=>$arrCol,
-    			'stuNum'=>$arrNum,
-    			'stuYear'=>$arrYear
-    	);
-    	echo json_encode($arr);
-    }
-    //教师人数统计
-    public function ajaxSum2(){
-    	$this->timeOut();
-    	 
-    	//院列表
-    	$this->load->model('m_college');
-    	$college = $this->m_college->getCollege(array());
-    	 
-    	//院名数组
-    	$collegeName=array("农院","生院","动科","动医","食院","资环","信电","工学院","水利","理学院","经管","人发","国院","烟院","思政","体艺","继续教育");
-    	//各院人数数组
-    	$this->load->model('m_nteacher');
-    	for($i=0;$i<count($college);$i++){
-    		$stuNum[$i] = $this->m_nteacher->getNumALL(array('college'=>$college[$i]->college));
-    		//太长不方便缩写
-    		//$collegeName[$i] = $college[$i]->college;
+	// 获取单个
+    function getCoursepById($id) {
+    	$this->load->model('m_course');
+    	$result = $this->m_course->getCourseById_ws($id);
+    	$data = array();
+    	foreach ($result as $r) {
+    		$data = $r;
     	}
-    	 
-    	$arr = array( 'collegeName'=>$collegeName,
-    			'stuNum'=>$stuNum
-    	);
-    	echo json_encode($arr);
+    	return $data;
     }
     
-    //课程数统计
-    public function ajaxSum3(){
-    	$this->timeOut();
-    
-    	//院列表
-    	$this->load->model('m_college');
-    	$college = $this->m_college->getCollege(array());
-    
-    	//院名数组
-    	$collegeName=array("农院","生院","动科","动医","食院","资环","信电","工学院","水利","理学院","经管","人发","国院","烟院","思政","体艺","继续教育");
-    	//各院人数数组
-    	$this->load->model('m_ncourse');
-    	for($i=0;$i<count($college);$i++){
-    		$stuNum[$i] = $this->m_ncourse->getNumALL(array('college'=>$college[$i]->college));
-    		//太长不方便缩写
-    		//$collegeName[$i] = $college[$i]->college;
+    function getCoucoms($array,$offset) {
+    	$this->load->model('m_coucom');
+    	$result = $this->m_coucom->getCoucoms_ws($array, PER_PAGE, $offset);
+    	$data = array();
+    	foreach ($result as $r) {
+    		array_push($data,$r);
     	}
-    
-    	$arr = array( 'collegeName'=>$collegeName,
-    			'stuNum'=>$stuNum
-    	);
-    	echo json_encode($arr);
-    }
-    /*
-    public function ajaxSum2(){
-    	$this->timeOut();
-    	 
-    	//院列表
-    	$this->load->model('m_college');
-    	$college = $this->m_college->getCollege(array());
-    	 
-    	//院名数组
-    	$collegeName=array("农院","生院","动科","动医","食院","资环","信电","工学院","水利","理学院","经管","人发","国院","烟院","思政","体艺","继续教育");
-    	//各院人数数组
-    	$this->load->model('m_user');
-    	for($i=0;$i<count($college);$i++){
-    		$stuBNum[$i] = $this->m_user->getStuNum(array('collegeId'=>$college[$i]->collegeId,'sex'=>"男"));
-    		$stuGNum[$i] = $this->m_user->getStuNum(array('collegeId'=>$college[$i]->collegeId,'sex'=>"女"));
-    		//太长不方便缩写
-    		//$collegeName[$i] = $college[$i]->college;
-    	}
-    	 
-    	$arr = array( 'collegeName'=>$collegeName,
-    			'stuBNum'=>$stuBNum,
-    			'stuGNum'=>$stuGNum
-    	);
-    	echo json_encode($arr);
-    }
-    */
-    
-    //按年级统计
-    public function ajaxSum4(){
-    	$this->timeOut();
-    	 
-    	//院列表
-    	$this->load->model('m_college');
-    	$college = $this->m_college->getCollege(array());
-    	 
-    	//院名数组
-    	$collegeName=array("农院","生院","动科","动医","食院","资环","信电","工学院","水利","理学院","经管","人发","国院","烟院","思政","体艺","继续教育");
-    	//各院人数数组
-    	$this->load->model('m_nstudent');
-    	for($i=0;$i<count($college);$i++){
-    		$stuNum[$i] = $this->m_nstudent->getNumALL(array('college'=>$college[$i]->college));
-    		//太长不方便缩写
-    		//$collegeName[$i] = $college[$i]->college;
-    	}
-    	 
-    	$arr = array( 'collegeName'=>$collegeName,
-    			'stuNum'=>$stuNum
-    	);
-    	echo json_encode($arr);
+    	return $data;
     }
     
     

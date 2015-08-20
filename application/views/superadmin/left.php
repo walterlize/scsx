@@ -21,13 +21,18 @@
                     <div style="display:none" class=menu_body >   
                         <a href="<?= base_url(); ?>index.php/superadmin/term/termNow" target="content1">设置当前学期</a>
                     </div>
-               		 <p class="menu_head">实习新闻</p>
+               		 <p class="menu_head">实习资讯</p>
                     <div style="display:none" class=menu_body >
-                        <a href="<?= base_url(); ?>index.php/superadmin/news/newsList" target="content1">实习新闻</a>
-                        <a href="<?= base_url(); ?>index.php/superadmin/news/noticeList" target="content1">通知公告</a> 
+                        
+                        
                         <a href="<?= base_url(); ?>index.php/superadmin/news/ruleList" target="content1">实习规定</a>
+                        <a href="<?= base_url(); ?>index.php/superadmin/news/newsList" target="content1">实习新闻</a>
+                        <a href="<?= base_url(); ?>index.php/superadmin/news/noticeList" target="content1">实习公告</a> 
+                        <a href="<?= base_url(); ?>index.php/superadmin/imgnews/imgList" target="content1">实习风采</a>
+                        <!--  
                         <a href="<?= base_url(); ?>index.php/superadmin/news/sumList" target="content1">实习总结</a>  
-                        <a href="<?= base_url(); ?>index.php/superadmin/imgnews/imgList" target="content1">实习风采</a>        
+                                
+                        -->
                     </div>
                     <!--  
                     <p class="menu_head">信息管理</p>
@@ -38,9 +43,12 @@
                     -->
                     <p class="menu_head">统计分析</p>
                     <div style="display:none" class=menu_body >
+                    <!--  
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList1" target="content1">学院学生人数统计</a>
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList2" target="content1">学院教师人数统计</a>
+                    -->
                         <a href="<?= base_url(); ?>index.php/superadmin/sum/sumList3" target="content1">学院基地数目统计</a>
+                    
                     </div>
                     <p class="menu_head">管理员管理</p>
 		    		<div  style="display:none" class="menu_body">

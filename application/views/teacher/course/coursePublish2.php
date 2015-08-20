@@ -31,6 +31,11 @@
         <tr>
             <td class="td1" colspan="2">
             <span style="color: red">课程为集中式，请至少设置一个实习基地</span>
+            <span style="color: blue">
+            <a href="<?=base_url()?>index.php/teacher/course/changeMode/<?=$coursep->cour_id?>">
+            [修改模式]
+            </a>
+            </span>
             </td>
         </tr>
         

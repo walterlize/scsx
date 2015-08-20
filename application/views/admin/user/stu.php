@@ -36,7 +36,7 @@ padding-left: 10px;
                     
             		<td class="line2" >系别</td>
             		<td class="line2" >班级</td>
-            		<td class="line2" >密码</td>
+            		
                 </tr>
                 
                  <?php if (is_array($stu)) foreach ($stu as $r): ?>
@@ -47,7 +47,7 @@ padding-left: 10px;
                     <td class="line2" ><?= $r['stu_name'] ?></td>
                     <td class="line2" ><?= $r['stu_major'] ?></td>
                     <td class="line2" ><?= $r['stu_class'] ?></td>
-                    <td class="line2" ><?= $r['stu_password'] ?></td>
+                    
                     
                 </tr>
                 <?php endforeach; ?>

@@ -48,13 +48,18 @@
         </tr>
         <tr>
             <td class="td1" colspan="2">
-            <span style="color: red">课程为分散式，可直接发布或添加基地</span>
+            <span style="color: red">课程为分散式，可直接发布或添加基地</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color: blue">
+            <a href="<?=base_url()?>index.php/teacher/course/changeMode/<?=$coursep->cour_id?>">
+            [修改模式]
+            </a>
+            </span>
             </td>
         </tr>
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            <input type="button" name="btnReturn" value="添加基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
+            	<input type="button" name="btnReturn" value="添加基地" onclick="window.location.href='<?= base_url() ?>index.php/teacher/company/companyList/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
             <?php if($coursep->cour_publish==0){?>
             	<input type="button" name="btnReturn" value="发布课程" onclick="window.location.href='<?= base_url() ?>index.php/teacher/course/coursePublish1/<?=$coursep->cour_id?>';" id="btnReturn" class="input" />
             <?php }?>   

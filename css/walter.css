@@ -17,6 +17,8 @@
     margin-top: 0px;
     font-size: 14px;
     border:1px solid #3a6ea5;
+    WORD-BREAK: break-all;
+    word-wrap:break-all;
 }
 .tablist .td0
 {

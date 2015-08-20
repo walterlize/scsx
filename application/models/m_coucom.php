@@ -94,6 +94,11 @@ class m_coucom extends CI_Model {
     	$this->db->delete('coucom');
     }
     
+    function deleteCoucomByArr($array) {
+    	$this->db->where($array);
+    	$this->db->delete('coucom');
+    }
+    
     //分页查询
     function getCoucoms_ws($array, $per_page, $offset) {
     	$this->db->select();
@@ -125,6 +130,16 @@ class m_coucom extends CI_Model {
     	$q = $this->db->get();
     	return $q->result();
     }
+    
+    function countCompanyByCol($college){
+    	$query = "SELECT cour_id, cour_no,cour_num,cour_term,cour_name, comp_add_type , count(*) AS c_comp FROM ws_coucom WHERE comp_coll_name = '".$college."' GROUP BY cour_no,cour_num,cour_term,cour_name, comp_add_type  ORDER BY cour_term DESC,cour_no ASC,cour_num ASC,cour_name ASC,comp_add_type ASC";
+    	$q = $this->db->query($query);
+    	 
+    	return $q->result();
+    	 
+    }
+    
+    
     
 
 }

@@ -120,7 +120,7 @@ public function courseList() {
     		$arr = array(
     				'stu_num'=>$r->XH,
     				'stu_name' => $r->XM,
-    				'stu_class' => $r->ZXJXJHH,
+    				'stu_class' => $r->BM,
     				
     		);
     		array_push($data, $arr);

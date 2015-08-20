@@ -28,7 +28,11 @@ padding-left: 10px;
                 
                 <?php if (is_array($comp)) foreach ($comp as $key=>$val): ?>
                 <tr class="tablecontent">
-               		<td class="line2"  ><?=$key?></td>
+               		<td class="line2"  >
+               		<a href="<?=base_url()?>index.php/superadmin/countcomp/college/<?=$key?>">
+               		<?=$key?>
+               		</a>
+               		</td>
                 	
                 	<td class="line2"  ><?=$val[0]?></td>
                 	<td class="line2"  ><?=$val[1]?></td>

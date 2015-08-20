@@ -1,3 +1,4 @@
+
 <div style="margin-left:20px; margin-right:20px;">
     <br />
     <h3 class="lz_title">填写实习总结信息</h3>
@@ -44,18 +45,26 @@
             <td class="td1" style="width: 111px">实习总结审核状态</td>
             <td class="td2" >
             <?php 
+          	  	if($summary->summ_appr_id == 4) echo "待提交";
             	if($summary->summ_appr_id == 5) echo "待审核";
-            	else echo "已审核";
+            	if($summary->summ_appr_id == 6) echo "审核成功";
+            	if($summary->summ_appr_id == 7) echo "审核失败";
+            	
             ?>&nbsp;
             </td>
         </tr>  
         
         <tr>
             <td colspan="2" class="td3" align="center">
-            <?php if($summary->summ_appr_id == 5){?>
-                <input type="button" name="btnReturn" value="修 改" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryEdit/<?= $summary->summ_id ?>';" id="btnReturn" class="input" />
-            
-            <input type="button" name="btnDelete" value="删 除" onclick="deleteInfo('<?= base_url() ?>index.php/student/summary/summaryDelete/<?= $summary->summ_id ?>')" id="btnDelete" class="input" />
+            <?php if($summary->summ_appr_id == 4){?>
+	            <input type="button" name="btnReturn" value="修 改" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryEdit/<?= $summary->summ_id ?>';" id="btnReturn" class="input" />
+	            
+	            <input type="button" name="btnDelete" value="删 除" onclick="deleteInfo('<?= base_url() ?>index.php/student/summary/summaryDelete/<?= $summary->summ_id ?>')" id="btnDelete" class="input" />
+	            <input type="button" name="btnReturn" value="提 交" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/updateState/<?= $summary->summ_id ?>';" id="btnReturn" class="input" />
+            <?php }?>
+            <?php if($summary->summ_appr_id == 7){?>
+	            <input type="button" name="btnReturn" value="修 改" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryEdit/<?= $summary->summ_id ?>';" id="btnReturn" class="input" />
+	            
             <?php }?>
                 <input type="button" name="btnReturn" value="返 回" onclick="window.location.href='<?= base_url() ?>index.php/student/summary/summaryList';" id="btnReturn" class="input" />      
             </td>

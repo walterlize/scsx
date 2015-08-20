@@ -15,11 +15,11 @@ class Admin extends CI_Controller {
 
         public function adminList(){
             $this->timeOut();
-       
-            $num = $this->m_admin->getNum(array());
+            $array = array('admin_roleId'=>2);
+            $num = $this->m_admin->getNum($array);
             $offset = $this->uri->segment(4);
 
-            $data['admin'] = $this->getAdmins($offset);
+            $data['admin'] = $this->getAdmins($array,$offset);
             $config['base_url'] = base_url().'index.php/superadmin/admin/adminList';
             $config['total_rows'] = $num;
             $config['uri_segment'] = 4;
@@ -126,11 +126,11 @@ class Admin extends CI_Controller {
         
 
         // 分页获取全部课题信息
-        public function getAdmins($offset){
+        public function getAdmins($array,$offset){
             $this->timeOut();
            
             $data = array();
-            $result = $this->m_admin->getAdmins($data, PER_PAGE, $offset);
+            $result = $this->m_admin->getAdmins($array, PER_PAGE, $offset);
 
             foreach ($result as $r){
                 $arr = array('admin_id' => $r->admin_id, 

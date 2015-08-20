@@ -42,7 +42,9 @@
             <font color="red" size="4px" >
             <?php 
             	if($summary->summ_appr_id == 5) echo "待审核";
-            	else echo "已审核";
+            	if($summary->summ_appr_id == 6) echo "审核成功";
+            	if($summary->summ_appr_id == 7) echo "审核失败";
+            	
             ?>&nbsp;
             </font>
             </td>

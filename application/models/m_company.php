@@ -162,6 +162,28 @@ class m_company extends CI_Model {
     	
     }
     
+    function getCompstu($array) {
+    	$this->db->select();
+    	$this->db->from('ws_stucomp');
+    	$this->db->where($array);
+    	$q = $this->db->get();
+    	return $q->result();
+    }
+    
+    function getCompstus($array, $per_page, $offset) {
+    	$this->db->select();
+    	$this->db->where($array);
+    	$q = $this->db->get('ws_stucomp', $per_page, $offset);
+    	return $q->result();
+    }
+    
+    
+    function getstuNum($array) {
+    	$this->db->select();
+    	$this->db->from('ws_stucomp');
+    	$this->db->where($array);
+    	return $this->db->count_all_results();
+    }
     
 
 }

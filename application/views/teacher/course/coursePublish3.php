@@ -48,6 +48,11 @@
         <tr>
             <td class="td1" colspan="2">
             <span style="color: red">课程为分配式，请为课程设置基地并为选课学生分配基地</span>
+            <span style="color: blue">
+            <a href="<?=base_url()?>index.php/teacher/course/changeMode/<?=$coursep->cour_id?>">
+            [修改模式]
+            </a>
+            </span>
             </td>
         </tr>
         

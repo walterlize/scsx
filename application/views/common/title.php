@@ -51,7 +51,7 @@
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
                     <div style="width:107px;"><a href="<?= base_url() ?>index.php/front/news/ruleList">实习规定</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
-                    <div style="width:108px;"><a href="<?= base_url() ?>index.php/front/news/sumList">实习总结</a></div>
+                    <div style="width:108px;"><a href="<?= base_url() ?>index.php/front/report/reportList">实习总结</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>
                     <div style="width:108px;"><a href="<?= base_url() ?>index.php/front/imgnews/imgList">实习风采</a></div>
                     <div class="bannerline"><img src="<?= base_url() ?>images0/banner3.png" /></div>

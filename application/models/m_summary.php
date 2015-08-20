@@ -78,8 +78,10 @@ class m_summary extends CI_Model {
     function getSummarys_ws($array, $per_page, $offset) {
     	$this->db->select();
     	$this->db->where($array);
+    	$this->db->order_by("summ_appr_id", "asc");
     	$this->db->order_by("cour_no", "asc");
     	$this->db->order_by("cour_num", "asc");
+    	
     	$q = $this->db->get('ws_summary', $per_page, $offset);
     	return $q->result();
     }

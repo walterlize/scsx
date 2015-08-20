@@ -20,7 +20,7 @@ padding-left: 10px;
             		
                 	<td class="line2"  >用户名</td>
                 	<td class="line2"  >姓名</td>
-                	<td class="line2"  >密码</th>
+                	
                 	<td class="line2"  >权限</th>
                 	<td class="line2"  >操作</td>
                 </tr>
@@ -30,8 +30,8 @@ padding-left: 10px;
                		 
                 	<td class="line2" ><?= $r['admin_num'] ?></td>
                 	<td class="line2"><?= $r['admin_name'] ?></td>
-                	<td class="line2"><?= $r['admin_password']?></td>
-                	<td class="line2"><?= $r['admin_roleId']?></td>
+                	
+                	<td class="line2"><?php if($r['admin_roleId']==1)echo "校级管理员";if($r['admin_roleId']==2)echo "院级管理员";?></td>
 
                 	<td class="line2">
                 		<a id="" href="<?= base_url() ?>index.php/superadmin/admin/adminDetail/<?= $r['admin_id'] ?>">详细</a>

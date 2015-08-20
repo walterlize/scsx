@@ -12,10 +12,7 @@
             <td class="td2" ><?= $tea->JSM ?>&nbsp;</td>
         </tr>
         
-        <tr>
-            <td class="td1" style="width: 111px">教师职称</td>
-            <td class="td2" ><?= $tea->ZCSM ?>&nbsp;</td>
-        </tr>
+       
         <tr>
             <td class="td1" style="width: 111px">学院</td>
             <td class="td2" ><?= $tea->XSM ?>&nbsp;</td>

@@ -16,10 +16,12 @@
                 </div>
                 <div class="fengeline"><img src="<?= base_url(); ?>images/backstage2.png" /></div>
                 <div id="firstpane" class="menu_list">
+                	<!--  
                 	<p class="menu_head current">查看实习课程</p>
                 	<div style="display:block" class=menu_body >            
                         <a href="<?= base_url(); ?>index.php/student/variable/variableList" target="content1">查看实习课程</a>              
                     </div>
+                    -->
                     <p class="menu_head">实习报名管理</p>
                     <div style="display:none" class=menu_body >            
                         <a href="<?= base_url(); ?>index.php/student/variablebm/variableList" target="content1" title="报名参加实习">实习报名</a>
@@ -46,10 +48,16 @@
                     <p class="menu_head">实习管理</p>
                     <div style="display:none" class=menu_body >   
                         <a href="<?= base_url(); ?>index.php/student/summary/summaryList" target="content1">填写实习总结</a>
+                        <!--  
                         <a href="<?= base_url(); ?>index.php/student/summarysub/summarysubList" target="content1">实习总结状态</a>
-                        <a href="<?= base_url(); ?>index.php/student/scoreteac/scoreList" target="content1">查看评价</a>                    
+                        -->
+                        <a href="<?= base_url(); ?>index.php/student/scoreteac/scoreList" target="content1">查看实习评价</a>                    
                     </div>
-                    <p class="menu_head">互动管理</p>
+                    <p class="menu_head">实习汇报</p>
+                    <div style="display:none" class=menu_body >   
+                        <a href="<?= base_url(); ?>index.php/student/report/reportList" target="content1">实习汇报</a>
+                    </div>
+                    <p class="menu_head">师生互动</p>
                     <div style="display:none" class=menu_body >                  
                         <a href="<?= base_url(); ?>index.php/student/luntan/luntanList" target="content1">发帖提问</a>
                         <a href="<?= base_url(); ?>index.php/student/luntan/cluntanList" target="content1">查看回帖</a>                    

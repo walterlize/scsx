@@ -150,6 +150,8 @@ class Summary extends CI_Controller {
         $summ_id = $this->uri->segment(4);
         $summary = $this->getSummaryById($summ_id);
         $summary->summ_time = date('Y-m-d H:m:s');
+        $summary->summ_appr_id = 4;
+        $summary->summ_result = "";
         $mission = $this->getMissionById($summary->summ_miss_id);
 
         $data['summary'] = $summary;
@@ -174,7 +176,7 @@ class Summary extends CI_Controller {
         $summary->summ_content = '';
         $summary->summ_time = date("Y-m-d H:m:s");
         
-        $summary->summ_appr_id = 5;
+        $summary->summ_appr_id = 4;
         $summary->summ_appr_time = '0000-00-00';
         $summary->summ_result = '';
 
@@ -215,6 +217,24 @@ class Summary extends CI_Controller {
         $this->load->view('common/header3');
         $this->load->view('student/summary/summaryDetaily', $data);
         $this->load->view('common/footer');
+    }
+    
+    public function updateState(){
+    	$this->timeOut();
+    	$summ_id = $this->uri->segment(4);
+    	$array = array('summ_appr_id'=>5);
+    	$this->load->model('m_summary');
+    	$this->m_summary->updateSummary($summ_id, $array);
+    	
+    	$summary = $this->getSummaryById($summ_id);
+    	$miss_id = $summary->summ_miss_id;
+    	$mission = $this->getMissionById($miss_id);
+    	$data['summary']=$summary;
+    	$data['mission']=$mission;
+    	$this->load->view('common/header3');
+    	$this->load->view('student/summary/summaryDetaily', $data);
+    	$this->load->view('common/footer');
+    	
     }
 
     /*
