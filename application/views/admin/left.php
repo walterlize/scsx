@@ -30,7 +30,12 @@
                     <p class="menu_head">实习汇报审核</p>
                     <div style="display:none" class=menu_body >                       
                         <a href="<?= base_url(); ?>index.php/admin/report/reportList" target="content1">实习汇报审核</a>
-                    </div>   
+                    </div>
+                    <p class="menu_head">实习预算审核</p>
+                    <div style="display:none" class=menu_body >
+                        <a href="<?= base_url(); ?>index.php/admin/yusuan/yusuanList" target="content1">实习预算审核</a>
+                    </div>
+                       
                     <p class="menu_head">用户信息</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/admin/user/stuList" target="content1">学生信息查看</a>

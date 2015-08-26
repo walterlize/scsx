@@ -61,10 +61,15 @@
                         <a href="<?= base_url(); ?>index.php/teacher/luntan/luntanList" target="content1">回复学生发帖</a>
                         <a href="<?= base_url(); ?>index.php/teacher/luntan/cluntanList" target="content1">查看已回贴</a>
                     </div>
+                    <p class="menu_head">实习预算</p>
+                    <div style="display:none" class=menu_body >
+                        <a href="<?= base_url(); ?>index.php/teacher/yusuan/yusuanList" target="content1">实习预算</a>
+                    </div>
                     <p class="menu_head">个人信息</p>
                     <div style="display:none" class=menu_body >
                         <a href="<?= base_url(); ?>index.php/teacher/teacher/teacherDetail" target="content1">个人信息查看</a>
                     </div>
+                    
                 </div>        
             </div>
         </div>

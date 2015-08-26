@@ -34,6 +34,11 @@
                                 
                         -->
                     </div>
+                    <p class="menu_head current">实习预算审核</p>
+                    <div style="display:none" class=menu_body >   
+                        <a href="<?= base_url(); ?>index.php/superadmin/yusuan/yusuanList" target="content1">实习预算审核</a>
+                    </div>
+                    
                     <!--  
                     <p class="menu_head">信息管理</p>
                     <div style="display:none" class=menu_body >
