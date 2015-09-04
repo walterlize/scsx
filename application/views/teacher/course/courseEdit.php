@@ -28,9 +28,9 @@
 	            <td class="td2" ><?= $course->KCH ?>&nbsp;</td>
 	            <td class="td2" style="width: 420px;" rowspan="8">
 	            	课程模式说明：<br><br>
-	            	分散式：学生可自行寻找实习基地；<br><br>
-	            	集中式：教师提供实习基地供学生选择，学生可选择多个基地；<br><br>
-	            	分配式：教师指派学生至指定的实习基地。<br>
+	            	分散式：学生可自行寻找实习基地，或选择教师提供的基地；<br><br>
+	            	集中式：教师指派学生至指定的实习基地；<br><br>
+	            	<br>
 	            </td>
 	        </tr>  
 	        <tr>
@@ -58,8 +58,7 @@
 	            <td class="td2" >
 	            	<select name="cour_pattern_id">
 	            		<option value="1" >分散式</option>
-	            		<option value="2" >集中式</option>
-	            		<option value="3" >分配式</option>
+	            		<option value="3" >集中式</option>
 	            	</select>
 
 	            </td>

@@ -20,7 +20,9 @@ padding-left: 10px;
             		
                 	<td class="line2"  >标题</td>
                 	<td class="line2"  >发布时间</td>
+                	<!--  
                 	<td class="line2"  >审核状态</th>
+                	-->
                 	<td class="line2"  >操作</td>
                 </tr>
                 
@@ -29,8 +31,9 @@ padding-left: 10px;
                		 
                 	<td class="line1" ><?= $r['news_title'] ?></td>
                 	<td class="line2"><?= $r['news_time'] ?></td>
+                	<!--  
                 	<td class="line2"><?= $r['usta_type']?></td>
-
+					-->
                 	<td class="line2">
                 		<a id="" href="<?= base_url() ?>index.php/admin/imgnews/imgDetail/<?= $r['news_id'] ?>">详细</a>
                 	</td>

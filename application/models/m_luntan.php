@@ -11,9 +11,11 @@ class m_luntan extends CI_Model {
     var $reply = '';
     var $typeId = '';
     var $theme = '';
+    var $college = '';
 
     function getLuntans1($array, $per_page, $offset) {
         $this->db->select();
+        $this->db->where($array);
         $this->db->where('teaId', 0);
         $this->db->order_by("l_id", "desc");
         $q = $this->db->get('ws_luntan_type', $per_page, $offset);

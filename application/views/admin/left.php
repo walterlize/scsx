@@ -19,10 +19,11 @@
                 	
                 <p class="menu_head">实习资讯</p>
                     <div style="display:none" class=menu_body >
-                        <a href="<?= base_url(); ?>index.php/admin/news/newsList" target="content1">实习新闻</a>
+                        
                         <a href="<?= base_url(); ?>index.php/admin/news/noticeList" target="content1">通知公告</a> 
                         <a href="<?= base_url(); ?>index.php/admin/news/ruleList" target="content1">实习规定</a>
                         <!--  
+                        <a href="<?= base_url(); ?>index.php/admin/news/newsList" target="content1">实习新闻</a>
                         <a href="<?= base_url(); ?>index.php/admin/news/sumList" target="content1">实习总结</a>  
                         -->
                         <a href="<?= base_url(); ?>index.php/admin/imgnews/imgList" target="content1">实习风采</a>        

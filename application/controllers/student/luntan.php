@@ -21,10 +21,13 @@ class Luntan extends CI_Controller {
         //print_r($this->session->all_userdata());
 
         $this->load->model('m_sluntan');
-        $num = $this->m_sluntan->getNum1(array());
+        $college = $this->session->userdata('college');
+        $array = array('college'=>$college);
+        
+        $num = $this->m_sluntan->getNum1($array);
         $offset = $this->uri->segment(4);
 
-        $data['luntan'] = $this->getLuntans($offset);
+        $data['luntan'] = $this->getLuntans($array,$offset);
         $config['base_url'] = base_url() . 'index.php/student/luntan/luntanList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -35,7 +38,7 @@ class Luntan extends CI_Controller {
         $this->load->view('student/luntan/luntan', $data);
         $this->load->view('common/footer');
     }
-
+   
     public function cluntanList() {
         $this->load->model('m_sluntan');
         $num = $this->m_sluntan->getNum1(array());
@@ -161,11 +164,11 @@ class Luntan extends CI_Controller {
         return $data;
     }
     // 分页获取全部实验任务信息
-    public function getLuntans($offset) {
+    public function getLuntans($array,$offset) {
         $this->timeOut();
         $this->load->model('m_sluntan');
         $data = array();
-        $result = $this->m_sluntan->getLuntans($data, PER_PAGE, $offset);
+        $result = $this->m_sluntan->getLuntans($array, PER_PAGE, $offset);
 
         foreach ($result as $r) {
             $arr = array('l_id' => $r->l_id, 

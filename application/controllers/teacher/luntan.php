@@ -19,10 +19,12 @@ class Luntan extends CI_Controller {
         $this->timeOut();
         
         $this->load->model('m_tluntan');
-        $num = $this->m_tluntan->getNum1(array());
+        $college = $this->session->userdata('college');
+        $array = array('college'=>$college);
+        $num = $this->m_tluntan->getNum1($array);
         $offset = $this->uri->segment(4);
 
-        $data['luntan'] = $this->getLuntans($offset);
+        $data['luntan'] = $this->getLuntans($array,$offset);
         $config['base_url'] = base_url() . 'index.php/teacher/luntan/luntanList';
         $config['total_rows'] = $num;
         $config['uri_segment'] = 4;
@@ -38,7 +40,8 @@ class Luntan extends CI_Controller {
     public function cluntanList() {
         $this->load->model('m_tluntan');
         $tea_num = $this->session->userdata("u_num");
-        $array = array('teaId' =>$tea_num);
+        $college = $this->session->userdata('college');
+        $array = array('teaId' =>$tea_num,'college'=>$college);
         $num = $this->m_tluntan->getNum2($array);
         $offset = $this->uri->segment(4);
 
@@ -149,11 +152,11 @@ class Luntan extends CI_Controller {
     }
 
     // 分页获取全部实验任务信息
-    public function getLuntans($offset) {
+    public function getLuntans($array,$offset) {
         $this->timeOut();
         $this->load->model('m_tluntan');
         $data = array();
-        $result = $this->m_tluntan->getLuntans($data, PER_PAGE, $offset);
+        $result = $this->m_tluntan->getLuntans($array, PER_PAGE, $offset);
 
         foreach ($result as $r) {
             $arr = array('l_id' => $r->l_id, 'stuId' => $r->stuId, 'time1' => $r->time1,

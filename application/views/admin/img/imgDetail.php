@@ -44,12 +44,14 @@ padding-left: 10px;
                     <?= $news->news_content ?>&nbsp;               
                     </td>
             </tr>
+            <!-- 
             <tr>
                 <td class="tabletitle" style="padding-left: 15px; width: 160px">状态</td>
                 <td class="tablecontent" style="padding-left: 15px" >
                     <?=$news->usta_type?>&nbsp;               
                     </td>
             </tr>
+            -->
             <tr>
                 <td colspan="2" class="td3" align="center" style="text-align: center;">
                 <input type="button" name="btnEdit" value="编 辑" onclick="window.location.href='<?= base_url() ?>index.php/admin/imgnews/imgEdit/<?= $news->news_id ?>';" id="btnEdit" class="input" />

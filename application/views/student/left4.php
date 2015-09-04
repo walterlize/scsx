@@ -53,9 +53,9 @@
                         -->
                         <a href="<?= base_url(); ?>index.php/student/scoreteac/scoreList" target="content1">查看实习评价</a>                    
                     </div>
-                    <p class="menu_head">实习汇报</p>
+                    <p class="menu_head">实习汇报提交</p>
                     <div style="display:none" class=menu_body >   
-                        <a href="<?= base_url(); ?>index.php/student/report/reportList" target="content1">实习汇报</a>
+                        <a href="<?= base_url(); ?>index.php/student/report/reportList" target="content1">实习汇报提交</a>
                     </div>
                     <p class="menu_head">师生互动</p>
                     <div style="display:none" class=menu_body >                  

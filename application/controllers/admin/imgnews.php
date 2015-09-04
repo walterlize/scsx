@@ -52,7 +52,7 @@ class Imgnews extends CI_Controller {
 		$news->news_auther = $this->session->userdata("realname");
 		$news->news_auditer_id = '';
 		$news->news_auditer='';
-		$news->news_audit = 5;
+		$news->news_audit = 6;
 		$news->news_audit_date ='';
 		$news->news_type_id=5;
 		$news->news_college = $this->session->userdata("college");

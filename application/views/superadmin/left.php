@@ -26,7 +26,7 @@
                         
                         
                         <a href="<?= base_url(); ?>index.php/superadmin/news/ruleList" target="content1">实习规定</a>
-                        <a href="<?= base_url(); ?>index.php/superadmin/news/newsList" target="content1">实习新闻</a>
+                        <!--<a href="<?= base_url(); ?>index.php/superadmin/news/newsList" target="content1">实习新闻</a>-->
                         <a href="<?= base_url(); ?>index.php/superadmin/news/noticeList" target="content1">实习公告</a> 
                         <a href="<?= base_url(); ?>index.php/superadmin/imgnews/imgList" target="content1">实习风采</a>
                         <!--  

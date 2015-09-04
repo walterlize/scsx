@@ -13,6 +13,7 @@ class m_tluntan extends CI_Model {
     var $reply = '';
     var $typeId = '';
     var $theme = '';
+    var $college = '';
 
     function saveInfo() {
         $this->l_id = $this->input->post('l_id');
@@ -28,6 +29,7 @@ class m_tluntan extends CI_Model {
         $this->reply = $this->input->post('reply');
         $this->typeId = $this->input->post('typeId');
         $this->theme = $this->input->post('theme');
+        $this->college = $this->session->userdata('college');
 
         $id = $this->l_id;
         if ($id == 0) {
@@ -49,6 +51,7 @@ class m_tluntan extends CI_Model {
 
     function getLuntans($array, $per_page, $offset) {
         $this->db->select();
+        $this->db->where($array);
         $this->db->where('teaId', 0);
         $this->db->order_by("l_id", "asc");
         $q = $this->db->get('ws_luntan_type', $per_page, $offset);
