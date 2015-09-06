@@ -29,7 +29,7 @@ class Report extends CI_Controller {
         $data['num']=$num;
 
     	$data['news'] = $news;
-    	$data['title'] = "实习汇报";
+    	$data['title'] = "优秀实习汇报";
     	$data['type']='1';
     	$this->load->view('common/title');
         $this->load->view('front/news/report', $data);
@@ -46,7 +46,7 @@ class Report extends CI_Controller {
 		$news = $this->getReportById($repo_id);
 		
 		
-		$data['title']="实习汇报";
+		$data['title']="优秀实习汇报";
 		$data["news"]=$news;
 		
 		$this->load->view('common/title');

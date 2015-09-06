@@ -9,7 +9,7 @@
 	        <input type="button" name="btnDelete" value="新 增" onclick="window.location.href='<?= base_url() ?>index.php/superadmin/term/termNew';" id="btnDelete" class="input" />
         </div>
         
-        	<table width="698px" cellpadding="0" cellspacing="0">
+        	<table width="99%" cellpadding="0" cellspacing="0">
             	<tr class="tabletitle">
                 	<td class="line1"  style="padding-left: 10px">学期名</td>
                 	<td style=" padding-left: 10px; text-align: center;">操作</td>

@@ -6,9 +6,9 @@
         	<form name="form1" method="post" action="<?= base_url() ?>index.php/superadmin/term/termSet" id="form1">
             <input type="hidden" value="<?= $term->id ?>" name="id" id="id" />
         	
-        	<table width="698px" cellpadding="0" cellspacing="0">
+        	<table width="99%" cellpadding="0" cellspacing="0">
         		<tr>
-                <td class="tabletitle" style="padding-left: 15px; width: 160px">新增学期</td>
+                <td class="tabletitle" style="padding-left: 15px; width: 30%">新增学期</td>
                 <td class="tablecontent" style="padding-left: 15px" >
                 <input type="text" value="" name="y1" />&nbsp;-&nbsp;
                 <input type="text" value="" name="y2" />&nbsp;学年夏（三学期）

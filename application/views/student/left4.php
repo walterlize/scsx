@@ -11,7 +11,7 @@
         <div class="enterbox">
             <div class="enterleft">
                 <div class="welcomebox">
-                    <div class="photo"><img src="<?= base_url(); ?>images/backstage1.png" /></div>
+                    <div class="photo"><img src="<?= base_url(); ?>images/pic2.png" style="width: 60px; height: 60px;" /></div>
                     <div class="welcome"><p style="color:#052e00;"><?= $id ?></p><p style="color:#052e00;"><?= $name ?></p><p style="color:#052e00;">学生</p><P style="color:#2e333f; margin-left:0px;">欢迎你</P></div>     
                 </div>
                 <div class="fengeline"><img src="<?= base_url(); ?>images/backstage2.png" /></div>
@@ -22,8 +22,8 @@
                         <a href="<?= base_url(); ?>index.php/student/variable/variableList" target="content1">查看实习课程</a>              
                     </div>
                     -->
-                    <p class="menu_head">实习报名管理</p>
-                    <div style="display:none" class=menu_body >            
+                    <p class="menu_head current">实习报名管理</p>
+                    <div style="display:block;" class=menu_body >            
                         <a href="<?= base_url(); ?>index.php/student/variablebm/variableList" target="content1" title="报名参加实习">实习报名</a>
                         <a href="<?= base_url(); ?>index.php/student/chakan/chakanList" target="content1">报名查看</a>              
                     </div>

@@ -1,6 +1,11 @@
-<div style="margin-left:20px; margin-right:20px">
-    <br />
-    <h3 class="lz_title">实习预算明细</h3>
+<link href="<?= base_url(); ?>css/css1.css" type="text/css" rel="stylesheet" />
+
+<div class="enterright" style="background-color: #F8F8F8">
+    	<div class="enterrighttitle">
+    		<p style="float: left;">实习预算明细</p>
+    		
+    	</div>
+    	<br><br>
         <form name="form1" method="post" action="<?= base_url() ?>index.php/admin/yusuan/update" id="form1">
         <input type="hidden" value="<?= $yusuan->ys_id ?>" name="ys_id" id="ys_id" />
         <table cellpadding="0" cellspacing="1" class="tablist2"> 

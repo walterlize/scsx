@@ -46,7 +46,7 @@ class News extends CI_Controller {
 		$news = $this->getNews($array,$offset);
 		 
 		 
-		$config['base_url'] = base_url() . 'index.php/front/news/newsList';
+		$config['base_url'] = base_url() . 'index.php/front/news/noticeList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);
@@ -56,6 +56,7 @@ class News extends CI_Controller {
 		$data['news'] = $news;
 		$data['title'] = "通知公告";
 		$data['type']='2';
+		
 		$this->load->view('common/title');
         $this->load->view('front/news/news', $data);
         $this->load->view('common/foot');
@@ -71,7 +72,7 @@ class News extends CI_Controller {
 		$news = $this->getNews($array,$offset);
 		 
 		 
-		$config['base_url'] = base_url() . 'index.php/front/news/newsList';
+		$config['base_url'] = base_url() . 'index.php/front/news/ruleList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);
@@ -96,7 +97,7 @@ class News extends CI_Controller {
 		$news = $this->getNews($array,$offset);
 		 
 		 
-		$config['base_url'] = base_url() . 'index.php/front/news/newsList';
+		$config['base_url'] = base_url() . 'index.php/front/news/sumList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
 		$this->pagination->initialize($config);

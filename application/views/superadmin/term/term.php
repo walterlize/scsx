@@ -8,10 +8,10 @@
         <div class="enterrightlist" style="margin-top: 10px;">
         
         
-        	<table width="698px" cellpadding="0" cellspacing="0">
+        	<table width="99%" cellpadding="0" cellspacing="0">
             	<tr class="tabletitle">
                 	<td class="line1"  style="padding-left: 10px">当前学期</td>
-                	<td style="width: 40px; padding-left: 10px;">操作</td>
+                	<td style="width: 30%; padding-left: 10px;">操作</td>
                 </tr>
                 <?php if ($nowterm) ?>
                 <tr class="tablecontent">

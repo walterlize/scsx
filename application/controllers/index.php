@@ -26,13 +26,14 @@ class Index extends CI_Controller {
         $data['news'] = array();
         $data['notice'] = array();
         $data['guiding'] = array();
-        $data['summary'] = array();
+        $data['report'] = array();
         
         $data['news'] = $this->getNews();
         $data['notice'] = $this->getNotice();
         $data['guiding'] = $this->getRule();       
-        $data['summary'] = $this->getSum();
+        $data['report'] = $this->getRep();
         $data['img'] = $this->getImg();
+        $data['img1'] = $this->getImg1();
         if($data['role']==1){
             $data['role_name']='学校管理员';
         }elseif($data['role']==2){
@@ -72,7 +73,7 @@ class Index extends CI_Controller {
     public function getNotice() {
        $array = array("news_audit"=>"6","news_type_id"=>2);
         $this->load->model('m_news');
-        $data = $this->m_news->getNewss($array, 5, 0);
+        $data = $this->m_news->getNewss($array, 6, 0);
         return $data;
     }
     public function getRule() {
@@ -81,17 +82,23 @@ class Index extends CI_Controller {
         $data = $this->m_news->getNewss($array, 5, 0);
         return $data;
     }
-    public function getSum() {
-        $array = array("news_audit"=>"6","news_type_id"=>4);
-        $this->load->model('m_news');
-        $data = $this->m_news->getNewss($array, 5, 0);
+    public function getRep() {
+        $array = array("repo_audit2"=>6);
+        $this->load->model('m_report');
+        $data = $this->m_report->getReports($array, 5, 0);
         return $data;
     }
     public function getImg() {
     	$array = array("news_audit"=>"6","news_type_id"=>5);
         $this->load->model('m_news');
-        $data = $this->m_news->getNewss($array, 5, 0);
+        $data = $this->m_news->getNewss($array, 4, 3);
         return $data;
+    }
+    public function getImg1() {
+    	$array = array("news_audit"=>"6","news_type_id"=>5);
+    	$this->load->model('m_news');
+    	$data = $this->m_news->getNewss($array, 3, 0);
+    	return $data;
     }
 
     public function instruction() {
@@ -108,7 +115,8 @@ class Index extends CI_Controller {
         }
     }
     public function contact() {
-        $this->load->view('common/title');
+    	$data['title']="联系我们";
+        $this->load->view('common/title',$data);
         $this->load->view('common/contact');
         $this->load->view('common/foot');
     }

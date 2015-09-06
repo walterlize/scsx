@@ -10,7 +10,7 @@
         <div class="enterbox">
             <div class="enterleft">
                 <div class="welcomebox">
-                    <div class="photo"><img src="<?= base_url(); ?>images/backstage1.png" /></div>
+                    <div class="photo"><img src="<?= base_url(); ?>images/pic3.png" style="width: 60px; height: 60px;"/></div>
                     <div class="welcome"><p style="color:#052e00;"><?= $name ?></p><p style="color:#052e00;">超级管理员</p><P style="color:#2e333f; margin-left:0px;">欢迎你</P></div>     
                 </div>
                 <div class="fengeline"><img src="<?= base_url(); ?>images/backstage2.png" /></div>
@@ -18,7 +18,7 @@
 
                 <div id="firstpane" class="menu_list">
                 <p class="menu_head current">学期管理</p>
-                    <div style="display:none" class=menu_body >   
+                    <div style="display:block" class=menu_body >   
                         <a href="<?= base_url(); ?>index.php/superadmin/term/termNow" target="content1">设置当前学期</a>
                     </div>
                		 <p class="menu_head">实习资讯</p>
@@ -34,7 +34,7 @@
                                 
                         -->
                     </div>
-                    <p class="menu_head current">实习预算审核</p>
+                    <p class="menu_head">实习预算审核</p>
                     <div style="display:none" class=menu_body >   
                         <a href="<?= base_url(); ?>index.php/superadmin/yusuan/yusuanList" target="content1">实习预算审核</a>
                     </div>

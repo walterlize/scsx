@@ -7,7 +7,12 @@
     </head>
     <body>
         <div align="center">
-            <img src="<?= base_url() ?>images/admin.jpg" />
+            <div class="enterright enterright_01">
+				<div class="backstage_img">
+		        	<img src="<?= base_url(); ?>images/stage_bg.jpg" alt="" />
+		        </div>
+		     	
+		    </div>
         </div>
     </body>
 </html>

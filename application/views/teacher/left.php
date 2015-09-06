@@ -12,7 +12,7 @@
             <div class="enterleft">
                 <div class="welcomebox">
                     <div class="photo">
-                        <img src="<?= base_url(); ?>images/backstage1.png" />
+                        <img src="<?= base_url(); ?>images/pic1.png" style="width: 60px; height: 60px;" />
                     </div>
                     <div class="welcome">
                         <p style="color:#052e00;"><?= $name ?></p><P style="color:#2e333f; margin-left:0px;">欢迎您！</P><p style="color:#45b439;">（教师）</p>
@@ -22,22 +22,23 @@
                     <img src="<?= base_url(); ?>images/backstage2.png" />
                 </div>
                 <div id="firstpane" class="menu_list">
-                <p class="menu_head current">实习基地管理</p>
-                    <div style="display:block" class=menu_body >                       
-                        <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1" title="编辑实习基底">教师基地管理</a>
-                        <a href="<?= base_url(); ?>index.php/teacher/compstu/compstuList" target="content1" title="编辑实习基底">学生基地管理</a>
-                        
-                    </div> 
+                
                 	<p class="menu_head current">实习课程管理</p>
-                    <div style="display:block" class=menu_body >                       
+                    <div style="display:block" class="menu_body" >                       
                         <a href="<?= base_url(); ?>index.php/teacher/course/courseList" target="content1" title="选择实习模式、编辑实习基底、发布实习课程">实习课程发布</a>
                         <a href="<?= base_url(); ?>index.php/teacher/audit/courseList" target="content1" title="审核报名学生的实习课程报名">实习学生审核</a>
                         <!--  
                         <a href="<?= base_url(); ?>index.php/teacher/student/courseList" target="content1" title="已审核学生信息查询">已审核学生信息</a>
                         -->
                     </div> 
+                    <p class="menu_head">实习基地管理</p>
+                    <div style="display:none" class="menu_body" >                       
+                        <a href="<?= base_url(); ?>index.php/teacher/compmanage/companyList" target="content1" title="编辑实习基底">教师基地管理</a>
+                        <a href="<?= base_url(); ?>index.php/teacher/compstu/compstuList" target="content1" title="编辑实习基底">学生基地管理</a>
+                        
+                    </div> 
                     <p class="menu_head">实习过程监管</p>
-                    <div style="display:none" class=menu_body >                       
+                    <div style="display:none" class="menu_body" >                       
                         
                         <a href="<?= base_url(); ?>index.php/teacher/mission/missionList" target="content1">下达实习总结任务</a>
                         <a href="<?= base_url(); ?>index.php/teacher/tsummary/tsummaryList" target="content1">审核实习总结</a>
@@ -46,27 +47,27 @@
                         -->         
                     </div>    
                     <p class="menu_head">实习成绩评价</p>
-                    <div style="display:none" class=menu_body >                       
+                    <div style="display:none" class="menu_body" >                       
                         
                         <a href="<?= base_url(); ?>index.php/teacher/score/courseList" target="content1">评价实习结果</a>
                         <a href="<?= base_url(); ?>index.php/teacher/scoreappr/courseList" target="content1">查看评价结果</a>                                       
                     </div>    
                     <p class="menu_head">实习汇报审核</p>
-                    <div style="display:none" class=menu_body >                       
+                    <div style="display:none" class="menu_body">                       
                         <a href="<?= base_url(); ?>index.php/teacher/report/reportList" target="content1">实习汇报审核</a>
                     </div>         
-
+					<p class="menu_head">实习预算</p>
+                    <div style="display:none" class="menu_body" >
+                        <a href="<?= base_url(); ?>index.php/teacher/yusuan/yusuanList" target="content1">实习预算</a>
+                    </div>
                     <p class="menu_head">师生互动</p>
-                    <div style="display:none" class=menu_body >                       
+                    <div style="display:none" class="menu_body" >                       
                         <a href="<?= base_url(); ?>index.php/teacher/luntan/luntanList" target="content1">回复学生发帖</a>
                         <a href="<?= base_url(); ?>index.php/teacher/luntan/cluntanList" target="content1">查看已回贴</a>
                     </div>
-                    <p class="menu_head">实习预算</p>
-                    <div style="display:none" class=menu_body >
-                        <a href="<?= base_url(); ?>index.php/teacher/yusuan/yusuanList" target="content1">实习预算</a>
-                    </div>
+                    
                     <p class="menu_head">个人信息</p>
-                    <div style="display:none" class=menu_body >
+                    <div style="display:none" class="menu_body" >
                         <a href="<?= base_url(); ?>index.php/teacher/teacher/teacherDetail" target="content1">个人信息查看</a>
                     </div>
                     

@@ -9,9 +9,9 @@
         	<form name="form1" method="post" action="<?= base_url() ?>index.php/admin/term/termNowSet" id="form1">
             <input type="hidden" value="<?= $nowterm->id ?>" name="id" id="id" />
         	
-        	<table width="698px" cellpadding="0" cellspacing="0">
+        	<table width="99%" cellpadding="0" cellspacing="0">
         		<tr>
-                <td class="tabletitle" style="padding-left: 15px; width: 160px">当前学期</td>
+                <td class="tabletitle" style="padding-left: 15px; width: 30%">当前学期</td>
                 <td class="tablecontent" style="padding-left: 15px" >
                 <select name="term">
                 
