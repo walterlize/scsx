@@ -6,6 +6,7 @@
 		            <li><a href="<?= base_url() ?>index.php/front/news/ruleList">实习规定</a></li>
 		            <li><a href="<?= base_url() ?>index.php/front/report/reportList">优秀实习汇报</a></li>
 		            <li><a href="<?= base_url() ?>index.php/front/imgnews/imgList">实习风采</a></li>
+		            <li><a href="<?= base_url() ?>index.php/index/instruction/7/7">互动交流</a></li>
 		            <li><a href="<?= base_url() ?>index.php/index/contact">联系我们</a></li>
 		        </ul>
 		    </nav>
@@ -201,7 +202,7 @@ jQuery(".foucebox").slide({ mainCell:".bd ul", effect:"fold", autoPlay:true, del
     	<section id="fengcai" class="fengcai">
         	<header class="little_title">
             	<h2>实习风采</h2>
-                <a href="#" title="">更多>></a>
+                <a href="<?= base_url() ?>index.php/front/imgnews/imgList" title="">更多>></a>
             </header>
             <section class="fengcaicon">
             	<div>

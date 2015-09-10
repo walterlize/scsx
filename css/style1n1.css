@@ -217,15 +217,22 @@ section#guiding .notice_con ul li,section#zongjie .notice_con ul li{
 footer{
 	width:100%;
 	overflow:hidden;
-	border-top:3px solid #3aa048;
 }
 footer .bottomcon{
 	width:1002px;
-	margin:20px auto;
+	margin:10px auto 20px;
+}
+footer.bottom{
+	border-top:3px solid #3aa048
+}
+footer .bottomcon_01{
+	width:1002px;
+	margin:10px auto 20px;
+	border-top:3px solid #3aa048;
 }
 footer .bottomcon nav{
 	width:518px;
-	margin:0 auto 10px;
+	margin:20px auto 10px;
 	overflow:hidden;
 }
 footer .bottomcon nav li{

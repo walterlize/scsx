@@ -1,6 +1,7 @@
 <!-----底部内容----->
 <footer id="bottom">
 	<div class="bottomcon">
+	<div class="bottomcon bottomcon_01">
         <nav class="littlenav" style="width: 400px;">
             <ul>
                 <li><a href="<?= base_url() ?>index.php/front/news/noticeList">通知公告</a></li>

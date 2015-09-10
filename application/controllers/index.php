@@ -9,13 +9,14 @@ class Index extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('form');
-        $this->load->library('session');
+       	$this->load->library('session');
         $this->load->model('m_user');
         $this->load->model('m_nteacher');
         
     }
 
     public function index() {
+    	
         $data['title'] = "中国农业大学生产实习信息化系统";
         // 用户登录部分
         $name = $this->session->userdata('u_name');

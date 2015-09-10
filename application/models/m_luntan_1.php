@@ -28,6 +28,21 @@ class m_luntan_1 extends CI_Model {
         $q = $this->db->get('ws_luntan_type', $per_page, $offset);
         return $q->result();
     }
+    
+    function getNum1($array) {
+    	$this->db->select();
+    	$this->db->where('teaId', 0);
+    	$this->db->get('ws_luntan_type');
+    	return $this->db->count_all_results();
+    }
+    
+    function getNum2($array) {
+    	$this->db->select();
+    	$this->db->where($array);
+    	$this->db->where('teaId != 0');
+    	$this->db->get('ws_luntan_type');
+    	return $this->db->count_all_results();
+    }
 
     function getOneInfo1($id) {
         $this->db->select();

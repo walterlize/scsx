@@ -5,7 +5,7 @@
         <link href="<?=base_url()?>css/stylen1.css" rel="stylesheet" type="text/css">
 		<link href="<?=base_url()?>css/style1n1.css" rel="stylesheet" type="text/css">
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <title>中国农业大学学生生产实习管理平台</title>
+            <title>中国农业大学学生实习平台</title>
             <script src="<?=base_url()?>js/jquery-1.8.3.min.js" type="text/javascript"></script>
             <script src="<?=base_url()?>js/koala.min.1.5.js" type="text/javascript"></script>
             <script src="<?=base_url()?>js/terminator2.2.min.js" type="text/javascript"></script>
@@ -18,8 +18,8 @@
 		<!--[if lt IE 9]>
 		<script src="js/respond.js"></script> 
 		<![endif]-->
-	
-	</head>
+
+</head>
 	
 	<body>
 	<?php 
@@ -45,17 +45,17 @@
 		}
 	
 	?>
-		<!-----头部内容----->
-		<header id="topbox">
-			<!-----上部内容----->
-			<div class="top">
-		    	<img src="<?=base_url()?>images/topbg_01_02.png" alt="bg">
-		        <div class="topmain">
-		        	<img src="<?=base_url()?>images/logo_03.png" alt="logo">
-		            <h1><img src="<?=base_url()?>images/title_08.png" alt="中国农业大学学生实习平台"></h1>
-		        </div>
-		    </div>
-		    <!-----上部内容结束-----> 
+	<!-----头部内容----->
+	<header id="topbox">
+		<!-----上部内容----->
+		<div class="top">
+	    	
+	        <div class="topmain">
+	        	<img src="<?=base_url()?>images/logo_03.png" alt="logo">
+	            <h1><img src="<?=base_url()?>images/title_08.png" alt="中国农业大学学生实习平台"></h1>
+	        </div>
+	    </div>
+	    <!-----上部内容结束----->
 
 		    
 		  

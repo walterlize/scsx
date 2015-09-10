@@ -7,6 +7,7 @@
 		            <li><a href="<?= base_url() ?>index.php/front/news/ruleList">实习规定</a></li>
 		            <li><a href="<?= base_url() ?>index.php/front/report/reportList">优秀实习汇报</a></li>
 		            <li><a class="navcurrent" href="<?= base_url() ?>index.php/front/imgnews/imgList">实习风采</a></li>
+		            <li><a href="<?= base_url() ?>index.php/index/instruction/7/7">互动交流</a></li>
 		            <li><a href="<?= base_url() ?>index.php/index/contact">联系我们</a></li>
 		        </ul>
 		    </nav>

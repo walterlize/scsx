@@ -7,7 +7,7 @@
                 <script language="javascript" src="<?= base_url() ?>javascript/jquery.js"></script>
                 <link href="<?= base_url() ?>css/coe/ndxy.css" type="text/css" rel="stylesheet">
                     <script src="<?= base_url(); ?>javascript/frameMenu.js" type="text/javascript"></script>
-                    <title>中国农业大学食品科学与营养工程学院生产实习信息化系统</title>
+                    <title>中国农业大学学生实习管理平台</title>
                     <meta name="Keywords" content="中国农业大学、农业大学、中国农大、农大、北京农业大学、国家211工程"><meta name="Generator" content="中国农业大学欢迎您"><meta name="Author" content="中国农业大学">
                                 <meta name="channel" content="机械与农业工程实验教学中心">
                                     <script type="text/javascript">
