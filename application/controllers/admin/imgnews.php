@@ -16,7 +16,8 @@ class Imgnews extends CI_Controller {
 		$this->timeOut();
 		//print_r($this->session->all_userdata());
 		 
-		$array = array('news_type_id'=>5);
+		$college =$this->session->userdata("college");
+		$array = array('news_type_id'=>5,'news_college'=>$college);
 		 
 		$this->load->model("m_news");
 		$num = $this->m_news->getNum($array);

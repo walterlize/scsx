@@ -221,7 +221,7 @@ class m_nvariable extends CI_Model {
 	
 		if ($currCharset != $toCharset){
 			if (is_string($param)){
-				return iconv($currCharset, $toCharset, $param);
+				return @iconv($currCharset, $toCharset, $param);
 			}else if (is_array($param)){
 				foreach ($param as $key => $value){
 					$param[$key] = $this->zhandi_iconv($value,$currCharset,$toCharset);
