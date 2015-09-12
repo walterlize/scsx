@@ -26,7 +26,7 @@ class Frame extends CI_Controller {
     	$role = $this->session->userdata('roleId');
     	$college = $this->session->userdata('college');
     	//echo $u_num;
-    	echo $role;
+    	//echo $role;
     	//echo $college;
     	 
     	
@@ -115,7 +115,6 @@ class Frame extends CI_Controller {
         $this->load->model('m_luntan_1');
         $data = array();
         $data = $this->m_luntan_1->getLuntans2($array, 10, $offset);
-
         return $data;
     }
 

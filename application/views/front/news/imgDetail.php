@@ -14,8 +14,8 @@
 		</header>
 		<!-----头部内容结束----->
 
-<div class="newsbox" style="width:1100px">
-	<div class="nowpagebox" style="width:1100px">
+<div class="newsbox" >
+	<div class="nowpagebox" >
     	<img src="<?=base_url()?>images/newspage1.png" />
         <p>当前位置：<a href="<?= base_url() ?>">首页</a>&nbsp;>&nbsp;<span><?=$title?></span></p>
     </div>
@@ -25,8 +25,8 @@
             <p class="newspage4"><img src="<?=base_url()?>images/newspage4.png" /></p>
             <p class="newspage5"><img src="<?=base_url()?>images/newspage5.png" /></p>
         </div>
-        <div class="newsrightbox" style="width:800px">
-        	<div class="newrightboxtop" style="width:800px">
+        <div class="newsrightbox" >
+        	<div class="newrightboxtop" >
             	<div class="practicenews">
                 	<div class="practicenewsleft">
                 		<span class="practice"><?=$title?></span>

@@ -9,14 +9,14 @@
             <script src="<?=base_url()?>js/jquery-1.8.3.min.js" type="text/javascript"></script>
             <script src="<?=base_url()?>js/koala.min.1.5.js" type="text/javascript"></script>
             <script src="<?=base_url()?>js/terminator2.2.min.js" type="text/javascript"></script>
-            <script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+            <script src="<?=base_url()?>js/jquery.SuperSlide.js" type="text/javascript"></script>
 
 	    <!--[if lt IE 9]>
-	    <script src="js/html5.js"></script>
+	    <script src="<?=base_url()?>js/html5.js"></script>
 		<![endif]-->
 		
 		<!--[if lt IE 9]>
-		<script src="js/respond.js"></script> 
+		<script src="<?=base_url()?>js/respond.js"></script> 
 		<![endif]-->
 
 </head>

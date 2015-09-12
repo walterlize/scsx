@@ -6,7 +6,7 @@
 	        <input type="button" name="btnDelete" value="管 理 学 期" onclick="window.location.href='<?= base_url() ?>index.php/superadmin/term/termList';" id="btnDelete" class="input" />
         </div>
         <hr/><br/>
-        	<form name="form1" method="post" action="<?= base_url() ?>index.php/admin/term/termNowSet" id="form1">
+        	<form name="form1" method="post" action="<?= base_url() ?>index.php/superadmin/term/termNowSet" id="form1">
             <input type="hidden" value="<?= $nowterm->id ?>" name="id" id="id" />
         	
         	<table width="99%" cellpadding="0" cellspacing="0">
