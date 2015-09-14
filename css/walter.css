@@ -10,6 +10,18 @@
     text-align: center;
     width: 100%;
 }
+
+.lz_title_2 {
+    border: 0 none;
+    color: #3a6ea5;
+    font-size: 20px;
+    font-weight: bold;
+    height: 30px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+}
 .tablist
 {
     width: 100%;
@@ -18,7 +30,7 @@
     font-size: 14px;
     border:1px solid #3a6ea5;
     WORD-BREAK: break-all;
-    word-wrap:break-all;
+    <!--word-wrap: break-all;-->
 }
 .tablist .td0
 {
