@@ -113,6 +113,7 @@ class m_course extends CI_Model {
     	$this->db->from('ws_coursep');
     	
     	$this->db->where($array);
+		$this->db->order_by("cour_publish", "asc");
     	$q = $this->db->get();
     	return $q->result();
     }

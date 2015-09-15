@@ -12,7 +12,7 @@
             </ul>
         </nav>
         <section>
-            <p>Copyright@ 2015 All rights reserved 中国农业大学教务处<br>联系方式（电话/传真）：010-62737851  地址：北京市海淀区清华东路17号<br>E-mail（电子邮箱）：zhaolei2011@cau.edu.cn</p>
+            <p>Copyright@ 2015 All rights reserved 中国农业大学教务处 </br>地址：北京市海淀区清华东路17号中国农业大学东校区<br>E-mail（电子邮箱）：causcsx@126.com（技术支持）</p>
         </section>
     </div>
 </footer>

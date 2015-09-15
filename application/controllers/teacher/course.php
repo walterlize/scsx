@@ -352,20 +352,20 @@ class Course extends CI_Controller {
             if($resCourse){
                 $arr = array(
 
-                        'courseId' => $r->KCH,
-                        'courseNum' => $r->KXH,
-                        'courseName' => $r->KCM,
-                        'coursePattern' => $resCourse->patt_type,
-                        'coursePublish' => $resCourse->cour_publish
+                    'courseId' => $r->KCH,
+                    'courseNum' => $r->KXH,
+                    'courseName' => $r->KCM,
+                    'coursePattern' => $resCourse->patt_type,
+                    'coursePublish' => $resCourse->cour_publish
                 );
             }else{
                 $arr = array(
 
-                        'courseId' => $r->KCH,
-                        'courseNum' => $r->KXH,
-                        'courseName' => $r->KCM,
-                        'coursePattern' => "未分配",
-                        'coursePublish' => "未发布"
+                    'courseId' => $r->KCH,
+                    'courseNum' => $r->KXH,
+                    'courseName' => $r->KCM,
+                    'coursePattern' => "未分配",
+                    'coursePublish' => "未发布"
                 );
             }
             array_push($data, $arr);

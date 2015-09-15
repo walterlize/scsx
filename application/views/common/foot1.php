@@ -9,9 +9,8 @@
 <div class="bottom">
 	<div class="bottombox">
     	<p>Copyright@ 2015 All rights reserved 中国农业大学教务处</p>
-        <p>联系方式（电话/传真）：010-62737851</p>
-        <p>地址：北京市海淀区清华东路17号</p>
-        <p>E-mail（电子邮箱）：<a href="mailto:zhaolei2011@cau.edu.cn">zhaolei2011@cau.edu.cn</a></p>
+        <p>联系方式（电话/传真）：010-62737851（教务处） 9509601155557（技术支持）</p>
+        <p>E-mail（电子邮箱）：<a href="mailto:zhaolei2011@cau.edu.cn">zhaolei2011@cau.edu.cn</a>（教务处）<a href="mailto:causcsx@126.com">causcsx.126.com</a>（技术支持）</p>
     </div>
 </div>
 </body>

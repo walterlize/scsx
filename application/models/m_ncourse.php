@@ -99,13 +99,13 @@ class m_ncourse extends CI_Model {
 	//按条件查找实习项目（课程）
 	function getNcourse($array) {
 		$conn = $this->dbConn();
-        //处理array
+        //处理array,改为where句式
         $str1 = $this->arrToStr($array);
+		//将UTF-8转换为GBK
         $str=iconv('UTF-8', 'GBK', $str1);
-        
+		//select句式
         $query = "select * from NEWJW.XK_RW_LLRW_ALL_VIEW ".$str;
-       
-               
+
         $content=oci_parse($conn,$query);  //被解析语句     
         oci_execute($content);//执行被解析语句       
         $results = $this->resToObj($content);
@@ -115,9 +115,12 @@ class m_ncourse extends CI_Model {
 	
 	
 	function getNcourses($array, $per_page, $offset) {
+		//连接数据库
 		$conn = $this->dbConn();
-        //处理array
-        $str = $this->arrToStr($array);           
+		//处理array,改为where句式
+        $str = $this->arrToStr($array);
+
+		//可以直接用CI的分页
         if($offset =='' || !$offset) $offset=0;
         $strLimit1 = "  and rownum <= ".($offset+$per_page);
         $strLimit2 = "  and rownum <= ".$offset;
@@ -125,9 +128,10 @@ class m_ncourse extends CI_Model {
         	$strLimit1 = " WHERE rownum <= ".($offset+$per_page);
         	$strLimit2 = " WHERE rownum <= ".$offset;
         }
+		//$strOrder = " ORDER BY KCH ASC, KXH ASC";
         $query2 = "select * from NEWJW.XK_RW_LLRW_ALL_VIEW ".$str;
-        $strOrder = " ORDER BY KCH ASC, KXH ASC";
-        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;   
+
+        $query1 = $query2.$strLimit1." minus ".$query2.$strLimit2;
         
         //$query1 = "select * from newjw.xk_rw_llrw_all_view WHERE JSH = '201250' AND rownum <=10  ORDER BY KCH ASC, KXH ASC MINUS select * from newjw.xk_rw_llrw_all_view WHERE JSH = '201250' AND rownum <=2 ORDER BY KCH ASC, KXH ASC";
         $query=iconv('UTF-8', 'GBK', $query1);
@@ -236,16 +240,24 @@ class m_ncourse extends CI_Model {
 	
 	function arrToStr($array){
     	//处理array
+
     	$str = '';
     	$i = 0;
+		//计算数组中元素的个数
     	$ai = count($array);
+		//将数组改为where 的句式
     	foreach($array as $key => $val){
+			//将数组的key与value对应
     		$str = $str." ".$key." = '".$val."'";
+
     		$i++;
+
     		if($i < $ai)$str = $str." and ";
     	}
     	if($str) $str1 = "WHERE ".$str;
+
     	else $str1 = $str;
+		//printf($str1);
     	return $str1;
     }
     

@@ -40,9 +40,9 @@
             
             <div class="practicenewslist">
             	<ul>
-	                <li><a><p align="center"><b>联系方式（电话/传真）：010-62737851</b></p></a></li>
-	                <li><a><p align="center"><b>地址：北京市海淀区清华东路17号</b></p></a></li>
-	                <li><p align="center"><b>E-mail:<a href="mailto:zhaolei2011@cau.edu.cn" style="color: blue">zhaolei2011@cau.edu.cn</a></b></p></li>                
+	                <li><a><p align="center"><b>联系方式（电话/传真）：010-62737851（教务处）  9509601155557（技术支持）</b></p></a></li>
+	                <li><a><p align="center"><b>地址：北京市海淀区清华东路17号中国农业大学东区主楼253</b></p></a></li>
+	                <li><p align="center"><b>E-mail:（教务处）<a href="mailto:zhaolei2011@cau.edu.cn" style="color: blue">zhaolei2011@cau.edu.cn</a> &nbsp&nbsp&nbsp&nbsp（技术支持）<a href="mailto:causcsx@126.com" style="color: blue">causcsx.126.com</a></b></p></li>
                 </ul>
             </div>
             <div class="newspagenumbox">
