@@ -21,9 +21,10 @@ class Imgnews extends CI_Controller {
 		$news = $this->getNews($array,$offset);
     	
     	
-    	$config['base_url'] = base_url() . 'index.php/front/news/newsList';
+    	$config['base_url'] = base_url() . 'index.php/front/imgnews/imgList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
+    	$config['per_page'] = 15;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
         $data['num']=$num;

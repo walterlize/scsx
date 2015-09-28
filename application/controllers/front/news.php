@@ -24,6 +24,7 @@ class News extends CI_Controller {
     	$config['base_url'] = base_url() . 'index.php/front/news/newsList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
+    	$config['per_page'] = 15;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
         $data['num']=$num;
@@ -49,6 +50,7 @@ class News extends CI_Controller {
 		$config['base_url'] = base_url() . 'index.php/front/news/noticeList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
+		$config['per_page'] = 15;
 		$this->pagination->initialize($config);
 		$data['page'] = $this->pagination->create_links();
 		$data['num']=$num;
@@ -75,6 +77,7 @@ class News extends CI_Controller {
 		$config['base_url'] = base_url() . 'index.php/front/news/ruleList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
+		$config['per_page'] = 15;
 		$this->pagination->initialize($config);
 		$data['page'] = $this->pagination->create_links();
 		$data['num']=$num;
@@ -100,6 +103,7 @@ class News extends CI_Controller {
 		$config['base_url'] = base_url() . 'index.php/front/news/sumList';
 		$config['total_rows'] = $num;
 		$config['uri_segment'] = 4;
+		$config['per_page'] = 15;
 		$this->pagination->initialize($config);
 		$data['page'] = $this->pagination->create_links();
 		$data['num']=$num;

@@ -24,6 +24,7 @@ class Report extends CI_Controller {
     	$config['base_url'] = base_url() . 'index.php/front/report/reportList';
     	$config['total_rows'] = $num;
     	$config['uri_segment'] = 4;
+    	$config['per_page'] = 15;
     	$this->pagination->initialize($config);
     	$data['page'] = $this->pagination->create_links();
         $data['num']=$num;
